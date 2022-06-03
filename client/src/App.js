@@ -26,6 +26,9 @@ function App() {
 	// 					)
 	// 	// privateRoute()
 	// },[])
+
+
+	
 	
 	return (
 		<div className="App">
