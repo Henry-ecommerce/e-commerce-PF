@@ -7,7 +7,7 @@ import {
 
 export function get_all_products() {
 	return async (dispatch) => {
-		let all_products = await axios("http://localhost:3001/productos");
+		let all_products = await axios("/productos");
 		return dispatch({ type: GET_ALL_PRODUCTS, payload: all_products.data });
 	};
 }
