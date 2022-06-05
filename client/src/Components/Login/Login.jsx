@@ -12,32 +12,32 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState();
 	const [errors, setErrors] = useState("");
-	const { login, currentUser } = useAuth();
+	// const { login, currentUser } = useAuth();
 	const navigate = useNavigate()
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		if (password === "") {
-			return setErrors("La contraseña es un campo obligatorio");
-		}
-		if (email === currentUser?.email) {
-			return setErrors("Ya estas logeado!");
-		}
-		try {
-			setErrors("");
-			await login(email, password);
-			navigate('/')
-		} catch (error) {
-			console.log(error);
-			setErrors("Hubo un error al iniciar sesión la cuenta");
-		}
+		// if (password === "") {
+		// 	return setErrors("La contraseña es un campo obligatorio");
+		// }
+		// if (email === currentUser?.email) {
+		// 	return setErrors("Ya estas logeado!");
+		// }
+		// try {
+		// 	setErrors("");
+		// 	await login(email, password);
+		// 	navigate('/')
+		// } catch (error) {
+		// 	console.log(error);
+		// 	setErrors("Hubo un error al iniciar sesión la cuenta");
+		// }
 	}
 
 	return (

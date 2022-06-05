@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 export default function Signup() {
@@ -26,7 +26,7 @@ export default function Signup() {
 	const navigate = useNavigate();
 	const [password, setPassword] = useState("");
 	const [passwordConfirm, setPasswordConfirm] = useState("");
-	const { signup } = useAuth();
+	// const { signup } = useAuth();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -35,7 +35,7 @@ export default function Signup() {
 		}
 		try {
 			setErrors("");
-			await signup(email, password);
+			// await signup(email, password);
 			navigate("/");
 			/* CREO QUE TENDRIAMOS QUE HACER UN POST AL BACK TAMBIEN PARA GUARDAR EL MAIL DEL USUARIO */
 		} catch (error) {

@@ -3,15 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./Context/AuthContext";
+// import { AuthProvider } from "./Context/AuthContext";
 import { Provider } from "react-redux";
 import store from "./Redux/Store";
 import  axios from 'axios';
-// import dotenv  from 'dotenv'
-// dotenv.config()
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
@@ -38,9 +36,9 @@ root.render(
 		<BrowserRouter>
 			<Provider store={store}>
 				<ChakraProvider theme={theme}>
-					<AuthProvider>
+					{/* <AuthProvider> */}
 							<App />
-					</AuthProvider>
+					{/* </AuthProvider> */}
 				</ChakraProvider>
 			</Provider>
 		</BrowserRouter>

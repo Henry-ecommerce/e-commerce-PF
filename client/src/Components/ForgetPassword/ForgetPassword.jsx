@@ -12,28 +12,28 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function ForgetPassword() {
 	const [email, setEmail] = useState();
 	const [errors, setErrors] = useState("");
-	const { resetPassword, currentUser } = useAuth();
+	// const { resetPassword, currentUser } = useAuth();
 	const navigate = useNavigate();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		if (email === currentUser?.email) {
-			return setErrors("Ya estas logeado!");
-		}
-		try {
-			setErrors("");
-			await resetPassword(email);
-			navigate("/");
-		} catch (error) {
-			console.log(error);
-			setErrors("Hubo un error al iniciar sesión la cuenta");
-		}
+		// if (email === currentUser?.email) {
+		// 	return setErrors("Ya estas logeado!");
+		// }
+		// try {
+		// 	setErrors("");
+		// 	await resetPassword(email);
+		// 	navigate("/");
+		// } catch (error) {
+		// 	console.log(error);
+		// 	setErrors("Hubo un error al iniciar sesión la cuenta");
+		// }
 	}
 
 	return (

@@ -10,35 +10,31 @@ import {
 	MenuItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineMenu } from "react-icons/ai";
 
 function Navbar() {
-	const { currentUser, signout } = useAuth();
+	// const { currentUser, signout } = useAuth();
 	const [_width, set_width] = useState(window.frames.innerWidth);
 	window.addEventListener("resize", () => {
 		set_width(window.frames.innerWidth);
 	});
 
-
 	async function handleLogout() {
-		try {
-			await signout();
-		} catch (error) {
-			console.log(error);
-		}
+		// try {
+		// 	await signout();
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 	}
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
 			{_width <= 688 ? (
 				<Menu>
-					<MenuButton
-						aria-label="Options"
-						variant="outline"
-					>
+					<MenuButton aria-label="Options" variant="outline">
 						<AiOutlineMenu />
 					</MenuButton>
 					<MenuList color={"#242525"}>
@@ -73,7 +69,7 @@ function Navbar() {
 						</Box>
 					</Flex>
 
-					{currentUser ? (
+					{/* {currentUser ? (
 						<Flex align={"center"}>
 							<Text mx={3}> {currentUser?.email} </Text>
 							<Button color="#242525" onClick={handleLogout}>
@@ -95,7 +91,18 @@ function Navbar() {
 								<FiShoppingCart />
 							</Box>
 						</Flex>
-					)}
+					)} */}
+					<Flex align={"center"} mx="30px">
+						<Link to="/signup">
+							<AiOutlineUser />
+						</Link>
+						<Box ml={4} color="#ECEDEC">
+							<AiOutlineHeart />
+						</Box>
+						<Box ml={4} color="#ECEDEC">
+							<FiShoppingCart />
+						</Box>
+					</Flex>
 				</>
 			)}
 		</Flex>
