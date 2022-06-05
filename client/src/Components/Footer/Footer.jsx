@@ -40,21 +40,12 @@ const ListHeader = ({ children }) => {
 
 export default function Footer() {
 	return (
-		<Box
-			mt="50px"
-			bg={useColorModeValue("gray.50", "gray.900")}
-			color={useColorModeValue("gray.700", "gray.200")}
-		>
-			<Container as={Stack} maxW={"6xl"} py={10}>
+		<Box bg="#252525" mt="50px" color={"#ECEDEC"}>
+			<Container as={Stack} maxW={"80%"} py={10} m="auto">
 				<SimpleGrid
-					templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr 1fr" }}
+					templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}
 					spacing={8}
 				>
-					<Stack spacing={6}>
-						<Box>
-							<Logo color={useColorModeValue("gray.700", "white")} />
-						</Box>
-					</Stack>
 					<Stack align={"flex-start"}>
 						<ListHeader>Productos</ListHeader>
 						<Link href={"#"}>Ofertas</Link>
