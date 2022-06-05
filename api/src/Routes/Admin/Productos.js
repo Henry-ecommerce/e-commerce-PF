@@ -6189,7 +6189,7 @@ let _productos = [
 router.get("/", async (req, res) => {
 	try {
 		const all_products = await Producto.findAll();
-		console.log(all_products);
+		// console.log(all_products);
 		if (all_products.length > 0) {
 			res.json(all_products);
 		} else {

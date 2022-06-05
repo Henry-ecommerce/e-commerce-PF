@@ -20,8 +20,8 @@ server.use(express.json());
 server.use("/", routes);
 
 db.sync({ force: false }).then(() => {
-	server.listen(3001, () => {
-		console.log("server" + 3001);
+	server.listen(process.env.PORT , () => {
+		console.log("Server rinning in Port:", process.env.PORT);
 	});
 });
 
