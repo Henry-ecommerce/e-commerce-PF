@@ -43,6 +43,7 @@ pedidos_model(sequelize);
 productos_model(sequelize);
 registro_model(sequelize);
 
+
 const { Cliente, Producto, Pedido } = sequelize.models;
 
 Cliente.belongsToMany(Producto, { through: "Producto_Cliente" });
