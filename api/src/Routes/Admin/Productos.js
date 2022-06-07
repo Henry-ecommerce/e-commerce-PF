@@ -1,5 +1,6 @@
 const { default: axios } = require("axios");
 const { Router } = require("express");
+const { Op } = require("sequelize");
 const router = Router();
 const { Producto } = require("../../db");
 
@@ -6187,17 +6188,52 @@ let _productos = [
 ];
 
 router.get("/", async (req, res) => {
-	try {
-		const all_products = await Producto.findAll();
-		// console.log(all_products);
-		if (all_products.length > 0) {
-			res.json(all_products);
-		} else {
-			res.send("No hay productos");
+	const { name } = req.query;
+	if (name) {
+		try {
+			const search_products = await Producto.findAll({
+				where: { nombre: { [Op.iLike]: `%${name}%` } },
+			});
+			if (search_products.length > 0) {
+				res.json(search_products);
+			} else {
+				res.send("No encontrado");
+			}
+		} catch (error) {
+			console.log(error);
 		}
-	} catch (error) {
-		console.log(error);
+	} else {
+		try {
+			const all_products = await Producto.findAll();
+			if (all_products.length > 0) {
+				res.json(all_products);
+			} else {
+				res.send("No hay productos");
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	}
+});
+
+/* ESTA RUTA ES PARA OBTENER LOS NOMBRES LO LOS PRODUCTOS MIENTRAS TIPEO EN EL INPUT, TIPO GOOGLE */
+router.get("/:name", async (req, res) => {
+	const { name } = req.params;
+	console.log(name)
+	if (name) {
+		try {
+			const search_products = await Producto.findAll({
+				where: { nombre: { [Op.iLike]: `%${name}%` } },
+			});
+			if (search_products.length > 0) {
+				res.json(search_products.map(elm => elm.nombre.slice(0, elm.nombre.length * 40 / 100)).slice(0,9));
+			} else {
+				res.send("No encontrado");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	} 
 });
 
 router.post("/create", async (req, res) => {
