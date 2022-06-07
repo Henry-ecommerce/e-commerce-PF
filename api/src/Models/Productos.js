@@ -43,6 +43,11 @@ module.exports = (sequelize) => {
 	sequelize.define(
 		"Producto",
 		{
+		id : {
+			type: DataTypes.INTEGER,
+			autoIncrement: true,
+			primaryKey: true
+		},
 		nombre: {
 			type: DataTypes.STRING,
 		},
