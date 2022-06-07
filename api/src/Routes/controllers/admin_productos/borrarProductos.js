@@ -1,8 +1,8 @@
 const { Router } = require("express");
-const Productos = require("./Admin/Productos");
+const { Producto } = require("../../../db");
 
 const router = Router();
 
-router.use("/productos", Productos);
+router.delete("/:id", async (req, res) => {});
 
 module.exports = router;
