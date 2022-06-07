@@ -6200,27 +6200,27 @@ router.get("/", async (req, res) => {
 	}
 });
 
-// router.post("/create", async (req, res) => {
-// 	try {
-// 		_productos?.map((elem) => {
-// 			Producto.create({
-// 				nombre: elem.nombre,
-// 				marca: elem.marca,
-// 				precio: elem.precio,
-// 				caracteristicas: elem.caracteristicas,
-// 				funciones: elem.funciones,
-// 				stock: elem.stock,
-// 				categoria: elem.categoria,
-// 				imagen0: elem.imagen0,
-// 				imagen1: elem.imagen1,
-// 				imagen2: elem.imagen2,
-// 			});
-// 		});
-// 		res.json("Se agrego la información correctamente");
-// 	} catch (error) {
-// 		console.log(error);
-// 	}
-// });
+router.post("/create", async (req, res) => {
+	try {
+		_productos?.map((elem) => {
+			Producto.create({
+				nombre: elem.nombre,
+				marca: elem.marca,
+				precio: elem.precio,
+				caracteristicas: elem.caracteristicas,
+				funciones: elem.funciones,
+				stock: elem.stock,
+				categoria: elem.categoria,
+				imagen0: elem.imagen0,
+				imagen1: elem.imagen1,
+				imagen2: elem.imagen2,
+			});
+		});
+		res.json("Se agrego la información correctamente");
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 router.put("/update", async (req, res) => {
 	const { id, name, completed, active } = req.body;
