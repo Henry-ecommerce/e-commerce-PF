@@ -23,7 +23,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N166TOC-6GD-1.jpg",
 		imagen1:
@@ -51,7 +51,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-ASUS-90YV0CH2-M0AA00-1.jpg",
 		imagen1:
@@ -78,7 +78,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/XL/CP-MSI-V375-279R-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/XL/CP-MSI-V375-279R-2.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/XL/CP-MSI-V375-279R-3.jpg",
@@ -101,7 +101,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-f750ed.jpg",
 		imagen1:
@@ -128,7 +128,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
 		imagen1:
@@ -155,7 +155,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-EVGA-12G-P4-2263-KR-f25521.jpg",
 		imagen1:
@@ -182,7 +182,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-T16620D-10M-1.jpg",
 		imagen1:
@@ -209,7 +209,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0CV3-MVAA00-1.jpg",
 		imagen1:
@@ -236,7 +236,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 15,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N1650OC-4GD-6.jpg",
 		imagen1:
@@ -263,7 +263,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 56,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-T16620J-10M-e6de26.jpg",
 		imagen1:
@@ -290,7 +290,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 36,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N1660OC-6GD-1.png",
 		imagen1:
@@ -317,7 +317,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 36,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-PNY-VCG16504D6DFPPB-1.jpg",
 		imagen1:
@@ -343,7 +343,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 26,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-RTX2060VENTUSGPOC-a53ff4.jpg",
 		imagen1:
@@ -370,7 +370,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 326,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0EZ2-M0AA00-1.jpg",
 		imagen1:
@@ -397,7 +397,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 56,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N2060WF2OC-12GD-fd3f59.jpg",
 		imagen1:
@@ -424,7 +424,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 6,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-RTX3080TIGAMINGXTRIO12G-1.jpg",
 		imagen1:
@@ -451,7 +451,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 12,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-GV-N308TAORUSM-12GD-1.jpg",
 		imagen1:
@@ -478,7 +478,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 13,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-1.jpg",
 		imagen1:
@@ -505,7 +505,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 13,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-1.jpg",
 		imagen1:
@@ -532,7 +532,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-GEFORCERTX3090VENTUS3X24GOC-1.jpg",
 		imagen1:
@@ -559,7 +559,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-EVGA-12G-P5-3955-KR-034bd8.jpg",
 		imagen1:
@@ -586,7 +586,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N1656OC-4GDREV20-1.jpg",
 		imagen1:
@@ -612,7 +612,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11310-01-20G-45e6aa.jpg",
 		imagen1:
@@ -639,7 +639,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX66008GBD6-3DH-d31522.jpg",
 		imagen1:
@@ -666,7 +666,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX66008GBD6-3DH-d31522.jpg",
 		imagen1:
@@ -691,7 +691,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-1.jpg",
 		imagen1:
@@ -716,7 +716,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-1.jpg",
 		imagen1:
@@ -741,7 +741,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R66EAGLE-8GD-689c41.jpg",
 		imagen1:
@@ -767,7 +767,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GF0-M0AA00-1.jpg",
 		imagen1:
@@ -793,7 +793,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6800XT16GBD6-3DHROC-c6e078.jpg",
 		imagen1:
@@ -819,7 +819,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
 		imagen1:
@@ -845,7 +845,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-1.jpg",
 		imagen1:
@@ -871,7 +871,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-1.jpg",
 		imagen1:
@@ -897,7 +897,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6700XT12GBD6-3DHEOC-1.jpg",
 		imagen1:
@@ -922,7 +922,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R68GAMINGOC-16GD-1.jpg",
 		imagen1:
@@ -946,7 +946,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-RX6700XTMECH2X12G-1.jpg",
 		imagen1:
@@ -971,7 +971,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6600XT8GBD6-3DHLOC-51e171.jpg",
 		imagen1:
@@ -996,7 +996,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800-O16G-GAMING-1.jpg",
 		imagen1:
@@ -1021,7 +1021,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G80-M0AA00-1.jpg",
 		imagen1:
@@ -1045,7 +1045,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R67XTGAMINGOC-12GD-1.jpg",
 		imagen1:
@@ -1069,7 +1069,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-GV-R68AORUSM-16GD-1.jpg",
 		imagen1:
@@ -1093,7 +1093,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GN0-M0NA00-ce069d.jpg",
 		imagen1:
@@ -1118,7 +1118,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11306-01-20G-1.jpg",
 		imagen1:
@@ -1144,7 +1144,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-PALIT-NED307T019P2-1046A-854e9d.jpg",
 		imagen1:
@@ -1170,7 +1170,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-A30610E-10MLHR-1.jpg",
 		imagen1:
@@ -1196,7 +1196,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-GEFORCERTX3080VENTUS3XPLUS12GOCLHR-7c4b19.jpg",
 		imagen1:
@@ -1222,7 +1222,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-T16520J-10L-1af9f5.jpg",
 		imagen1:
@@ -1248,7 +1248,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-EVGA-06G-P4-1068-KR-1.jpg",
 		imagen1:
@@ -1275,7 +1275,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-GV-N306TAORUSE-8GDREV20-6323c1.jpg",
 		imagen1:
@@ -1302,7 +1302,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0EH8-M0AA00-1.jpg",
 		imagen1:
@@ -1328,7 +1328,7 @@ let _productos = [
 		},
 		funciones: "Video",
 		stock: 0,
-		categoria: "Tarjeta Grafica",
+		categoria: [{nombre: "Tarjeta Grafica", id: 1}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-KO-RTX3070-8G-V2-GAMING-6c4ed5.jpg",
 		imagen1:
@@ -1352,7 +1352,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-MP2035-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-MP2035-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-MP2035-1.jpg",
@@ -1374,7 +1374,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-PRIMUS-PMP-10L-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-PRIMUS-PMP-10L-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-PRIMUS-PMP-10L-1.jpg",
@@ -1395,7 +1395,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-1.jpg",
 		imagen1:
@@ -1419,7 +1419,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-956-000036-f815df.jpg",
 		imagen1:
@@ -1441,7 +1441,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
 		imagen1:
@@ -1465,7 +1465,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
 		imagen1:
@@ -1489,7 +1489,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-TRUST-21569-372626.png",
 		imagen1:
@@ -1513,7 +1513,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YSS-MP1081N-e3fc11.jpg",
 		imagen1:
@@ -1537,7 +1537,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NZXT-MM-XXLSP-BL-e21835.jpg",
 		imagen1:
@@ -1562,7 +1562,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMPXL01-1.jpg",
 		imagen1:
@@ -1586,7 +1586,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BINDEN-FAN-AC4101L-1.jpg",
 		imagen1:
@@ -1611,7 +1611,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483-1.jpg",
@@ -1633,7 +1633,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0926-1.jpg",
 		imagen1:
@@ -1657,7 +1657,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NZXT-MM-XXLSP-GR-de72c3.jpg",
 		imagen1:
@@ -1681,7 +1681,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-MP100-1.jpg",
 		imagen1:
@@ -1705,7 +1705,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-VSG-VG-MP67-29cda7.jpg",
 		imagen1:
@@ -1730,7 +1730,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-23646-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-23646-2.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-23646-3.jpg",
@@ -1751,7 +1751,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483R-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483R-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483R-1.jpg",
@@ -1772,7 +1772,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-MPG500-1.jpg",
 		imagen1:
@@ -1797,7 +1797,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-VORAGO-MPG-200-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-VORAGO-MPG-200-2.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-VORAGO-MPG-200-3.jpg",
@@ -1819,7 +1819,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MICQC-BK-1.jpg",
 		imagen1:
@@ -1844,7 +1844,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HMIS1X-XX-BKG-1.jpg",
 		imagen1:
@@ -1869,7 +1869,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGMIC-02-1.jpg",
 		imagen1:
@@ -1894,7 +1894,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BLUEMICROPHONES-988-000088-a0720c.jpg",
 		imagen1:
@@ -1919,7 +1919,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-RAZER-RZ19-02290300-R3M1-1.jpg",
 		imagen1:
@@ -1944,7 +1944,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-932967-b4b05a.jpg",
 		imagen1:
@@ -1969,7 +1969,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-OEM-KM-21-4fb532.jpg",
 		imagen1:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-OEM-KM-21-140465.jpg",
@@ -1994,7 +1994,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-KITMCG601+MAG500-1.jpg",
 		imagen1:
@@ -2019,7 +2019,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-RAZER-RZ19-02290400-R3M1-1.jpg",
 		imagen1:
@@ -2045,7 +2045,7 @@ let _productos = [
 		},
 		funciones: "Microfonos",
 		stock: 0,
-		categoria: "Microfonos",
+		categoria: [{nombre: "Microfonos", id: 3}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BLUEMICROPHONES-SNOWBALLICE+AVERMEDIAPW313-818d02.jpg",
 		imagen1:
@@ -2071,7 +2071,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000942-1.jpg",
 		imagen1:
@@ -2095,7 +2095,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931441-1.jpg",
 		imagen1:
@@ -2119,7 +2119,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-1.jpg",
 		imagen1:
@@ -2144,7 +2144,7 @@ let _productos = [
 		},
 		funciones: "Mousepads",
 		stock: 0,
-		categoria: "Mousepads",
+		categoria: [{nombre: "Mousepads", id: 2}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BROBOTIX-497288-1.jpg",
 		imagen1:
@@ -2170,7 +2170,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000889-1.jpg",
 		imagen1:
@@ -2196,7 +2196,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0317-1.jpg",
 		imagen1:
@@ -2222,7 +2222,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011215-NA-1.jpg",
 		imagen1:
@@ -2248,7 +2248,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEH02-1.jpg",
 		imagen1:
@@ -2273,7 +2273,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGMH02-1.jpg",
 		imagen1:
@@ -2297,7 +2297,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0315-1.jpg",
 		imagen1:
@@ -2322,7 +2322,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000863-1.jpg",
 		imagen1:
@@ -2346,7 +2346,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000811-1.jpg",
 		imagen1:
@@ -2371,7 +2371,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YDG-33405-1.jpg",
 		imagen1:
@@ -2396,7 +2396,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000882-5.jpg",
 		imagen1:
@@ -2421,7 +2421,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YH028G-B1UA00-1.jpg",
 		imagen1:
@@ -2446,7 +2446,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-929776-1.jpg",
 		imagen1:
@@ -2471,7 +2471,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011186-NA-1.jpg",
 		imagen1:
@@ -2495,7 +2495,7 @@ let _productos = [
 		},
 		funciones: "Audifonos",
 		stock: 0,
-		categoria: "Audifonos",
+		categoria: [{nombre: "Audifonos", id: 4}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011195-NA-1.jpg",
 		imagen1:
@@ -2523,7 +2523,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MCB-D500D-WGNN-S01-1.jpg",
 		imagen1:
@@ -2551,7 +2551,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CC-9020126-NA-1.jpg",
 		imagen1:
@@ -2579,7 +2579,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NZXT-CA-H510B-W1-1.jpg",
 		imagen1:
@@ -2606,7 +2606,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEC02-1.jpg",
 		imagen1:
@@ -2633,7 +2633,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0602-1.jpg",
 		imagen1:
@@ -2660,7 +2660,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGS-68808-1.jpg",
 		imagen1:
@@ -2687,7 +2687,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
 		imagen1:
@@ -2714,7 +2714,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
 		imagen1:
@@ -2741,7 +2741,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
 		imagen1:
@@ -2768,7 +2768,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEC01-1.jpg",
 		imagen1:
@@ -2795,7 +2795,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
 		imagen1:
@@ -2822,7 +2822,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
 		imagen1:
@@ -2849,7 +2849,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
 		imagen1:
@@ -2876,7 +2876,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90DC0040-B49000-1.jpg",
 		imagen1:
@@ -2903,7 +2903,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-929561-1.jpg",
 		imagen1:
@@ -2930,7 +2930,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-DEEPCOOL-DP-ATX-MATREXX50-AR-4F-NE-1.jpg",
 		imagen1:
@@ -2957,7 +2957,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-1.jpg",
 		imagen1:
@@ -2984,7 +2984,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-1.jpg",
 		imagen1:
@@ -3011,7 +3011,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-STARKERCP-BKCUS-1.jpg",
 		imagen1:
@@ -3033,7 +3033,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CT-9010003-WW-1.jpg",
 		imagen1:
@@ -3055,7 +3055,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AEROCOOL-CYLON4F-1.jpg",
 		imagen1:
@@ -3077,7 +3077,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931311-1.jpg",
 		imagen1:
@@ -3099,7 +3099,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-THERMALTAKE-CL-P065-AL12SW-A-1.jpg",
 		imagen1:
@@ -3121,7 +3121,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-T20-20FK-R1-a0afed.jpg",
 		imagen1:
@@ -3143,7 +3143,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-AC1200-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-AC1200-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-AC1200-1.jpg",
@@ -3162,7 +3162,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AEROCOOL-CYLON3-1.jpg",
 		imagen1:
@@ -3185,7 +3185,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-2V2L-18PA-R1-2cfed4.jpg",
 		imagen1:
@@ -3208,7 +3208,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-ATC800-1.jpg",
 		imagen1:
@@ -3230,7 +3230,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-VETROO-VT-CPU-RGB-M2-2780e7.jpg",
 		imagen1:
@@ -3253,7 +3253,7 @@ let _productos = [
 		},
 		funciones: "Disipadores-para-CPU",
 		stock: 0,
-		categoria: "Disipadores-para-CPU",
+		categoria: [{nombre: "Disipadores-para-CPU", id: 6}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MAP-G2PN-126PC-R1-1.jpg",
 		imagen1:
@@ -3278,7 +3278,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INWIN-ASL120FAN-3PK-1.jpg",
 		imagen1:
@@ -3303,7 +3303,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INWIN-IW-FN-ASN120-3PK-1.jpg",
 		imagen1:
@@ -3328,7 +3328,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INWIN-IW-FN-AJ120-3PK-1.jpg",
 		imagen1:
@@ -3353,7 +3353,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-FKG400-1.jpg",
 		imagen1:
@@ -3378,7 +3378,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MFX-B2DR-18NPA-R1-e6f89b.jpg",
 		imagen1:
@@ -3403,7 +3403,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
 		imagen1:
@@ -3428,7 +3428,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XS/CP-KINGSTON-SNVS250G-1.jpg",
 		imagen1:
@@ -3453,7 +3453,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
 		imagen1:
@@ -3478,7 +3478,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
 		imagen1:
@@ -3503,7 +3503,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
 		imagen1:
@@ -3528,7 +3528,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGF01-1.jpg",
 		imagen1:
@@ -3552,7 +3552,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-VENTO120ARGB-BKCWW-1.jpg",
 		imagen1:
@@ -3576,7 +3576,7 @@ let _productos = [
 		},
 		funciones: "Ventiladores",
 		stock: 0,
-		categoria: "Ventiladores",
+		categoria: [{nombre: "Ventiladores", id: 7}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-212S-20PK-R2-b6966e.jpg",
 		imagen1:
@@ -3604,7 +3604,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB13H0-M0AAY0-1.jpg",
 		imagen1:
@@ -3632,7 +3632,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-H410MH(REV10)-1.jpg",
 		imagen1:
@@ -3660,7 +3660,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-PRIMEH410M-ACSM-1.jpg",
 		imagen1:
@@ -3688,7 +3688,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-BIOSTAR-H310MHP-1.jpg",
 		imagen1:
@@ -3716,7 +3716,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-Z490AORUSXTREME-1.jpg",
 		imagen1:
@@ -3744,7 +3744,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-X299XAORUSXTREMEWATERFORCE-1.jpg",
 		imagen1:
@@ -3772,7 +3772,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB10N0-M0AAY0-1.jpg",
 		imagen1:
@@ -3800,7 +3800,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
@@ -3825,7 +3825,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
@@ -3850,7 +3850,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
@@ -3875,7 +3875,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-1.jpg",
 		imagen1:
@@ -3903,7 +3903,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-1.jpg",
 		imagen1:
@@ -3931,7 +3931,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB1620-M0EAY0-d97bb2.jpg",
 		imagen1:
@@ -3959,7 +3959,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-A520MS2H-1.jpg",
 		imagen1:
@@ -3987,7 +3987,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSPROWIFI-1.jpg",
 		imagen1:
@@ -4015,7 +4015,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
 		imagen1:
@@ -4043,7 +4043,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
 		imagen1:
@@ -4071,7 +4071,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
 		imagen1:
@@ -4099,7 +4099,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
 		imagen1:
@@ -4127,7 +4127,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-B450GAMINGX-1.jpg",
 		imagen1:
@@ -4155,7 +4155,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB14S0-M0AAY0-1.jpg",
 		imagen1:
@@ -4183,7 +4183,7 @@ let _productos = [
 		},
 		funciones: "Tarjetas-Madre",
 		stock: 0,
-		categoria: "Tarjetas-Madre",
+		categoria: [{nombre: "Tarjetas-Madre", id: 9}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-B550GAMINGX-1.jpg",
 		imagen1:
@@ -4210,7 +4210,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTPCR58GBRENOIRB-1.jpg",
 		imagen1:
@@ -4237,7 +4237,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTACE18GBRADEONR2-1c8407.jpg",
 		imagen1:
@@ -4264,7 +4264,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTAEI716GB3060W-1cb80d.jpg",
 		imagen1:
@@ -4291,7 +4291,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTBRR516GBRENOIRW-1.jpg",
 		imagen1:
@@ -4318,7 +4318,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTRMR38GBRENOIRW-1.jpg",
 		imagen1:
@@ -4345,7 +4345,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTRMR38GBRENOIRW-1.jpg",
 		imagen1:
@@ -4372,7 +4372,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4399,7 +4399,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4426,7 +4426,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4453,7 +4453,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4480,7 +4480,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4507,7 +4507,7 @@ let _productos = [
 		},
 		funciones: "PC-s-Gamer",
 		stock: 0,
-		categoria: "PC-s-Gamer",
+		categoria: [{nombre: "PC-s-Gamer", id: 10}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
 		imagen1:
@@ -4533,7 +4533,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000252BOX-1.jpg",
 		imagen1:
@@ -4559,7 +4559,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000263BOX-1.jpg",
 		imagen1:
@@ -4585,7 +4585,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000065BOX-1.jpg",
 		imagen1:
@@ -4611,7 +4611,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000063WOF-1.jpg",
 		imagen1:
@@ -4637,7 +4637,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000061WOF-2.jpg",
 		imagen1:
@@ -4663,7 +4663,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
 		imagen1:
@@ -4689,7 +4689,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
 		imagen1:
@@ -4716,7 +4716,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900K-a6160e.jpg",
 		imagen1:
@@ -4743,7 +4743,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-1.jpg",
 		imagen1:
@@ -4770,7 +4770,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-1.jpg",
 		imagen1:
@@ -4797,7 +4797,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-ST50-1.jpg",
 		imagen1:
@@ -4824,7 +4824,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-KF432C16BB8-1.jpg",
 		imagen1:
@@ -4851,7 +4851,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-XPG-AX4U32008G16A-ST60-1.jpg",
 		imagen1:
@@ -4877,7 +4877,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SW50-2.jpg",
 		imagen1:
@@ -4904,7 +4904,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SR30-1.jpg",
 		imagen1:
@@ -4931,7 +4931,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SB10-1.jpg",
 		imagen1:
@@ -4958,7 +4958,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-DW50-1.jpg",
 		imagen1:
@@ -4985,7 +4985,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U320016G16A-ST60-1.jpg",
 		imagen1:
@@ -5012,7 +5012,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-KF432C16BB116-1.jpg",
 		imagen1:
@@ -5039,7 +5039,7 @@ let _productos = [
 		},
 		funciones: "Gabinetes",
 		stock: 0,
-		categoria: "Gabinetes",
+		categoria: [{nombre: "Gabinetes", id: 5}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-1.jpg",
 		imagen1:
@@ -5066,7 +5066,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005566-1.jpg",
 		imagen1:
@@ -5093,7 +5093,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEM02-1.jpg",
 		imagen1:
@@ -5120,7 +5120,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-006021-1.jpg",
 		imagen1:
@@ -5147,7 +5147,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-1.jpg",
 		imagen1:
@@ -5173,7 +5173,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
 		imagen1:
@@ -5199,7 +5199,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
 		imagen1:
@@ -5224,7 +5224,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-TOSHIBA-HDWD110UZSVA-1.jpg",
 		imagen1:
@@ -5251,7 +5251,7 @@ let _productos = [
 		},
 		funciones: "Fuentes-de-Poder-para-PC-s",
 		stock: 0,
-		categoria: "Fuentes-de-Poder-para-PC-s",
+		categoria: [{nombre: "Fuentes-de-Poder-para-PC-s", id: 14}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CP-9020087-NA-1.jpg",
 		imagen1:
@@ -5275,7 +5275,7 @@ let _productos = [
 		},
 		funciones: "Fuentes-de-Poder-para-PC-s",
 		stock: 0,
-		categoria: "Fuentes-de-Poder-para-PC-s",
+		categoria: [{nombre: "Fuentes-de-Poder-para-PC-s", id: 14}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-PYLON550B-BKCUS-2.jpg",
 		imagen1:
@@ -5300,7 +5300,7 @@ let _productos = [
 		},
 		funciones: "Fuentes-de-Poder-para-PC-s",
 		stock: 0,
-		categoria: "Fuentes-de-Poder-para-PC-s",
+		categoria: [{nombre: "Fuentes-de-Poder-para-PC-s", id: 14}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-P750GM-1.jpg",
 		imagen1:
@@ -5325,7 +5325,7 @@ let _productos = [
 		},
 		funciones: "Fuentes-de-Poder-para-PC-s",
 		stock: 0,
-		categoria: "Fuentes-de-Poder-para-PC-s",
+		categoria: [{nombre: "Fuentes-de-Poder-para-PC-s", id: 14}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YE0090-B001N0-1.png",
 		imagen1:
@@ -5352,7 +5352,7 @@ let _productos = [
 		},
 		funciones: "Mouse",
 		stock: 0,
-		categoria: "Mouse",
+		categoria: [{nombre: "Mouse", id: 12}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
 		imagen1:
@@ -5377,7 +5377,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM008-1.jpg",
 		imagen1:
@@ -5402,7 +5402,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM008-1.jpg",
 		imagen1:
@@ -5427,7 +5427,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD10EZEX-6e58bd.jpg",
 		imagen1:
@@ -5452,7 +5452,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD20EZAZ-1.jpg",
 		imagen1:
@@ -5477,7 +5477,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM005-1.jpg",
 		imagen1:
@@ -5502,7 +5502,7 @@ let _productos = [
 		},
 		funciones: "Discos-Duros",
 		stock: 0,
-		categoria: "Discos-Duros",
+		categoria: [{nombre: "Discos-Duros", id: 13}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD2003FZEX-1.jpg",
 		imagen1:
@@ -5527,7 +5527,7 @@ let _productos = [
 		},
 		funciones: "Teclados",
 		stock: 0,
-		categoria: "Teclados",
+		categoria: [{nombre: "Teclados", id: 15}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-920-008084-1.jpg",
 		imagen1:
@@ -5551,7 +5551,7 @@ let _productos = [
 		},
 		funciones: "Teclados",
 		stock: 0,
-		categoria: "Teclados",
+		categoria: [{nombre: "Teclados", id: 15}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-GHIA-GTA50-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-GHIA-GTA50-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-GHIA-GTA50-1.jpg",
@@ -5572,7 +5572,7 @@ let _productos = [
 		},
 		funciones: "Teclados",
 		stock: 0,
-		categoria: "Teclados",
+		categoria: [{nombre: "Teclados", id: 15}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-DELL-580-ADRC-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-DELL-580-ADRC-2.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-DELL-580-ADRC-1.jpg",
@@ -5596,7 +5596,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900K-1.jpg",
 		imagen1:
@@ -5623,7 +5623,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900K-1.jpg",
 		imagen1:
@@ -5650,7 +5650,7 @@ let _productos = [
 		},
 		funciones: "Procesadores",
 		stock: 0,
-		categoria: "Procesadores",
+		categoria: [{nombre: "Procesadores", id: 11}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-XPG-AX4U320016G16A-ST41-1.jpg",
 		imagen1:
@@ -5675,7 +5675,7 @@ let _productos = [
 		},
 		funciones: "Teclados",
 		stock: 0,
-		categoria: "Teclados",
+		categoria: [{nombre: "Teclados", id: 15}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEK01-1.jpg",
 		imagen1:
@@ -5700,7 +5700,7 @@ let _productos = [
 		},
 		funciones: "Teclados",
 		stock: 0,
-		categoria: "Teclados",
+		categoria: [{nombre: "Teclados", id: 15}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEK03-1.jpg",
 		imagen1:
@@ -5728,7 +5728,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YMG-4K27-01-042f96.jpg",
 		imagen1:
@@ -5756,7 +5756,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-1.jpg",
 		imagen1:
@@ -5784,7 +5784,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-1.jpg",
 		imagen1:
@@ -5812,7 +5812,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-MSI-OPTIXG241VC-1.jpg",
 		imagen1:
@@ -5840,7 +5840,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90LM05F0-B01E10-1.jpg",
 		imagen1:
@@ -5868,7 +5868,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-20VM0-GG34WQCBI-1SAR-1.jpg",
 		imagen1:
@@ -5893,7 +5893,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-SNVS500G-1.jpg",
 		imagen1:
@@ -5919,7 +5919,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS480G2G0C-1.jpg",
 		imagen1:
@@ -5944,7 +5944,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS100T3G0C-c0f70c.jpg",
 		imagen1:
@@ -5972,7 +5972,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/XL/CP-SAMSUNG-LU32J590UQLXZX-6.jpg",
 		imagen1:
@@ -6000,7 +6000,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-LG-32UN500-W-1.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-LG-32UN500-W-2.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-LG-32UN500-W-3.jpg",
@@ -6025,7 +6025,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LU28R550UQLXZX-1.jpg",
 		imagen1:
@@ -6050,7 +6050,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-PNY-SSD7CS900-240-RB-1.jpg",
 		imagen1:
@@ -6076,7 +6076,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS240G2G0C-1.png",
 		imagen1:
@@ -6101,7 +6101,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AS40G-512GT-C-1.jpg",
 		imagen1:
@@ -6126,7 +6126,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-ADATA-ASWORDFISH-250G-C-1.jpg",
 		imagen1:
@@ -6151,7 +6151,7 @@ let _productos = [
 		},
 		funciones: "SSD",
 		stock: 0,
-		categoria: "SSD",
+		categoria: [{nombre: "SSD", id: 8}],
 		imagen0:
 			"https://www.cyberpuerta.mx/img/product/M/CP-XPG-AGAMMIXS41-512G-C-1.jpg",
 		imagen1:
@@ -6179,7 +6179,7 @@ let _productos = [
 		},
 		funciones: "Monitores",
 		stock: 0,
-		categoria: "Monitores",
+		categoria: [{nombre: "Monitores", id: 16}],
 		imagen0: "https://www.cyberpuerta.mx/img/product/XL/CP-LG-27UL500-W-4.jpg",
 		imagen1: "https://www.cyberpuerta.mx/img/product/XL/CP-LG-27UL500-W-1.jpg",
 		imagen2: "https://www.cyberpuerta.mx/img/product/XL/CP-LG-27UL500-W-2.jpg",
