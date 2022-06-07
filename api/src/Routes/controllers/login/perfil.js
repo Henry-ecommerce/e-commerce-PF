@@ -1,8 +1,10 @@
 const { Router } = require("express");
-const Productos = require("./Admin/Productos");
 
 const router = Router();
 
-router.use("/productos", Productos);
+router.get("/", (req, res) => {
+  const { registro } = req;
+  res.json({ registro });
+});
 
 module.exports = router;
