@@ -24,9 +24,9 @@ server.use("/", routes);
 server.use("/registro", indexRegistro);
 server.use("/admin", indexAdmin);
 server.use("/user", indexUser);
-const PORT = process.env.PORT || 4000;
+
 db.sync({ force: false }).then(() => {
-  server.listen(PORT, () => {
+  server.listen(process.env.PORT, () => {
     console.log("Server rinning in Port:", process.env.PORT);
   });
 });
