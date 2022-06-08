@@ -1,5 +1,6 @@
 const { default: axios } = require("axios");
 const { Router } = require("express");
+const { Op } = require("sequelize");
 const router = Router();
 const { Producto } = require("../../db");
 
@@ -6294,18 +6295,18 @@ router.put("/update", async (req, res) => {
 	}
 });
 
-router.get("/", async (req, res) => {
-  try {
-    const all_products = await Producto.findAll();
-    // console.log(all_products);
-    if (all_products.length > 0) {
-      res.json(all_products);
-    } else {
-      res.send("No hay productos");
-    }
-  } catch (error) {
-    console.log(error);
-  }
+router.delete("/delete", async (req, res) => {
+	const { id } = req.query;
+	try {
+		const deleted_todo = await Producto.destroy({ where: { id } });
+		if (deleted_todo >= 1) {
+			res.send("Producto eliminado con exito");
+		} else {
+			res.send("Hubo un error");
+		}
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 router.get("/:id", async (req, res) => {
@@ -6316,79 +6317,6 @@ router.get("/:id", async (req, res) => {
       where: { id: id },
     });
     product_detail ? res.json(product_detail) : res.send("No hay productos");
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.post("/create", async (req, res) => {
-  try {
-    _productos?.map((elem) => {
-      Producto.create({
-        nombre: elem.nombre,
-        marca: elem.marca,
-        precio: elem.precio,
-        caracteristicas: elem.caracteristicas,
-        funciones: elem.funciones,
-        stock: elem.stock,
-        categoria: elem.categoria,
-        imagen0: elem.imagen0,
-        imagen1: elem.imagen1,
-        imagen2: elem.imagen2,
-      });
-    });
-    res.json("Se agrego la información correctamente");
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.put("/update", async (req, res) => {
-  const { id, name, completed, active } = req.body;
-  if (!id) {
-    res.send("Falto el id!");
-  } else if (id && !name && !completed && !active) {
-    res.send("Falto informacion!");
-  } else if (id && name && !completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    await todo.save();
-    res.json(todo);
-  } else if (id && name && completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    todo.completed = completed;
-    await todo.save();
-    res.json(todo);
-  } else if (id && !name && completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.completed = completed;
-    await todo.save();
-    res.json(todo);
-  } else if (id && !name && !completed && active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.active = active;
-    await todo.save();
-    res.json(todo);
-  } else if (id && name && completed && active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    todo.completed = completed;
-    todo.active = active;
-    await todo.save();
-    res.json(todo);
-  }
-});
-
-router.delete("/delete", async (req, res) => {
-  const { id } = req.query;
-  try {
-    const deleted_todo = await Producto.destroy({ where: { id } });
-    if (deleted_todo >= 1) {
-      res.send("Producto eliminado con exito");
-    } else {
-      res.send("Hubo un error");
-    }
   } catch (error) {
     console.log(error);
   }
