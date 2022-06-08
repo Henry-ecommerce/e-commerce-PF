@@ -22,7 +22,7 @@ function ProductDetail() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/productos/${id}`).then((result) => {
+    axios.get(`http://localhost:3001/productos/detail/${id}`).then((result) => {
       setProduct(result.data);
       console.log(result.data);
     });

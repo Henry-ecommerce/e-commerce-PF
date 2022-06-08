@@ -68,7 +68,7 @@ function Product({ nombre, marca, precio, imagen0, id }) {
         >
           Descuento 10%
         </Box>
-        <Link to={`/${id}`}>
+        <Link to={`/detail/${id}`}>
           <Image
             src={imagen0}
             alt={`Picture of ${nombre}`}
@@ -80,7 +80,7 @@ function Product({ nombre, marca, precio, imagen0, id }) {
         </Link>
         <Box p="4">
           <Stack justifyContent="space-between" alignContent="center">
-            <Link to={`/${id}`}>
+            <Link to={`/detail/${id}`}>
               <Box
                 fontSize="medium"
                 fontWeight="semibold"
