@@ -1,5 +1,4 @@
-import { useRef, useEffect, useState } from "react";
-import { get_all_products } from "../../Redux/Actions";
+import { useRef } from "react";
 
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs"
 
