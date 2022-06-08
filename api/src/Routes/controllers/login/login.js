@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
     if (await comprobarPassword(password, userExite.password)) {
       //autenticar -JWT
       res.json({
-        token: generarJWT(userExite.id),
+        token: generarJWT(userExite),
       });
     } else {
       return res.status(403).json({ msg: "Password incorrecto" });
