@@ -6229,6 +6229,7 @@ router.get("/:name", async (req, res) => {
 				res.json(search_products.map(elm => elm.nombre.slice(0, elm.nombre.length * 40 / 100)).slice(0,9));
 			} else {
 				res.send("No encontrado");
+
 			}
 		} catch (error) {
 			console.log(error);
