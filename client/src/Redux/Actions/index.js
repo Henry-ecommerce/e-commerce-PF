@@ -4,7 +4,11 @@ import {
 	GET_PRODUCT_BY_NAME,
 	GET_PRODUCT,
 	GET_PRODUCT_DETAIL,
+	SET_PRODUCTS_IN_CART_LOCAL_STORAGE,
 	GET_PRODUCT_NAME_TO_RENDER_IN_INPUT,
+	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
+	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
+	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
 } from "./actions_types";
 
 export function get_all_products() {
@@ -32,6 +36,22 @@ export function get_product_name_to_render_in_input(name) {
 			payload: search_products.data,
 		});
 	};
+}
+
+export function set_products_in_cart_local_storage(product) {
+	return { type: SET_PRODUCTS_IN_CART_LOCAL_STORAGE, payload: product };
+}
+
+export function add_quantity_in_cart_local_storage(product_id) {
+	return { type: ADD_QUANTITY_IN_CART_LOCAL_STORAGE, payload: product_id };
+}
+
+export function subtract_quantity_in_cart_local_storage(product) {
+	return { type: SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE, payload: product };
+}
+
+export function delete_product_in_cart_local_storage(product) {
+	return { type: DELETE_PRODUCT_IN_CART_LOCAL_STORAGE, payload: product };
 }
 
 // export function get_product_detail() {

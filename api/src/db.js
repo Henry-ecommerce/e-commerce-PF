@@ -8,6 +8,7 @@ const productos_model = require("./Models/Productos");
 const registro_model = require("./Models/Registro");
 
 let sequelize =
+
   NODE_ENV === "production"
     ? new Sequelize({
         database: DB_NAME,
