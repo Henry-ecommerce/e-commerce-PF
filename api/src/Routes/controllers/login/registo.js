@@ -7,7 +7,7 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, rol } = req.body;
     //Previene usuarios registrados
     const existeUsuario = await Registro.findOne({
       where: { email },
@@ -23,19 +23,20 @@ router.post("/", async (req, res) => {
         salt
       ));
       //Crea nuevo user
-      const newVeterinario = await Registro.create({
+      const newUser = await Registro.create({
         name,
         email,
         password: passCheta,
+        rol,
       });
 
       emailRegistro({
         email,
         name,
-        token: newVeterinario.token,
+        token: newUser.token,
       });
 
-      res.json(newVeterinario);
+      res.json(newUser);
     }
   } catch (error) {
     res.status(400).send(`El correo ya existe ${error}`);

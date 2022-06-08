@@ -1,15 +1,19 @@
 const { Router } = require("express");
-const agregarProducto = require("./controllers/admin_productos/agregarProductos");
-const obtenerProducto = require("./controllers/admin_productos/obtenerProductos");
-const updateModificarProducto = require("./controllers/admin_productos/updateProductos");
 
+const agregarCarrito = require("./controllers/user_cuenta/carrito");
+const obtenerPerfil = require("./controllers/user_cuenta/perfil");
+const Tienda = require("./controllers/user_cuenta/tienda");
+const Pago = require("./controllers/user_cuenta/tienda");
 const { checkAuth } = require("../middleware/authMiddleware");
+const {
+  checkRolUserMiddleware,
+} = require("../middleware/checkRolUserMiddleware");
 
 const router = Router();
 
-router.use("/tienda", checkAuth, agregarProducto);
-router.use("/carrito", checkAuth, obtenerProducto);
-router.use("/perfil", checkAuth, updateModificarProducto);
-//router.use("/pagos", checkAuth, borrarBorrarProducto);
+router.use("/tienda", [checkAuth, checkRolUserMiddleware], agregarCarrito);
+router.use("/carrito", [checkAuth, checkRolUserMiddleware], obtenerPerfil);
+router.use("/perfil", [checkAuth, checkRolUserMiddleware], Tienda);
+router.use("/pagos", [checkAuth, checkRolUserMiddleware], Pago);
 
 module.exports = router;
