@@ -13,7 +13,6 @@ import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { set_products_in_cart_local_storage } from "../../Redux/Actions";
 
-
 function Product({ nombre, marca, precio, imagen0 }) {
 	nombre = nombre.split(",")[0];
 	const dispatch = useDispatch();
