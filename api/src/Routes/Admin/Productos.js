@@ -6233,7 +6233,7 @@ router.get("/:name", async (req, res) => {
 		} catch (error) {
 			console.log(error);
 		}
-	} 
+	}
 });
 
 router.post("/create", async (req, res) => {
@@ -6312,7 +6312,6 @@ router.delete("/delete", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-
     const product_detail = await Producto.findOne({
       where: { id: id },
     });

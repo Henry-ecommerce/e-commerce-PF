@@ -62,7 +62,7 @@ module.exports = (sequelize) => {
 			type: DataTypes.INTEGER,
 		},
 		categoria: {
-			type: DataTypes.STRING,
+			type: DataTypes.ARRAY(DataTypes.JSON), //provisorio hasta tener las relaciones y las tablas para realizar pruebas(sigo en eso)
 		},
 		imagen0: {
 			type: DataTypes.STRING,
