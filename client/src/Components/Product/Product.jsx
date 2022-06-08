@@ -7,10 +7,12 @@ import {
 	Button,
 } from "@chakra-ui/react";
 
+import { Link } from "react-router-dom";
+
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { set_products_in_cart_local_storage } from "../../Redux/Actions";
-import { Link } from "react-router-dom";
+
 
 function Product({ nombre, marca, precio, imagen0 }) {
 	nombre = nombre.split(",")[0];
@@ -67,7 +69,7 @@ function Product({ nombre, marca, precio, imagen0 }) {
 				>
 					Descuento 10%
 				</Box>
-   <Link to={`/${id}`}>
+                                 <Link to={`/${id}`}>
 				<Image
 					src={imagen0}
 					alt={`Picture of ${nombre}`}
@@ -76,10 +78,10 @@ function Product({ nombre, marca, precio, imagen0 }) {
 					mt="50px"
 					h="160px"
 				/>
-</Link>
+                                </Link>
 				<Box p="4">
 					<Stack justifyContent="space-between" alignContent="center">
-           <Link to={`/${id}`}>
+                                                <Link to={`/${id}`}>
 						<Box
 							fontSize="medium"
 							fontWeight="semibold"
@@ -90,7 +92,7 @@ function Product({ nombre, marca, precio, imagen0 }) {
 						>
 							{nombre}
 						</Box>
-            </Link>
+                                                </Link>
 						<Flex align={"center"}>
 							<Box fontSize={"2xl"}>
 								<AiFillStar />
