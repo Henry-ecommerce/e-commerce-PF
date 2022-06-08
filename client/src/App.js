@@ -8,30 +8,32 @@ import Footer from "./Components/Footer/Footer";
 import { Box } from "@chakra-ui/react";
 import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import ProductDetail from "./Components/ProductDetails/ProductDetail";
 
 function App() {
-	return (
-		<Box bg="#EDEDED" className="App">
-			<Navbar />
-			<Routes>
-				<Route
-					exact
-					path="/"
-					element={
-						<Box>
-							<SearchBar />
-							<Products />
-						</Box>
-					}
-				/>
-				<Route path="/signup" element={<Signup />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/logout" element={<Logout />} />
-				<Route path="/newPassword" element={<ForgetPassword />} />
-			</Routes>
-			<Footer />
-		</Box>
-	);
+  return (
+    <Box bg="#EDEDED" className="App">
+      <Navbar />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Box>
+              <SearchBar />
+              <Products />
+            </Box>
+          }
+        />
+        <Route path="/:id" element={<ProductDetail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/newPassword" element={<ForgetPassword />} />
+      </Routes>
+      <Footer />
+    </Box>
+  );
 }
 
 export default App;
