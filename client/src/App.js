@@ -8,6 +8,7 @@ import Footer from "./Components/Footer/Footer";
 import { Box } from "@chakra-ui/react";
 import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import Review from "./Components/Review/Review";
 
 function App() {
 	return (
@@ -28,6 +29,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/logout" element={<Logout />} />
 				<Route path="/newPassword" element={<ForgetPassword />} />
+				<Route path="/review" element={<Review />} />
 			</Routes>
 			<Footer />
 		</Box>
