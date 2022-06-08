@@ -1,0 +1,51 @@
+.card_container {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    max-width: 1300px;
+    min-width: 350px;
+    width: 70vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.card_container::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    scroll-snap-align: start;
+}
+
+.carousel {
+    box-sizing: border-box;
+    width: fit-content;
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.btn_der {
+    color: #242525;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.btn_der:hover {
+    color:#9A9A9A;
+}
+
+.btn_izq {
+    color: #242525;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.btn_izq:hover {
+    color: #9A9A9A;
+}
