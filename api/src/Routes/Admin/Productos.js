@@ -6189,7 +6189,7 @@ let _productos = [
 
 router.get("/", async (req, res) => {
 	const { name } = req.query;
-	if (name) {
+	if (name ) {
 		try {
 			const search_products = await Producto.findAll({
 				where: { nombre: { [Op.iLike]: `%${name}%` } },
