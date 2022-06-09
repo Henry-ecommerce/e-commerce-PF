@@ -9,7 +9,7 @@ import { Box } from "@chakra-ui/react";
 import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
-
+import Review from './Components/Review/Review.jsx'
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -30,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/newPassword" element={<ForgetPassword />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
       <Footer />
     </Box>

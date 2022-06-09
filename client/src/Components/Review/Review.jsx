@@ -13,6 +13,7 @@ import {
   Button,
   Stack,
   Heading,
+  Center,
 } from "@chakra-ui/react";
 
 import { AiFillStar } from "react-icons/ai";
@@ -41,7 +42,7 @@ const Review = () => {
   const StarButton = ({ idx, fill }) => {
     return (
       <IconButton
-        variant="outline"
+        variant="unstyled"
         aria-label={`Rate ${idx}`}
         icon={<StarIcon fill={fill} />}
         onClick={() => onClick(idx)}
@@ -103,59 +104,83 @@ const Review = () => {
   };
 
   return (
-    <Flex m="30px" align={"center"} justify={"center"}>
-      <Box color="#ECFDEC" bg="#1C1C1C" p="16px" fontSize={"2xl"} m="10" rounded="lg">
+    <Center align={"space-between"} justify={"center"}>
+      <Box
+      color="black"
+      bg="white"
+      p="16px"
+      fontSize={"2xl"}
+      m="10"
+      rounded="lg"
+      boxShadow="base"
+      minW="900px"
+      minH="600px"
+    >
+      <Stack w="full" alignItems="center" justifyContent="space-between">
         <h1>{mensajeEnviado}</h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <FormControl>
-            <FormLabel htmlFor="title">Titulo</FormLabel>
-            <FormHelperText color="#ECFDEC">
-              {message.current.length > 1
-                ? `${message.current}`
-                : "¿Qué es lo que quieres compartir del producto?"}
-            </FormHelperText>
-            <Input
-              id="title"
-              name="titulo"
-              type="text"
-              onChange={(e) => handleInputCheck(e)}
-              isRequired
-            />
-            <FormLabel htmlFor="rating">Rating</FormLabel>
-            <p>{rating}</p>
-            <Flex align={"center"} justify={"center"}>
-              {stars}
-            </Flex>
-            <FormLabel htmlFor="comentario">
-              ¡Cuéntanos más sobre el producto!
-            </FormLabel>
-            <FormHelperText color="#ECFDEC">
-              ¿Qué te gusto o que no te gusto? ¿Para qué usaste el producto?
-            </FormHelperText>
-            <Textarea
-              id="comentario"
-              name="description"
-              onChange={(e) => handleInputCheck(e)}
-              maxLength="280"
-              isRequired
-            />
-            <Button
-              type="submit"
-              loadingText="Enviando"
-              size="lg"
-              bg={"black"}
-              color={"white"}
-              _hover={{
-                bg: "gray.700",
-                color: "white",
-              }}
-            >
-              Enviar
-            </Button>
-          </FormControl>
-        </form>
-      </Box>
-    </Flex>
+        <Center m="30px" align={"space-between"} justify={"center"}>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <FormControl>
+              <Center justify={"center"}>
+              <FormLabel htmlFor="title" fontWeight="black" fontSize="x-large">Titulo</FormLabel>
+              </Center>
+              <Input
+                id="title"
+                name="titulo"
+                type="text"
+                size="md"
+                w="500px"
+                variant='outline'
+                placeholder="¿Qué es lo que quieres compartir del producto?"
+                onChange={(e) => handleInputCheck(e)}
+                isRequired
+              />
+              <FormHelperText color="black" p="16px">
+                {message.current}
+              </FormHelperText>
+              <Center>
+              <FormLabel htmlFor="rating" fontWeight="black" fontSize="x-large">Rating</FormLabel>
+              </Center>
+              {/* <p>{rating}</p> */}
+              <Flex align={"center"} justify={"center"}>
+                {stars}
+              </Flex>
+              <Center justify={"center"}>
+              <FormLabel htmlFor="comentario" fontWeight="black" fontSize="x-large">
+                ¡Cuéntanos más sobre el producto!
+              </FormLabel>
+              </Center>
+              <Textarea
+                id="comentario"
+                name="description"
+                placeholder="¿Qué te gusto o que no te gusto? ¿Para qué usaste el producto?"
+                onChange={(e) => handleInputCheck(e)}
+                minH="200px"
+                maxLength="280"
+                isRequired
+              />
+              <Center>
+                <Button
+                  type="submit"
+                  loadingText="Enviando"
+                  size="lg"
+                  bg={"black"}
+                  color={"white"}
+                  m={"20px"}
+                  _hover={{
+                    bg: "gray.700",
+                    color: "white",
+                  }}
+                >
+                  Enviar
+                </Button>
+              </Center>
+            </FormControl>
+          </form>
+        </Center>
+      </Stack>
+    </Box>
+    </Center>
   );
 };
 
