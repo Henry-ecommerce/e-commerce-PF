@@ -10,6 +10,7 @@ import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
 import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
+import Map from "./Components/Map/Map";
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -25,6 +26,7 @@ function App() {
             </Box>
           }
         />
+        <Route path="/map" element={<Map />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
         <Route path="/signup" element={<Signup />} />

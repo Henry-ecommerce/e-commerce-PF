@@ -80,10 +80,12 @@ export default function Footer() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Almacenar Informacion</ListHeader>
-            <Link href={"#"}>
-              📍 Corrientes 2510 Locar 19 <br /> 1006 Buenos Aires <br />{" "}
-              Argentina
-            </Link>
+            <NavLink to={"/map"}>
+              <Link href={"#"}>
+                📍 Corrientes 2510 Locar 19 <br /> 1006 Buenos Aires <br />{" "}
+                Argentina
+              </Link>
+            </NavLink>
             <Link href={"#"}>📞 +54 11 4411-0082</Link>
             <Link href={"#"}>📧 ventas@elev.com.ar</Link>
           </Stack>
