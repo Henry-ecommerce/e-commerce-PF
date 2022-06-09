@@ -10,6 +10,7 @@ import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
 import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
+import Review from './Components/Review/Review.jsx'
 import Map from "./Components/Map/Map";
 function App() {
   return (
