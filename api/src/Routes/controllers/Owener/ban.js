@@ -2,9 +2,8 @@ const { Router } = require("express");
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  const { registro } = req;
-  res.json(registro);
+router.put("/", (req, res) => {
+  const { rol } = req.body;
 });
 
 module.exports = router;

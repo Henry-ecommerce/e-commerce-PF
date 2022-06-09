@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { generarId } = require("../helpers/generarId.js");
+const { generarUser } = require("../helpers/rol");
 
 let Registro = (sequelize) =>
   sequelize.define(

@@ -19,7 +19,7 @@ const recuperarContra = async (datos) => {
     html: `<h2>E-comers</h2>
     <p>Hola: ${name}, has solicitado restablecer tu contraseña</p>
     <p>Click en el enlace para generar una nueva contraseña
-    <a href="${process.env.FRONTEND_URL}/recueperar-pass/${token}">Restablecer contraseña</a></p>
+    <a href="${process.env.FRONTEND_URL}/login/newPassword/${token}">Restablecer contraseña</a></p>
 
     <p><span>Si tu no creaste la cuenta, puedes ignorar el mensaje ☺</span></p>
     `,

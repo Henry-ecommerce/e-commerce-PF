@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
         name,
         email,
         password: passCheta,
-        rol,
+        rol, /// Solo por pruebas
       });
 
       emailRegistro({
