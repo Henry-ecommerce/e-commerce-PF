@@ -16,7 +16,7 @@ router.delete("/:id", async (req, res) => {
       },
     });
 
-    return res.json({ msg: "producto eliminado correctamente" });
+    return res.json({ msg: "Producto eliminado correctamente" });
   } catch (error) {}
 });
 

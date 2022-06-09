@@ -8,6 +8,7 @@ const productos_model = require("./Models/Productos");
 const registro_model = require("./Models/Registro");
 
 let sequelize =
+
   NODE_ENV === "production"
     ? new Sequelize({
         database: DB_NAME,
@@ -31,7 +32,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5001/${DB_NAME}`,
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}`,
         {
           logging: false, // set to console.log to see the raw SQL queries
           native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -42,6 +43,7 @@ clientes_model(sequelize);
 pedidos_model(sequelize);
 productos_model(sequelize);
 registro_model(sequelize);
+
 
 const { Cliente, Producto, Pedido } = sequelize.models;
 
