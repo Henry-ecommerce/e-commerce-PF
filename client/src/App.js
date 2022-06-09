@@ -9,7 +9,7 @@ import { Box } from "@chakra-ui/react";
 import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
-
+import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -25,7 +25,8 @@ function App() {
             </Box>
           }
         />
-        <Route path="/:id" element={<ProductDetail />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/detail/:id" element={<ProductDetail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
