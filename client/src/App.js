@@ -12,6 +12,8 @@ import ProductDetail from "./Components/ProductDetails/ProductDetail";
 import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
 import Review from './Components/Review/Review.jsx'
 import Map from "./Components/Map/Map";
+
+
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -34,6 +36,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/newPassword" element={<ForgetPassword />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
       <Footer />
     </Box>

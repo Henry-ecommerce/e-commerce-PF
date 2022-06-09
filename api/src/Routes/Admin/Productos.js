@@ -6319,7 +6319,7 @@ router.get("/detail/:id", async (req, res) => {
     const product_detail = await Producto.findOne({
       where: { id: id },
     });
-    product_detail ? res.json(product_detail) : res.send("No hay productos");
+    product_detail ? res.json(product_detail) : res.send("No hay productos!");
   } catch (error) {
     console.log(error);
   }
