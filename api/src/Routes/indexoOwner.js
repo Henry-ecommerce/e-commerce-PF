@@ -1,4 +1,6 @@
 const { Router } = require("express");
+const ban = require("./controllers/Owener/ban");
+const updateRango = require("./controllers/Owener/updateRol");
 const agregarProducto = require("./controllers/admin_productos/agregarProductos");
 const obtenerProducto = require("./controllers/admin_productos/obtenerProductos");
 const updateModificarProducto = require("./controllers/admin_productos/updateProductos");
@@ -7,29 +9,21 @@ const agregarCarrito = require("./controllers/user_cuenta/carrito");
 const obtenerPerfil = require("./controllers/user_cuenta/perfil");
 const Tienda = require("./controllers/user_cuenta/tienda");
 const Pago = require("./controllers/user_cuenta/tienda");
-
 const { checkAuth } = require("../middleware/authMiddleware");
-const {
-  checkRolAdminMiddleware,
-} = require("../middleware/checkRolAdminMiddleware");
+const { owner } = require("../middleware/Owner");
 
 const router = Router();
 
-router.use("/crear", [checkAuth, checkRolAdminMiddleware], agregarProducto);
-router.use("/obtener", [checkAuth, checkRolAdminMiddleware], obtenerProducto);
-router.use(
-  "/modificar",
-  [checkAuth, checkRolAdminMiddleware],
-  updateModificarProducto
-);
-router.use(
-  "/borrar",
-  [checkAuth, checkRolAdminMiddleware],
-  borrarBorrarProducto
-);
-router.use("/tienda", [checkAuth, checkRolAdminMiddleware], agregarCarrito);
-router.use("/carrito", [checkAuth, checkRolAdminMiddleware], obtenerPerfil);
-router.use("/perfil", [checkAuth, checkRolAdminMiddleware], Tienda);
-router.use("/pagos", [checkAuth, checkRolAdminMiddleware], Pago);
+router.use("/ban", [checkAuth, owner], ban);
+router.use("/update-rango", [checkAuth, owner], updateRango);
+router.use("/crear", [checkAuth, owner], agregarProducto);
+router.use("/obtener", [checkAuth, owner], obtenerProducto);
+router.use("/modificar", [checkAuth, owner], updateModificarProducto);
+router.use("/borrar", [checkAuth, owner], borrarBorrarProducto);
+router.use("/tienda", [checkAuth, owner], agregarCarrito);
+router.use("/carrito", [checkAuth, owner], obtenerPerfil);
+router.use("/perfil", [checkAuth, owner], Tienda);
+
+router.use("/pagos", [checkAuth, owner], Pago);
 
 module.exports = router;

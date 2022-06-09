@@ -36,46 +36,45 @@
 // 	});
 // };
 
-
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-	sequelize.define(
-		"Producto",
-		{
-		nombre: {
-			type: DataTypes.STRING,
-		},
-		marca: {
-			type: DataTypes.STRING,
-		},
-		precio: {
-			type: DataTypes.JSON,
-		},
-		caracteristicas: {
-			type: DataTypes.JSON,
-		},
-		funciones: {
-			type: DataTypes.STRING,
-		},
-		stock: {
-			type: DataTypes.INTEGER,
-		},
-		categoria: {
-			type: DataTypes.STRING,
-		},
-		imagen0: {
-			type: DataTypes.STRING,
-		},
-		imagen1: {
-			type: DataTypes.STRING,
-		},
-		imagen2: {
-			type: DataTypes.STRING,
-		},
-		},
-		{ timestamps: false }
-	);
+  sequelize.define(
+    "Producto",
+    {
+      nombre: {
+        type: DataTypes.STRING,
+      },
+      marca: {
+        type: DataTypes.STRING,
+      },
+      precio: {
+        type: DataTypes.JSON,
+      },
+      caracteristicas: {
+        type: DataTypes.JSON,
+      },
+      funciones: {
+        type: DataTypes.STRING,
+      },
+      stock: {
+        type: DataTypes.INTEGER,
+      },
+      categoria: {
+        type: DataTypes.STRING,
+      },
+      imagen0: {
+        type: DataTypes.STRING,
+      },
+      imagen1: {
+        type: DataTypes.STRING,
+      },
+      imagen2: {
+        type: DataTypes.STRING,
+      },
+    },
+    { timestamps: false }
+  );
 };
 
 /* PRODUCTOS */

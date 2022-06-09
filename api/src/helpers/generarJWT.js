@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const { use } = require("../Routes/controllers/login/registo");
 
 const generarJWT = (user) => {
   return jwt.sign(
