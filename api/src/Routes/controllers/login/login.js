@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const bcrypt = require("bcrypt");
-const { Registro } = require("../../../db");
+const { Usuario } = require("../../../db");
 const { generarJWT } = require("../../../helpers/generarJWT");
 
 const router = Router();
@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
     //Busca el user
-    const userExite = await Registro.findOne({
+    const userExite = await Usuario.findOne({
       where: { email },
     });
     if (!userExite) {

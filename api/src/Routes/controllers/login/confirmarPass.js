@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Registro } = require("../../../db");
+const { Usuario } = require("../../../db");
 
 const router = Router();
 //confirmacion de cuenta
@@ -7,7 +7,7 @@ router.get("/:token", async (req, res) => {
   try {
     const { token } = req.params;
 
-    const usuarioConfirmar = await Registro.findOne({
+    const usuarioConfirmar = await Usuario.findOne({
       where: {
         token,
       },

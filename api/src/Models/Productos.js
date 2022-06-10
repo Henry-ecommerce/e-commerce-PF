@@ -6,12 +6,14 @@ module.exports = (sequelize) => {
 		{
 		nombre: {
 			type: DataTypes.STRING,
+			allowNull: false,
 		},
 		marca: {
 			type: DataTypes.STRING,
 		},
 		precio: {
 			type: DataTypes.JSON,
+			allowNull: false,
 		},
 		caracteristicas: {
 			type: DataTypes.JSON,
@@ -21,9 +23,10 @@ module.exports = (sequelize) => {
 		},
 		stock: {
 			type: DataTypes.INTEGER,
+			allowNull: false,
 		},
-		categoria: {
-			type: DataTypes.ARRAY(DataTypes.JSON), //provisorio hasta tener las relaciones y las tablas para realizar pruebas(sigo en eso)
+		descuento : {
+			type : DataTypes.INTEGER
 		},
 		imagen0: {
 			type: DataTypes.STRING,

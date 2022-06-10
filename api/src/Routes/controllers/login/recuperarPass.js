@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Registro } = require("../../../db");
+const { Usuario } = require("../../../db");
 const bcrypt = require("bcrypt");
 const { generarId } = require("../../../helpers/generarId");
 const { recuperarContra } = require("../../../helpers/emailRecuperarPass");
@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
   try {
     const { email } = req.body;
 
-    const exiteEmail = await Registro.findOne({
+    const exiteEmail = await Usuario.findOne({
       where: {
         email,
       },
@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
 router.get("/:token", async (req, res) => {
   try {
     const { token } = req.params;
-    const tokenValido = await Registro.findOne({
+    const tokenValido = await Usuario.findOne({
       where: {
         token,
       },
@@ -58,7 +58,7 @@ router.post("/:token", async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
 
-    const userCambioDePass = await Registro.findOne({
+    const userCambioDePass = await Usuario.findOne({
       where: {
         token,
       },
