@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import { Flex, Box, Image, Stack, Button, HStack } from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
+import { FaShoppingCart } from "react-icons/fa";
+import ReviewCard from "../ReviewCard/ReviewCard";
+
 
 function ProductDetail() {
   let { id } = useParams();
@@ -233,8 +236,8 @@ function ProductDetail() {
 
             <Box pl="5" pr="5">
               {showReviews ? (
-                <Box>Aca se renderizan las reviews de los usuarios</Box>
-              ) : null}
+                <Box><ReviewCard/><ReviewCard/></Box>
+              ) : null}        
             </Box>
             <Box>
               {showEspecification ? (
