@@ -64,10 +64,7 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
 
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/newPassword" element={<ForgetPassword />} />
+
         <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
 
