@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const bcrypt = require("bcrypt");
-const { Registro } = require("../../../db");
+const { Usuario } = require("../../../db");
 const { emailRegistro } = require("../../../helpers/emailRegistro");
 
 const router = Router();
@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   try {
     const { name, email, password, rol } = req.body;
     //Previene usuarios registrados
-    const existeUsuario = await Registro.findOne({
+    const existeUsuario = await Usuario.findOne({
       where: { email },
     });
     if (existeUsuario) {
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
         salt
       ));
       //Crea nuevo user
-      const newUser = await Registro.create({
+      const newUser = await Usuario.create({
         name,
         email,
         password: passCheta,

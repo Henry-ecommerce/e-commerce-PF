@@ -1,10 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-	sequelize.define("Pedido", {
-		forma_de_pago: {
+	sequelize.define(
+		"Historial",
+		{
+		nombre: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-	});
+		}
+	);
 };
+
