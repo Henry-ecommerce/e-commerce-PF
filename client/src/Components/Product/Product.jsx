@@ -8,12 +8,12 @@ import {
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
-
+import FavoriteButton from "./FavoriteButton";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { set_products_in_cart_local_storage } from "../../Redux/Actions";
 
-function Product({ nombre, marca, precio, imagen0, id }) {
+function Product({ nombre, marca, precio, imagen0, id, origin }) {
   nombre = nombre.split(",")[0];
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
@@ -40,19 +40,7 @@ function Product({ nombre, marca, precio, imagen0, id }) {
         position="relative"
         h="413px"
       >
-        <Box
-          position={"absolute"}
-          bg="#242525"
-          color="#ECEDEC"
-          borderRadius={"full"}
-          p="10px"
-          fontSize={"2xl"}
-          m="0"
-          top="10px"
-          left="10px"
-        >
-          <AiOutlineHeart />
-        </Box>
+        <FavoriteButton origin={origin} />
         <Box
           position={"absolute"}
           bg="#242525"

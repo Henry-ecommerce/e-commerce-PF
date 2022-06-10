@@ -10,6 +10,7 @@ import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
 import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
+import WishList from "./Components/WishList/WishList.jsx";
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/newPassword" element={<ForgetPassword />} />
+        <Route path="/wishList" element={<WishList />} />
       </Routes>
       <Footer />
     </Box>
