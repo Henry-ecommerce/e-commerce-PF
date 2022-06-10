@@ -21,6 +21,7 @@ import Pruevas from "./Components/Pruevas/Pruevas";
 import NewPass from "./Components/NewPass/NewPass";
 import ProductDetail from "./Components/ProductDetails/ProductDetail";
 import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditions";
+import WishList from "./Components/WishList/WishList.jsx";
 import Review from "./Components/Review/Review.jsx";
 import Map from "./Components/Map/Map";
 
@@ -62,7 +63,14 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/newPassword" element={<ForgetPassword />} />
+        <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
+
       </Routes>
       <Footer />
     </Box>

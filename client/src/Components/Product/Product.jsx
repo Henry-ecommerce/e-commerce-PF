@@ -8,10 +8,11 @@ import {
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
 import AddToCart from "../AddToCardComponents/AddToCart";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 
-function Product({ nombre, marca, precio, imagen0, id }) {
+function Product({ nombre, marca, precio, imagen0, id, origin }) {
   nombre = nombre.split(",")[0];
 
   return (
@@ -25,19 +26,7 @@ function Product({ nombre, marca, precio, imagen0, id }) {
         position="relative"
         h="413px"
       >
-        <Box
-          position={"absolute"}
-          bg="#242525"
-          color="#ECEDEC"
-          borderRadius={"full"}
-          p="10px"
-          fontSize={"2xl"}
-          m="0"
-          top="10px"
-          left="10px"
-        >
-          <AiOutlineHeart />
-        </Box>
+        <FavoriteButton origin={origin} />
         <Box
           position={"absolute"}
           bg="#242525"
