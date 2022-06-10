@@ -4,6 +4,7 @@ import { Button } from "@chakra-ui/react";
 import { FaShoppingCart } from "react-icons/fa";
 
 export default function AddToCartIcon({ nombre, marca, precio, imagen0, id }) {
+  nombre = nombre?.split(",")[0];
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
 
