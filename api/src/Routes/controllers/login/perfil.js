@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
   const { registro } = req;
-  res.json({ registro });
+  res.json(registro);
 });
 
 module.exports = router;
