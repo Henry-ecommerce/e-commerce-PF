@@ -30,7 +30,6 @@ router.use(
 router.use("/tienda", [checkAuth, checkRolAdminMiddleware], agregarCarrito);
 router.use("/carrito", [checkAuth, checkRolAdminMiddleware], obtenerPerfil);
 router.use("/perfil", [checkAuth, checkRolAdminMiddleware], Tienda);
-
 router.use("/pagos", [checkAuth, checkRolAdminMiddleware], Pago);
 
 module.exports = router;

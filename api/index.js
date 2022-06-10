@@ -4,6 +4,7 @@ const cors = require("cors");
 const routes = require("./src/Routes/index");
 const indexRegistro = require("./src/Routes/indexRegistro");
 const indexAdmin = require("./src/Routes/indexAdmin");
+const indexOwner = require("./src/Routes/indexoOwner");
 const indexUser = require("./src/Routes/indexUser");
 const { db } = require("./src/db");
 
@@ -23,6 +24,7 @@ server.use(express.json());
 server.use("/", routes);
 server.use("/registro", indexRegistro);
 server.use("/admin", indexAdmin);
+server.use("/owner", indexOwner);
 server.use("/user", indexUser);
 
 db.sync({ force: true }).then(() => {
