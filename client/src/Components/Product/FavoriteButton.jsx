@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
-import { AiOutlineHeart, AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 
 function FavoriteButton({origin, AlreadyFavorite}) {
@@ -17,7 +17,8 @@ function FavoriteButton({origin, AlreadyFavorite}) {
         top="10px"
         left="10px"
       >
-        <AiOutlineHeart />
+        {AlreadyFavorite && <AiOutlineHeart />}
+        {!AlreadyFavorite && <AiOutlineHeart color='white' />}
       </Button>
     );
   } else {
