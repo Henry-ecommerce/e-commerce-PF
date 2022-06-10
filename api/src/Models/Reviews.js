@@ -12,7 +12,7 @@ let Reviews = (sequelize) =>
 				type: DataTypes.TEXT,
 				allowNull: false,
 			},
-			ratin: {
+			rating: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				validate: {
