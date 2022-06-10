@@ -8,26 +8,11 @@ import {
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
-
+import AddToCart from "../AddToCardComponents/AddToCart";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { set_products_in_cart_local_storage } from "../../Redux/Actions";
 
 function Product({ nombre, marca, precio, imagen0, id }) {
   nombre = nombre.split(",")[0];
-  const dispatch = useDispatch();
-  const { products_in_cart_local_storage } = useSelector((state) => state);
-
-  function addToCart(e) {
-    localStorage.setItem(
-      "productos_carrito",
-      JSON.stringify(products_in_cart_local_storage)
-    );
-    // console.log(localStorage.getItem('productos_carrito'))
-    dispatch(
-      set_products_in_cart_local_storage({ nombre, marca, precio, imagen0 })
-    );
-  }
 
   return (
     <Stack w="full" alignItems="center" justifyContent="space-between">
@@ -113,15 +98,15 @@ function Product({ nombre, marca, precio, imagen0, id }) {
             <Box as="span" color={"gray.600"}>
               {`$ ${precio.PesosArg}`}
             </Box>
-            <Button
-              bg="#242525"
-              color="#ECEDEC"
-              _hover={{ bg: "#242525", color: "#ECEDEC" }}
-              fontSize="x-small"
-              onClick={() => addToCart()}
-            >
-              Agregar a Carrito
-            </Button>
+
+            <Box>
+              <AddToCart
+                nombre={nombre}
+                precio={precio}
+                marca={marca}
+                imagen0={imagen0}
+              />
+            </Box>
           </Flex>
         </Box>
       </Box>

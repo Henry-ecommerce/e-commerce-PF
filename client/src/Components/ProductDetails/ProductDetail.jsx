@@ -5,10 +5,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Flex, Box, Image, Stack, Button, HStack } from "@chakra-ui/react";
-
+import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import ReviewCard from "../ReviewCard/ReviewCard";
+
 
 function ProductDetail() {
   let { id } = useParams();
@@ -40,7 +41,7 @@ function ProductDetail() {
       <>
         <Box fontWeight="black" fontSize="small" ml="600px" mt="4px">
           <Link to={"/"}>{"Home > "}</Link>
-          {`Detalle > ${product.funciones}`}
+          {`Detalle > ${product.categoria}`}
         </Box>
         <Stack w="full" alignItems="center" justifyContent="space-between">
           <Box w="800px" h="800px" bg="white" p="10px" m="10px">
@@ -155,14 +156,17 @@ function ProductDetail() {
                       COMPRAR
                     </Button>
 
-                    <Button w="50px">
-                      <FaShoppingCart />
-                    </Button>
+                    <AddToCartIcon
+                      nombre={product.nombre}
+                      precio={product.precio}
+                      marca={product.marca}
+                      imagen0={product.imagen0}
+                    />
                   </HStack>
                 </Flex>
               </Box>
             </Flex>
-            <Stack direction="row" spacing={4} align="center" mt="15px">
+            <Stack direction="row" spacing={4} align="center" mt="15px" pl="5">
               <Button
                 variant="link"
                 colorScheme={isActiveD ? "" : "blackAlpha"}
@@ -207,7 +211,7 @@ function ProductDetail() {
               </Button>
             </Stack>
 
-            <Box>
+            <Box pl="5" pr="5">
               {showDescription ? (
                 <Box>
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -230,7 +234,7 @@ function ProductDetail() {
               ) : null}
             </Box>
 
-            <Box>
+            <Box pl="5" pr="5">
               {showReviews ? (
                 <Box><ReviewCard/><ReviewCard/></Box>
               ) : null}        
