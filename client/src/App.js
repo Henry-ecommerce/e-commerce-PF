@@ -24,6 +24,7 @@ import TermsAndConditions from "./Components/TermsAndConditions/TermsAndConditio
 import WishList from "./Components/WishList/WishList.jsx";
 import Review from "./Components/Review/Review.jsx";
 import Map from "./Components/Map/Map";
+import Tienda from "./Components/Tienda/Tienda";
 
 function App() {
   return (
@@ -67,7 +68,7 @@ function App() {
 
         <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
-
+        <Route path="/products/:categoriaobusqueda" element={<Tienda/>}/>
       </Routes>
       <Footer />
     </Box>

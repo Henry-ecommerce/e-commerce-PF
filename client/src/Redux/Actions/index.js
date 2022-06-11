@@ -9,6 +9,7 @@ import {
 	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
+	GET_FILTER_PRODUCTS,
 } from "./actions_types";
 
 export function get_all_products() {
@@ -59,3 +60,16 @@ export function delete_product_in_cart_local_storage(product) {
 
 //     }
 // }
+
+export function get_filter_products(categoryorsearch,filter,order,tipo) {
+	let marca = "";
+	filter.forEach(e => { marca += "marca=" + e + "&"
+	})
+	return async (dispatch) => {
+		let filter_products = await axios.get(`/filter?categoryorsearch=${categoryorsearch}&order=${order}&ascordesc=${tipo}&${marca}`);
+		return dispatch({
+			type: GET_FILTER_PRODUCTS,
+			payload: filter_products.data,
+		});
+	};
+}
