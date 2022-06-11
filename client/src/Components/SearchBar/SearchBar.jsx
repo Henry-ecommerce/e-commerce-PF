@@ -123,7 +123,7 @@ function SearchBar() {
 								</Box>
 							)}
 					</Box>
-					<Button
+					<Button onClick={e => window.location.href = `/products/${inputValue}`}
 						bg="#242525"
 						color="#ECEDEC"
 						_hover={{ bg: "#242525", color: "#ECEDEC" }}

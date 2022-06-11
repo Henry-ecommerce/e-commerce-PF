@@ -33,13 +33,14 @@ function Navbar() {
   const { cerrarSesion } = useAuth()
 	const dispatch = useDispatch();
 	const { products_in_cart_local_storage } = useSelector((state) => state);
-	let user = JSON.parse(localStorage.getItem("info_user"));
-	console.log(user?.name !== undefined);
-
+	// console.log(products_in_cart_local_storage);
+	// const { currentUser, signout } = useAuth();
 	const [_width, set_width] = useState(window.frames.innerWidth);
 	window.addEventListener("resize", () => {
 		set_width(window.frames.innerWidth);
 	});
+
+	let localStorage_of_products = localStorage.getItem("productos_carrito");
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
@@ -92,7 +93,6 @@ function Navbar() {
 							<Menu autoSelect={false} closeOnSelect={false}>
 								<MenuButton disabled={user?.name === undefined ? true : false}>
 									<AiOutlineUser />
-									{/* <AiOutlineUser /> */}
 								</MenuButton>
 								<Portal>
 									<MenuList>

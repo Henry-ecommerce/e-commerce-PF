@@ -4,6 +4,7 @@ const Sequelize = require('sequelize')
 
 const router = Router();
 
+
 router.get("/", async (req, res) => {
     let marca = req.query.marca;// filtro
     let precio = req.query.precio; // orden
@@ -11,9 +12,14 @@ router.get("/", async (req, res) => {
     let funciones = req.query.funciones; // filtro
     let stock = req.query.stock; // orden
     let categoria = req.query.categoria; // filtro
+    const {categoryorsearch, order ,ascordesc} = req.query;
 
+    
     try {
+        
+
         let allProducts = await Producto.findAll({
+            where: {nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
             order: [["nombre", "ASC"]]
         });
         // let colorFilter = await Producto.findAll({
@@ -22,9 +28,12 @@ router.get("/", async (req, res) => {
         // })
         if(marca){
             let marcaFilter = await Producto.findAll({
-                where: {marca},
+                where: {marca, nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
                 order: [["nombre", "ASC"]] 
             })
+            if (order === "precio" && ascordesc === "ASC") marcaFilter = marcaFilter.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg));
+            else if(order === "precio" && ascordesc === "DESC") marcaFilter = marcaFilter.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg));
+            
             return res.send(marcaFilter)
         }
 
@@ -60,6 +69,9 @@ router.get("/", async (req, res) => {
                 order: [["stock", stock]] // igual que precio, mandar "ASC" o "DESC"
             })
             return res.status(200).json(stockOrder)}
+
+        if (order === "precio" && ascordesc === "ASC") allProducts = allProducts.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg));
+        else if(order === "precio" && ascordesc === "DESC") allProducts = allProducts.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg));
 
         res.send(allProducts) // si no entro en ninguno de los anteriores, devuelve todos ordenados
 

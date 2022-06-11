@@ -1,0 +1,30 @@
+.contenedor_general {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: flex;
+}
+
+.contenedor_filtros {
+    position:static;
+    display: inline;
+    height: fit-content;
+    width: fit-content;
+    margin: 10px;
+    max-width: 280px;
+}
+.contenedor_productos {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    min-width: 1000px;
+    max-width: 1000px;
+    top: 0px;
+}
+
+.producto {
+    position: relative ;
+    display: inline-block;
+    margin: 10px
+}

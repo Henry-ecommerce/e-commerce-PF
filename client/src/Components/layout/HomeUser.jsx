@@ -17,9 +17,6 @@ const HomeUser = () => {
 			) : (
 				<Navigate to="/login" />
 			)}
-
 			{/* <Footer /> */}
-		</>
-	);
 };
 export default HomeUser;
