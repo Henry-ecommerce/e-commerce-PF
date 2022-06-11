@@ -33,7 +33,7 @@ const Review = () => {
     rating: 0,
     productoId: productToReview,
   });
-  console.log("Id para mandar",productToReview);
+  // console.log("Id para mandar",productToReview);
   const StarIcon = ({ fill }) => (
     <Icon
       as={AiFillStar}
