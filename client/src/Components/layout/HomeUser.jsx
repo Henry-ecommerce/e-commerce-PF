@@ -11,7 +11,7 @@ const HomeUser = () => {
     <>
       <Header />
 
-      {auth?.id ? (
+      {auth?.rol === "User" ? (
         <main className="conteiner mx-auto mt-20">
           <Outlet />
         </main>

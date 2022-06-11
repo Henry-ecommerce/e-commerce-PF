@@ -7,6 +7,7 @@ import {
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
 	PRODUCT_TO_REVIEW,
+	GET_FILTER_PRODUCTS,
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -15,8 +16,13 @@ const initialState = {
 	searched_product_name_to_render_in_input: [],
 	product: {},
 	products_in_cart_local_storage: [],
-	product_to_review: []
+	product_to_review: [],
+	filtrados: [],
 };
+
+initialState.products_in_cart_local_storage = JSON.parse(
+	localStorage.getItem("productos_carrito")
+);
 
 function reducer(state = initialState, { type, payload }) {
 	switch (type) {
@@ -39,26 +45,39 @@ function reducer(state = initialState, { type, payload }) {
 			let findRepeated = state.products_in_cart_local_storage.find(
 				(elem) => elem.nombre === payload.nombre
 			);
-
 			if (findRepeated !== undefined) {
 				findRepeated = findRepeated.cantidad++;
+				localStorage.setItem(
+					"productos_carrito",
+					JSON.stringify(state.products_in_cart_local_storage)
+				);
 				return {
 					...state,
 				};
 			} else {
-				return {
+				let estado = {
 					...state,
 					products_in_cart_local_storage: [
 						...state.products_in_cart_local_storage,
 						{ ...payload, cantidad: 1 },
 					],
 				};
+				console.log(estado);
+				localStorage.setItem(
+					"productos_carrito",
+					JSON.stringify(estado.products_in_cart_local_storage)
+				);
+				return estado;
 			}
 		case ADD_QUANTITY_IN_CART_LOCAL_STORAGE:
 			let find_roduct = state.products_in_cart_local_storage.find(
 				(elem) => elem.nombre === payload.nombre
 			);
 			find_roduct.cantidad++;
+			localStorage.setItem(
+				"productos_carrito",
+				JSON.stringify(state.products_in_cart_local_storage)
+			);
 			return {
 				...state,
 			};
@@ -67,6 +86,10 @@ function reducer(state = initialState, { type, payload }) {
 				(elem) => elem.nombre === payload.nombre
 			);
 			find_roduct_.cantidad >= 2 && find_roduct_.cantidad--;
+			localStorage.setItem(
+				"productos_carrito",
+				JSON.stringify(state.products_in_cart_local_storage)
+			);
 			return {
 				...state,
 			};
@@ -74,10 +97,17 @@ function reducer(state = initialState, { type, payload }) {
 			let delete_roduct = state.products_in_cart_local_storage.filter(
 				(elem) => elem.nombre !== payload.nombre
 			);
-
-			return {
+			let m = {
 				...state,
 				products_in_cart_local_storage: delete_roduct,
+			};
+
+			localStorage.setItem("productos_carrito", JSON.stringify(delete_roduct));
+			return m;
+    case GET_FILTER_PRODUCTS:
+			return {
+				...state,
+				filtrados: payload
 			};
 		case PRODUCT_TO_REVIEW:
 			return {

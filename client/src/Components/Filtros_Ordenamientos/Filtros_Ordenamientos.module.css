@@ -1,0 +1,58 @@
+.contenedor_elementos {
+    background-color: white;
+    width: fit-content;
+    padding: 1em;
+    color: #252525;
+}
+
+.contenedor_inputs label {
+    display: block;
+    width: fit-content;
+}
+
+
+.productos {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.resultados {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.ordenar_por {
+    font-size: 1.5em;
+}
+
+.contenedor_elementos select {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: transparent;
+    width: fit-content;
+    position: relative;
+}
+
+
+.resultados label {
+    font-weight: 100;
+}
+
+.tipo_filtro {
+    font-weight: bold;
+}
+
+.prueba{
+    margin: 50px;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+}
+.fee {
+    width: 100px;
+}
