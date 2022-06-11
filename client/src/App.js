@@ -49,22 +49,25 @@ function App() {
           <Route path="newPassword/:token" element={<NewPass />} />
           <Route path="confirmar/:id" element={<ConfirmarCuenta />} />
         </Route>
+
         <Route path="/admin" element={<HomeAdmin />}>
           <Route index element={<AdministrarProductos />} />
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="cambiar-pass" element={<CambiasPassw />} />
         </Route>
+
         <Route path="/user" element={<HomeUser />}>
           <Route path="perfil" element={<Pruevas />} />
         </Route>
+
         <Route path="/owner" element={<HomeOwner />}>
           <Route index element={<AdministrarProductosOwner />} />
           <Route path="perfil" element={<Pruevas />} />
         </Route>
+
         <Route path="/map" element={<Map />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
-
 
         <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
