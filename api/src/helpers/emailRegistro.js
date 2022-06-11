@@ -1,14 +1,41 @@
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const CLIENTD_ID =
+  "252263736230-sa7uubqje9svv532kd7dlgust640jqcb.apps.googleusercontent.com";
+const CLIENTD_SECRET = "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";
+const REDIRECT_URI = "https://developers.google.com/oauthplayground";
+const REFRES_TOKEN =
+  "1//04kTuWPa4yElKCgYIARAAGAQSNwF-L9Ir8bCgqoRlzUDoWxueapSzUw9wkWIa5-EHKKLwC2j4t8IkBD06DJl6G9yBCy41RowPBrg";
+
+const oAuth2Client = new google.auth.OAuth2(
+  CLIENTD_ID,
+  CLIENTD_SECRET,
+  REDIRECT_URI
+);
+oAuth2Client.setCredentials({ refresh_token: REFRES_TOKEN });
 
 const emailRegistro = async (datos) => {
+  const accessToken = await oAuth2Client.getAccessToken();
+
   const transport = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
+    service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      type: "OAuth2",
+      user: "sdmoreno51@gmail.com",
+      clientId: CLIENTD_ID,
+      clientSecret: CLIENTD_SECRET,
+      refreshToken: REFRES_TOKEN,
+      accessToken: accessToken,
     },
+    //preuvas
+    // host: process.env.EMAIL_HOST,
+    // port: process.env.EMAIL_PORT,
+    // auth: {
+    //   user: process.env.EMAIL_USER,
+    //   pass: process.env.EMAIL_PASS,
+    // },
   });
+
   const { email, name, token } = datos;
 
   const info = await transport.sendMail({
