@@ -1,16 +1,15 @@
 const jwt = require("jsonwebtoken");
-const { Registro } = require("../db.js");
+const { Usuario } = require("../db.js");
+
 const checkAuth = async (req, res, next) => {
   let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
+  console.log(req.headers.authorization.startsWith("Bearer"))
+  if ( req.headers.authorization && req.headers.authorization.startsWith("Bearer") ) {
     try {
       token = req.headers.authorization.split(" ")[1];
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.registro = await Registro.findByPk(decoded.id, {
+      req.registro = await Usuario.findByPk(decoded.id, {
         attributes: ["id", "name", "email", "rol"],
       });
 
@@ -22,6 +21,7 @@ const checkAuth = async (req, res, next) => {
     }
   }
   if (!token) {
+    // console.log(req.headers.authorization)
     const error = new Error("Tonken invalido o inexistente");
     return res.status(403).json({ msg: error.message });
   }

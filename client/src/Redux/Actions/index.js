@@ -9,6 +9,7 @@ import {
 	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
+	GET_USER_INFO,
 } from "./actions_types";
 
 export function get_all_products() {
@@ -52,6 +53,32 @@ export function subtract_quantity_in_cart_local_storage(product) {
 
 export function delete_product_in_cart_local_storage(product) {
 	return { type: DELETE_PRODUCT_IN_CART_LOCAL_STORAGE, payload: product };
+}
+
+export function get_user_info() {
+	return async (dispatch) => {
+		try {
+			const token = localStorage.getItem("token");
+			if (!token) {
+				return;
+			}
+
+			const config = {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			};
+			const user = await axios("/user/perfil", config);
+			console.log(user,'<--- soy la ction')
+			return dispatch({
+				type: GET_USER_INFO,
+				payload: user.data,
+			});
+		} catch (error) {
+			console.log(error)
+		}
+	};
 }
 
 // export function get_product_detail() {

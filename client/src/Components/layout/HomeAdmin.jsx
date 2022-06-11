@@ -11,7 +11,7 @@ const HomeAdmin = () => {
     <>
       <Header />
 
-      {auth?.id ? (
+      {auth?.rol === 'Admin' ? (
         <main className="conteiner mx-auto mt-20">
           <Outlet />
         </main>

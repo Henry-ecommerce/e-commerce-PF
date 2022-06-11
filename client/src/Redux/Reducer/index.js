@@ -6,6 +6,7 @@ import {
 	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
+	GET_USER_INFO,
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 	searched_product_name_to_render_in_input: [],
 	product: {},
 	products_in_cart_local_storage: [],
+	user_info: {},
 };
 
 function reducer(state = initialState, { type, payload }) {
@@ -76,6 +78,11 @@ function reducer(state = initialState, { type, payload }) {
 			return {
 				...state,
 				products_in_cart_local_storage: delete_roduct,
+			};
+		case GET_USER_INFO:
+			return {
+				...state,
+				user_info: payload,
 			};
 		default:
 			return state;
