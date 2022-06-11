@@ -6,6 +6,7 @@ import {
 	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
+	GET_FILTER_PRODUCTS,
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 	searched_product_name_to_render_in_input: [],
 	product: {},
 	products_in_cart_local_storage: [],
+	filtrados: [],
 };
 
 initialState.products_in_cart_local_storage = JSON.parse(
@@ -97,8 +99,14 @@ function reducer(state = initialState, { type, payload }) {
 				...state,
 				products_in_cart_local_storage: delete_roduct,
 			};
+
 			localStorage.setItem("productos_carrito", JSON.stringify(delete_roduct));
 			return m;
+    case GET_FILTER_PRODUCTS:
+			return {
+				...state,
+				filtrados: payload
+			};
 		default:
 			return state;
 	}
