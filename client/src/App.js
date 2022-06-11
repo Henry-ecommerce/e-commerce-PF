@@ -40,6 +40,7 @@ function App() {
             </Box>
           }
         />
+
         <Route path="/login" element={<Registro />}>
           <Route index element={<Login />} />
           <Route path="signup" element={<Signup />} />
