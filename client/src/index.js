@@ -38,7 +38,7 @@ root.render(
       <Provider store={store}>
         <ChakraProvider theme={theme}>
           <AuthProviderUser>
-            <AdminProvider n>
+            <AdminProvider>
               <App />
             </AdminProvider>
           </AuthProviderUser>
