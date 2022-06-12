@@ -33,10 +33,14 @@ import Ordenes from "./Components/AdminPanel/Ordenes/Ordenes";
 import Users from "./Components/AdminPanel/Users/Users";
 import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
+import Home from "./Components/Home/Home"
+import Banner from "./Components/Banner/Banner";
+
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
+      <Banner />
       <Routes>
         <Route
           exact
@@ -44,7 +48,7 @@ function App() {
           element={
             <Box>
               <SearchBar />
-              <Products />
+              <Home/>
             </Box>
           }
         />

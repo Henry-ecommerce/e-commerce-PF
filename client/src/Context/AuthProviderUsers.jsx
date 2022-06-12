@@ -38,6 +38,7 @@ const AuthProviderUser = ({ children }) => {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("info_user");
     setAuth({});
   };
   const actualizarPerfil = async (datos) => {
