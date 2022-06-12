@@ -3,10 +3,11 @@ const agregarProducto = require("./controllers/admin_productos/agregarProductos"
 const obtenerProducto = require("./controllers/admin_productos/obtenerProductos");
 const updateModificarProducto = require("./controllers/admin_productos/updateProductos");
 const borrarBorrarProducto = require("./controllers/admin_productos/borrarProductos");
-const agregarCarrito = require("./controllers/user_cuenta/carrito");
-const obtenerPerfil = require("./controllers/user_cuenta/perfil");
-const Tienda = require("./controllers/user_cuenta/tienda");
-const Pago = require("./controllers/user_cuenta/tienda");
+const getUsers = require("./controllers/admin_productos/getUsers");
+const getCategorias = require("./controllers/admin_productos/categoriasProduc");
+const getOrdenes = require("./controllers/admin_productos/ordenes");
+const getventas = require("./controllers/admin_productos/ventas");
+const getTransacciones = require("./controllers/admin_productos/transaciones");
 
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
@@ -15,6 +16,15 @@ const {
 
 const router = Router();
 
+router.use("/users", [checkAuth, checkRolAdminMiddleware], getUsers);
+router.use("/ordenes", [checkAuth, checkRolAdminMiddleware], getOrdenes);
+router.use("/ventas", [checkAuth, checkRolAdminMiddleware], getventas);
+router.use(
+  "/transacciones",
+  [checkAuth, checkRolAdminMiddleware],
+  getTransacciones
+);
+router.use("/categorias", [checkAuth, checkRolAdminMiddleware], getCategorias);
 router.use("/crear", [checkAuth, checkRolAdminMiddleware], agregarProducto);
 router.use("/obtener", [checkAuth, checkRolAdminMiddleware], obtenerProducto);
 router.use(
@@ -27,9 +37,5 @@ router.use(
   [checkAuth, checkRolAdminMiddleware],
   borrarBorrarProducto
 );
-router.use("/tienda", [checkAuth, checkRolAdminMiddleware], agregarCarrito);
-router.use("/carrito", [checkAuth, checkRolAdminMiddleware], obtenerPerfil);
-router.use("/perfil", [checkAuth, checkRolAdminMiddleware], Tienda);
-router.use("/pagos", [checkAuth, checkRolAdminMiddleware], Pago);
 
 module.exports = router;

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {
-	Box,
-	Text,
-	Button,
-	Flex,
-	Menu,
-	MenuButton,
-	MenuList,
-	MenuItem,
-	Image,
-	Portal,
-	Stack,
+  Box,
+  Text,
+  Button,
+  Flex,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Image,
+  Portal,
+  Stack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 // import { useAuth } from "../../Context/AuthContext";
@@ -21,24 +21,24 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	add_quantity_in_cart_local_storage,
-	subtract_quantity_in_cart_local_storage,
-	delete_product_in_cart_local_storage,
+  add_quantity_in_cart_local_storage,
+  subtract_quantity_in_cart_local_storage,
+  delete_product_in_cart_local_storage,
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import {useNavigate} from 'react-router-dom'
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const { products_in_cart_local_storage } = useSelector((state) => state);
+  // console.log(products_in_cart_local_storage);
+  // const { currentUser, signout } = useAuth();
+  const [_width, set_width] = useState(window.frames.innerWidth);
+  window.addEventListener("resize", () => {
+    set_width(window.frames.innerWidth);
+  });
   const navigate = useNavigate()
   const { cerrarSesion } = useAuth()
-	const dispatch = useDispatch();
-	const { products_in_cart_local_storage } = useSelector((state) => state);
-	// console.log(products_in_cart_local_storage);
-	// const { currentUser, signout } = useAuth();
-	const [_width, set_width] = useState(window.frames.innerWidth);
-	window.addEventListener("resize", () => {
-		set_width(window.frames.innerWidth);
-	});
 
 	let localStorage_of_products = localStorage.getItem("productos_carrito");
 

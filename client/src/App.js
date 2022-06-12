@@ -13,8 +13,8 @@ import Products from "./Components/Products/Products";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import Registro from "./Components/Registro/Registro";
 import ConfirmarCuenta from "./Components/ConfirmarCuenta/ConfirmarCuenta";
-import AdministrarProductos from "./Components/AdministrarProductos/AdministrarProductos";
-import AdministrarProductosOwner from "./Components/AdministrarProductos/AdministrarProductosOwner";
+import AdministrarProductos from "./Components/AdminPanel/AdministrarProductos/AdministrarProductos";
+import AdministrarProductosOwner from "./Components/AdminPanel/AdministrarProductos/AdministrarProductosOwner";
 import EditarPerfil from "./Components/EditarPerfil/EditarPerfil";
 import CambiasPassw from "./Components/CambiasPassw/CambiasPassw";
 import Pruevas from "./Components/Pruevas/Pruevas";
@@ -25,6 +25,14 @@ import WishList from "./Components/WishList/WishList.jsx";
 import Review from "./Components/Review/Review.jsx";
 import Map from "./Components/Map/Map";
 import Tienda from "./Components/Tienda/Tienda";
+import EditProductos from "./Components/AdminPanel/EditProductos/EditProductos";
+import ObtenerProductosAdmin from "./Components/AdminPanel/ObtenerProductosAdmin/ObtenerProductosAdmin";
+import AgregarProducto from "./Components/AdminPanel/AgregarProducto/AgregarProducto";
+import Categoriass from "../src/Components/AdminPanel/Categoriass/Categoriass";
+import Ordenes from "./Components/AdminPanel/Ordenes/Ordenes";
+import Users from "./Components/AdminPanel/Users/Users";
+import Ventas from "./Components/AdminPanel/Ventas/Ventas";
+import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home"
 import Banner from "./Components/Banner/Banner";
 
@@ -56,8 +64,14 @@ function App() {
 
         <Route path="/admin" element={<HomeAdmin />}>
           <Route index element={<AdministrarProductos />} />
-          <Route path="perfil" element={<EditarPerfil />} />
-          <Route path="cambiar-pass" element={<CambiasPassw />} />
+          <Route path="edit" element={<ObtenerProductosAdmin />} />
+          <Route path="edit/producto" element={<EditProductos />} />
+          <Route path="agregar" element={<AgregarProducto />} />
+          <Route path="categorias" element={<Categoriass />} />
+          <Route path="ordenes" element={<Ordenes />} />
+          <Route path="users" element={<Users />} />
+          <Route path="ventas" element={<Ventas />} />
+          <Route path="transaciones" element={<Transacciones />} />
         </Route>
 
         <Route path="/user" element={<HomeUser />}>
@@ -75,7 +89,7 @@ function App() {
 
         <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
-        <Route path="/products/:categoriaobusqueda" element={<Tienda/>}/>
+        <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
       </Routes>
       <Footer />
     </Box>
