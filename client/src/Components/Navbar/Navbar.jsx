@@ -40,7 +40,7 @@ function Navbar() {
 		set_width(window.frames.innerWidth);
 	});
 
-	let localStorage_of_products = localStorage.getItem("productos_carrito");
+	let user = JSON.parse(localStorage.getItem("info_user"));
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
