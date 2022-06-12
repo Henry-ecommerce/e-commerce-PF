@@ -59,7 +59,7 @@ Historial.hasOne(Usuario);
 Usuario.hasMany(Review);
 Review.hasOne(Usuario);
 Producto.hasMany(Review);
-Review.hasOne(Producto);
+Review.belongsTo(Producto);
 
 Usuario.belongsToMany(Producto, { through: "Favoritos" });
 Producto.belongsToMany(Usuario, { through: "Favoritos" });

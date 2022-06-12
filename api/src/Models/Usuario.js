@@ -9,6 +9,10 @@ let Usuarios = (sequelize) =>
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
+			apellido: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 			password: {
 				type: DataTypes.STRING,
 				allowNull: false,
@@ -21,6 +25,10 @@ let Usuarios = (sequelize) =>
 			img: {
 				type: DataTypes.STRING, // La semana que viene veo bien como hacer para poder guardar un archivo
 			},
+			fecha_nacimiento: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
 			rol: {
 				type: DataTypes.STRING,
 				defaultValue: "User",
@@ -32,6 +40,9 @@ let Usuarios = (sequelize) =>
 			confirmado: {
 				type: DataTypes.BOOLEAN,
 				defaultValue: false,
+			},
+			direccion: {
+				type: DataTypes.TEXT,
 			},
 		},
 		{ timestamps: false }

@@ -25,11 +25,14 @@ import WishList from "./Components/WishList/WishList.jsx";
 import Review from "./Components/Review/Review.jsx";
 import Map from "./Components/Map/Map";
 import Tienda from "./Components/Tienda/Tienda";
+import Home from "./Components/Home/Home"
+import Banner from "./Components/Banner/Banner";
 
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
+      <Banner />
       <Routes>
         <Route
           exact
@@ -37,10 +40,11 @@ function App() {
           element={
             <Box>
               <SearchBar />
-              <Products />
+              <Home/>
             </Box>
           }
         />
+
         <Route path="/login" element={<Registro />}>
           <Route index element={<Login />} />
           <Route path="signup" element={<Signup />} />
