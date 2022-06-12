@@ -75,6 +75,7 @@ function App() {
         </Route>
 
         <Route path="/user" element={<HomeUser />}>
+          <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
         </Route>
 

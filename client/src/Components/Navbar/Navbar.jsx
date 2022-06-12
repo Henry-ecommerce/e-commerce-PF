@@ -40,7 +40,7 @@ function Navbar() {
   const navigate = useNavigate()
   const { cerrarSesion } = useAuth()
 
-	let localStorage_of_products = localStorage.getItem("productos_carrito");
+	let user = JSON.parse(localStorage.getItem("info_user"));
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
@@ -141,8 +141,9 @@ function Navbar() {
 											{products_in_cart_local_storage?.length}
 										</Box>
 									)}
-								<Menu autoSelect={false} closeOnSelect={false}>
+								<Menu autoSelect={false} closeOnSelect={false} >
 									<MenuButton
+										
 										disabled={
 											products_in_cart_local_storage.length === 0 &&
 											typeof products_in_cart_local_storage !== "string"
@@ -152,8 +153,8 @@ function Navbar() {
 									>
 										<FiShoppingCart />
 									</MenuButton>
-									<Portal>
-										<MenuList w={"600px"}>
+									<Portal >
+										<MenuList w={"600px"} zIndex={1000}>
 											{products_in_cart_local_storage.length > 0 &&
 												typeof products_in_cart_local_storage !== "string" &&
 												products_in_cart_local_storage.map((elem, i) => {

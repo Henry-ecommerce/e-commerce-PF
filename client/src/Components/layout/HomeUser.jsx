@@ -10,7 +10,7 @@ const HomeUser = () => {
 	return (
 		<>
 			{/* <Header /> */}
-			{auth?.rol === 'User' ? (
+			{auth?.rol === "User" ? (
 				<main className="conteiner mx-auto mt-20">
 					<Outlet />
 				</main>
@@ -18,5 +18,7 @@ const HomeUser = () => {
 				<Navigate to="/login" />
 			)}
 			{/* <Footer /> */}
+		</>
+	);
 };
 export default HomeUser;

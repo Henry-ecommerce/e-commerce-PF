@@ -97,7 +97,7 @@ function SearchBar() {
 										"none"
 									}
 									position="absolute"
-									zIndex={10}
+									zIndex={20000}
 									w={["150px", "220px", "250px", "250px", "500px"]}
 								>
 									{searched_product_name_to_render_in_input.length > 0 &&

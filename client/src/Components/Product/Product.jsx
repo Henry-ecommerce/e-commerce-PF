@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
 	Flex,
 	Box,
@@ -65,12 +66,12 @@ function Product({
 				h="413px"
 			>
 				<Flex>
-					<Box position={"absolute"} zIndex={1000}>
+					<Box position={"absolute"} zIndex={10}>
 						<FavoriteButton origin={origin} />
 					</Box>
 					<Box
 						position={"absolute"}
-						zIndex={1000}
+						zIndex={10}
 						bg="#242525"
 						color="#ECEDEC"
 						w="130px"
