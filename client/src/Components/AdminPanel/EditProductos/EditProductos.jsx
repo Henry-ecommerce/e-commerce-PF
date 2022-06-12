@@ -13,14 +13,18 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
+import Alerta from "../../../helper/Alerta";
 import useAuthAd from "../../../hooks/useAuthAd";
+
 const EditProductos = () => {
-  const { producto } = useAuthAd();
+  const navegation = useNavigate();
+  const [alerta, setAlerta] = useState({});
+  const { producto, guardarProducto } = useAuthAd();
   const [from, setFrom] = useState({
+    id: "",
     nombre: "",
     marca: "",
-    precio: "",
     funciones: "",
     stock: 0,
     descuento: "",
@@ -34,20 +38,53 @@ const EditProductos = () => {
   useEffect(() => {
     setFrom(producto);
     setCaracterista(producto.caracteristicas);
+    setPrecio(producto.precio);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleOnchangue = (e) => {
     setFrom({ ...from, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
-    e.prevenDefault();
-  };
+
   const caracterisOnchange = (e) => {
     setCaracterista({ ...caracterista, [e.target.name]: e.target.value });
   };
+  const precioOnchange = (e) => {
+    setPrecio({ ...precio, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const precioDMP = precio;
+    const caracteristaS = caracterista;
+    const productoNuevo = {
+      id: from.id,
+      nombre: from.nombre,
+      marca: from.marca,
+      funciones: from.funciones,
+      stock: from.stock,
+      precio: precioDMP,
+      caracteristicas: caracteristaS,
+      descuento: from.descuento,
+      imagen0: from.imagen0,
+      imagen1: from.imagen1,
+      imagen2: from.imagen2,
+    };
+
+    guardarProducto(productoNuevo);
+    setAlerta({
+      msg: "Se edito correctamente",
+      error: false,
+    });
+    setTimeout(() => {
+      setAlerta({});
+      navegation("/admin/edit");
+    }, 2000);
+  };
+  const { msg } = alerta;
   return (
     <Flex mt="30px" align={"center"} justify={"center"} w={"90%"} m={"auto"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        {msg && <Alerta alerta={alerta} />}
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
             Editar producto
@@ -86,42 +123,20 @@ const EditProductos = () => {
                   placeholder="Escribe la marca"
                 />
               </FormControl>
-              <FormControl id="precio" /* isRequired */>
-                <FormLabel>Precio dolares</FormLabel>
-                <InputGroup>
-                  <Input
-                    type="number"
-                    onChange={handleOnchangue}
-                    value={from.precio.Dolares}
-                    name="precio"
-                    placeholder="Precio en dolares"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="precio" /* isRequired */>
-                <FormLabel>Precio pesos Arg</FormLabel>
-                <InputGroup>
-                  <Input
-                    type="number"
-                    onChange={handleOnchangue}
-                    value={from.precio.PesosArg}
-                    name="precio"
-                    placeholder="precio en pesos Argentinos"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="precio" /* isRequired */>
-                <FormLabel>Precio pesos Mexicanos</FormLabel>
-                <InputGroup>
-                  <Input
-                    type="number"
-                    onChange={handleOnchangue}
-                    value={from.precio.PesosMX}
-                    name="precio"
-                    placeholder="precio en pesos Mexicanos"
-                  />
-                </InputGroup>
-              </FormControl>
+              {Object.entries(precio).map((e, i) => {
+                return (
+                  <FormControl key={i + 1}>
+                    <FormLabel>{e[0]}</FormLabel>
+                    <Input
+                      type="number"
+                      onChange={precioOnchange}
+                      value={e[1]}
+                      name={e[0]}
+                      placeholder="Precio"
+                    />
+                  </FormControl>
+                );
+              })}
               {/*<FormControl id="caracteristicas" /* isRequired /** */}
               {Object.entries(caracterista).map((e, i) => {
                 return (

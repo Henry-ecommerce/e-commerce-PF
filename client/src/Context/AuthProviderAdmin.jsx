@@ -143,6 +143,7 @@ export const AdminProvider = ({ children }) => {
   }, []);
 
   const guardarProducto = async (producto) => {
+    console.log(`soy yo ad`, producto);
     const token = localStorage.getItem("token");
 
     const config = {
@@ -151,8 +152,7 @@ export const AdminProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log(producto);
-    console.log(producto.id);
+
     if (producto.id) {
       try {
         const { data } = await axios.put(
@@ -161,7 +161,7 @@ export const AdminProvider = ({ children }) => {
           config
         );
         const productoActualizado = productos.map((e) =>
-          e._id === data._id ? data : e
+          e.id === data.id ? data : e
         );
         setProductos(productoActualizado);
       } catch (error) {
@@ -170,10 +170,11 @@ export const AdminProvider = ({ children }) => {
     } else {
       try {
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API}/producto/crear`,
+          `${process.env.REACT_APP_API}/admin/crear`,
           producto,
           config
         );
+
         const { createdAt, updatedAt, ...productosAlmacenados } = data;
         setProductos([productosAlmacenados, ...productos]);
       } catch (error) {
@@ -182,7 +183,6 @@ export const AdminProvider = ({ children }) => {
     }
   };
   const putProducto = (e) => {
-    console.log(e);
     setProducto(e);
   };
 
@@ -207,7 +207,7 @@ export const AdminProvider = ({ children }) => {
           `${process.env.REACT_APP_API}/admin/borrar/${id}`,
           config
         );
-        const pacienteActualizado = productos.filter((e) => e._id !== id);
+        const pacienteActualizado = productos.filter((e) => e.id !== id);
         setProductos(pacienteActualizado);
       } catch (error) {
         console.log(error);
