@@ -6,18 +6,22 @@ const router = Router();
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    if (id !== "numero") {
+
+    if (id === "string" || NaN) {
       const error = new Error("El id debe de ser un numero");
       return res.status(404).json({ msg: error.message });
     }
-    const borrar = await Producto.destroy({
+    await Producto.destroy({
       where: {
         id,
       },
     });
 
     return res.json({ msg: "Producto eliminado correctamente" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+    return res.json({ msg: error.message });
+  }
 });
 
 module.exports = router;

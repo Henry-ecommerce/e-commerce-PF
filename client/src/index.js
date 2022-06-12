@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import store from "./Redux/Store";
 import axios from "axios";
 import { AuthProviderUser } from "./Context/AuthProviderUsers";
+import { AdminProvider } from "./Context/AuthProviderAdmin";
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
@@ -37,7 +38,9 @@ root.render(
       <Provider store={store}>
         <ChakraProvider theme={theme}>
           <AuthProviderUser>
-            <App />
+            <AdminProvider n>
+              <App />
+            </AdminProvider>
           </AuthProviderUser>
         </ChakraProvider>
       </Provider>

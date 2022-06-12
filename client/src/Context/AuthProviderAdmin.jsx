@@ -1,15 +1,20 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 
-const usuariosContext = createContext();
+const AuthProviderProducContext = createContext();
 
-export const UserProvider = ({ children }) => {
-  const [usuarios, setusUarios] = useState([]);
-  const [usuario, setusUario] = useState({});
+export const AdminProvider = ({ children }) => {
+  const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({});
+  const [users, setUsers] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [ordenes, setOrdenes] = useState([]);
+  const [ventas, setVentas] = useState([]);
+  const [pagos, setPagos] = useState([]);
+  console.log(producto);
   useEffect(() => {
-    const obtenerPerfil = async () => {
+    const pagos = async () => {
       try {
-        //toma token alamacenado
         const token = localStorage.getItem("token");
         if (!token) return;
         const config = {
@@ -19,19 +24,125 @@ export const UserProvider = ({ children }) => {
           },
         };
         const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/paciente/obtener`,
+          `${process.env.REACT_APP_API}/admin/transacciones`,
           config
         );
 
-        setusUarios(data);
+        setPagos(data);
       } catch (error) {
         console.log(error.response.data.msg);
       }
     };
-    obtenerPerfil();
+    pagos();
+    const ventas = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/admin/ventas`,
+          config
+        );
+
+        setVentas(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    ventas();
+    const ordenes = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/admin/ordenes`,
+          config
+        );
+
+        setOrdenes(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    ordenes();
+    const obtenerCategorias = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/admin/categorias`,
+          config
+        );
+
+        setCategorias(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    obtenerCategorias();
+
+    const obtenerUsers = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/admin/users`,
+          config
+        );
+
+        setUsers(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    obtenerUsers();
+    const obtenerProducto = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/admin/obtener`,
+          config
+        );
+
+        setProductos(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    obtenerProducto();
   }, []);
 
-  const guardarPerfil = async (paciente) => {
+  const guardarProducto = async (producto) => {
     const token = localStorage.getItem("token");
 
     const config = {
@@ -40,40 +151,42 @@ export const UserProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     };
-
-    if (usuario.id) {
+    console.log(producto);
+    console.log(producto.id);
+    if (producto.id) {
       try {
         const { data } = await axios.put(
-          `${import.meta.env.BACKEND_URL}/usuario/modificar/${usuario.id}`,
-          usuario,
+          `${process.env.REACT_APP_API}/admin/modificar/${producto.id}`,
+          producto,
           config
         );
-        const usuarioActualizado = usuarios.map((e) =>
+        const productoActualizado = productos.map((e) =>
           e._id === data._id ? data : e
         );
-        setusUarios(usuarioActualizado);
+        setProductos(productoActualizado);
       } catch (error) {
         console.log(error.response.data.msg);
       }
     } else {
       try {
         const { data } = await axios.post(
-          `${import.meta.env.BACKEND_URL}/usuario/crear`,
-          usuario,
+          `${process.env.REACT_APP_API}/producto/crear`,
+          producto,
           config
         );
-        const { createdAt, updatedAt, __v, ...usuariosAlmacenados } = data;
-        setusUarios([usuariosAlmacenados, ...usuarios]);
+        const { createdAt, updatedAt, ...productosAlmacenados } = data;
+        setProductos([productosAlmacenados, ...productos]);
       } catch (error) {
         console.log(error.response.data.msg);
       }
     }
   };
-  const putUsuario = (e) => {
-    setusUario(e);
+  const putProducto = (e) => {
+    console.log(e);
+    setProducto(e);
   };
 
-  const eliminarPaciente = async (id) => {
+  const eliminarProducto = async (id) => {
     // eslint-disable-next-line no-restricted-globals
     const confirmar = confirm(
       "¿Confirmas que desas eliminar el siguiente registro ?"
@@ -91,11 +204,11 @@ export const UserProvider = ({ children }) => {
       try {
         // eslint-disable-next-line no-unused-vars
         const { data } = await axios.delete(
-          `${process.env.REACT_APP_API}/paciente/borrar/${id}`,
+          `${process.env.REACT_APP_API}/admin/borrar/${id}`,
           config
         );
-        const pacienteActualizado = usuarios.filter((e) => e._id !== id);
-        setusUarios(pacienteActualizado);
+        const pacienteActualizado = productos.filter((e) => e._id !== id);
+        setProductos(pacienteActualizado);
       } catch (error) {
         console.log(error);
       }
@@ -103,18 +216,23 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <usuariosContext.Provider
+    <AuthProviderProducContext.Provider
       value={{
-        usuarios,
-        guardarPerfil,
-        putUsuario,
-        usuario,
-        eliminarPaciente,
+        guardarProducto,
+        putProducto,
+        eliminarProducto,
+        users,
+        ordenes,
+        categorias,
+        ventas,
+        productos,
+        producto,
+        pagos,
       }}
     >
       {children}
-    </usuariosContext.Provider>
+    </AuthProviderProducContext.Provider>
   );
 };
 
-export default usuariosContext;
+export default AuthProviderProducContext;
