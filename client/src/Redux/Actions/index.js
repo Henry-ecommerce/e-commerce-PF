@@ -10,6 +10,7 @@ import {
 	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
 	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
 	GET_USER_INFO,
+	PRODUCT_TO_REVIEW,
 	GET_FILTER_PRODUCTS,
 } from "./actions_types";
 
@@ -82,6 +83,25 @@ export function get_user_info() {
 	};
 }
 
+export function post_review(data) {
+	return async () => {
+		await axios.post('/review', {
+			titulo: data.titulo,
+			text: data.text,
+			rating: data.rating,
+			productoId: [data.productoId]
+		})
+		  .then(function (response) {
+			console.log("Success:", response);
+		  })
+		  .catch(function (error) {
+			console.log(error);
+		  });
+	}
+}
+export function product_to_review(product){
+	return { type: PRODUCT_TO_REVIEW, payload: product}
+}
 // export function get_product_detail() {
 //     return async dispatch => {
 

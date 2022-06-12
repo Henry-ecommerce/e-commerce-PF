@@ -8,13 +8,13 @@ import {
   Center,
   Container,
 } from "@chakra-ui/react";
-const ReviewCard = () => {
+const ReviewCard = ({id, titulo, comentario}) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(<AiFillStar />);
   }
   return (
-    <Center>
+    <Center key={id}>
       <Container
         m={"20px"}
         mb={"0"}
@@ -39,11 +39,10 @@ const ReviewCard = () => {
           </Flex>
           <Spacer />
           <Text p={"5px"}>
-            There are many benefits to a joint design and development system.
-            Not only does it bring benefits to the design team, but it also
-            brings benefits to engineering teams. It makes sure that our
-            experiences have a consistent look and feel, not just in our design
-            specs, but in production.
+          {titulo}
+          </Text>
+          <Text p={"5px"}>
+          {comentario}
           </Text>
         </Flex>
       </Container>

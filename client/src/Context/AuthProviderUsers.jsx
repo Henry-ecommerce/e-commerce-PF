@@ -42,37 +42,37 @@ const AuthProviderUser = ({ children }) => {
     localStorage.removeItem("info_user");
     setAuth({});
   };
-  // const actualizarPerfil = async (datos) => {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) {
-  //     setCargando(false);
-  //     return;
-  //   }
+  const actualizarPerfil = async (datos) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setCargando(false);
+      return;
+    }
 
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-  //   try {
-  //     const { data } = await axios.put(
-  //       `${process.env.REACT_APP_API}/api/perfil/${datos._id}`,
-  //       datos,
-  //       config
-  //     );
-  //     return {
-  //       msg: "Almacenado correctamente",
-  //       error: true,
-  //     };
-  //   } catch (error) {
-  //     return {
-  //       msg: error.response.data.msg,
-  //       error: true,
-  //     };
-  //   }
-  // };
+    try {
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/registro/perfil/${datos.id}`,
+        datos,
+        config
+      );
+      return {
+        msg: "Almacenado correctamente",
+        error: true,
+      };
+    } catch (error) {
+      return {
+        msg: error.response.data.msg,
+        error: true,
+      };
+    }
+  };
 
   const guardarPasswor = async (datos) => {
     const token = localStorage.getItem("token");
@@ -111,7 +111,7 @@ const AuthProviderUser = ({ children }) => {
         setAuth,
         cargando,
         cerrarSesion,
-        // actualizarPerfil,
+        actualizarPerfil,
         guardarPasswor,
       }}
     >
