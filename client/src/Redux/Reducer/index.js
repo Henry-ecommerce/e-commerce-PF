@@ -1,21 +1,25 @@
 import {
-  GET_ALL_PRODUCTS,
-  GET_PRODUCT_BY_NAME,
-  GET_PRODUCT_NAME_TO_RENDER_IN_INPUT,
-  SET_PRODUCTS_IN_CART_LOCAL_STORAGE,
-  ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
-  SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
-  DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
-  GET_FILTER_PRODUCTS,
+
+	GET_ALL_PRODUCTS,
+	GET_PRODUCT_BY_NAME,
+	GET_PRODUCT_NAME_TO_RENDER_IN_INPUT,
+	SET_PRODUCTS_IN_CART_LOCAL_STORAGE,
+	ADD_QUANTITY_IN_CART_LOCAL_STORAGE,
+	SUBTRACT_QUANTITY_IN_CART_LOCAL_STORAGE,
+	DELETE_PRODUCT_IN_CART_LOCAL_STORAGE,
+	PRODUCT_TO_REVIEW,
+	GET_FILTER_PRODUCTS,
 } from "../Actions/actions_types";
 
 const initialState = {
-  products: [],
-  searched_products: [],
-  searched_product_name_to_render_in_input: [],
-  product: {},
-  products_in_cart_local_storage: [],
-  filtrados: [],
+	products: [],
+	searched_products: [],
+	searched_product_name_to_render_in_input: [],
+	product: {},
+	products_in_cart_local_storage: [],
+	product_to_review: [],
+	filtrados: [],
+
 };
 
 initialState.products_in_cart_local_storage = JSON.parse(
@@ -103,13 +107,20 @@ function reducer(state = initialState, { type, payload }) {
       localStorage.setItem("productos_carrito", JSON.stringify(delete_roduct));
       return m;
     case GET_FILTER_PRODUCTS:
-      return {
-        ...state,
-        filtrados: payload,
-      };
-    default:
-      return state;
-  }
+
+			return {
+				...state,
+				filtrados: payload
+			};
+		case PRODUCT_TO_REVIEW:
+			return {
+				...state,
+				product_to_review: payload,
+			}
+		default:
+			return state;
+	}
+
 }
 
 export default reducer;
