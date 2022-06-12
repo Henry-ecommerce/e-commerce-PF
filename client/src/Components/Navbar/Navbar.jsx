@@ -18,14 +18,19 @@ import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	add_quantity_in_cart_local_storage,
 	subtract_quantity_in_cart_local_storage,
 	delete_product_in_cart_local_storage,
 } from "../../Redux/Actions";
+import useAuth from "../../hooks/useAuth";
+import {useNavigate} from 'react-router-dom'
 
 function Navbar() {
+  const navigate = useNavigate()
+  const { cerrarSesion } = useAuth()
 	const dispatch = useDispatch();
 	const { products_in_cart_local_storage } = useSelector((state) => state);
 	// console.log(products_in_cart_local_storage);
@@ -36,15 +41,6 @@ function Navbar() {
 	});
 
 	let localStorage_of_products = localStorage.getItem("productos_carrito");
-	// console.log(JSON.parse(localStorage_of_products));
-
-	// async function handleLogout() {
-	// try {
-	// 	await signout();
-	// } catch (error) {
-	// 	console.log(error);
-	// }
-	// }
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
@@ -54,6 +50,9 @@ function Navbar() {
 						<AiOutlineMenu />
 					</MenuButton>
 					<MenuList color={"#242525"}>
+						{user?.name !== undefined && (
+							<MenuItem color="#ECEDEC">{user.name}</MenuItem>
+						)}
 						<MenuItem>
 							<Link to="/#">Inicio</Link>
 						</MenuItem>
@@ -85,9 +84,43 @@ function Navbar() {
 						</Box>
 					</Flex>
 					<Flex align={"center"} mx="30px">
-						<Link to="/login">
-							<AiOutlineUser />
-						</Link>
+						{user?.name !== undefined && (
+							<Box mx="10px" color="#ECEDEC" textTransform={'capitalize'}>
+								<Link to="/user/perfil">{user.name}</Link>
+							</Box>
+						)}
+						{user?.name !== undefined ? (
+							<Menu autoSelect={false} closeOnSelect={false}>
+								<MenuButton disabled={user?.name === undefined ? true : false}>
+									<AiOutlineUser />
+								</MenuButton>
+								<Portal>
+									<MenuList>
+										<Link to="/user/perfil">
+											<MenuItem>
+												<Box mx="10px">
+													<AiOutlineUser />
+												</Box>
+												Perfil
+											</MenuItem>
+										</Link>
+											<MenuItem onClick={() => {
+                        cerrarSesion()
+                        navigate('/')
+                      }}>
+												<Box mx="10px">
+													<MdLogout />
+												</Box>
+												Cerrar Sesion
+											</MenuItem>
+									</MenuList>
+								</Portal>
+							</Menu>
+						) : (
+							<Link to="/login">
+								<AiOutlineUser />
+							</Link>
+						)}
 						<Box ml={4} color="#ECEDEC">
 							<AiOutlineHeart />
 						</Box>

@@ -10,15 +10,13 @@ const HomeAdmin = () => {
   return (
     <>
       <Header />
-
-      {auth?.rol === "Admin" ? (
+      {auth?.rol === 'Admin' ? (
         <main className="conteiner mx-auto mt-20">
           <Outlet />
         </main>
       ) : (
         <Navigate to="/login" />
       )}
-
       <Footer />
     </>
   );
