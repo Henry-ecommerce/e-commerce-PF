@@ -36,15 +36,6 @@ function Navbar() {
 	});
 
 	let localStorage_of_products = localStorage.getItem("productos_carrito");
-	// console.log(JSON.parse(localStorage_of_products));
-
-	// async function handleLogout() {
-	// try {
-	// 	await signout();
-	// } catch (error) {
-	// 	console.log(error);
-	// }
-	// }
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">

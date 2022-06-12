@@ -23,12 +23,6 @@ function Products() {
 			my="50px"
 		>
 			{
-				/* searched_products.length > 0 && typeof searched_products !== "string" ? (
-				searched_products?.map((product) => {
-					return <Product key={product.id} {...product} />;
-				})
-			) : (searched_products.length === 0 ||
-					typeof searched_products === "string") && */
 				products.length > 0 ? (
 					products?.map((product) => {
 						return <Product key={product.id} {...product} />;
