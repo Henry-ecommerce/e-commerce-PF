@@ -4,10 +4,12 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { Flex, Box, Image, Stack, Button, HStack } from "@chakra-ui/react";
+import { Flex, Box, Image, Stack, Button, HStack, VStack } from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { product_to_review } from "../../Redux/Actions/index"
 import ReviewCard from "../ReviewCard/ReviewCard";
 
 
@@ -20,20 +22,30 @@ function ProductDetail() {
   const [isActiveD, setIsActiveD] = useState(true);
   const [isActiveE, setIsActiveE] = useState(false);
   const [isActiveR, setIsActiveR] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/productos/detail/${id}`).then((result) => {
+    axios.get(`productos/detail/${id}`).then((result) => {
       setProduct(result.data);
       console.log(result.data);
     });
-  }, []);
+    axios.get(`/review/:${id}`).then((res) => {
+      setReviews(res.data);
+      console.log("Reviews ",res.data);
+    });
+  }, [id]);
 
   const [img, setImg] = useState();
 
   function changeImg(e) {
     setImg(e);
+  }
+
+  function onReview(){
+    dispatch(product_to_review([product]));
   }
 
   if (typeof product === "object") {
@@ -144,8 +156,14 @@ function ProductDetail() {
                   <br />
                   <div>Espacio Para Promociones Bancarias</div>
                   <br />
-
-                  <HStack spacing="25px">
+                <HStack spacing="15px">
+                <AddToCartIcon
+                      nombre={product.nombre}
+                      precio={product.precio}
+                      marca={product.marca}
+                      imagen0={product.imagen0}
+                    />
+                  <VStack spacing="15px">
                     <Button
                       bg="#242525"
                       color="#ECEDEC"
@@ -155,14 +173,20 @@ function ProductDetail() {
                     >
                       COMPRAR
                     </Button>
-
-                    <AddToCartIcon
-                      nombre={product.nombre}
-                      precio={product.precio}
-                      marca={product.marca}
-                      imagen0={product.imagen0}
-                    />
-                  </HStack>
+                    <Link to={'/review'}>
+                    <Button
+                      bg="#242525"
+                      color="#ECEDEC"
+                      _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                      fontSize="small"
+                      w="150px"
+                      onClick={onReview}
+                    >
+                      Escribir Mi Opinión
+                    </Button>
+                    </Link>
+                  </VStack>
+                </HStack>
                 </Flex>
               </Box>
             </Flex>
@@ -236,7 +260,15 @@ function ProductDetail() {
 
             <Box pl="5" pr="5">
               {showReviews ? (
-                <Box><ReviewCard/><ReviewCard/></Box>
+                <Box>
+                {reviews.length > 0 ? 
+                  reviews.map((r) => {
+                   return <ReviewCard key={r.id} titulo={r.titulo} comentario={r.text}/>
+                  })
+                  :
+                  "Aun no Hay Reviews Se el Primero!"
+                }
+                </Box>
               ) : null}        
             </Box>
             <Box>

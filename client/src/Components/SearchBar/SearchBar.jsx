@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Center, Flex, Input, Text } from "@chakra-ui/react";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
@@ -11,7 +11,8 @@ import { useSelector } from "react-redux";
 import { useRef } from "react";
 
 function SearchBar() {
-	const input_ref = useRef();
+	const close_ref = useRef();
+	const [searched_names_open, setSearched_names_open] = useState(false);
 	const { searched_product_name_to_render_in_input } = useSelector(
 		(state) => state
 	);
@@ -23,8 +24,24 @@ function SearchBar() {
 		set_width(window.frames.innerWidth);
 	});
 
-	// console.log(document.hasFocus(inputValue));
+	useEffect(() => {
+		const cerrar_buscador = (e) => {
+			if (
+				searched_names_open &&
+				close_ref.current &&
+				!close_ref.current.contains(e.target)
+			) {
+				setSearched_names_open(false);
+			}
+		};
+		document.addEventListener("click", cerrar_buscador);
+		return () => {
+			document.removeEventListener("click", cerrar_buscador);
+		};
+	}, [searched_names_open]);
+
 	function handleInputChange(e) {
+		setSearched_names_open(true);
 		setInputValue(e.target.value);
 		if (inputValue !== "") {
 			dispatch(get_product_name_to_render_in_input(inputValue));
@@ -67,39 +84,44 @@ function SearchBar() {
 							type={"text"}
 							value={inputValue}
 							onChange={(e) => handleInputChange(e)}
-							ref={input_ref}
 						/>
-						<Box
-							bg="#FFFF"
-							p="10px"
-							borderRadius={"5px"}
-							display={
-								(inputValue === "" ||
-									searched_product_name_to_render_in_input.length <= 1) &&
-								"none"
-							}
-							position="absolute"
-							zIndex={10}
-							w={["150px", "220px", "250px", "250px", "500px"]}
-						>
-							{searched_product_name_to_render_in_input.length > 1 &&
-								typeof searched_product_name_to_render_in_input !== "string" &&
-								inputValue !== "" &&
-								searched_product_name_to_render_in_input.map((elem, i) => {
-									return (
-										<Box
-											key={i}
-											cursor="pointer"
-											onClick={(e) => {
-												e.target.parentNode.style.display = 'none'
-												setInputValue(elem);
-											}}
-										>
-											{elem}
-										</Box>
-									);
-								})}
-						</Box>
+						{searched_names_open && typeof searched_product_name_to_render_in_input !== 'string' && (
+								<Box
+									ref={close_ref}
+									bg="#FFFF"
+									p="10px"
+									borderRadius={"5px"}
+									display={
+										(inputValue === "" ||
+											searched_product_name_to_render_in_input.length <= 1) &&
+										"none"
+									}
+									position="absolute"
+									zIndex={20000}
+									w={["150px", "220px", "250px", "250px", "500px"]}
+								>
+									{searched_product_name_to_render_in_input.length > 0 &&
+										typeof searched_product_name_to_render_in_input !==
+											"string" &&
+										inputValue !== "" &&
+										searched_names_open &&
+										searched_product_name_to_render_in_input.map((elem, i) => {
+											return (
+												<Box
+													_hover={{bg : '#EDEDED', borderRadius : '5px', p: '5px'}}
+													key={i}
+													cursor="pointer"
+													onClick={(e) => {
+														e.target.parentNode.style.display = "none";
+														setInputValue(elem);
+													}}
+												>
+													{elem}
+												</Box>
+											);
+										})}
+								</Box>
+							)}
 					</Box>
 					<Button onClick={e => window.location.href = `/products/${inputValue}`}
 						bg="#242525"

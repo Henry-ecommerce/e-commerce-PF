@@ -38,6 +38,7 @@ const AuthProviderUser = ({ children }) => {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("info_user");
     setAuth({});
   };
   const actualizarPerfil = async (datos) => {
@@ -56,6 +57,7 @@ const AuthProviderUser = ({ children }) => {
 
     try {
       const { data } = await axios.put(
+
         `${process.env.REACT_APP_API}/registro/perfil/${datos.id}`,
         datos,
         config
