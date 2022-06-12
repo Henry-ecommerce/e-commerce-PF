@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -98,143 +97,147 @@ export default function Signup() {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const { msg } = alerta;
 
+  const { msg } = alerta;
   return (
-    <Flex mt="30px" align={"center"} justify={"center"}>
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
-          </Heading>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-        >
-          {msg && <Alerta alerta={alerta} />}
-          <form onSubmit={handleSubmit}>
-            <Stack spacing={4}>
-              <HStack>
-                <Box>
-                  <FormControl id="firstName" /* isRequired */>
-                    <FormLabel>First Name</FormLabel>
+    <>
+      <Flex mt="30px" align={"center"} justify={"center"}>
+        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+          <Stack align={"center"}>
+            <Heading fontSize={"4xl"} textAlign={"center"}>
+              Sign up
+            </Heading>
+          </Stack>
+          <Box
+            rounded={"lg"}
+            bg={useColorModeValue("white", "gray.700")}
+            boxShadow={"lg"}
+            p={8}
+          >
+            {msg && <Alerta alerta={alerta} />}
+            <form onSubmit={handleSubmit}>
+              <Stack spacing={4}>
+                <HStack>
+                  <Box>
+                    <FormControl id="firstName" /* isRequired */>
+                      <FormLabel>First Name</FormLabel>
+                      <Input
+                        onBlur={handleOnblur}
+                        onChange={handleChange}
+                        type="text"
+                        value={form.name}
+                        name="name"
+                        placeholder="Escribe tu nombre"
+                      />
+                      {errors.name && (
+                        <Text color="#FE0A01">{errors.name}</Text>
+                      )}
+                    </FormControl>
+                  </Box>
+                </HStack>
+                <FormControl id="email" /* isRequired */>
+                  <FormLabel>Email address</FormLabel>
+                  <Input
+                    onBlur={handleOnblur}
+                    onChange={handleChange}
+                    value={form.email}
+                    name="email"
+                    type="email"
+                  />
+                  {errors.email && <Text color="#FE0A01">{errors.email}</Text>}
+                </FormControl>
+                <FormControl id="password" /* isRequired */>
+                  <FormLabel>Password</FormLabel>
+                  <InputGroup>
                     <Input
+                      type={showPassword ? "text" : "password"}
                       onBlur={handleOnblur}
                       onChange={handleChange}
-                      type="text"
-                      value={form.name}
-                      name="name"
-                      placeholder="Escribe tu nombre"
+                      value={form.password}
+                      name="password"
                     />
-                    {errors.name && <Text color="#FE0A01">{errors.name}</Text>}
-                  </FormControl>
-                </Box>
-              </HStack>
-              <FormControl id="email" /* isRequired */>
-                <FormLabel>Email address</FormLabel>
-                <Input
-                  onBlur={handleOnblur}
-                  onChange={handleChange}
-                  value={form.email}
-                  name="email"
-                  type="email"
-                />
-                {errors.email && <Text color="#FE0A01">{errors.email}</Text>}
-              </FormControl>
-              <FormControl id="password" /* isRequired */>
-                <FormLabel>Password</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    value={form.password}
-                    name="password"
-                  />
-                  {errors.password && (
-                    <Text color="#FE0A01">{errors.password}</Text>
-                  )}
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-              <FormControl id="password_confirm" /* isRequired */>
-                <FormLabel>Password Confirm</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={showPasswordConfirm ? "text" : "password"}
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    value={form.passwordRepit}
-                    name="passwordRepit"
-                  />
-                  {errors.passwordRepit && (
-                    <Text color="#FE0A01">{errors.passwordRepit}</Text>
-                  )}
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPasswordConfirm(
-                          (showPasswordConfirm) => !showPasswordConfirm
-                        )
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-              <Stack spacing={10} pt={2}>
-                <Button
-                  type="submit"
-                  loadingText="Submitting"
-                  size="lg"
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Sign up
-                </Button>
-              </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Already a user?
-                  <RouterLink style={{ color: "#4399E1" }} to="/login">
-                    {" "}
-                    Login
-                  </RouterLink>
-                </Text>
-              </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Recuperar contraseña
-                  <RouterLink
-                    style={{ color: "#4399E1" }}
-                    to="/login/newPassword"
+                    {errors.password && (
+                      <Text color="#FE0A01">{errors.password}</Text>
+                    )}
+                    <InputRightElement h={"full"}>
+                      <Button
+                        variant={"ghost"}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)
+                        }
+                      >
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
+                <FormControl id="password_confirm" /* isRequired */>
+                  <FormLabel>Password Confirm</FormLabel>
+                  <InputGroup>
+                    <Input
+                      type={showPasswordConfirm ? "text" : "password"}
+                      onBlur={handleOnblur}
+                      onChange={handleChange}
+                      value={form.passwordRepit}
+                      name="passwordRepit"
+                    />
+                    {errors.passwordRepit && (
+                      <Text color="#FE0A01">{errors.passwordRepit}</Text>
+                    )}
+                    <InputRightElement h={"full"}>
+                      <Button
+                        variant={"ghost"}
+                        onClick={() =>
+                          setShowPasswordConfirm(
+                            (showPasswordConfirm) => !showPasswordConfirm
+                          )
+                        }
+                      >
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
+                <Stack spacing={10} pt={2}>
+                  <Button
+                    type="submit"
+                    loadingText="Submitting"
+                    size="lg"
+                    bg={"blue.400"}
+                    color={"white"}
+                    _hover={{
+                      bg: "blue.500",
+                    }}
                   >
-                    {" "}
-                    Recuperar pass
-                  </RouterLink>
-                </Text>
+                    Sign up
+                  </Button>
+                </Stack>
+                <Stack pt={6}>
+                  <Text align={"center"}>
+                    Already a user?
+                    <RouterLink style={{ color: "#4399E1" }} to="/login">
+                      {" "}
+                      Login
+                    </RouterLink>
+                  </Text>
+                </Stack>
+                <Stack pt={6}>
+                  <Text align={"center"}>
+                    Recuperar contraseña
+                    <RouterLink
+                      style={{ color: "#4399E1" }}
+                      to="/login/newPassword"
+                    >
+                      {" "}
+                      Recuperar pass
+                    </RouterLink>
+                  </Text>
+                </Stack>
               </Stack>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-    </Flex>
+            </form>
+          </Box>
+        </Stack>
+      </Flex>
+    </>
   );
 }
