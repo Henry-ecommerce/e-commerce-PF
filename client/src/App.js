@@ -77,6 +77,7 @@ function App() {
         <Route path="/user" element={<HomeUser />}>
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
+        <Route path="wishList" element={<WishList />} />
         </Route>
 
         <Route path="/owner" element={<HomeOwner />}>
@@ -88,7 +89,6 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
 
-        <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
         <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
       </Routes>

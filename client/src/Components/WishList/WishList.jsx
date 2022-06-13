@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Menu,
@@ -7,11 +7,22 @@ import {
   Flex,
   MenuButton,
   Text,
+  SimpleGrid
 } from "@chakra-ui/react";
 import Product from "../Product/Product";
+import { useSelector, useDispatch } from "react-redux";
+import { get_user_favorites } from "../../Redux/Actions";
 
 function WishList() {
   let [select, setSelect] = useState("Nombre");
+  let {favorites} = useSelector(state => state)
+  const dispatch = useDispatch();
+	let user = JSON.parse(localStorage.getItem("info_user"));
+
+
+  useEffect(() => {
+    dispatch(get_user_favorites(user.id))
+  }, [dispatch, favorites, user.id]);
 
   return (
     <Box>
@@ -47,22 +58,33 @@ function WishList() {
             </MenuItem>
           </MenuList>
         </Menu>
-        <Box position="absolute" left='50%' right='50' color="white" fontWeight="bold">
+        <Box
+          position="absolute"
+          left="50%"
+          right="50"
+          color="white"
+          fontWeight="bold"
+        >
           Favoritos
         </Box>
       </Flex>
-      <Box m={23}>
-        {/* aqui se debe realizar el map a los productos que cada usuario tenga en favoritos desde la base de datos */}
-        <Product
-          nombre={"juan"}
-          marca={"logitec"}
-          origin={"wishlist"}
-          precio={{ PesosArg: 333 }}
-          imagen0={
-            "https://www.zdnet.com/a/img/resize/ee751a0011802c17a7f6b05a415476009437e148/2017/06/15/01748d48-6a7b-40c6-ace6-26c13e96f4b2/macbook-13-2017-header.jpg?auto=webp&width=768"
-          }
-        />
-      </Box>
+      <SimpleGrid
+			columns={[1, 1, 1, 2, 3]}
+			spacing="20px"
+			m="auto"
+			maxW={"80%"}
+			my="50px"
+		>
+        {favorites?.length > 0 ? (
+          favorites?.map((product) => {
+            return (
+              <Product key={product.id} {...product} origin={"wishlist"} />
+            );
+          })
+        ) : (
+          <Box>Vaya parece que aun no tienes nada en favoritos :C...</Box>
+        )}
+    </SimpleGrid>
     </Box>
   );
 }

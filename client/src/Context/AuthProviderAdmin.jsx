@@ -12,139 +12,142 @@ export const AdminProvider = ({ children }) => {
   const [ventas, setVentas] = useState([]);
   const [pagos, setPagos] = useState([]);
   console.log(producto);
+
   useEffect(() => {
-    const pagos = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/transacciones`,
-          config
-        );
+    const user = JSON.parse(localStorage.getItem("info_user"));
+    if(user.rol === 'Admin' || user.rol === 'Owner'){
+      const pagos = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/transacciones`,
+            config
+          );
 
-        setPagos(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    pagos();
-    const ventas = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/ventas`,
-          config
-        );
+          setPagos(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      pagos();
+      const ventas = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/ventas`,
+            config
+          );
 
-        setVentas(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    ventas();
-    const ordenes = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/ordenes`,
-          config
-        );
+          setVentas(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ventas();
+      const ordenes = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/ordenes`,
+            config
+          );
 
-        setOrdenes(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    ordenes();
-    const obtenerCategorias = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/categorias`,
-          config
-        );
+          setOrdenes(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ordenes();
+      const obtenerCategorias = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/categorias`,
+            config
+          );
 
-        setCategorias(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    obtenerCategorias();
+          setCategorias(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerCategorias();
 
-    const obtenerUsers = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/users`,
-          config
-        );
+      const obtenerUsers = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/users`,
+            config
+          );
 
-        setUsers(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    obtenerUsers();
-    const obtenerProducto = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const { data } = await axios.get(
-          `${process.env.REACT_APP_API}/admin/obtener`,
-          config
-        );
+          setUsers(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerUsers();
+      const obtenerProducto = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/obtener`,
+            config
+          );
 
-        setProductos(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
-    };
-    obtenerProducto();
+          setProductos(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerProducto();
+    }
   }, []);
-
+  
   const guardarProducto = async (producto) => {
     const token = localStorage.getItem("token");
-
     const config = {
       headers: {
         "Content-Type": "application/json",
