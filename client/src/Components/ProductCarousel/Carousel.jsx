@@ -9,7 +9,7 @@ import Product from "../Product/Product";
 const Carousel = ({ items }) => {
 	const scrl = useRef();
 
-	if (!items) return <></>;
+	if (!Array.isArray(items)) return <></>;
 
 	const desplazar_pagina = (direcion) => {
 		if (direcion === "izq")
