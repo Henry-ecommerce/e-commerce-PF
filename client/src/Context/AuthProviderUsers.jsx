@@ -57,7 +57,6 @@ const AuthProviderUser = ({ children }) => {
 
     try {
       const { data } = await axios.put(
-
         `${process.env.REACT_APP_API}/registro/perfil/${datos.id}`,
         datos,
         config
