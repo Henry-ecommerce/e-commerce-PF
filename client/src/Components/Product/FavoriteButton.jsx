@@ -75,9 +75,10 @@ function FavoriteButton({ origin, productId }) {
         m="0"
         bg="white"
         position="absolute"
-        top="10px"
+        top="5px"
+        borderRadius={"full"}
       >
-        <BsTrash size="35" />
+        <BsTrash size="30" />
       </Button>
     );
   }
