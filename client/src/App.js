@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import HomeOwner from "./Components/layout/HomeUser";
+import HomeOwner from "./Components/layout/HomeOwner";
 import HomeAdmin from "./Components/layout/HomeAdmin";
 import HomeUser from "./Components/layout/HomeUser";
 import Navbar from "./Components/Navbar/Navbar";
@@ -33,7 +33,7 @@ import Ordenes from "./Components/AdminPanel/Ordenes/Ordenes";
 import Users from "./Components/AdminPanel/Users/Users";
 import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
-import Home from "./Components/Home/Home"
+import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
           element={
             <Box>
               <SearchBar />
-              <Home/>
+              <Home />
             </Box>
           }
         />
