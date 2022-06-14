@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Stack,
-  useColorModeValue,
-  Text,
+	Button,
+	Flex,
+	FormControl,
+	FormLabel,
+	Heading,
+	Input,
+	Stack,
+	useColorModeValue,
+	Text,
 } from "@chakra-ui/react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 // import { useAuth } from "../../Context/AuthContext";
@@ -20,6 +20,7 @@ import useAuth from "../../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 
 export default function Login() {
+
   const [user, setUser] = useState({});
   console.log(`Soy el user`, user);
 
@@ -75,42 +76,44 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if ([email, password].includes("")) {
-      setAlerta({
-        msg: "Todos los campos son obligatorios",
-        error: true,
-      });
 
-      return;
-    }
-    try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/registro/cliente/login`,
-        { email, password }
-      );
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if ([email, password].includes("")) {
+			setAlerta({
+				msg: "Todos los campos son obligatorios",
+				error: true,
+			});
 
+			return;
+		}
+		try {
+			const { data } = await axios.post(
+				`${process.env.REACT_APP_API}/registro/cliente/login`,
+				{ email, password }
+			);
+      
       localStorage.setItem("token", data.token);
       localStorage.setItem("info_user", JSON.stringify(data));
+			
+			setAuth(data);
+			if (data.rol === "Owner") {
+				navegates("/owner");
+			} else if (data.rol === "Admin") {
+				navegates("/admin");
+			} else {
+				navegates("/user");
+			}
+		} catch (error) {
+			setAlerta({
+				msg: error.response.data.msg,
+				error: true,
+			});
+		}
+	};
 
-      setAuth(data);
-      if (data.rol === "Owner") {
-        navegates("/owner");
-      } else if (data.rol === "Admin") {
-        navegates("/admin");
-      } else {
-        navegates("/");
-      }
-    } catch (error) {
-      setAlerta({
-        msg: error.response.data.msg,
-        error: true,
-      });
-    }
-  };
+	const { msg } = alerta;
 
-  const { msg } = alerta;
 
   return (
     <>
@@ -203,5 +206,6 @@ export default function Login() {
         </Stack>
       </Flex>
     </>
-  );
+	);
+
 }

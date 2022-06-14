@@ -4,14 +4,21 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { Flex, Box, Image, Stack, Button, HStack, VStack } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Image,
+  Stack,
+  Button,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { product_to_review } from "../../Redux/Actions/index"
+import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
-
 
 function ProductDetail() {
   let { id } = useParams();
@@ -34,7 +41,7 @@ function ProductDetail() {
     });
     axios.get(`/review/:${id}`).then((res) => {
       setReviews(res.data);
-      console.log("Reviews ",res.data);
+      console.log("Reviews ", res.data);
     });
   }, [id]);
 
@@ -44,7 +51,7 @@ function ProductDetail() {
     setImg(e);
   }
 
-  function onReview(){
+  function onReview() {
     dispatch(product_to_review([product]));
   }
 
@@ -156,37 +163,40 @@ function ProductDetail() {
                   <br />
                   <div>Espacio Para Promociones Bancarias</div>
                   <br />
-                <HStack spacing="15px">
-                <AddToCartIcon
+                  <HStack spacing="15px">
+                    <AddToCartIcon
                       nombre={product.nombre}
                       precio={product.precio}
                       marca={product.marca}
                       imagen0={product.imagen0}
                     />
-                  <VStack spacing="15px">
-                    <Button
-                      bg="#242525"
-                      color="#ECEDEC"
-                      _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                      fontSize="small"
-                      w="150px"
-                    >
-                      COMPRAR
-                    </Button>
-                    <Link to={'/review'}>
-                    <Button
-                      bg="#242525"
-                      color="#ECEDEC"
-                      _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                      fontSize="small"
-                      w="150px"
-                      onClick={onReview}
-                    >
-                      Escribir Mi Opinión
-                    </Button>
-                    </Link>
-                  </VStack>
-                </HStack>
+                    <VStack spacing="15px">
+                      <Link to={`#`}>
+                        <Button
+                          bg="#242525"
+                          color="#ECEDEC"
+                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                          fontSize="small"
+                          w="150px"
+                        >
+                          COMPRAR
+                        </Button>
+                      </Link>
+                      ;
+                      <Link to={"/review"}>
+                        <Button
+                          bg="#242525"
+                          color="#ECEDEC"
+                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                          fontSize="small"
+                          w="150px"
+                          onClick={onReview}
+                        >
+                          Escribir Mi Opinión
+                        </Button>
+                      </Link>
+                    </VStack>
+                  </HStack>
                 </Flex>
               </Box>
             </Flex>
@@ -261,15 +271,19 @@ function ProductDetail() {
             <Box pl="5" pr="5">
               {showReviews ? (
                 <Box>
-                {reviews.length > 0 ? 
-                  reviews.map((r) => {
-                   return <ReviewCard key={r.id} titulo={r.titulo} comentario={r.text}/>
-                  })
-                  :
-                  "Aun no Hay Reviews Se el Primero!"
-                }
+                  {reviews.length > 0
+                    ? reviews.map((r) => {
+                        return (
+                          <ReviewCard
+                            key={r.id}
+                            titulo={r.titulo}
+                            comentario={r.text}
+                          />
+                        );
+                      })
+                    : "Aun no Hay Reviews Se el Primero!"}
                 </Box>
-              ) : null}        
+              ) : null}
             </Box>
             <Box>
               {showEspecification ? (

@@ -5,6 +5,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import estilo from "./Carousel.module.css";
 import Product from "../Product/Product";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import MiniCard from "../MiniCard/MiniCard";
 
 //RECIBE POR PROPS UN ARRAY DE OBJETOS CON LOS PRODUCTOS NECESARIOS, PARA RENDERIZAR LAS CARTAS (USA EL COMPONENTE PRODUCT).
 const Carousel = ({ items, type }) => {
@@ -31,7 +32,7 @@ const Carousel = ({ items, type }) => {
 					{items?.map((product) => {
 						return (
 							<div key={product.id} className={estilo.card}>
-								{type === "images" ? <CategoryCard {...product}/> : <Product {...product} />}
+								{type === "miniCard"? <MiniCard {...product}/> :(type === "images" ? <CategoryCard {...product}/> : <Product {...product} />)}
 							</div>
 						);
 					})}

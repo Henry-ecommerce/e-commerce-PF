@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -5,10 +6,7 @@ import "./difere.css";
 const HeaderAdmin = () => {
   const { cerrarSesion } = useAuth();
   return (
-    <div className="sidebar">
-      <br />
-      <br />
-      <br />
+    <Box my='30px' className="sidebar">
 
       <ul className="sidebar-ul">
         <li className="sidebar-li">
@@ -43,37 +41,7 @@ const HeaderAdmin = () => {
           </button>
         </li>
       </ul>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </div>
+    </Box>
   );
 };
 

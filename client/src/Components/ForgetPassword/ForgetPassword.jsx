@@ -58,8 +58,8 @@ export default function ForgetPassword() {
         p={6}
         my={12}
       >
-        <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "3xl" }}>
-          Forgot your password?
+        <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "2xl" }}>
+          Olvidastes tu contraseña?
         </Heading>
         {/* {errors && (
           <Box textAlign={"center"} color="#FE0A01" fontWeight={"extrabold"}>
@@ -70,7 +70,7 @@ export default function ForgetPassword() {
           fontSize={{ base: "sm", sm: "md" }}
           color={useColorModeValue("gray.800", "gray.400")}
         >
-          You'll get an email with a reset link
+          Te enviaremos un mail para recuperarla
         </Text>
         {msg && <Alerta alerta={alerta} />}
         <form onSubmit={handleSubmit}>
@@ -86,19 +86,19 @@ export default function ForgetPassword() {
             <Button
               mt={4}
               type="submit"
-              bg={"blue.400"}
+              bg={"#252525"}
               color={"white"}
               _hover={{
-                bg: "blue.500",
+                bg: "#252525",
               }}
             >
-              Request Reset
+              Enviar mail
             </Button>
           </Stack>
         </form>
         <Stack pt={3}>
           <Text align={"center"}>
-            Already a user?
+            Ya sos usuario?
             <Link color={"blue.400"}>
               <RouterLink to="/login"> Login</RouterLink>
             </Link>

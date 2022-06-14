@@ -1,10 +1,13 @@
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
+import HeaderAdmin from "../Admin/HeaderAdmin";
 
 const Users = () => {
   return (
-    <div>
-      <h1>Users</h1>
-    </div>
+    <Flex>
+      <HeaderAdmin />
+      <Box w='60%' m='auto'>Users</Box>
+    </Flex>
   );
 };
 

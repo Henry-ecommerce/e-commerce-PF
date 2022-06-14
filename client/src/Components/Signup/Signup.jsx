@@ -117,170 +117,172 @@ export default function Signup() {
   };
   const { msg } = alerta;
 
-  return (
-    <Flex mt="30px" align={"center"} justify={"center"}>
-      <Stack spacing={8} mx={"auto"} w={"50%"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
-          </Heading>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-        >
-          {msg !== {} && <Alerta alerta={alerta} />}
-          <form onSubmit={handleSubmit}>
-            <Stack spacing={4}>
-              <Box>
-                <FormControl /* id="firstName" */>
-                  <FormLabel>Nombre</FormLabel>
-                  <Input
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    type="text"
-                    value={form.name}
-                    name="name"
-                    placeholder="Escribe tu nombre"
-                  />
-                  {errors.name && <Text color="#FE0A01">{errors.name}</Text>}
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl /* id="firstName" */>
-                  <FormLabel>Apellido</FormLabel>
-                  <Input
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    type="text"
-                    value={form.apellido}
-                    name="apellido"
-                    placeholder="Escribe tu nombre"
-                  />
-                  {errors.apellido && (
-                    <Text color="#FE0A01">{errors.apellido}</Text>
-                  )}
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl /* id="firstName" */>
-                  <FormLabel>Fecha de nacimiento</FormLabel>
-                  <Input
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    type="date"
-                    value={form.fecha_nacimiento}
-                    name="fecha_nacimiento"
-                  />
-                  {errors.fecha_nacimiento && (
-                    <Text color="#FE0A01">{errors.fecha_nacimiento}</Text>
-                  )}
-                </FormControl>
-              </Box>
-              <FormControl id="email" /* isRequired */>
-                <FormLabel>Email</FormLabel>
-                <Input
-                  onBlur={handleOnblur}
-                  onChange={handleChange}
-                  value={form.email}
-                  name="email"
-                  type="email"
-                />
-                {errors.email && <Text color="#FE0A01">{errors.email}</Text>}
-              </FormControl>
-              <FormControl id="password" /* isRequired */>
-                <FormLabel>Contraseña</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    value={form.password}
-                    name="password"
-                  />
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                {errors.password && (
-                  <Text color="#FE0A01">{errors.password}</Text>
-                )}
-              </FormControl>
-              <FormControl id="password_confirm" /* isRequired */>
-                <FormLabel>Confirmar contraseña</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={showPasswordConfirm ? "text" : "password"}
-                    onBlur={handleOnblur}
-                    onChange={handleChange}
-                    value={form.passwordRepit}
-                    name="passwordRepit"
-                  />
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPasswordConfirm(
-                          (showPasswordConfirm) => !showPasswordConfirm
-                        )
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                {errors.passwordRepit && (
-                  <Text color="#FE0A01">{errors.passwordRepit}</Text>
-                )}
-              </FormControl>
-              <Stack spacing={10} pt={2}>
-                <Button
-                  type="submit"
-                  loadingText="Submitting"
-                  size="lg"
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Sign up
-                </Button>
-              </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Already a user?
-                  <RouterLink style={{ color: "#4399E1" }} to="/login">
-                    {" "}
-                    Login
-                  </RouterLink>
-                </Text>
-              </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Recuperar contraseña
-                  <RouterLink
-                    style={{ color: "#4399E1" }}
-                    to="/login/newPassword"
-                  >
-                    {" "}
-                    Recuperar pass
-                  </RouterLink>
-                </Text>
-              </Stack>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-    </Flex>
-  );
+
+	return (
+		<Flex mt="30px" align={"center"} justify={"center"}>
+			<Stack spacing={8} mx={"auto"} w={"50%"} py={12} px={6}>
+				<Stack align={"center"}>
+					<Heading fontSize={"4xl"} textAlign={"center"}>
+						Crear cuenta
+					</Heading>
+				</Stack>
+				<Box
+					rounded={"lg"}
+					bg={useColorModeValue("white", "gray.700")}
+					boxShadow={"lg"}
+					p={8}
+				>
+					{msg !== {} && <Alerta alerta={alerta} />}
+					<form onSubmit={handleSubmit}>
+						<Stack spacing={4}>
+							<Box>
+								<FormControl /* id="firstName" */>
+									<FormLabel>Nombre</FormLabel>
+									<Input
+										onBlur={handleOnblur}
+										onChange={handleChange}
+										type="text"
+										value={form.name}
+										name="name"
+										placeholder="Escribe tu nombre"
+									/>
+									{errors.name && <Text color="#FE0A01">{errors.name}</Text>}
+								</FormControl>
+							</Box>
+							<Box>
+								<FormControl /* id="firstName" */>
+									<FormLabel>Apellido</FormLabel>
+									<Input
+										onBlur={handleOnblur}
+										onChange={handleChange}
+										type="text"
+										value={form.apellido}
+										name="apellido"
+										placeholder="Escribe tu nombre"
+									/>
+									{errors.apellido && (
+										<Text color="#FE0A01">{errors.apellido}</Text>
+									)}
+								</FormControl>
+							</Box>
+							<Box>
+								<FormControl /* id="firstName" */>
+									<FormLabel>Fecha de nacimiento</FormLabel>
+									<Input
+										onBlur={handleOnblur}
+										onChange={handleChange}
+										type="date"
+										value={form.fecha_nacimiento}
+										name="fecha_nacimiento"
+									/>
+									{errors.fecha_nacimiento && (
+										<Text color="#FE0A01">{errors.fecha_nacimiento}</Text>
+									)}
+								</FormControl>
+							</Box>
+							<FormControl id="email" /* isRequired */>
+								<FormLabel>Email</FormLabel>
+								<Input
+									onBlur={handleOnblur}
+									onChange={handleChange}
+									value={form.email}
+									name="email"
+									type="email"
+								/>
+								{errors.email && <Text color="#FE0A01">{errors.email}</Text>}
+							</FormControl>
+							<FormControl id="password" /* isRequired */>
+								<FormLabel>Contraseña</FormLabel>
+								<InputGroup>
+									<Input
+										type={showPassword ? "text" : "password"}
+										onBlur={handleOnblur}
+										onChange={handleChange}
+										value={form.password}
+										name="password"
+									/>
+									<InputRightElement h={"full"}>
+										<Button
+											variant={"ghost"}
+											onClick={() =>
+												setShowPassword((showPassword) => !showPassword)
+											}
+										>
+											{showPassword ? <ViewIcon /> : <ViewOffIcon />}
+										</Button>
+									</InputRightElement>
+								</InputGroup>
+								{errors.password && (
+									<Text color="#FE0A01">{errors.password}</Text>
+								)}
+							</FormControl>
+							<FormControl id="password_confirm" /* isRequired */>
+								<FormLabel>Confirmar contraseña</FormLabel>
+								<InputGroup>
+									<Input
+										type={showPasswordConfirm ? "text" : "password"}
+										onBlur={handleOnblur}
+										onChange={handleChange}
+										value={form.passwordRepit}
+										name="passwordRepit"
+									/>
+									<InputRightElement h={"full"}>
+										<Button
+											variant={"ghost"}
+											onClick={() =>
+												setShowPasswordConfirm(
+													(showPasswordConfirm) => !showPasswordConfirm
+												)
+											}
+										>
+											{showPassword ? <ViewIcon /> : <ViewOffIcon />}
+										</Button>
+									</InputRightElement>
+								</InputGroup>
+								{errors.passwordRepit && (
+									<Text color="#FE0A01">{errors.passwordRepit}</Text>
+								)}
+							</FormControl>
+							<Stack spacing={10} pt={2}>
+								<Button
+									type="submit"
+									loadingText="Submitting"
+									size="lg"
+									bg={"#242524"}
+									color={"white"}
+									_hover={{
+										bg: "#242524",
+									}}
+								>
+									Sign up
+								</Button>
+							</Stack>
+							<Stack pt={6}>
+								<Text align={"center"}>
+									Ya sos usuario?
+									<RouterLink style={{ color: "#4399E1" }} to="/login">
+										{" "}
+										Iniciar Sesion
+									</RouterLink>
+								</Text>
+							</Stack>
+							<Stack pt={6}>
+								<Text align={"center"}>
+									Olvidaste tu contraseña?
+									<RouterLink
+										style={{ color: "#4399E1" }}
+										to="/login/newPassword"
+									>
+										{" "}
+										Recuperar contraseña
+									</RouterLink>
+								</Text>
+							</Stack>
+						</Stack>
+					</form>
+				</Box>
+			</Stack>
+		</Flex>
+	);
+
 }
