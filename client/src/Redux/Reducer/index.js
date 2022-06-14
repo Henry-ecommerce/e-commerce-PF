@@ -22,6 +22,10 @@ const initialState = {
   filtrados: [],
 };
 
+if (localStorage.getItem("productos_carrito") === undefined) {
+  localStorage.setItem("productos_carrito", "[]");
+}
+
 initialState.products_in_cart_local_storage = JSON.parse(
   localStorage.getItem("productos_carrito")
 );
