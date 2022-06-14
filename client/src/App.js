@@ -40,13 +40,13 @@ function App() {
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
-      <Banner />
       <Routes>
         <Route
           exact
           path="/"
           element={
             <Box>
+              <Banner />
               <SearchBar />
               <Home />
             </Box>
@@ -72,6 +72,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="ventas" element={<Ventas />} />
           <Route path="transaciones" element={<Transacciones />} />
+          <Route path="perfil" element={<EditarPerfil />} />
         </Route>
 
         <Route path="/user" element={<HomeUser />}>
