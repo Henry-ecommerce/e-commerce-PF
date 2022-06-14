@@ -18,12 +18,14 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Alerta from "../../helper/Alerta";
+
 const NewPass = () => {
   const { token } = useParams();
   const [alerta, setAlerta] = useState({});
   const [tokenValido, setTokenValido] = useState(false);
   const [passModi, setPassModi] = useState(false);
   const [password, setPassword] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password.length < 6) {
@@ -36,6 +38,7 @@ const NewPass = () => {
     try {
       const url = `${process.env.REACT_APP_API}/registro/cambioPasss/${token}`;
       const { data } = await axios.post(url, { password });
+
       setPassModi(true);
       setAlerta({
         msg: data.msg,

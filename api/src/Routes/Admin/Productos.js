@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const { Router } = require("express");
 const { Op } = require("sequelize");
 const router = Router();
-const { Producto } = require("../../db");
+const { Producto, Categoria } = require("../../db");
 
 let _productos = [
   {
@@ -6204,7 +6204,9 @@ router.get("/", async (req, res) => {
     }
   } else {
     try {
-      const all_products = await Producto.findAll();
+      const all_products = await Producto.findAll({
+        include: Categoria,
+      });
       if (all_products.length > 0) {
         res.json(all_products);
       } else {
@@ -6223,6 +6225,7 @@ router.get("/:name", async (req, res) => {
   if (name) {
     try {
       const search_products = await Producto.findAll({
+        include: Categoria,
         where: { nombre: { [Op.iLike]: `%${name}%` } },
       });
       if (search_products.length > 0) {
@@ -6242,19 +6245,20 @@ router.get("/:name", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    _productos?.map((elem) => {
-      Producto.create({
+    _productos?.map(async(elem) => {
+      
+      let producto =await Producto.create({
         nombre: elem.nombre,
         marca: elem.marca,
         precio: elem.precio,
         caracteristicas: elem.caracteristicas,
         funciones: elem.funciones,
         stock: elem.stock,
-        categoria: elem.categoria, //provisorio hasta tener la relaciones y la tabla para realizar pruebas(sigo con eso.)
         imagen0: elem.imagen0,
         imagen1: elem.imagen1,
         imagen2: elem.imagen2,
-      });
+      })
+      await producto.addCategoria(elem.categoria[0].id);
     });
     res.json("Se agrego la información correctamente");
   } catch (error) {
@@ -6317,12 +6321,90 @@ router.get("/detail/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const product_detail = await Producto.findOne({
+      include: Categoria,
       where: { id: id },
     });
     product_detail ? res.json(product_detail) : res.send("No hay productos!");
   } catch (error) {
     console.log(error);
   }
+});
+
+const mercadopago = require("mercadopago");
+// const bodyParser = require("body-parser");
+// router.use(bodyParser.urlencoded({ extended: false }));
+
+mercadopago.configure({
+  access_token:
+    "APP_USR-5427338419689166-061217-770faea1759702d08bd6710fd467d28d-1141606392",
+});
+
+router.post("/checkout", async (req, res) => {
+  const { user, producto } = req.body;
+  console.log(user);
+  console.log(producto);
+
+  if (!user) {
+    res.send("No llego nada");
+  }
+
+  const cantidad = producto?.map((el) => Math.floor(el.precio.PesosArg)).join();
+
+  let preference = {
+    items: [
+      {
+        title: producto.map((el) => el.nombre).join(),
+        description: "",
+        picture_url: producto.map((el) => el.imagen0).join(),
+        category_id: "",
+        quantity: 5,
+        unit_price: parseInt(cantidad),
+      },
+      {
+        title: "Milanesa con papas",
+        description: "",
+        currency_id: "ARS",
+        picture_url:
+          "https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-f750ed.jpg,https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
+        category_id: "",
+        quantity: 1,
+        unit_price: 50000,
+      },
+    ],
+
+    // payer: {
+    //   name: user.name,
+    //   phone: user.numero ? user.numero : "12345",
+    //   identification: user.id,
+    //   address: user.direccion ? user.direccion : "Calle Falsa 123",
+    // },
+    payment_methods: {
+      excluded_payment_methods: [{}],
+      excluded_payment_types: [{}],
+    },
+    shipments: {
+      free_methods: [{}],
+      receiver_address: {},
+    },
+    redirect_urls: {
+      succes: "http://localhost:3000/",
+      pending: "",
+      failure: "http://localhost:3000/",
+    },
+    metadata: {},
+  };
+
+  mercadopago.preferences
+    .create(preference)
+    .then(function (response) {
+      console.log(response.body);
+      // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
+
+      res.redirect(response.body.init_point);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ import Header from "../../helper/Header";
 import Footer from "../../helper/Footer";
 
 const HomeUser = () => {
-	const { auth, cargando } = useAuth();
+  const { auth, cargando } = useAuth();
 
 	if (cargando) return "Cargando...";
 	return (
@@ -20,5 +20,6 @@ const HomeUser = () => {
 			{/* <Footer /> */}
 		</>
 	);
+
 };
 export default HomeUser;

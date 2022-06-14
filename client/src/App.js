@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import HomeOwner from "./Components/layout/HomeUser";
+import HomeOwner from "./Components/layout/HomeOwner";
 import HomeAdmin from "./Components/layout/HomeAdmin";
 import HomeUser from "./Components/layout/HomeUser";
 import Navbar from "./Components/Navbar/Navbar";
@@ -33,7 +33,7 @@ import Ordenes from "./Components/AdminPanel/Ordenes/Ordenes";
 import Users from "./Components/AdminPanel/Users/Users";
 import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
-import Home from "./Components/Home/Home"
+import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
             <Box>
               <Banner />
               <SearchBar />
-              <Home/>
+              <Home />
             </Box>
           }
         />
@@ -78,6 +78,7 @@ function App() {
         <Route path="/user" element={<HomeUser />}>
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
+        <Route path="wishList" element={<WishList />} />
         </Route>
 
         <Route path="/owner" element={<HomeOwner />}>
@@ -89,7 +90,6 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
 
-        <Route path="/wishList" element={<WishList />} />
         <Route path="/review" element={<Review />} />
         <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
       </Routes>

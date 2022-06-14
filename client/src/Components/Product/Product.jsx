@@ -60,14 +60,14 @@ function Product({
 				bg={useColorModeValue("white", "gray.800")}
 				w={["300px", "300px", "400px", "300px", "300px"]}
 				borderWidth="1px"
-				rounded="lg"
-				shadow="lg"
+				rounded="2xl"
+				shadow="md"
 				position="relative"
 				h="413px"
 			>
 				<Flex>
 					<Box position={"absolute"} zIndex={10}>
-						<FavoriteButton origin={origin} />
+						<FavoriteButton origin={origin} productId={id} />
 					</Box>
 					<Box
 						position={"absolute"}
@@ -176,7 +176,7 @@ function Product({
 					</Stack>
 
 					<Flex justifyContent="space-between" align="center" mt="12px">
-						<Box as="span" color={"gray.600"}>
+						<Box as="span" color={"#242525"} fontWeight="bold" fontSize="20px">
 							{`$ ${precio.PesosArg}`}
 						</Box>
 

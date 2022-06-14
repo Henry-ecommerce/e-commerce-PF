@@ -12,6 +12,11 @@ import {
 	GET_USER_INFO,
 	PRODUCT_TO_REVIEW,
 	GET_FILTER_PRODUCTS,
+	GET_USER_FAVORITES,
+	GET_ALL_CATEGORIES,
+  
+  
+  
 } from "./actions_types";
 
 export function get_all_products() {
@@ -119,4 +124,38 @@ export function get_filter_products(categoryorsearch,filter,order,tipo) {
 			payload: filter_products.data,
 		});
 	};
+}
+
+
+export function get_user_favorites(id) {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const favorites = await axios.get(`/user/favoritos/${id}`, config);
+      return dispatch({
+        type: GET_USER_FAVORITES,
+        payload: favorites.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function get_all_categories(){
+	return async (dispatch) => {
+		let all_categories = await axios.get("/categorias")
+		return dispatch({type: GET_ALL_CATEGORIES, payload: all_categories.data})
+	}
 }
