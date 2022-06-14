@@ -4,6 +4,7 @@ const Carrito = require("./controllers/user_cuenta/carrito");
 const obtenerPerfil = require("./controllers/user_cuenta/perfil");
 const Tienda = require("./controllers/user_cuenta/tienda");
 const Pago = require("./controllers/user_cuenta/tienda");
+const Favoritos = require('./Favoritos/Favoritos')
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
   checkRolUserMiddleware,
@@ -15,5 +16,6 @@ router.use("/carrito", [checkAuth, checkRolUserMiddleware], Carrito);
 router.use("/perfil", [checkAuth, checkRolUserMiddleware], obtenerPerfil);
 // router.use("/perfil", [checkAuth, checkRolUserMiddleware], Tienda);
 router.use("/pagos", [checkAuth, checkRolUserMiddleware], Pago);
+router.use("/favoritos", [checkAuth, checkRolUserMiddleware], Favoritos);
 
 module.exports = router;
