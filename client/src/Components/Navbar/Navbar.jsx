@@ -28,6 +28,8 @@ import {
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import MercadoPago from "../MercadoPago/MercadoPago";
+import FavoriteButton from "../Product/FavoriteButton";
+
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ function Navbar() {
   let user = JSON.parse(localStorage.getItem("info_user"));
 
 
- return (
+  return (
     <Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
       {_width <= 688 ? (
         <Menu>
@@ -125,11 +127,18 @@ function Navbar() {
                 <AiOutlineUser />
               </Link>
             )}
-					<Box ml={4} >
-            <Link to="/user/wishList" ml={4}>
-              <AiOutlineHeart />
-            </Link>
-					</Box>
+            <Box ml={4}>
+              {user && (
+                <Link to="/user/wishList" ml={4}>
+                  <AiOutlineHeart />
+                </Link>
+              )}
+              {!user && (
+                <Link to="/login" ml={4}>
+                  <AiOutlineHeart />
+                </Link>
+              )}
+            </Box>
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
                 {products_in_cart_local_storage.length > 0 &&
