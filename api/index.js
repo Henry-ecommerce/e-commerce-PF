@@ -1,11 +1,13 @@
 const express = require("express");
 const server = express();
 const cors = require("cors");
+
 const routes = require("./src/Routes/index");
 const indexRegistro = require("./src/Routes/indexRegistro");
 const indexAdmin = require("./src/Routes/indexAdmin");
 const indexOwner = require("./src/Routes/indexoOwner");
 const indexUser = require("./src/Routes/indexUser");
+
 const { db } = require("./src/db");
 
 server.use((req, res, next) => {
