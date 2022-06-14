@@ -10,7 +10,7 @@ const HomeUser = () => {
 	return (
 		<>
 			{/* <Header /> */}
-			{auth?.rol === "User" ? (
+			{auth?.rol === "User" || auth?.rol === "Admin" ? (
 				<main className="conteiner mx-auto mt-20">
 					<Outlet />
 				</main>

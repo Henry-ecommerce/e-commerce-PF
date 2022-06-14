@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {
-  Box,
-  Text,
-  Button,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Image,
-  Portal,
-  Stack,
+	Box,
+	Text,
+	Button,
+	Flex,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	Image,
+	Portal,
+	Stack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 // import { useAuth } from "../../Context/AuthContext";
@@ -21,24 +21,24 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  add_quantity_in_cart_local_storage,
-  subtract_quantity_in_cart_local_storage,
-  delete_product_in_cart_local_storage,
+	add_quantity_in_cart_local_storage,
+	subtract_quantity_in_cart_local_storage,
+	delete_product_in_cart_local_storage,
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const dispatch = useDispatch();
-  const { products_in_cart_local_storage } = useSelector((state) => state);
-  // console.log(products_in_cart_local_storage);
-  // const { currentUser, signout } = useAuth();
-  const [_width, set_width] = useState(window.frames.innerWidth);
-  window.addEventListener("resize", () => {
-    set_width(window.frames.innerWidth);
-  });
-  const navigate = useNavigate()
-  const { cerrarSesion } = useAuth()
+	const dispatch = useDispatch();
+	const { products_in_cart_local_storage } = useSelector((state) => state);
+	// console.log(products_in_cart_local_storage);
+	// const { currentUser, signout } = useAuth();
+	const [_width, set_width] = useState(window.frames.innerWidth);
+	window.addEventListener("resize", () => {
+		set_width(window.frames.innerWidth);
+	});
+	const navigate = useNavigate();
+	const { cerrarSesion } = useAuth();
 
 	let user = JSON.parse(localStorage.getItem("info_user"));
 
@@ -62,9 +62,11 @@ function Navbar() {
 						<MenuItem>
 							<Link to="/#">Pedido</Link>
 						</MenuItem>
-						<MenuItem>
-							<Link to="/#">RapidoMore</Link>
-						</MenuItem>
+						{(user?.rol === "Admin" || user?.rol === "Owner") && (
+							<MenuItem>
+								<Link to="/admin/categorias">Admin</Link>
+							</MenuItem>
+						)}
 					</MenuList>
 				</Menu>
 			) : (
@@ -80,12 +82,14 @@ function Navbar() {
 							<Link to="/#">Pedido</Link>
 						</Box>
 						<Box mx="15px">
-							<Link to="/#">RapidoMore</Link>
+							{(user?.rol === "Admin" || user?.rol === "Owner") && (
+								<Link to="/admin/edit">Admin</Link>
+							)}
 						</Box>
 					</Flex>
 					<Flex align={"center"} mx="30px">
 						{user?.name !== undefined && (
-							<Box mx="10px" color="#ECEDEC" textTransform={'capitalize'}>
+							<Box mx="10px" color="#ECEDEC" textTransform={"capitalize"}>
 								<Link to="/user/perfil">{user.name}</Link>
 							</Box>
 						)}
@@ -104,15 +108,17 @@ function Navbar() {
 												Perfil
 											</MenuItem>
 										</Link>
-											<MenuItem onClick={() => {
-                        cerrarSesion()
-                        navigate('/')
-                      }}>
-												<Box mx="10px">
-													<MdLogout />
-												</Box>
-												Cerrar Sesion
-											</MenuItem>
+										<MenuItem
+											onClick={() => {
+												cerrarSesion();
+												navigate("/");
+											}}
+										>
+											<Box mx="10px">
+												<MdLogout />
+											</Box>
+											Cerrar Sesion
+										</MenuItem>
 									</MenuList>
 								</Portal>
 							</Menu>
@@ -141,9 +147,8 @@ function Navbar() {
 											{products_in_cart_local_storage?.length}
 										</Box>
 									)}
-								<Menu autoSelect={false} closeOnSelect={false} >
+								<Menu autoSelect={false} closeOnSelect={false}>
 									<MenuButton
-										
 										disabled={
 											products_in_cart_local_storage.length === 0 &&
 											typeof products_in_cart_local_storage !== "string"
@@ -153,7 +158,7 @@ function Navbar() {
 									>
 										<FiShoppingCart />
 									</MenuButton>
-									<Portal >
+									<Portal>
 										<MenuList w={"600px"} zIndex={1000}>
 											{products_in_cart_local_storage.length > 0 &&
 												typeof products_in_cart_local_storage !== "string" &&

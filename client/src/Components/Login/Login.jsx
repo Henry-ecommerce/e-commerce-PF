@@ -75,7 +75,7 @@ export default function Login() {
 				my={1}
 			>
 				<Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "3xl" }}>
-					Login
+					Iniciar Sesion
 				</Heading>
 				{/* {errors && (
           <Box textAlign={"center"} color="#FE0A01" fontWeight={"extrabold"}>
@@ -85,7 +85,7 @@ export default function Login() {
 				{msg && <Alerta alerta={alerta} />}
 				<form onSubmit={handleSubmit}>
 					<FormControl id="email">
-						<FormLabel>Email address</FormLabel>
+						<FormLabel>Email</FormLabel>
 						<Input
 							placeholder="your-email@example.com"
 							_placeholder={{ color: "gray.500" }}
@@ -96,7 +96,7 @@ export default function Login() {
 						/>
 					</FormControl>
 					<FormControl id="password" mt={4}>
-						<FormLabel>Password</FormLabel>
+						<FormLabel>Contraseña</FormLabel>
 						<Input
 							type="password"
 							onChange={(e) => setPassword(e.target.value)}
@@ -107,19 +107,19 @@ export default function Login() {
 						<Button
 							mt={4}
 							type="submit"
-							bg={"blue.400"}
+							bg={"#242524"}
 							color={"white"}
 							_hover={{
-								bg: "blue.500",
+								bg: "#242524",
 							}}
 						>
-							Submit
+							Iniciar
 						</Button>
 					</Stack>
 				</form>
 				<Stack pt={6}>
 					<Text align={"center"}>
-						Forgot your Password?
+						Olvidaste tu contraseña?
 						<RouterLink to="newPassword" style={{ color: "#4399E1" }}>
 							{" "}
 							Change Password
@@ -128,10 +128,10 @@ export default function Login() {
 				</Stack>
 				<Stack pt={3}>
 					<Text align={"center"}>
-						No count?
+						No tenes cuenta?
 						<RouterLink to="signup" style={{ color: "#4399E1" }}>
 							{" "}
-							Sing Up
+							Registrate
 						</RouterLink>
 					</Text>
 				</Stack>
