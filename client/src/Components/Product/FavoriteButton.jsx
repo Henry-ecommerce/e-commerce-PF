@@ -14,11 +14,11 @@ function FavoriteButton({ origin, productId }) {
   let [AlreadyFavorite, setFavorite] = useState(false);
 
   useEffect(()=>{
-  },[favorites, dispatch, user.id, productId])
+  },[favorites, dispatch, user?.id, productId])
 
   function addFavorite(id, productId) {
 
-    dispatch(get_user_favorites(user.id));
+    dispatch(get_user_favorites(user?.id));
     const token = localStorage.getItem("token");
     if (!token) {
       console.log("no hay token");
@@ -59,7 +59,7 @@ function FavoriteButton({ origin, productId }) {
         top="10px"
         left="10px"
         onClick={() => {
-          addFavorite(user.id, productId);
+          addFavorite(user?.id, productId);
         }}
       >
         {!AlreadyFavorite && <AiOutlineHeart />}
@@ -70,7 +70,7 @@ function FavoriteButton({ origin, productId }) {
     return (
       <Button
         onClick={() => {
-          addFavorite(user.id, productId);
+          addFavorite(user?.id, productId);
         }}
         m="0"
         bg="white"

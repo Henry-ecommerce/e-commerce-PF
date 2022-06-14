@@ -15,7 +15,7 @@ export const AdminProvider = ({ children }) => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("info_user"));
-    if(user.rol === 'Admin' || user.rol === 'Owner'){
+    if(user?.rol === 'Admin' || user?.rol === 'Owner'){
       const pagos = async () => {
         try {
           const token = localStorage.getItem("token");
