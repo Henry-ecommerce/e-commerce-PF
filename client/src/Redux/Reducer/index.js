@@ -10,6 +10,8 @@ import {
   PRODUCT_TO_REVIEW,
   GET_FILTER_PRODUCTS,
   GET_ALL_CATEGORIES,
+  GET_USER_FAVORITES,
+
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -22,6 +24,7 @@ const initialState = {
   product_to_review: [],
   filtrados: [],
   categories: [],
+  favorites: [],
 };
 
 initialState.products_in_cart_local_storage = JSON.parse(
@@ -128,6 +131,11 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         categories: payload,
       }
+    case GET_USER_FAVORITES:
+      return {
+        ...state,
+        favorites: payload,
+      };
     default:
       return state;
   }
