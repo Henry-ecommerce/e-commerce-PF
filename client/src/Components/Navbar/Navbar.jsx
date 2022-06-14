@@ -27,7 +27,9 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
+
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -42,6 +44,7 @@ function Navbar() {
   const { cerrarSesion } = useAuth();
 
   let user = JSON.parse(localStorage.getItem("info_user"));
+
 
   return (
     <Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
@@ -252,6 +255,8 @@ function Navbar() {
                           <Text mx="10px" fontWeight={"extrabold"}>
                             Total:{" "}
                             {products_in_cart_local_storage.length > 0 &&
+                              typeof products_in_cart_local_storage !==
+                                "string" &&
                               products_in_cart_local_storage.reduce(
                                 (a, b) =>
                                   Number(b.cantidad) <= 1
@@ -261,14 +266,7 @@ function Navbar() {
                                 0
                               )}
                           </Text>
-                          <Button
-                            mx="10px"
-                            bg="#242525"
-                            color="#FFFF"
-                            _hover={{ bg: "#242525", color: "#FFFF" }}
-                          >
-                            Finalizar Compra
-                          </Button>
+                          <MercadoPago />
                         </Flex>
                       </MenuItem>
                     </MenuList>
