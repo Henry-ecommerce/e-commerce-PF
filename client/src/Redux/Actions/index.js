@@ -12,6 +12,7 @@ import {
 	GET_USER_INFO,
 	PRODUCT_TO_REVIEW,
 	GET_FILTER_PRODUCTS,
+	GET_ALL_CATEGORIES,
 } from "./actions_types";
 
 export function get_all_products() {
@@ -119,4 +120,12 @@ export function get_filter_products(categoryorsearch,filter,order,tipo) {
 			payload: filter_products.data,
 		});
 	};
+}
+
+
+export function get_all_categories(){
+	return async (dispatch) => {
+		let all_categories = await axios.get("/categorias")
+		return dispatch({type: GET_ALL_CATEGORIES, payload: all_categories.data})
+	}
 }

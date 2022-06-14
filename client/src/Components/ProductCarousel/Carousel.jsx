@@ -4,9 +4,10 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import estilo from "./Carousel.module.css";
 import Product from "../Product/Product";
+import CategoryCard from "../CategoryCard/CategoryCard";
 
 //RECIBE POR PROPS UN ARRAY DE OBJETOS CON LOS PRODUCTOS NECESARIOS, PARA RENDERIZAR LAS CARTAS (USA EL COMPONENTE PRODUCT).
-const Carousel = ({ items }) => {
+const Carousel = ({ items, type }) => {
 	const scrl = useRef();
 
 	if (!Array.isArray(items)) return <></>;
@@ -16,6 +17,8 @@ const Carousel = ({ items }) => {
 			scrl.current.scrollLeft += -scrl.current.clientWidth;
 		if (direcion === "der") scrl.current.scrollLeft += scrl.current.clientWidth;
 	};
+
+	
 
 	return (
 		<>
@@ -28,7 +31,7 @@ const Carousel = ({ items }) => {
 					{items?.map((product) => {
 						return (
 							<div key={product.id} className={estilo.card}>
-								<Product {...product} />
+								{type === "images" ? <CategoryCard {...product}/> : <Product {...product} />}
 							</div>
 						);
 					})}

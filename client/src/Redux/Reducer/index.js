@@ -9,6 +9,7 @@ import {
   GET_USER_INFO,
   PRODUCT_TO_REVIEW,
   GET_FILTER_PRODUCTS,
+  GET_ALL_CATEGORIES,
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
   user_info: {},
   product_to_review: [],
   filtrados: [],
+  categories: [],
 };
 
 initialState.products_in_cart_local_storage = JSON.parse(
@@ -121,6 +123,11 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         product_to_review: payload,
       };
+    case GET_ALL_CATEGORIES:
+      return {
+        ...state,
+        categories: payload,
+      }
     default:
       return state;
   }
