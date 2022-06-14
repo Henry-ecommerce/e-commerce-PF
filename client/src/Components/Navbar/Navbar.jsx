@@ -43,7 +43,8 @@ function Navbar() {
 
   let user = JSON.parse(localStorage.getItem("info_user"));
 
-  return (
+
+ return (
     <Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
       {_width <= 688 ? (
         <Menu>
@@ -124,9 +125,11 @@ function Navbar() {
                 <AiOutlineUser />
               </Link>
             )}
-            <Box ml={4} color="#ECEDEC">
+					<Box ml={4} >
+            <Link to="/user/wishList" ml={4}>
               <AiOutlineHeart />
-            </Box>
+            </Link>
+					</Box>
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
                 {products_in_cart_local_storage.length > 0 &&

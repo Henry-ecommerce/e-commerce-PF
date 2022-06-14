@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const { Router } = require("express");
 const { Op } = require("sequelize");
 const router = Router();
-const { Producto } = require("../../db");
+const { Producto, Categoria } = require("../../db");
 
 let _productos = [
   {
@@ -6204,7 +6204,9 @@ router.get("/", async (req, res) => {
     }
   } else {
     try {
-      const all_products = await Producto.findAll();
+      const all_products = await Producto.findAll({
+        include: Categoria,
+      });
       if (all_products.length > 0) {
         res.json(all_products);
       } else {
@@ -6223,6 +6225,7 @@ router.get("/:name", async (req, res) => {
   if (name) {
     try {
       const search_products = await Producto.findAll({
+        include: Categoria,
         where: { nombre: { [Op.iLike]: `%${name}%` } },
       });
       if (search_products.length > 0) {
@@ -6242,19 +6245,20 @@ router.get("/:name", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    _productos?.map((elem) => {
-      Producto.create({
+    _productos?.map(async(elem) => {
+      
+      let producto =await Producto.create({
         nombre: elem.nombre,
         marca: elem.marca,
         precio: elem.precio,
         caracteristicas: elem.caracteristicas,
         funciones: elem.funciones,
         stock: elem.stock,
-        categoria: elem.categoria, //provisorio hasta tener la relaciones y la tabla para realizar pruebas(sigo con eso.)
         imagen0: elem.imagen0,
         imagen1: elem.imagen1,
         imagen2: elem.imagen2,
-      });
+      })
+      await producto.addCategoria(elem.categoria[0].id);
     });
     res.json("Se agrego la información correctamente");
   } catch (error) {
@@ -6317,6 +6321,7 @@ router.get("/detail/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const product_detail = await Producto.findOne({
+      include: Categoria,
       where: { id: id },
     });
     product_detail ? res.json(product_detail) : res.send("No hay productos!");

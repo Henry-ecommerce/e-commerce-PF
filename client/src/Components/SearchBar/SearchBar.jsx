@@ -4,16 +4,19 @@ import { AiOutlineUnorderedList } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import {
+	get_all_categories,
 	get_product_by_name,
 	get_product_name_to_render_in_input,
 } from "../../Redux/Actions";
 import { useSelector } from "react-redux";
 import { useRef } from "react";
+import Carousel from "../ProductCarousel/Carousel";
 
 function SearchBar() {
 	const close_ref = useRef();
+	const [vercategorias,setVerCategorias] = useState(false);
 	const [searched_names_open, setSearched_names_open] = useState(false);
-	const { searched_product_name_to_render_in_input } = useSelector(
+	const { searched_product_name_to_render_in_input, categories } = useSelector(
 		(state) => state
 	);
 	const dispatch = useDispatch();
@@ -25,6 +28,7 @@ function SearchBar() {
 	});
 
 	useEffect(() => {
+		if(!categories.length) dispatch(get_all_categories());
 		const cerrar_buscador = (e) => {
 			if (
 				searched_names_open &&
@@ -56,11 +60,15 @@ function SearchBar() {
 		}
 	}
 
+	const desplegaryocultar = ()=>{
+		setVerCategorias(vercategorias ? false : true)
+	}
+
 	return (
 		<form m="auto" onSubmit={handleSubmit}>
 			<Center m="auto" my="20px" bg="#ECEDEC">
 				<Flex>
-					<Button
+					<Button onClick={e => desplegaryocultar()}
 						bg="#242525"
 						color="#ECEDEC"
 						_hover={{ bg: "#242525", color: "#ECEDEC" }}
@@ -136,6 +144,7 @@ function SearchBar() {
 					</Button>
 				</Flex>
 			</Center>
+				{vercategorias ? <Carousel items={categories} type="images"/> : null}
 		</form>
 	);
 }

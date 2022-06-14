@@ -67,7 +67,7 @@ function Product({
 			>
 				<Flex>
 					<Box position={"absolute"} zIndex={10}>
-						<FavoriteButton origin={origin} />
+						<FavoriteButton origin={origin} productId={id} />
 					</Box>
 					<Box
 						position={"absolute"}

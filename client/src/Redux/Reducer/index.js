@@ -9,6 +9,9 @@ import {
   GET_USER_INFO,
   PRODUCT_TO_REVIEW,
   GET_FILTER_PRODUCTS,
+  GET_ALL_CATEGORIES,
+  GET_USER_FAVORITES,
+
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -20,6 +23,8 @@ const initialState = {
   user_info: {},
   product_to_review: [],
   filtrados: [],
+  categories: [],
+  favorites: [],
 };
 
 if (localStorage.getItem("productos_carrito") === undefined) {
@@ -124,6 +129,16 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         product_to_review: payload,
+      };
+    case GET_ALL_CATEGORIES:
+      return {
+        ...state,
+        categories: payload,
+      }
+    case GET_USER_FAVORITES:
+      return {
+        ...state,
+        favorites: payload,
       };
     default:
       return state;
