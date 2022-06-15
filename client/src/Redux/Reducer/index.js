@@ -11,7 +11,6 @@ import {
   GET_FILTER_PRODUCTS,
   GET_ALL_CATEGORIES,
   GET_USER_FAVORITES,
-
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -40,7 +39,6 @@ if (
     localStorage.getItem("productos_carrito")
   );
 }
-
 
 function reducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -141,7 +139,7 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         categories: payload,
-      }
+      };
     case GET_USER_FAVORITES:
       return {
         ...state,

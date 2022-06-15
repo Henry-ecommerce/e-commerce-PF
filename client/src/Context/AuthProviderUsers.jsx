@@ -37,6 +37,7 @@ const AuthProviderUser = ({ children }) => {
   }, []);
 
   const cerrarSesion = () => {
+    localStorage.removeItem("token-go");
     localStorage.removeItem("token");
     localStorage.removeItem("info_user");
     setAuth({});
