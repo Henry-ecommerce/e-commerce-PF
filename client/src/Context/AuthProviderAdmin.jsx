@@ -263,8 +263,8 @@ export const AdminProvider = ({ children }) => {
 					`${process.env.REACT_APP_API}/admin/borrar/${id}`,
 					config
 				);
-				const pacienteActualizado = productos.filter((e) => e._id !== id);
-				setProductos(pacienteActualizado);
+				const productosActualizado = productos.filter((e) => e.id !== id);
+				setProductos(productosActualizado);
 			} catch (error) {
 				console.log(error);
 			}
