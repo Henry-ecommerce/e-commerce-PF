@@ -34,10 +34,10 @@ router.post("/", async (req, res) => {
         email: userExite.email,
         rol: userExite.rol,
         token: generarJWT(userExite),
-        img : userExite.img,
-        direccion : userExite.direccion,
-        fecha_nacimiento : userExite.fecha_nacimiento,
-        apellido : userExite.apellido
+        img: userExite.img,
+        direccion: userExite.direccion,
+        fecha_nacimiento: userExite.fecha_nacimiento,
+        apellido: userExite.apellido,
       });
     } else {
       return res.status(403).json({ msg: "Password incorrecto" });
