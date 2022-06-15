@@ -6,8 +6,7 @@ const router = Router();
 const mercadopago = require("mercadopago");
 
 mercadopago.configure({
-  access_token:
-    "APP_USR-5427338419689166-061217-770faea1759702d08bd6710fd467d28d-1141606392",
+  access_token: APP_USR,
 });
 
 router.post("/", async (req, res) => {
@@ -15,33 +14,17 @@ router.post("/", async (req, res) => {
   console.log(user);
   console.log(producto);
 
-  if (!user) {
-    res.send("No llego nada");
-  }
-
-  const cantidad = producto?.map((el) => Math.floor(el.precio.PesosArg)).join();
-
   let preference = {
-    items: [
-      {
-        title: producto.map((el) => el.nombre).join(),
+    items: producto?.map((e) => {
+      return {
+        title: e.nombre,
         description: "",
-        picture_url: producto.map((el) => el.imagen0).join(),
+        picture_url: e.img0,
         category_id: "",
-        quantity: 5,
-        unit_price: parseInt(cantidad),
-      },
-      {
-        title: "Milanesa con papas",
-        description: "",
-        currency_id: "ARS",
-        picture_url:
-          "https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-f750ed.jpg,https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
-        category_id: "",
-        quantity: 1,
-        unit_price: 50000,
-      },
-    ],
+        quantity: e.cantidad,
+        unit_price: parseInt(e.precio.PesosArg),
+      };
+    }),
 
     // payer: {
     //   name: user.name,
@@ -57,10 +40,10 @@ router.post("/", async (req, res) => {
       free_methods: [{}],
       receiver_address: {},
     },
-    redirect_urls: {
-      succes: "http://localhost:3000/",
-      pending: "",
+    back_urls: {
       failure: "http://localhost:3000/",
+      pending: "",
+      success: "http://localhost:3000/",
     },
     metadata: {},
   };
@@ -70,13 +53,11 @@ router.post("/", async (req, res) => {
     .then(function (response) {
       console.log(response.body);
       // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
-
-      res.redirect(response.body.init_point);
+      res.send(response.body.init_point);
     })
     .catch(function (error) {
       console.log(error);
     });
 });
-
 
 module.exports = router;
