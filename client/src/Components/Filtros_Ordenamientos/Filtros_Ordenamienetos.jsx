@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import estilos from "../Filtros_Ordenamientos/Filtros_Ordenamientos.module.css"
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {get_filter_products, get_product_by_name } from "../../Redux/Actions";
 
@@ -8,20 +8,30 @@ const Filtros_Ordenamientos = () => {
     const [seleccionado, setSeleccionado] = useState([]);
     const [ordenado, setOrdenado] = useState([]);
     const [marcas, setMarcas] = useState([]);
-    const {categoriaobusqueda} = useParams();
+    const {categoriaobusqueda,page} = useParams();
     const {filtrados, searched_products} = useSelector(state => state)
+    const navigate = useNavigate()
     
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(!searched_products.length)  dispatch(get_product_by_name(categoriaobusqueda))
+    
+        dispatch(get_product_by_name(categoriaobusqueda))
         
-        if(!marcas.length){let marcasAux = searched_products.map(e => e.marca);
-        setMarcas([...new Set(marcasAux)])};
+        let marcasAux = searched_products.map(e => e.marca);
+        setMarcas([...new Set(marcasAux)]);
 
         dispatch(get_filter_products(categoriaobusqueda,seleccionado,ordenado[0] || "nombre",ordenado[1] || "ASC"))
 
-    },[marcas,categoriaobusqueda,dispatch,searched_products,seleccionado,ordenado]);
+    },[categoriaobusqueda,dispatch,seleccionado.length,ordenado,searched_products.length]);
+
+    useEffect(()=>{
+        setSeleccionado([])
+    },[marcas.length])
+
+    useEffect(()=>{
+        if(page !== "1") navigate(`../products/${categoriaobusqueda}/1`)
+    },[seleccionado.length])
     
     const onCheck = (e) => {
         if(e.target.checked){
@@ -47,7 +57,7 @@ const Filtros_Ordenamientos = () => {
     <>
     <div className={estilos.container}>
         <div className={estilos.contenedor_elementos}>
-            <p className={estilos.productos}>{categoriaobusqueda}</p>
+            <p className={estilos.productos}>{categoriaobusqueda?.split("category=")[1] || categoriaobusqueda}</p>
             <p className={estilos.resultados}>{filtrados.length || searched_products.length} <label>Resultados</label></p>
             <label className={estilos.ordenar_por}>Ordenar por:
                 <select onChange={e => ordenamineto(e)}>

@@ -1,3 +1,6 @@
+*{
+    scroll-behavior: smooth
+}
 .paginado{
     text-decoration: none;
     display: inline-block;
