@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
   console.log(producto);
 
   let preference = {
+
     items: producto?.map((e) => {
       return {
         title: e.nombre,
@@ -32,10 +33,10 @@ router.post("/", async (req, res) => {
     //   identification: user.id,
     //   address: user.direccion ? user.direccion : "Calle Falsa 123",
     // },
-    payment_methods: {
+      payment_methods: {
       excluded_payment_methods: [{}],
-      excluded_payment_types: [{}],
-    },
+      excluded_payment_types: [{id: "ticket"}],
+    },    
     shipments: {
       free_methods: [{}],
       receiver_address: {},

@@ -23,7 +23,7 @@ export default function MercadoPago() {
     axios
       .post(`/user/pago`, datos, headers)
       .then((res) => res.data)
-      .then((data) => (data));
+      .then((data) => window.location.replace(data));
   }
 
   return (
