@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Filtros_Ordenamientos from "../Filtros_Ordenamientos/Filtros_Ordenamienetos";
 import Product from "../Product/Product";
 import SearchBar from "../SearchBar/SearchBar";
@@ -9,7 +10,6 @@ import estilo from "../Tienda/Tienda.module.css"
 
 
 const Tienda = () => {
-    const {filtrados} = useSelector(state => state);
 
     const allProducts = useSelector ((state) => state.filtrados);
 
@@ -19,11 +19,15 @@ const Tienda = () => {
     const indexLastProduct = currentPage * productsPage;
     const indexFirsProduct = indexLastProduct - productsPage;
     const currentProducts = allProducts.slice(indexFirsProduct, indexLastProduct)
-
+    const {page} = useParams();
 
     const paginado = (totalPages) => {
         setCurrentPage(totalPages)
     }
+
+    useEffect(()=>{
+        paginado(page || 1)
+    },[paginado])
 
 
     return (
