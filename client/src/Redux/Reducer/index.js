@@ -11,7 +11,6 @@ import {
   GET_FILTER_PRODUCTS,
   GET_ALL_CATEGORIES,
   GET_USER_FAVORITES,
-
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -30,10 +29,6 @@ const initialState = {
 if (localStorage.getItem("productos_carrito") === undefined) {
   localStorage.setItem("productos_carrito", "[]");
 }
-
-initialState.products_in_cart_local_storage = JSON.parse(
-  localStorage.getItem("productos_carrito")
-);
 
 function reducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -134,7 +129,7 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         categories: payload,
-      }
+      };
     case GET_USER_FAVORITES:
       return {
         ...state,
