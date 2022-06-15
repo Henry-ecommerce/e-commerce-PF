@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Producto } = require("../../db");
+const { Producto, Categoria } = require("../../db");
 const Sequelize = require('sequelize')
 
 const router = Router();
@@ -17,8 +17,27 @@ router.get("/", async (req, res) => {
     
     try {
         
+        if(categoryorsearch?.split("category=")[1]){
+            let allProducts = await Producto.findAll({
+                include: Categoria,
+                order: [["nombre", "ASC"]]
+            });
+            allProducts = allProducts?.filter(elem => elem.Categoria[0].nombre === categoryorsearch?.split("category=")[1])
+
+            if (order === "precio" && ascordesc === "ASC") allProducts = allProducts.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg));
+            else if(order === "precio" && ascordesc === "DESC") allProducts = allProducts.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg));
+
+            if(!marca) return res.send(allProducts);
+console.log(marca)
+            allProducts = allProducts?.filter(elem => Array.isArray(marca)? marca.includes(elem.marca) : elem.marca === marca);
+console.log(allProducts[0].marca)
+            return res.send(allProducts)
+
+        }
+
 
         let allProducts = await Producto.findAll({
+            include: Categoria,
             where: {nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
             order: [["nombre", "ASC"]]
         });
@@ -28,6 +47,7 @@ router.get("/", async (req, res) => {
         // })
         if(marca){
             let marcaFilter = await Producto.findAll({
+               include: Categoria,
                 where: {marca, nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
                 order: [["nombre", "ASC"]] 
             })

@@ -92,6 +92,7 @@ function App() {
 
         <Route path="/review" element={<Review />} />
         <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
+        <Route path="/products/:categoriaobusqueda/:page" element={<Tienda />} />
       </Routes>
       <Footer />
     </Box>
