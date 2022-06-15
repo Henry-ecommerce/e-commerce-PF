@@ -69,7 +69,7 @@ Categoria.belongsToMany(Producto, { through: "Categoria_Productos" });
 Pedido.hasMany(Producto);
 Producto.hasMany(Pedido);
 
-module.exports = {
+module.exports = { 
   ...sequelize.models,
   db: sequelize,
 };
