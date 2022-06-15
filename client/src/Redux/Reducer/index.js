@@ -27,13 +27,20 @@ const initialState = {
   favorites: [],
 };
 
-if (localStorage.getItem("productos_carrito") === undefined) {
-  localStorage.setItem("productos_carrito", "[]");
+if (
+  localStorage.getItem("productos_carrito") === undefined ||
+  localStorage.getItem("productos_carrito") === null
+) {
+  localStorage.setItem("productos_carrito", "[]")
+  initialState.products_in_cart_local_storage = JSON.parse(
+    localStorage.getItem("productos_carrito")
+  );
+}else {
+  initialState.products_in_cart_local_storage = JSON.parse(
+    localStorage.getItem("productos_carrito")
+  );
 }
 
-initialState.products_in_cart_local_storage = JSON.parse(
-  localStorage.getItem("productos_carrito")
-);
 
 function reducer(state = initialState, { type, payload }) {
   switch (type) {
