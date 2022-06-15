@@ -25,9 +25,9 @@ export default function Login() {
   console.log(`Soy el user`, user);
 
   const handleCallbackResponse = (respose) => {
-    localStorage.setItem("token-go", respose.credential);
+   localStorage.setItem("token-go", respose.credential);
     const userObject = jwt_decode(respose.credential);
-
+    localStorage.setItem("info_user", JSON.stringify(userObject));
     setUser(userObject);
     document.getElementById("singInDiv").hidden = true;
   };
