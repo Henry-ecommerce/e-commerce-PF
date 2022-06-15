@@ -29,11 +29,10 @@ import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
+
 function Navbar() {
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
-  // console.log(products_in_cart_local_storage);
-  // const { currentUser, signout } = useAuth();
   const [_width, set_width] = useState(window.frames.innerWidth);
   window.addEventListener("resize", () => {
     set_width(window.frames.innerWidth);
@@ -129,29 +128,35 @@ function Navbar() {
               </Link>
             )}
             <Box ml={4} color="#ECEDEC">
-              <AiOutlineHeart />
+              {user && (
+                <Link to="/user/wishList">
+                  <AiOutlineHeart />
+                </Link>
+              )}
+              {!user && <AiOutlineHeart />}
             </Box>
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
-                {products_in_cart_local_storage.length > 0 &&
-                  typeof products_in_cart_local_storage !== "string" && (
-                    <Box
-                      bg="#FE0100"
-                      fontSize={"8px"}
-                      textAlign="center"
-                      borderRadius={"full"}
-                      pos="absolute"
-                      w="12px"
-                      top="6px"
-                      right="34px"
-                    >
-                      {products_in_cart_local_storage?.length}
-                    </Box>
-                  )}
+                {products_in_cart_local_storage?.length > 0 &&
+                  typeof products_in_cart_local_storage !== "string" &&
+                  products_in_cart_local_storage.length === 0 && (
+                      <Box
+                        bg="#FE0100"
+                        fontSize={"8px"}
+                        textAlign="center"
+                        borderRadius={"full"}
+                        pos="absolute"
+                        w="12px"
+                        top="6px"
+                        right="34px"
+                      >
+                        {products_in_cart_local_storage?.length}
+                      </Box>
+                    )}
                 <Menu autoSelect={false} closeOnSelect={false}>
                   <MenuButton
                     disabled={
-                      products_in_cart_local_storage.length === 0 &&
+                      products_in_cart_local_storage?.length === 0 &&
                       typeof products_in_cart_local_storage !== "string"
                         ? true
                         : false
@@ -161,7 +166,7 @@ function Navbar() {
                   </MenuButton>
                   <Portal>
                     <MenuList w={"600px"} zIndex={1000}>
-                      {products_in_cart_local_storage.length > 0 &&
+                      {products_in_cart_local_storage?.length > 0 &&
                         typeof products_in_cart_local_storage !== "string" &&
                         products_in_cart_local_storage.map((elem, i) => {
                           return (
@@ -246,7 +251,7 @@ function Navbar() {
                         <Flex align="center" justify="center" h="100px">
                           <Text mx="10px" fontWeight={"extrabold"}>
                             Total:{" "}
-                            {products_in_cart_local_storage.length > 0 &&
+                            {products_in_cart_local_storage?.length > 0 &&
                               products_in_cart_local_storage.reduce(
                                 (a, b) =>
                                   Number(b.cantidad) <= 1
@@ -256,14 +261,7 @@ function Navbar() {
                                 0
                               )}
                           </Text>
-                          <Button
-                            mx="10px"
-                            bg="#242525"
-                            color="#FFFF"
-                            _hover={{ bg: "#242525", color: "#FFFF" }}
-                          >
-                            Finalizar Compra
-                          </Button>
+                          <MercadoPago />
                         </Flex>
                       </MenuItem>
                     </MenuList>

@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from "./Paginado.module.css"
+import { Link, useParams } from "react-router-dom";
 
 export default function Paginado ({productsPage, allProducts, paginado}) {
 
     const pageNumber = []
-
+    const {categoriaobusqueda,page} = useParams()
     for (let i = 1; i <= Math.ceil(allProducts/productsPage); i++) {
         pageNumber.push(i);
         
@@ -16,7 +17,7 @@ export default function Paginado ({productsPage, allProducts, paginado}) {
                 {pageNumber && 
                     pageNumber.map(number => (
                         <li className={styles.numbers} key={number}>
-                            <button onClick={() => paginado(number)} className={styles.number} >{number}</button>
+                            <Link to={`/products/${categoriaobusqueda}/${number}`} onClick={e => window.scrollTo({ top: 0 })}><button className={styles.number} >{number}</button></Link>
                         </li>
                     ))
                 }
