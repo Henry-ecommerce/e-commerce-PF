@@ -16,8 +16,8 @@ Construir un App utilizando
  - React Pagination
  - JWT (JSON Web Token)   
  - Chakra UI        
- - React Tables                          
- - Figma
+ - Figma                        
+ - Api Google oauth 2.0
 
 ## Funcionalidad
 
