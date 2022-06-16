@@ -35,8 +35,8 @@ import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
+import Carrito from "./Components/Carrito/Carrito";
 import MisCompras from "./Components/MisCompras/MisCompras";
-
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
@@ -80,6 +80,7 @@ function App() {
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
           <Route path="wishList" element={<WishList />} />
+          <Route path="carrito" element={<Carrito />}/>
           <Route path="misCompras" element={<MisCompras />} />
         </Route>
 

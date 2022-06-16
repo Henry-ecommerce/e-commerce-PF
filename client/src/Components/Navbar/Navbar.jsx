@@ -30,6 +30,7 @@ import { useNavigate } from "react-router-dom";
 import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
 
+
 function Navbar() {
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
@@ -187,7 +188,7 @@ function Navbar() {
                                   <Text ml="10px">
                                     {elem.nombre.slice(
                                       0,
-                                      (elem.nombre.length * 40) / 100
+                                      (elem.nombre?.length * 40) / 100
                                     )}
                                   </Text>
                                   <Flex
@@ -261,6 +262,16 @@ function Navbar() {
                                 0
                               )}
                           </Text>
+                          <Link to="/user/carrito">
+                            <Button
+                              mx="10px"
+                              bg="#242525"
+                              color="#FFFF"
+                              _hover={{ bg: "#242525", color: "#FFFF" }}
+                            >
+                              Finalizar Compra
+                            </Button>
+                          </Link>
                           <MercadoPago />
                         </Flex>
                       </MenuItem>
