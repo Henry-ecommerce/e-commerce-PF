@@ -17,7 +17,7 @@ Construir un App utilizando
  - JWT (JSON Web Token)   
  - Chakra UI        
  - React Tables                          
- - Figma
+ - Api Google oauth 2.0
 
 ## Funcionalidad
 
