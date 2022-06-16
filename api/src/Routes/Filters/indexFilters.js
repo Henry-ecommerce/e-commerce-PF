@@ -28,9 +28,9 @@ router.get("/", async (req, res) => {
             else if(order === "precio" && ascordesc === "DESC") allProducts = allProducts.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg));
 
             if(!marca) return res.send(allProducts);
-console.log(marca)
+
             allProducts = allProducts?.filter(elem => Array.isArray(marca)? marca.includes(elem.marca) : elem.marca === marca);
-console.log(allProducts[0].marca)
+
             return res.send(allProducts)
 
         }
