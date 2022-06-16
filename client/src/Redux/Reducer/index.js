@@ -27,6 +27,8 @@ const initialState = {
   favorites: [],
 };
 
+localStorage.setItem("productos_carrito", "[]")
+
 initialState.products_in_cart_local_storage = JSON.parse(
   localStorage.getItem("productos_carrito")
 );

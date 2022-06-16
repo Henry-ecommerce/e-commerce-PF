@@ -35,6 +35,7 @@ import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
+import Carrito from "./Components/Carrito/Carrito";
 
 function App() {
   return (
@@ -77,7 +78,8 @@ function App() {
         <Route path="/user" element={<HomeUser />}>
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
-        <Route path="wishList" element={<WishList />} />
+          <Route path="wishList" element={<WishList />} />
+          <Route path="carrito" element={<Carrito />}/>
         </Route>
 
         <Route path="/owner" element={<HomeOwner />}>

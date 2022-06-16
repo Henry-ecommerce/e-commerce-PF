@@ -1,0 +1,27 @@
+.p{
+    margin-top: 1em;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    color: #444;
+}
+
+.button{
+    color: #ECEDEC;
+    cursor: pointer;
+    font: 13px;
+    padding: 0px 16px;
+    background-color: #242525;
+    border-radius: 15px;
+}
+
+.button:hover{
+    background-color: #d1dbda;
+}
+
+.div1{
+    border-radius: 25px;
+    background-color: #f8f8f8;
+}
+
+
