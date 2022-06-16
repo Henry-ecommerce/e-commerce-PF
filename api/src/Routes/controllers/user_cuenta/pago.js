@@ -15,7 +15,6 @@ router.post("/", async (req, res) => {
   console.log(producto);
 
   let preference = {
-
     items: producto?.map((e) => {
       return {
         title: e.nombre,
@@ -26,21 +25,22 @@ router.post("/", async (req, res) => {
         unit_price: parseInt(e.precio.PesosArg),
       };
     }),
-
+    notification_url: "https://hookb.in/BYV2PJzWNRsknxZk3KPw",
     // payer: {
     //   name: user.name,
     //   phone: user.numero ? user.numero : "12345",
     //   identification: user.id,
     //   address: user.direccion ? user.direccion : "Calle Falsa 123",
     // },
-      payment_methods: {
+    payment_methods: {
       excluded_payment_methods: [{}],
-      excluded_payment_types: [{id: "ticket"}],
-    },    
+      excluded_payment_types: [{ id: "ticket" }],
+    },
     shipments: {
       free_methods: [{}],
       receiver_address: {},
     },
+    auto_return: "approved",
     back_urls: {
       failure: "http://localhost:3000/",
       pending: "",
