@@ -1,17 +1,41 @@
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const router = require("express").Router();
+const { Usuario } = require("../../../db");
+router.post("/", async (req, res, next) => {
+  try {
+    const {
+      name,
+      apellido,
+      password,
+      email,
+      img,
+      fecha_nacimiento,
+      rol,
+      token,
+      confirmado,
+    } = req.body;
+    const existeUsuario = await Usuario.findOne({
+      where: { email },
+    });
+    console.log(existeUsuario);
+    if (!existeUsuario) {
+      console.log("Se agrego correctamente");
+      const newUser = await Usuario.create({
+        name,
+        apellido,
+        password,
+        email,
+        img,
+        fecha_nacimiento,
+        rol,
+        token,
+        confirmado,
+      });
+      res.json(newUser);
+    }
+    res.json(existeUsuario);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
 
-// const GOOGLE_CLIENT_ID =
-//   "12571721378-1l9mqfm7snrq671r2464qj8jrp041c21.apps.googleusercontent.com";
-// const GOOGLE_CLIENTE_SECRET = "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";
-
-// passport.use(
-//   new GoogleStrategy({
-//     clientID: GOOGLE_CLIENT_ID,
-//     clientSecret: GOOGLE_CLIENTE_SECRET,
-//     callbackURL: "http://www.example.com/auth/google/callback",
-//   },
-//   function(accessToken,refreshToken,profile,cb){
-//     User.findOrCreate({googleI})
-//   }
-//   )
-// );
+module.exports = router;

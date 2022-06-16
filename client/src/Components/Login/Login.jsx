@@ -25,42 +25,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
-  console.log(`Soy el user`, user);
 
-  const handleCallbackResponse = (respose) => {
-    localStorage.setItem("token-go", respose.credential);
-    const userObject = jwt_decode(respose.credential);
-    localStorage.setItem(
-      "info_user",
-      JSON.stringify({ ...userObject, rol: "User" })
-    );
-    setUser(userObject);
-    document.getElementById("singInDiv").hidden = true;
-  };
-
-  const handleSingOut = async (e) => {
-    try {
-      const obje = {
-        name: user.given_name,
-        apellido: user.family_name,
-        password: user.jti,
-        email: user.email,
-        img: user.picture,
-        fecha_nacimiento: null,
-        rol: "User",
-        token: null,
-        confirmado: true,
-      };
-      setUser({});
-
-      await axios.post(
-        `${process.env.REACT_APP_API}/registro/clienteGoogle`,
-        obje
-      );
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
   useEffect(() => {
     /*global google*/
     google.accounts.id.initialize({
@@ -74,6 +39,53 @@ export default function Login() {
     });
     google.accounts.id.prompt();
   }, []);
+
+  const handleCallbackResponse = async (respose) => {
+    localStorage.setItem("token", respose.credential);
+    const userObject = jwt_decode(respose.credential);
+    localStorage.setItem(
+      "info_user",
+      JSON.stringify({ ...userObject, rol: "User" })
+    );
+    setUser(userObject);
+
+    document.getElementById("singInDiv").hidden = true;
+  };
+
+  const handleSingOut = (e) => {
+    try {
+      setUser({});
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      const enviar = async () => {
+        const obje = {
+          name: user.given_name,
+          apellido: user.family_name,
+          password: user.jti,
+          email: user.email,
+          img: user.picture,
+          fecha_nacimiento: null,
+          rol: "User",
+          token: null,
+          confirmado: true,
+        };
+        const { data } = await axios.post(
+          `${process.env.REACT_APP_API}/registro/cliente/loginGoogle`,
+          obje
+        );
+
+        localStorage.setItem("info_user", JSON.stringify(data));
+        setAuth(data);
+        navegates("/");
+      };
+      enviar();
+    }
+  }, [user]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if ([email, password].includes("")) {
@@ -99,7 +111,7 @@ export default function Login() {
       } else if (data.rol === "Admin") {
         navegates("/admin");
       } else {
-        navegates("/user");
+        navegates("/");
       }
     } catch (error) {
       setAlerta({
@@ -116,7 +128,7 @@ export default function Login() {
       <div>
         <div id="singInDiv"></div>
         {Object.keys(user).length !== 0 && (
-          <button onClick={(e) => handleSingOut(e)}>Sing Out</button>
+          <button onClick={(e) => handleSingOut(e)}>Deslogin</button>
         )}
 
         {user && <div id="singInDiv"></div>}
@@ -126,7 +138,7 @@ export default function Login() {
           spacing={4}
           w={"full"}
           maxW={"md"}
-          bg={useColorModeValue("white", "gray.700")}
+          //bg={useColorModeValue("white", "gray.700")}
           rounded={"xl"}
           boxShadow={"lg"}
           p={6}
