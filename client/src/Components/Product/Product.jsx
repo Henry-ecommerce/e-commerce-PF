@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import {
-	Flex,
-	Box,
-	Image,
-	useColorModeValue,
-	Stack,
-	IconButton,
-	useBreakpointValue,
-	Heading,
-	Text,
-	Container,
+  Flex,
+  Box,
+  Image,
+  useColorModeValue,
+  Stack,
+  IconButton,
+  useBreakpointValue,
+  Heading,
+  Text,
+  Container,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -30,30 +30,31 @@ function Product({
 	id,
 	origin,
 	descuento,
-}) {
-	nombre = nombre.split(",")[0];
-	const cards = [
-		imagen0,
-		"https://programacion.net/files/article/20161110041116_image-not-found.png",
-		"https://programacion.net/files/article/20161110041116_image-not-found.png",
-	];
-	const settings = {
-		dots: true,
-		arrows: false,
-		fade: true,
-		infinite: true,
-		autoplay: false,
-		speed: 500,
-		autoplaySpeed: 5000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-	};
 
-	// As we have used custom buttons, we need a reference variable to
-	// change the state
-	const [slider, setSlider] = useState(null);
-	const top = useBreakpointValue({ base: "90%", md: "34%" });
-	const side = useBreakpointValue({ base: "30%", md: "15px" });
+}) {
+  nombre = nombre.split(",")[0];
+  const cards = [
+    imagen0,
+    "https://programacion.net/files/article/20161110041116_image-not-found.png",
+    "https://programacion.net/files/article/20161110041116_image-not-found.png",
+  ];
+  const settings = {
+    dots: true,
+    arrows: false,
+    fade: true,
+    infinite: true,
+    autoplay: false,
+    speed: 500,
+    autoplaySpeed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  // As we have used custom buttons, we need a reference variable to
+  // change the state
+  const [slider, setSlider] = useState(null);
+  const top = useBreakpointValue({ base: "90%", md: "34%" });
+  const side = useBreakpointValue({ base: "30%", md: "15px" });
 
 	return (
 		<Stack w="full" alignItems="center" justifyContent="space-between">
@@ -192,19 +193,20 @@ function Product({
 								: `$ ${precio.PesosArg}`}
 						</Box>
 
-						<Box>
-							<AddToCart
-								nombre={nombre}
-								precio={precio}
-								marca={marca}
-								imagen0={imagen0}
-							/>
-						</Box>
-					</Flex>
-				</Box>
-			</Box>
-		</Stack>
-	);
+            <Box>
+              <AddToCart
+                nombre={nombre}
+                precio={precio}
+                marca={marca}
+                imagen0={imagen0}
+                id={id}
+              />
+            </Box>
+          </Flex>
+        </Box>
+      </Box>
+    </Stack>
+  );
 }
 
 export default Product;

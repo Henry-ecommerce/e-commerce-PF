@@ -15,6 +15,8 @@ export const AdminProvider = ({ children }) => {
 	const [_marca, setMarca] = useState("");
 
 	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("info_user"));
+    if(user?.rol === 'Admin' || user?.rol === 'Owner'){
 		const pagos = async () => {
 			try {
 				const token = localStorage.getItem("token");
@@ -148,6 +150,7 @@ export const AdminProvider = ({ children }) => {
 			}
 		};
 		obtenerProducto();
+	}
 	}, []);
 
 	const obtenerProducto_por_nombre = async (nombre) => {
@@ -348,8 +351,8 @@ export const AdminProvider = ({ children }) => {
 					`${process.env.REACT_APP_API}/admin/borrar/${id}`,
 					config
 				);
-				const pacienteActualizado = productos.filter((e) => e._id !== id);
-				setProductos(pacienteActualizado);
+				const productosActualizado = productos.filter((e) => e.id !== id);
+				setProductos(productosActualizado);
 			} catch (error) {
 				console.log(error);
 			}
