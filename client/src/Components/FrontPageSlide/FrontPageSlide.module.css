@@ -1,4 +1,5 @@
 .contenedor {
+    border-radius: 10px;
     background-color: black;
     position: relative;
     max-width: 1440px;
