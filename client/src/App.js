@@ -36,6 +36,7 @@ import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
 import MisCompras from "./Components/MisCompras/MisCompras";
+import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
         </Route>
 
         <Route path="/user" element={<HomeUser />}>
+          <Route path="formMercadoPago" element={<FormMercadoPago />} />
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
           <Route path="wishList" element={<WishList />} />
