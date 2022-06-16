@@ -123,7 +123,7 @@ export default function Signup() {
 			<Stack spacing={8} mx={"auto"} w={"50%"} py={12} px={6}>
 				<Stack align={"center"}>
 					<Heading fontSize={"4xl"} textAlign={"center"}>
-						Sign up
+						Crear cuenta
 					</Heading>
 				</Stack>
 				<Box
@@ -248,10 +248,10 @@ export default function Signup() {
 									type="submit"
 									loadingText="Submitting"
 									size="lg"
-									bg={"blue.400"}
+									bg={"#242524"}
 									color={"white"}
 									_hover={{
-										bg: "blue.500",
+										bg: "#242524",
 									}}
 								>
 									Sign up
@@ -259,22 +259,22 @@ export default function Signup() {
 							</Stack>
 							<Stack pt={6}>
 								<Text align={"center"}>
-									Already a user?
+									Ya sos usuario?
 									<RouterLink style={{ color: "#4399E1" }} to="/login">
 										{" "}
-										Login
+										Iniciar Sesion
 									</RouterLink>
 								</Text>
 							</Stack>
 							<Stack pt={6}>
 								<Text align={"center"}>
-									Recuperar contraseña
+									Olvidaste tu contraseña?
 									<RouterLink
 										style={{ color: "#4399E1" }}
 										to="/login/newPassword"
 									>
 										{" "}
-										Recuperar pass
+										Recuperar contraseña
 									</RouterLink>
 								</Text>
 							</Stack>

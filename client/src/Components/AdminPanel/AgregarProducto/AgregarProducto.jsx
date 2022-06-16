@@ -1,268 +1,537 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  HStack,
-  Stack,
-  Button,
-  Heading,
-  Text,
-  useColorModeValue,
+	Flex,
+	Box,
+	FormControl,
+	FormLabel,
+	Input,
+	Stack,
+	Button,
+	Heading,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	Image,
+	SimpleGrid,
+	Text,
 } from "@chakra-ui/react";
-import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
-
-import useAuthAd from "../../../hooks/useAuthAd";
-import Alerta from "../../../helper/Alerta";
+import { IoIosArrowDown } from "react-icons/io";
+import HeaderAdmin from "../Admin/HeaderAdmin";
+import { useState } from "react";
+import useAuth from "../../../hooks/useAuthAd";
+import { useRef } from "react";
 
 const AgregarProducto = () => {
-  const navegation = useNavigate();
-  const { guardarProducto } = useAuthAd();
-  const [alerta, setAlerta] = useState({});
-  const [from, setFrom] = useState({
-    nombre: "",
-    marca: "",
-    funciones: "",
-    stock: 0,
-    descuento: "",
-    imagen0: "",
-    imagen1: "",
-    imagen2: "",
-  });
-  const [caracterista, setCaracterista] = useState({
-    caracteristi: "",
-  });
-  const [precio, setPrecio] = useState({
-    Dolares: 0,
-    PesosMX: 0,
-    PesosArg: 0,
-  });
+	const input_img_ref = useRef();
+	const { categorias, guardarProducto } = useAuth();
+	const [cantidad_Caracteristicas, setCantidad_Caracteristicas] = useState([1]);
+	const [moneda, setMoneda] = useState("Usd");
+	const [errors, setErrors] = useState({});
+	const [alerta, setAlerta] = useState({});
+	const [imagenes, setImagenes] = useState([]);
+	let [arrCategorias, setArrCategorias] = useState([]);
+	let [form, setForm] = useState({
+		name: "",
+		precio: "",
+		stock: "",
+		descuento: "",
+		marca: "",
+		caracteristicas_texto: [],
+		caracteristicas: {},
+		caracteristicas_titulo: [],
+	});
 
-  const handleOnchangue = (e) => {
-    setFrom({ ...from, [e.target.name]: e.target.value });
-  };
+	const validation = (values) => {
+		const errors = {};
 
-  const caracterisOnchange = (e) => {
-    setCaracterista({ ...caracterista, [e.target.name]: e.target.value });
-  };
-  const precioOnchange = (e) => {
-    setPrecio({ ...precio, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+		if (!values.name.trim()) {
+			errors.name = "El campo es requerido";
+		} else {
+			errors.name = "";
+		}
+		if (!values.precio.trim()) {
+			errors.precio = "El campo es requerido";
+		} else {
+			errors.precio = "";
+		}
+		if (!values.stock.trim()) {
+			errors.stock = "El campo es requerido";
+		} else {
+			errors.stock = "";
+		}
+		if (!values.marca.trim()) {
+			errors.marca = "El campo es requerido";
+		} else {
+			errors.marca = "";
+		}
+		if (values.caracteristicas_texto.length === 0) {
+			errors.caracteristicas_texto = "El campo es requerido";
+		} else {
+			errors.caracteristicas_texto = "";
+		}
+		if (arrCategorias.length === 0) {
+			errors.categorias = "El campo es requerido";
+		} else {
+			errors.categorias = "";
+		}
+		if (values.caracteristicas_titulo.length === 0) {
+			errors.caracteristicas_titulo = "El campo es requerido";
+		} else {
+			errors.caracteristicas_titulo = "";
+		}
+		if (imagenes.length === 0) {
+			errors.imgs = "El campo es requerido";
+		} else {
+			errors.imgs = "";
+		}
 
-    const precioDMP = precio;
+		return errors;
+	};
 
-    const caracteristaS = caracterista;
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		// console.log({ ...form, categorias: arrCategorias, imagenes: imagenes });
+		handleChange(e);
+		setErrors(validation(form));
 
-    const productoNuevo = {
-      nombre: from.nombre,
-      marca: from.marca,
-      funciones: from.funciones,
-      stock: from.stock,
-      precio: precioDMP,
-      caracteristicas: caracteristaS,
-      descuento: from.descuento,
-      imagen0: from.imagen0,
-      imagen1: from.imagen1,
-      imagen2: from.imagen2,
-    };
+		try {
+			console.log(
+				{ ...form, categorias: arrCategorias, imagenes: imagenes },
+				"soly el submit"
+			);
+			guardarProducto({
+				...form,
+				categorias: arrCategorias,
+				imagenes: imagenes,
+			});
+			// setForm({
+			// 	name: "",
+			// 	precio: "",
+			// 	stock: "",
+			// 	escuento: "",
+			// 	marca: "",
+			// 	caracteristicas_texto: [],
+			// 	caracteristicas: {},
+			// 	caracteristicas_titulo: [],
+			// 	imgs: "",
+			// });
+		} catch (error) {
+			setAlerta({
+				msg: error.response.data.msg,
+				error: true,
+			});
+		}
+	};
+	const handleChange = (e) => {
+		setErrors(validation(form));
+		setForm({
+			...form,
+			[e.target.name]: e.target.value,
+		});
+	};
+	const { msg } = alerta;
 
-    guardarProducto(productoNuevo);
+	return (
+		<Flex>
+			<HeaderAdmin />
+			<Box w="80%" m="auto" mt="30px" bg="#FFFF" p="15px" borderRadius={"10px"}>
+				<Stack align={"center"}>
+					<Heading fontSize={"4xl"} textAlign={"center"}>
+						Crear Producto
+					</Heading>
+				</Stack>
+				<form onSubmit={handleSubmit}>
+					<Flex justify={"space-between"}>
+						<Box w="50%">
+							<Box>
+								<FormControl
+									w="80%"
+									m="auto"
+									my="10px"
+									bg="#ECEDEC"
+									p="10px"
+									borderRadius={"8px"}
+								>
+									<FormLabel fontWeight={"extrabold"}>Nombre</FormLabel>
+									<Input
+										bg="#FFFF"
+										onChange={handleChange}
+										type="text"
+										value={form.name}
+										name="name"
+										placeholder="Escribe el nombre"
+									/>
+									{errors.name && (
+										<Text color="#FE0A01" m="10px">
+											{errors.name}
+										</Text>
+									)}
+								</FormControl>
+							</Box>
+							<Box>
+								<FormControl
+									w="80%"
+									m="auto"
+									my="10px"
+									bg="#ECEDEC"
+									p="10px"
+									borderRadius={"8px"}
+								>
+									<FormLabel fontWeight={"extrabold"}>Precio</FormLabel>
+									<Stack>
+										<Menu>
+											<MenuButton px={4} py={2} transition="all 0.2s">
+												<Flex justify={"left"} align="center">
+													{moneda}
+													<Box mx="8px">
+														<IoIosArrowDown />
+													</Box>
+												</Flex>
+											</MenuButton>
+											<MenuList>
+												<MenuItem onClick={() => setMoneda("Usd")}>
+													Usd
+												</MenuItem>
+												<MenuItem onClick={() => setMoneda("Mxs")}>
+													Mxs
+												</MenuItem>
+												<MenuItem onClick={() => setMoneda("Ars")}>
+													Ars
+												</MenuItem>
+											</MenuList>
+										</Menu>
 
-    setAlerta({
-      msg: "Producto agregado correctamente",
-      error: false,
-    });
-    setTimeout(() => {
-      navegation("/admin/edit");
-    }, 2000);
-  };
-  const { msg } = alerta;
-  return (
-    <Flex mt="30px" align={"center"} justify={"center"} w={"90%"} m={"auto"}>
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Editar producto
-          </Heading>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={100}
-        >
-          {msg && <Alerta alerta={alerta} />}
-          <form onSubmit={handleSubmit}>
-            <Stack spacing={4}>
-              <HStack>
-                <Box>
-                  <FormControl id="Nombre" /* isRequired */>
-                    <FormLabel>Nombre</FormLabel>
-                    <Input
-                      onChange={handleOnchangue}
-                      type="text"
-                      value={from.nombre}
-                      name="nombre"
-                      placeholder="Escribe nombre del producto"
-                    />
-                  </FormControl>
-                </Box>
-              </HStack>
-              <FormControl id="marca" /* isRequired */>
-                <FormLabel>Marca</FormLabel>
-                <Input
-                  onChange={handleOnchangue}
-                  value={from.marca}
-                  name="marca"
-                  type="text"
-                  placeholder="Escribe la marca"
-                />
-              </FormControl>
-              <FormControl id="Dolares" /* isRequired */>
-                <FormLabel>Dolares</FormLabel>
-                <Input
-                  onChange={precioOnchange}
-                  value={precio.Dolares}
-                  name="Dolares"
-                  type="number"
-                  placeholder="Escribe el precio en dolares"
-                />
-              </FormControl>
-              <FormControl id="PesosMX" /* isRequired */>
-                <FormLabel>Pesos Mexicanos</FormLabel>
-                <Input
-                  onChange={precioOnchange}
-                  value={precio.PesosMX}
-                  name="PesosMX"
-                  type="number"
-                  placeholder="Escribe el precio en pesos mexicanos"
-                />
-              </FormControl>
-              <FormControl id="Argentinos" /* isRequired */>
-                <FormLabel>Pesos Argentinos</FormLabel>
-                <Input
-                  onChange={precioOnchange}
-                  value={precio.PesosArg}
-                  name="PesosArg"
-                  type="number"
-                  placeholder="Escribe el precio en pesos argentinos"
-                />
-              </FormControl>
+										<Input
+											bg="#FFFF"
+											// onBlur={handleOnblur}
+											onChange={handleChange}
+											type="precio"
+											value={form.precio}
+											name="precio"
+										/>
+									</Stack>
+									{errors.precio && (
+										<Text color="#FE0A01" m="10px">
+											{errors.precio}
+										</Text>
+									)}
+								</FormControl>
+							</Box>
+							<FormControl
+								w="80%"
+								m="auto"
+								my="10px"
+								bg="#ECEDEC"
+								p="10px"
+								borderRadius={"8px"}
+							>
+								<FormLabel fontWeight={"extrabold"}>Stock</FormLabel>
+								<Input
+									bg="#FFFF"
+									// onBlur={handleOnblur}
+									onChange={handleChange}
+									value={form.stock}
+									name="stock"
+									type="number"
+								/>
+								{errors.stock && (
+									<Text color="#FE0A01" m="10px">
+										{errors.stock}
+									</Text>
+								)}
+							</FormControl>
+							<FormControl
+								w="80%"
+								m="auto"
+								my="10px"
+								bg="#ECEDEC"
+								p="10px"
+								borderRadius={"8px"}
+							>
+								<FormLabel fontWeight={"extrabold"}>Descuento</FormLabel>
+								<Input
+									bg="#FFFF"
+									// onBlur={handleOnblur}
+									onChange={handleChange}
+									value={form.email}
+									name="descuento"
+									type="text"
+								/>
+								{errors.descuento && (
+									<Text color="#FE0A01" m="10px">
+										{errors.descuento}
+									</Text>
+								)}
+							</FormControl>
+							<FormControl
+								w="80%"
+								m="auto"
+								my="10px"
+								bg="#ECEDEC"
+								p="10px"
+								borderRadius={"8px"}
+							>
+								<FormLabel fontWeight={"extrabold"}>Categorias</FormLabel>
+								<Menu>
+									<MenuButton px={4} py={2} transition="all 0.2s">
+										<Flex justify={"left"} align="center">
+											Tarjetas Graficas
+											<Box mx="8px">
+												<IoIosArrowDown />
+											</Box>
+										</Flex>
+									</MenuButton>
+									<MenuList h="200px" overflowY={"scroll"}>
+										{categorias?.length > 0 &&
+											categorias.map((elem, i) => {
+												return (
+													<MenuItem
+														key={elem.id}
+														onClick={() =>
+															setArrCategorias(
+																!arrCategorias?.includes(elem.nombre)
+																	? [...arrCategorias, elem.nombre]
+																	: arrCategorias
+															)
+														}
+													>
+														{elem.nombre}
+													</MenuItem>
+												);
+											})}
+									</MenuList>
+								</Menu>
+								{arrCategorias?.length > 0 && (
+									<Box w="50%">
+										{arrCategorias?.map((elem, i) => {
+											return (
+												<Flex
+													key={i}
+													align="center"
+													justify={"space-between"}
+													bg="#FFFF"
+													p={"10px"}
+													borderRadius="5px"
+													mt="8px"
+												>
+													<Text>{elem}</Text>
+													<Button
+														bg="#242524"
+														color={"#FFFF"}
+														_hover={{ bg: "#242524", color: "#FFFF" }}
+														onClick={() =>
+															setArrCategorias(
+																(arrCategorias = arrCategorias.filter(
+																	(categoria) => categoria !== elem
+																))
+															)
+														}
+														fontSize="10px"
+														width={"15px"}
+														mx="10px"
+													>
+														x
+													</Button>
+												</Flex>
+											);
+										})}
+									</Box>
+								)}
+								{errors.categorias && (
+									<Text color="#FE0A01" m="10px">
+										{errors.categorias}
+									</Text>
+								)}
+							</FormControl>
+						</Box>
+						<Box w="50%">
+							<Box>
+								<FormControl
+									w="80%"
+									m="auto"
+									my="10px"
+									bg="#ECEDEC"
+									p="10px"
+									borderRadius={"8px"}
+								>
+									<FormLabel fontWeight={"extrabold"}>Marca</FormLabel>
+									<Input
+										bg="#FFFF"
+										// onBlur={handleOnblur}
+										onChange={handleChange}
+										type="text"
+										value={form.marca}
+										name="marca"
+										placeholder="Marca del producto"
+									/>
+									{errors.marca && (
+										<Text color="#FE0A01" m="10px">
+											{errors.marca}
+										</Text>
+									)}
+								</FormControl>
+							</Box>
 
-              <FormControl id="Caracteristicas" /* isRequired */>
-                <FormLabel>Caracteristicas 1</FormLabel>
-                <Input
-                  onChange={caracterisOnchange}
-                  value={caracterista.caracteristi}
-                  name="caracteristi"
-                  type="text"
-                  placeholder="Escribe las caractertisticas del producto"
-                />
-              </FormControl>
+							<FormControl
+								w="80%"
+								m="auto"
+								my="10px"
+								bg="#ECEDEC"
+								p="10px"
+								borderRadius={"8px"}
+							>
+								<FormLabel fontWeight={"extrabold"}>Caracteristicas</FormLabel>
+								{cantidad_Caracteristicas?.map((elem, i) => {
+									return (
+										<Flex justify={"space-between"} key={i}>
+											<Box>
+												<FormLabel fontWeight={"medium"}>Titulo</FormLabel>
+												<Input
+													bg="#FFFF"
+													// onBlur={handleOnblur}
+													onChange={handleChange}
+													value={form.caracteristicas_titulo}
+													name="caracteristicas_titulo"
+													type="text"
+												/>
+												{errors.caracteristicas_titulo && (
+													<Text color="#FE0A01" m="10px">
+														{errors.caracteristicas_titulo}
+													</Text>
+												)}
+											</Box>
+											<Box>
+												<FormLabel fontWeight={"medium"}>Texto</FormLabel>
+												<Input
+													bg="#FFFF"
+													// onBlur={handleOnblur}
+													onChange={handleChange}
+													value={form.caracteristicas_texto}
+													name="caracteristicas_texto"
+													type="text"
+												/>
+												{}
+												{errors.caracteristicas_texto && (
+													<Text color="#FE0A01" m="10px">
+														{errors.caracteristicas_texto}
+													</Text>
+												)}
+											</Box>
+										</Flex>
+									);
+								})}
+								{cantidad_Caracteristicas.length < 4 && (
+									<Button
+										my="10px"
+										onClick={() =>
+											setCantidad_Caracteristicas([
+												...cantidad_Caracteristicas,
+												"1",
+											])
+										}
+										bg="#242524"
+										color={"#FFFF"}
+										_hover={{ bg: "#242524", color: "#FFFF" }}
+									>
+										+
+									</Button>
+								)}
+							</FormControl>
 
-              <FormControl id="funciones" /* isRequired */>
-                <FormLabel>Funciones del producto</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={"text"}
-                    onChange={handleOnchangue}
-                    value={from.funciones}
-                    name="funciones"
-                    placeholder="Funciones del producto"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="stock" /* isRequired */>
-                <FormLabel>Stock</FormLabel>
-                <InputGroup>
-                  <Input
-                    type="number"
-                    onChange={handleOnchangue}
-                    value={from.stock}
-                    name="stock"
-                    placeholder="Stock"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="precio" /* isRequired */>
-                <FormLabel>Descuento</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={"text"} //hacer funcion de descuento
-                    onChange={handleOnchangue}
-                    value={from.descuento}
-                    name="descuento"
-                    placeholder="Descuento"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="imagen0" /* isRequired */>
-                <FormLabel>imagen 1</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={"text"}
-                    onChange={handleOnchangue}
-                    value={from.imagen0}
-                    name="imagen0"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="imagen1" /* isRequired */>
-                <FormLabel>imagen 2</FormLabel>
-                <InputGroup>
-                  <Input
-                    type={"text"}
-                    onChange={handleOnchangue}
-                    value={from.imagen1}
-                    name="imagen1"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl id="password_confirm" /* isRequired */>
-                <FormLabel>imagen 3</FormLabel>
-                <InputGroup>
-                  <Input
-                    type="text"
-                    onChange={handleOnchangue}
-                    value={from.imagen2}
-                    name="imagen2"
-                  />
-                </InputGroup>
-              </FormControl>
-              <Stack spacing={10} pt={2}>
-                <Button
-                  type="submit"
-                  loadingText="Submitting"
-                  size="lg"
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Enviar cambios
-                </Button>
-              </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Regresar a tabla
-                  <RouterLink style={{ color: "#4399E1" }} to="/admin/edit">
-                    {" "}
-                    producto
-                  </RouterLink>
-                </Text>
-              </Stack>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-    </Flex>
-  );
+							<FormControl
+								w="80%"
+								m="auto"
+								my="10px"
+								bg="#ECEDEC"
+								p="10px"
+								borderRadius={"8px"}
+							>
+								<FormLabel fontWeight={"extrabold"}>Imagenes</FormLabel>
+								<Input
+									bg="#FFFF"
+									// onBlur={handleOnblur}
+									value={form.imagenes}
+									name="imagenes"
+									type="text"
+									ref={input_img_ref}
+								/>
+								{imagenes.length < 3 && (
+									<Button
+										bg="#242524"
+										color={"#FFFF"}
+										_hover={{ bg: "#242524", color: "#FFFF" }}
+										my="10px"
+										onClick={() => {
+											if (input_img_ref.current.value !== "") {
+												setImagenes([...imagenes, input_img_ref.current.value]);
+												input_img_ref.current.value = "";
+											}
+										}}
+									>
+										Agregar
+									</Button>
+								)}
+								{errors.imagenes && (
+									<Text color="#FE0A01" m="10px">
+										{errors.imagenes}
+									</Text>
+								)}
+								<SimpleGrid columns={3} justifyItems="center" mt="20px">
+									{imagenes.length > 0 &&
+										imagenes.map((elem, i) => {
+											return (
+												<Box>
+													<Button
+														bg="#242524"
+														color={"#FFFF"}
+														_hover={{ bg: "#242524", color: "#FFFF" }}
+														borderRadius={"full"}
+														top="14px"
+														fontSize={"10px"}
+														height="20px"
+														left={"75%"}
+														position="relative"
+														onClick={() =>
+															setImagenes(
+																imagenes.filter((img) => img !== elem)
+															)
+														}
+													>
+														x
+													</Button>
+													<Image
+														key={i}
+														src={elem}
+														alt={"foto"}
+														w="100px"
+														borderRadius={"3px"}
+													/>
+												</Box>
+											);
+										})}
+								</SimpleGrid>
+							</FormControl>
+						</Box>
+					</Flex>
+					<Stack spacing={10} pt={5} w="30%" m={"auto"}>
+						<Button
+							type="submit"
+							loadingText="Submitting"
+							size="lg"
+							bg={"#242524"}
+							color={"white"}
+							_hover={{
+								bg: "#242524",
+							}}
+						>
+							Agregar
+						</Button>
+					</Stack>
+				</form>
+			</Box>
+		</Flex>
+	);
 };
 
 export default AgregarProducto;

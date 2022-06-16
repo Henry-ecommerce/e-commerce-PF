@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "tipoUsuario": "vendedor",
+      "id": 1141606392,
+      "nickname": "TETE8617217",
+      "password": "qatest8715",
+      "site_status": "active",
+      "email": "test_user_92481695@testuser.com",
+      "acces-token": "TEST-5427338419689166-061217-d6086062d1f41300b7b6cb8fc3df4200-1141606392"
+    },
+
+    {
+      "tipoUsuario": "comprador",
+      "id": 1141606485,
+      "nickname": "TT644457",
+      "password": "qatest5376",
+      "site_status": "active",
+      "email": "test_user_68707082@testuser.com",
+      "tarjeta": "Visa45099535662337041231125"
+    }
+  ]
+}

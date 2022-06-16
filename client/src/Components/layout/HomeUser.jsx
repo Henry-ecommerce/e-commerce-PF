@@ -1,7 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import Header from "../../helper/Header";
-import Footer from "../../helper/Footer";
 
 const HomeUser = () => {
   const { auth, cargando } = useAuth();
@@ -10,7 +8,7 @@ const HomeUser = () => {
   return (
     <>
       {/* <Header /> */}
-      {auth?.rol === "User" ? (
+      {auth?.rol === "User" || auth?.rol === "Admin" ? (
         <main className="conteiner mx-auto mt-20">
           <Outlet />
         </main>
@@ -21,4 +19,5 @@ const HomeUser = () => {
     </>
   );
 };
+
 export default HomeUser;

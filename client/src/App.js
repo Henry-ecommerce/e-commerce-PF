@@ -36,18 +36,18 @@ import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
 import Carrito from "./Components/Carrito/Carrito";
-
+import MisCompras from "./Components/MisCompras/MisCompras";
 function App() {
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
-      <Banner />
       <Routes>
         <Route
           exact
           path="/"
           element={
             <Box>
+              <Banner />
               <SearchBar />
               <Home />
             </Box>
@@ -73,6 +73,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="ventas" element={<Ventas />} />
           <Route path="transaciones" element={<Transacciones />} />
+          <Route path="perfil" element={<EditarPerfil />} />
         </Route>
 
         <Route path="/user" element={<HomeUser />}>
@@ -80,6 +81,7 @@ function App() {
           <Route path="perfil" element={<Pruevas />} />
           <Route path="wishList" element={<WishList />} />
           <Route path="carrito" element={<Carrito />}/>
+          <Route path="misCompras" element={<MisCompras />} />
         </Route>
 
         <Route path="/owner" element={<HomeOwner />}>
@@ -93,6 +95,10 @@ function App() {
 
         <Route path="/review" element={<Review />} />
         <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
+        <Route
+          path="/products/:categoriaobusqueda/:page"
+          element={<Tienda />}
+        />
       </Routes>
       <Footer />
     </Box>

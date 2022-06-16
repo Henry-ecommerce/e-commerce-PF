@@ -6190,8 +6190,18 @@ let _productos = [
 router.get("/", async (req, res) => {
   const { name } = req.query;
   if (name) {
+    let nombre = name?.split("category=");
     try {
+
+      if(nombre[1]){
+        const search_products = await Producto.findAll({
+          include: Categoria,
+        });
+        return res.send(search_products?.filter(elem => elem.Categoria[0].nombre === nombre[1]))
+      }
+
       const search_products = await Producto.findAll({
+        include: Categoria,
         where: { nombre: { [Op.iLike]: `%${name}%` } },
       });
       if (search_products.length > 0) {

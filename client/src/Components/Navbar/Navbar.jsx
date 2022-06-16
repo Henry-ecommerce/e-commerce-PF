@@ -26,24 +26,24 @@ import {
   delete_product_in_cart_local_storage,
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import MercadoPago from "../MercadoPago/MercadoPago";
+import FavoriteButton from "../Product/FavoriteButton";
 
 
 function Navbar() {
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
-  // console.log(products_in_cart_local_storage);
-  // const { currentUser, signout } = useAuth();
   const [_width, set_width] = useState(window.frames.innerWidth);
   window.addEventListener("resize", () => {
     set_width(window.frames.innerWidth);
   });
-  const navigate = useNavigate()
-  const { cerrarSesion } = useAuth()
+  const navigate = useNavigate();
+  const { cerrarSesion } = useAuth();
 
-	let user = JSON.parse(localStorage.getItem("info_user"));
+  let user = JSON.parse(localStorage.getItem("info_user"));
 
-	return (
+  return (
     <Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">
       {_width <= 688 ? (
         <Menu>
@@ -63,9 +63,11 @@ function Navbar() {
             <MenuItem>
               <Link to="/#">Pedido</Link>
             </MenuItem>
-            <MenuItem>
-              <Link to="/#">RapidoMore</Link>
-            </MenuItem>
+            {(user?.rol === "Admin" || user?.rol === "Owner") && (
+              <MenuItem>
+                <Link to="/admin/categorias">Admin</Link>
+              </MenuItem>
+            )}
           </MenuList>
         </Menu>
       ) : (
@@ -81,7 +83,9 @@ function Navbar() {
               <Link to="/#">Pedido</Link>
             </Box>
             <Box mx="15px">
-              <Link to="/#">RapidoMore</Link>
+              {(user?.rol === "Admin" || user?.rol === "Owner") && (
+                <Link to="/admin/edit">Admin</Link>
+              )}
             </Box>
           </Flex>
           <Flex align={"center"} mx="30px">
@@ -124,28 +128,32 @@ function Navbar() {
                 <AiOutlineUser />
               </Link>
             )}
-					<Box ml={4} >
-            <Link to="/user/wishList" ml={4}>
-              <AiOutlineHeart />
-            </Link>
-					</Box>
+            <Box ml={4} color="#ECEDEC">
+              {user && (
+                <Link to="/user/wishList">
+                  <AiOutlineHeart />
+                </Link>
+              )}
+              {!user && <AiOutlineHeart />}
+            </Box>
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
                 {products_in_cart_local_storage?.length > 0 &&
-                  typeof products_in_cart_local_storage !== "string" && (
-                    <Box
-                      bg="#FE0100"
-                      fontSize={"8px"}
-                      textAlign="center"
-                      borderRadius={"full"}
-                      pos="absolute"
-                      w="12px"
-                      top="6px"
-                      right="34px"
-                    >
-                      {products_in_cart_local_storage?.length}
-                    </Box>
-                  )}
+                  typeof products_in_cart_local_storage !== "string" &&
+                  products_in_cart_local_storage.length === 0 && (
+                      <Box
+                        bg="#FE0100"
+                        fontSize={"8px"}
+                        textAlign="center"
+                        borderRadius={"full"}
+                        pos="absolute"
+                        w="12px"
+                        top="6px"
+                        right="34px"
+                      >
+                        {products_in_cart_local_storage?.length}
+                      </Box>
+                    )}
                 <Menu autoSelect={false} closeOnSelect={false}>
                   <MenuButton
                     disabled={
@@ -264,6 +272,7 @@ function Navbar() {
                               Finalizar Compra
                             </Button>
                           </Link>
+                          <MercadoPago />
                         </Flex>
                       </MenuItem>
                     </MenuList>

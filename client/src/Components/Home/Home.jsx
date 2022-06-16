@@ -4,7 +4,8 @@ import { get_all_products } from "../../Redux/Actions";
 import Carousel from "../ProductCarousel/Carousel"
 
 import { AiOutlineEnvironment, AiOutlineCreditCard, AiOutlineCheckCircle } from "react-icons/ai";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import FrontPageSlide from "../FrontPageSlide/FrontPageSlide";
 
 const Home = () => {
     const {products} = useSelector(state => state);
@@ -19,8 +20,9 @@ const Home = () => {
 
     return (
     <>
+    <Box width="70vw" ml="auto" mr="auto" mb="20px" textAlign={"center"}><FrontPageSlide></FrontPageSlide></Box>
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-        <div><p textStyle="p">Productos en oferta</p></div>
+        <div><Text fontSize={'25px'}>Productos en oferta</Text></div>
     </Box>
     <Box mt="25px" mb="25px"><Carousel items={division[0]} /></Box>
     
@@ -30,18 +32,18 @@ const Home = () => {
 
 
             <Flex align="center">
-                <Box fontSize="calc(20px + 3vw)" mr="15px"><AiOutlineEnvironment/> </Box>
-                <p>Envios a cualquier <br/>parte del mundo</p>
+                <Box fontSize="40px" mr="15px"><AiOutlineEnvironment/> </Box>
+                <Text fontSize={'20px'}>Envios a cualquier <br/>parte del mundo</Text>
             </Flex>
 
             <Flex align="center">
-                <Box fontSize="calc(20px + 3vw)" mr="15px"><AiOutlineCreditCard/></Box>
-                <p>Paga como quieras<br/>credito debito y mas</p>
+                <Box fontSize="40px" mr="15px"><AiOutlineCreditCard/></Box>
+                <Text fontSize={'20px'}>Paga como quieras<br/>credito debito y mas</Text>
             </Flex>
 
             <Flex align="center">
-                <Box fontSize="calc(20px + 3vw)" mr="15px"><AiOutlineCheckCircle/></Box>
-                <p>Registrate y obten<br/>beneficios exclusivos</p>
+                <Box fontSize="40px" mr="15px"><AiOutlineCheckCircle/></Box>
+                <Text fontSize={'20px'}>Registrate y obten<br/>beneficios exclusivos</Text>
             </Flex>
 
         </Flex>
@@ -49,12 +51,12 @@ const Home = () => {
     </Box>
 
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-        <div><p textStyle="p">Mas Vendidos</p></div>
+        <div><Text fontSize="25px">Mas Vendidos</Text></div>
     </Box>
     <Box mt="25px" mb="25px"><Carousel items={division[1]} /></Box>
     
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-        <div><p textStyle="p">Ultimas Unidades</p></div>
+        <div><Text fontSize="25px">Ultimas Unidades</Text></div>
     </Box>
     <Box mt="25px" mb="25px"><Carousel items={division[2]} /></Box>
     </>

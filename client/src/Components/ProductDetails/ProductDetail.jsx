@@ -4,14 +4,23 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { Flex, Box, Image, Stack, Button, HStack, VStack } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Image,
+  Stack,
+  Button,
+  HStack,
+  VStack,
+  Center,
+} from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { product_to_review } from "../../Redux/Actions/index"
+import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
-
+import ReviewStars from "../ReviewStars/ReviewStars";
 
 function ProductDetail() {
   let { id } = useParams();
@@ -34,7 +43,7 @@ function ProductDetail() {
     });
     axios.get(`/review/:${id}`).then((res) => {
       setReviews(res.data);
-      console.log("Reviews ",res.data);
+      console.log("Reviews ", res.data);
     });
   }, [id]);
 
@@ -44,8 +53,12 @@ function ProductDetail() {
     setImg(e);
   }
 
-  function onReview(){
+  function onReview() {
     dispatch(product_to_review([product]));
+  }
+
+  function displayRating(){
+    return Math.round(reviews.map(rtn => rtn.rating).reduce((prev,number) => prev + number,0) / reviews.length);
   }
 
   if (typeof product === "object") {
@@ -131,21 +144,9 @@ function ProductDetail() {
                   <Box w="200px" fontWeight="black">
                     {product.nombre}
                   </Box>
-                  <Flex align={"center"}>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"} color="#9A9A9A">
-                      <AiFillStar />
-                    </Box>
-                    (23)
-                  </Flex>
+                  {
+                    <ReviewStars starRating = {displayRating()}/>
+                  }
                   <br />
                   <br />
                   <Box
@@ -156,37 +157,41 @@ function ProductDetail() {
                   <br />
                   <div>Espacio Para Promociones Bancarias</div>
                   <br />
-                <HStack spacing="15px">
-                <AddToCartIcon
+                  <HStack spacing="15px">
+                    <AddToCartIcon
                       nombre={product.nombre}
                       precio={product.precio}
                       marca={product.marca}
                       imagen0={product.imagen0}
+                      id={product.id}
                     />
-                  <VStack spacing="15px">
-                    <Button
-                      bg="#242525"
-                      color="#ECEDEC"
-                      _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                      fontSize="small"
-                      w="150px"
-                    >
-                      COMPRAR
-                    </Button>
-                    <Link to={'/review'}>
-                    <Button
-                      bg="#242525"
-                      color="#ECEDEC"
-                      _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                      fontSize="small"
-                      w="150px"
-                      onClick={onReview}
-                    >
-                      Escribir Mi Opinión
-                    </Button>
-                    </Link>
-                  </VStack>
-                </HStack>
+                    <VStack spacing="15px">
+                      <Link to={`#`}>
+                        <Button
+                          bg="#242525"
+                          color="#ECEDEC"
+                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                          fontSize="small"
+                          w="150px"
+                        >
+                          COMPRAR
+                        </Button>
+                      </Link>
+                      ;
+                      <Link to={"/review"}>
+                        <Button
+                          bg="#242525"
+                          color="#ECEDEC"
+                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                          fontSize="small"
+                          w="150px"
+                          onClick={onReview}
+                        >
+                          Escribir Mi Opinión
+                        </Button>
+                      </Link>
+                    </VStack>
+                  </HStack>
                 </Flex>
               </Box>
             </Flex>
@@ -260,16 +265,21 @@ function ProductDetail() {
 
             <Box pl="5" pr="5">
               {showReviews ? (
-                <Box>
-                {reviews.length > 0 ? 
-                  reviews.map((r) => {
-                   return <ReviewCard key={r.id} titulo={r.titulo} comentario={r.text}/>
-                  })
-                  :
-                  "Aun no Hay Reviews Se el Primero!"
-                }
+                <Box bg={'#EDEDED'} overflow={'auto'} h={'300px'} m={'15px'} p={'10px'} borderRadius={'10px'}>
+                  {reviews.length > 0
+                    ? reviews.map((r) => {
+                        return (
+                          <ReviewCard
+                            key={r.id}
+                            titulo={r.titulo}
+                            comentario={r.text}
+                            rating={r.rating}
+                          />
+                        );
+                      })
+                    : <Center>Aun no Hay Reviews Se el Primero!</Center>}
                 </Box>
-              ) : null}        
+              ) : null}
             </Box>
             <Box>
               {showEspecification ? (
