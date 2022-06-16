@@ -6,7 +6,7 @@ const AuthProviderUserContext = createContext();
 const AuthProviderUser = ({ children }) => {
   const [cargando, setCargando] = useState(true);
   const [auth, setAuth] = useState({});
-  console.log(`Soy el auth`, auth);
+ 
 
   useEffect(() => {
     const autenteicarUsuario = async () => {
