@@ -35,6 +35,7 @@ import Ventas from "./Components/AdminPanel/Ventas/Ventas";
 import Transacciones from "./Components/AdminPanel/Transacciones/Transacciones";
 import Home from "./Components/Home/Home";
 import Banner from "./Components/Banner/Banner";
+import MisCompras from "./Components/MisCompras/MisCompras";
 
 function App() {
   return (
@@ -78,7 +79,8 @@ function App() {
         <Route path="/user" element={<HomeUser />}>
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
-        <Route path="wishList" element={<WishList />} />
+          <Route path="wishList" element={<WishList />} />
+          <Route path="misCompras" element={<MisCompras />} />
         </Route>
 
         <Route path="/owner" element={<HomeOwner />}>
@@ -92,7 +94,10 @@ function App() {
 
         <Route path="/review" element={<Review />} />
         <Route path="/products/:categoriaobusqueda" element={<Tienda />} />
-        <Route path="/products/:categoriaobusqueda/:page" element={<Tienda />} />
+        <Route
+          path="/products/:categoriaobusqueda/:page"
+          element={<Tienda />}
+        />
       </Routes>
       <Footer />
     </Box>

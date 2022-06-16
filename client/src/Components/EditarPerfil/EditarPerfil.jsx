@@ -8,9 +8,9 @@ import { MdLogout } from "react-icons/md";
 import { BiShoppingBag, BiStoreAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 const EditarPerfil = () => {
-	let user = JSON.parse(localStorage.getItem("info_user"));
+  let user = JSON.parse(localStorage.getItem("info_user"));
 
-	return (
+  return (
     <Flex w="80%" m="auto" mt="50px" justify={"space-between"}>
       <Stack
         bg="#FFFFFF"
@@ -90,19 +90,21 @@ const EditarPerfil = () => {
               <Text>Mis Pedidos</Text>
             </Flex>
           </Flex>
-          <Flex justify={"space-between"} align="center">
-            <Box pb="6px">
-              <BiShoppingBag />
-            </Box>
-            <Flex
-              justify={"left"}
-              w="80%"
-              pb="6px"
-              borderBottom={"2px solid #EDEDED"}
-            >
-              <Text>Mis compras</Text>
+          <Link to="/user/misCompras">
+            <Flex justify={"space-between"} align="center">
+              <Box pb="6px">
+                <BiShoppingBag />
+              </Box>
+              <Flex
+                justify={"left"}
+                w="80%"
+                pb="6px"
+                borderBottom={"2px solid #EDEDED"}
+              >
+                <Text>Mis compras</Text>
+              </Flex>
             </Flex>
-          </Flex>
+          </Link>
           <Flex justify={"space-between"} align="center">
             <Box pb="6px">
               <FiSettings />
