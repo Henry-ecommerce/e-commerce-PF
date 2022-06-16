@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Producto } = require("../../../db");
+const { Categoria } = require("../../../db");
 const { Op } = require("sequelize");
 const router = require("./categoriasProduc");
 const route = Router();
@@ -14,6 +15,7 @@ route.get("/", async (req, res) => {
 						[Op.iLike]: "%" + nombre + "%",
 					},
 				},
+				include: Categoria,
 			});
 			if (!producto) {
 				res.status(404).json({ msg: "Producto no encontrado" });
@@ -21,7 +23,7 @@ route.get("/", async (req, res) => {
 
 			res.json(producto);
 		} else {
-			const productos = await Producto.findAll();
+			const productos = await Producto.findAll({ include: Categoria });
 
 			if (!productos) {
 				const error = new Error("No hay productos");

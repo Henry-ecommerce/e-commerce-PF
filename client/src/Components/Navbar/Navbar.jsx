@@ -27,6 +27,8 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+// import MercadoPago from "../MercadoPago/MercadoPago";
+// import FavoriteButton from "../Product/FavoriteButton";
 
 function Navbar() {
 	const dispatch = useDispatch();
@@ -39,11 +41,8 @@ function Navbar() {
 	});
 	const navigate = useNavigate();
 	const { cerrarSesion } = useAuth();
-import MercadoPago from "../MercadoPago/MercadoPago";
-import FavoriteButton from "../Product/FavoriteButton";
 
-
-  let user = JSON.parse(localStorage.getItem("info_user"));
+	let user = JSON.parse(localStorage.getItem("info_user"));
 
 	return (
 		<Flex p="10px" justify={"space-between"} bg="#242525" color="#ECEDEC">

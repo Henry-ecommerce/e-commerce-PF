@@ -29,6 +29,7 @@ function Product({
 	imagen2,
 	id,
 	origin,
+	descuento,
 }) {
 	nombre = nombre.split(",")[0];
 	const cards = [
@@ -69,21 +70,23 @@ function Product({
 					<Box position={"absolute"} zIndex={10}>
 						<FavoriteButton origin={origin} productId={id} />
 					</Box>
-					<Box
-						position={"absolute"}
-						zIndex={10}
-						bg="#242525"
-						color="#ECEDEC"
-						w="130px"
-						borderLeftRadius={"8px"}
-						p="10px"
-						top={["10px", "10px", "15px", "10px", "10px"]}
-						left={["60%", "60%", "79%", "60%", "60%"]}
-						fontSize="small"
-						fontWeight={"extrabold"}
-					>
-						Descuento 10%
-					</Box>
+					{descuento !== null && (
+						<Box
+							position={"absolute"}
+							zIndex={10}
+							bg="#242525"
+							color="#ECEDEC"
+							w="130px"
+							borderLeftRadius={"8px"}
+							p="10px"
+							top={["10px", "10px", "15px", "10px", "10px"]}
+							left={["60%", "60%", "79%", "60%", "60%"]}
+							fontSize="small"
+							fontWeight={"extrabold"}
+						>
+							Descuento {descuento}%
+						</Box>
+					)}
 				</Flex>
 				{/* <Link to={`/detail/${id}`}> */}
 				<Box height={"200px"} w="100%">
@@ -177,7 +180,16 @@ function Product({
 
 					<Flex justifyContent="space-between" align="center" mt="12px">
 						<Box as="span" color={"#242525"} fontWeight="bold" fontSize="20px">
-							{`$ ${precio.PesosArg}`}
+							{descuento !== null && (
+								<Text
+									fontSize={"12px"}
+									color='#9A9A9A'
+									textDecoration={"line-through"}
+								>{`$ ${precio.PesosArg}`}</Text>
+							)}
+							{descuento !== null
+								? `$ ${precio.PesosArg - (precio.PesosArg * descuento) / 100}`
+								: `$ ${precio.PesosArg}`}
 						</Box>
 
 						<Box>

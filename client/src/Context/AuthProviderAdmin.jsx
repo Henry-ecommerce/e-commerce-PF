@@ -226,11 +226,7 @@ export const AdminProvider = ({ children }) => {
 		} else {
 			try {
 				console.log(producto, "estoy aca");
-				const { data } = await axios.post(
-					`/admin/crear`,
-					producto,
-					config
-				);
+				const { data } = await axios.post(`/admin/crear`, producto, config);
 				const { createdAt, updatedAt, ...productosAlmacenados } = data;
 				setProductos([productosAlmacenados, ...productos]);
 			} catch (error) {
@@ -240,6 +236,95 @@ export const AdminProvider = ({ children }) => {
 	};
 	const putProducto = (e) => {
 		setProducto(e);
+	};
+
+	const eliminarCategoria = async (id) => {
+		// eslint-disable-next-line no-restricted-globals
+		const confirmar = confirm(
+			"¿Confirmas que desas eliminar el siguiente registro ?"
+		);
+		const token = localStorage.getItem("token");
+
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		if (confirmar) {
+			try {
+				// eslint-disable-next-line no-unused-vars
+				await axios.delete(
+					`${process.env.REACT_APP_API}/admin/categorias/${id}`,
+					config
+				);
+				const categoriaActualizadas = categorias.filter((e) => e.id !== id);
+				setCategorias(categoriaActualizadas);
+			} catch (error) {
+				console.log(error);
+			}
+		}
+	};
+
+	const actualizarCategoria = async (
+		id,
+		nombre,
+		productos_a_eliminar,
+		productos_a_agregar
+	) => {
+		// eslint-disable-next-line no-restricted-globals
+		// const confirmar = confirm(
+		// 	"¿Confirmas que desas eliminar el siguiente registro ?"
+		// );
+		const token = localStorage.getItem("token");
+
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		const body = { nombre, productos_a_eliminar, productos_a_agregar };
+		try {
+			// eslint-disable-next-line no-unused-vars
+			await axios.put(
+				`${process.env.REACT_APP_API}/admin/categorias/${id}`,
+				body,
+				config
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const agregarCategorias = async (nombre, productos) => {
+		// eslint-disable-next-line no-restricted-globals
+		const confirmar = confirm(
+			"¿Confirmas que desas eliminar el siguiente registro ?"
+		);
+		const token = localStorage.getItem("token");
+
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		const body = { nombre, productos };
+		if (confirmar) {
+			try {
+				// eslint-disable-next-line no-unused-vars
+				await axios.post(
+					`${process.env.REACT_APP_API}/admin/categorias`,
+					body,
+					config
+				);
+				// const categoriaActualizadas = categorias.filter((e) => e.id !== id);
+				setCategorias(categorias);
+			} catch (error) {
+				console.log(error);
+			}
+		}
 	};
 
 	const eliminarProducto = async (id) => {
@@ -279,6 +364,9 @@ export const AdminProvider = ({ children }) => {
 				putProducto,
 				eliminarProducto,
 				obtenerProductos_filtrados,
+				eliminarCategoria,
+				actualizarCategoria,
+				agregarCategorias,
 				users,
 				ordenes,
 				categorias,

@@ -26,7 +26,6 @@ router.post("/create", async (req, res) => {
     try {
         _categorias?.map((el) => {
             Categoria.create({
-                id: el.id,
                 nombre: el.name,
                 imagen: el.imagen,
             })
