@@ -21,7 +21,13 @@ export default function AddToCartIcon({ nombre, marca, precio, imagen0, id }) {
         ),
         // console.log(localStorage.getItem('productos_carrito'))
         dispatch(
-          set_products_in_cart_local_storage({ nombre, marca, precio, imagen0 })
+          set_products_in_cart_local_storage({
+            nombre,
+            marca,
+            precio,
+            imagen0,
+            id,
+          })
         ),
       ]}
     >

@@ -163,6 +163,7 @@ function ProductDetail() {
                       precio={product.precio}
                       marca={product.marca}
                       imagen0={product.imagen0}
+                      id={product.id}
                     />
                     <VStack spacing="15px">
                       <Link to={`#`}>
