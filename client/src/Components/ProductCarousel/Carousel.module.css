@@ -50,3 +50,15 @@
 .btn_izq:hover {
     color: #9A9A9A;
 }
+
+@media (max-width: 400px) {
+    
+    .btn_izq {
+        display: none;
+    }
+
+    .btn_der {
+        display: none;
+    }
+
+    }

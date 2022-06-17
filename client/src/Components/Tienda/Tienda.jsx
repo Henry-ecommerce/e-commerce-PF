@@ -48,11 +48,13 @@ const Tienda = () => {
     }
 
     </div>
-    <Paginado 
+    <div className={estilo.paginado}>
+        <Paginado 
             productsPage={productsPage}
             allProducts={allProducts.length}
             paginado={paginado}
     />
+    </div>
 
     </>
     )
