@@ -20,6 +20,10 @@ let Reviews = (sequelize) =>
 					min: 0,
 				},
 			},
+			userName: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			},
 		},
 		{ timestamps: false }
 	);
