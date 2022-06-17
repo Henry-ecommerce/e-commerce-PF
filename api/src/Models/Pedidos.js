@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define("Pedido", {
     preference_id: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     items: {
       type: DataTypes.JSON,

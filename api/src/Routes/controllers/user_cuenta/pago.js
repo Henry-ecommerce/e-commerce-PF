@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
         country_name: items.pais,
       },
     },
-    notication_url : "https://hookb.in/BYV2PJzWNRsknxZk3KPw",
+    notification_url: "https://hookb.in/BYV2PJzWNRsknxZk3KPw",
     payment_methods: {
       excluded_payment_methods: [{}],
       excluded_payment_types: [{ id: "ticket" }],

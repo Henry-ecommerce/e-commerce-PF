@@ -11,7 +11,7 @@ mercadopago.configure({
 });
 
 router.post("/", async (req, res) => {
-  const { resource } = req.body;
+  const { id } = req.query;
 
   const config = {
     headers: {
@@ -20,24 +20,31 @@ router.post("/", async (req, res) => {
     },
   };
   try {
-    const peticion = await axios.get(resource, config);
+    let pagos = await axios.get(`https://api.mercadopago.com/v1/payments/${id}`);
+    let info = pagos.data
+    let orderId = info.order.id
+
+    const peticion = await axios.get(
+      `https://api.mercadopago.com/merchant_orders/${orderId}`,
+      config
+    );
     let datos = peticion.data;
-    datos.payments[0].status;
-    const { payments, items, shipments, payer, preference_id, metadata } =
-      datos;
+    const { payments, items, shipments, payer, preference_id } = datos;
     let [pedido, create] = await Pedido.findOrCreate({
       where: {
         preference_id: preference_id,
       },
       defaults: {
+        preference_id: preference_id,
         payments: JSON.stringify(payments),
         items: JSON.stringify(items),
         shipments: JSON.stringify(shipments),
         payer: JSON.stringify(payer),
       },
     });
-
-    pedido.addUsuario(metadata.id)
+    let preferencia = await axios.get(`https://api.mercadopago.com/checkout/preferences/${preference_id}`)
+    meta = preferencia.data 
+    pedido.addUsuario(meta.metadata.id)
 
     res.send(pedido);
   } catch (err) {
