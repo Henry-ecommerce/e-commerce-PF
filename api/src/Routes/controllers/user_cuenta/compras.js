@@ -23,8 +23,8 @@ router.post("/", async (req, res) => {
     const peticion = await axios.get(resource, config);
     let datos = peticion.data;
     datos.payments[0].status;
-    const { payments, items, shipments, payer,preference_id } = datos;
-    console.log(payments)
+    const { payments, items, shipments, payer, preference_id, metadata } =
+      datos;
     let [pedido, create] = await Pedido.findOrCreate({
       where: {
         preference_id: preference_id,
@@ -37,9 +37,7 @@ router.post("/", async (req, res) => {
       },
     });
 
-
-
-    // Usuario.addPedido()
+    pedido.addUsuario(metadata.id)
 
     res.send(pedido);
   } catch (err) {

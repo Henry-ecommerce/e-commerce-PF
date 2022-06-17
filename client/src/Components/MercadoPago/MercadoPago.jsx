@@ -1,14 +1,15 @@
 import { Button } from "@chakra-ui/react";
 import axios from "axios";
-export default function MercadoPago() {
-
+export default function MercadoPago({ items }) {
   function Pagar() {
     const token = localStorage.getItem("token");
     if (!token) {
       console.log("no hay token");
       return;
     }
+
     const datos = {
+      items: items,
       user: JSON.parse(localStorage.getItem("info_user")),
       producto: JSON.parse(localStorage.getItem("productos_carrito")),
     };
@@ -27,14 +28,14 @@ export default function MercadoPago() {
   }
 
   return (
-      <Button
-        mx="10px"
-        bg="#242525"
-        color="#FFFF"
-        _hover={{ bg: "#242525", color: "#FFFF" }}
-        onClick={() => Pagar()}
-      >
-        Finalizar Compra
-      </Button>
+    <Button
+      mx="10px"
+      bg="#242525"
+      color="#FFFF"
+      _hover={{ bg: "#242525", color: "#FFFF" }}
+      onClick={() => Pagar()}
+    >
+      Finalizar Compra
+    </Button>
   );
 }

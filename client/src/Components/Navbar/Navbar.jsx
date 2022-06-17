@@ -27,8 +27,9 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import MercadoPago from "../MercadoPago/MercadoPago";
-import FavoriteButton from "../Product/FavoriteButton";
+// import MercadoPago from "../MercadoPago/MercadoPago";
+// import FavoriteButton from "../Product/FavoriteButton";
+import FormMercadoPago from "../MercadoPago/FormularioPago";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -140,19 +141,19 @@ function Navbar() {
                 {products_in_cart_local_storage?.length > 0 &&
                   typeof products_in_cart_local_storage !== "string" &&
                   products_in_cart_local_storage.length === 0 && (
-                      <Box
-                        bg="#FE0100"
-                        fontSize={"8px"}
-                        textAlign="center"
-                        borderRadius={"full"}
-                        pos="absolute"
-                        w="12px"
-                        top="6px"
-                        right="34px"
-                      >
-                        {products_in_cart_local_storage?.length}
-                      </Box>
-                    )}
+                    <Box
+                      bg="#FE0100"
+                      fontSize={"8px"}
+                      textAlign="center"
+                      borderRadius={"full"}
+                      pos="absolute"
+                      w="12px"
+                      top="6px"
+                      right="34px"
+                    >
+                      {products_in_cart_local_storage?.length}
+                    </Box>
+                  )}
                 <Menu autoSelect={false} closeOnSelect={false}>
                   <MenuButton
                     disabled={
@@ -261,7 +262,9 @@ function Navbar() {
                                 0
                               )}
                           </Text>
-                          <MercadoPago />
+                          <Link to="/user/formMercadoPago">
+                            <Button>Ir al pago</Button>
+                          </Link>
                         </Flex>
                       </MenuItem>
                     </MenuList>
