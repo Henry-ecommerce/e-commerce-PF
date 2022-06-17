@@ -25,6 +25,8 @@ import HeaderAdmin from "../Admin/HeaderAdmin";
 import Cards from "./Cards";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiEditAlt } from "react-icons/bi";
+import { MdDeleteOutline } from "react-icons/md";
+import EditProductos from "../EditProductos/EditProductos";
 
 const ObtenerProductosAdmin = () => {
 	const {
@@ -32,11 +34,15 @@ const ObtenerProductosAdmin = () => {
 		obtenerProducto_por_nombre,
 		obtenerProductos_filtrados,
 		_marca,
+		eliminarProducto,
+		putProducto,
 	} = useAuthAd();
 	const [input, setInput] = useState("");
 	const [_precio, setPrecio] = useState("Dolares");
 	const [marca_seleccionada, setMarca_seleccionada] = useState("");
+	const [formEdit, setFormEdit] = useState(false);
 	const [editar, setEditar] = useState(false);
+	const [eliminar, setEliminar] = useState(false);
 	const [editar_seleccionado, setEditar_seleccionado] = useState("");
 
 	let precio_productos = Object.keys(
@@ -59,6 +65,11 @@ const ObtenerProductosAdmin = () => {
 	return (
 		<Flex>
 			<HeaderAdmin />
+			{formEdit && (
+				<Box w='70%'>
+					<EditProductos setFormEdit={setFormEdit}/>
+				</Box>
+			)}
 			{productos.length > 0 && typeof productos !== "string" ? (
 				<Box w="83%" m="auto" mt="30px">
 					<form onSubmit={handleSubmit}>
@@ -85,9 +96,24 @@ const ObtenerProductosAdmin = () => {
 						bg="#242525"
 						color={"#FFFF"}
 						_hover={{ bg: "#242525", color: "#FFFF" }}
-						onClick={() => setEditar(!editar)}
+						onClick={() => {
+							setEliminar(false);
+							setEditar(!editar);
+						}}
 					>
 						Editar
+					</Button>
+					<Button
+						m="12px"
+						bg="#242525"
+						color={"#FFFF"}
+						_hover={{ bg: "#242525", color: "#FFFF" }}
+						onClick={() => {
+							setEditar(false);
+							setEliminar(!eliminar);
+						}}
+					>
+						Eliminar
 					</Button>
 					<Box h="500px" overflowY={"scroll"} borderRadius="10px" mt="30px">
 						<TableContainer>
@@ -199,14 +225,29 @@ const ObtenerProductosAdmin = () => {
 									{productos.length > 0 &&
 										typeof productos !== "string" &&
 										productos.map((elem) => {
-											console.log(elem.precio)
 											return (
 												<Tr key={elem.id}>
 													<Td>
-														{editar ? (
+														{editar && !eliminar ? (
 															<Flex justify={"space-between"}>
-																<Box cursor={"pointer"}>
+																<Box
+																	cursor={"pointer"}
+																	onClick={() => {
+																		setFormEdit(true);
+																		putProducto(elem);
+																	}}
+																>
 																	<BiEditAlt />
+																</Box>
+																{elem.nombre.slice(0, 30)}
+															</Flex>
+														) : !editar && eliminar ? (
+															<Flex justify={"space-between"}>
+																<Box
+																	cursor={"pointer"}
+																	onClick={() => eliminarProducto(elem.id)}
+																>
+																	<MdDeleteOutline />
 																</Box>
 																{elem.nombre.slice(0, 30)}
 															</Flex>
@@ -219,7 +260,7 @@ const ObtenerProductosAdmin = () => {
 													<Td textAlign={"center"}>caracteristicas</Td>
 													<Td textAlign={"center"}>{elem.stock}</Td>
 													<Td textAlign={"center"}>
-														{elem.descuento === null ? `${0}%` : elem.descuento}
+														{elem.descuento === null ? `${0}%` : `${elem.descuento}%`}
 													</Td>
 													<Td textAlign={"center"}>
 														<Img

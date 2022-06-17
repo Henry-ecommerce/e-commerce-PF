@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { Producto, Categoria } = require("../../db");
 const Sequelize = require('sequelize')
-
+const {Op} = require('sequelize')
 const router = Router();
 
 
@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
         
         if(categoryorsearch?.split("category=")[1]){
             let allProducts = await Producto.findAll({
+                where : { stock : {[Op.gt] : 0} },
                 include: Categoria,
                 order: [["nombre", "ASC"]]
             });
@@ -41,17 +42,18 @@ router.get("/", async (req, res) => {
 
         let allProducts = await Producto.findAll({
             include: Categoria,
-            where: {nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
+            where: {nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }, stock : {[Op.gt] : 0}},
             order: [["nombre", "ASC"]]
         });
         // let colorFilter = await Producto.findAll({
+            // where : { stock : {[Op.gt] : 0} },
         //     where: {color},
         //     order: [["nombre", "ASC"]]
         // })
         if(marca){
             let marcaFilter = await Producto.findAll({
-               include: Categoria,
-                where: {marca, nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }},
+                include: Categoria,
+                where: {marca, nombre: { [Sequelize.Op.iLike]: `%${categoryorsearch}%` }, stock : {[Op.gt] : 0}},
                 order: [["nombre", "ASC"]] 
             })
             if (order === "precio" && ascordesc === "ASC") marcaFilter = marcaFilter.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg));
@@ -62,19 +64,22 @@ router.get("/", async (req, res) => {
 
         if (precio){
             let precioOrder = await Producto.findAll({ // precio debe ser "ASC" o "DESC", lo recibe del front
+                where : { stock : {[Op.gt] : 0} },
             })
             precio === "ASC" ? precioOrder.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg)):
             precioOrder.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg))
             return res.send(precioOrder)
         }
         // let caractFilter = await Producto.findAll({
+            // where : { stock : {[Op.gt] : 0} },
         //     where: {caracteristicas: caracteristicas},
         //     order: [["nombre", "ASC"]] 
         // })
         if(funciones){
             let funcionesFilter = await Producto.findAll({
                 where: {funciones: {
-                    [Sequelize.Op.iLike] : `%${funciones}%` // operador que busca coincidencias y no es sensitive
+                    [Sequelize.Op.iLike] : `%${funciones}%`, // operador que busca coincidencias y no es sensitive
+                    stock : {[Op.gt] : 0}
                 }}
             })
             
@@ -82,6 +87,7 @@ router.get("/", async (req, res) => {
         }
         // if(categoria){
         // let categoriaFilter = await Producto.findAll({
+            // where : { stock : {[Op.gt] : 0} },
         //     where: {categoria}
         // })
         //    return res.send(categoriaFilter)
@@ -89,6 +95,7 @@ router.get("/", async (req, res) => {
         
         if(stock){
             let stockOrder = await Producto.findAll({
+                where : { stock : {[Op.gt] : 0} },
                 order: [["stock", stock]] // igual que precio, mandar "ASC" o "DESC"
             })
             return res.status(200).json(stockOrder)}

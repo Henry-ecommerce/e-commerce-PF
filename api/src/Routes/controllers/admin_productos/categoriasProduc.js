@@ -68,7 +68,7 @@ router.put("/:id", async (req, res) => {
 		category_update["nombre"] = nombre;
 		await category_update.save();
 		res.json(category_update);
-	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length > 0) {
+	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length > 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -91,9 +91,10 @@ router.put("/:id", async (req, res) => {
 			});
 			await category_update.removeProducto(find_productos_a_eliminar);
 			await category_update.addProducto(find_productos_a_agregar);
+			await category_update.save();
 			res.json(category_update);
 		}
-	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length === 0) {
+	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length === 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -112,19 +113,21 @@ router.put("/:id", async (req, res) => {
 				where: { nombre: productos_a_agregar.map((e) => e) },
 			});
 			await category_update.addProducto(find_productos_a_agregar);
+			await category_update.save();
 			res.json(category_update);
 		}
-	} else if (id &&nombre &&productos_a_agregar.length === 0 &&productos_a_eliminar.length > 0) {
+	} else if (id && nombre && productos_a_agregar.length === 0 && productos_a_eliminar.length > 0) {
+		console.log('hola')
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
 		});
 		category_update["nombre"] = nombre;
-
 		let find_productos_a_eliminar = await Producto.findAll({
 			where: { nombre: productos_a_eliminar.map((e) => e) },
 		});
 		await category_update.removeProducto(find_productos_a_eliminar);
+		await category_update.save();
 		res.json(category_update);
 	}
 });
