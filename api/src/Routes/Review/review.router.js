@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const  { Review, Producto } = require("../../db");
+const  { Review, Producto, Usuario } = require("../../db");
 
 router.get('/', async (req, res) => {
     try {
@@ -27,11 +27,12 @@ router.get("/:id", async (req, res) => {
 
 router.post('/', async (req, res) => {
 try {
-    const { titulo, text, rating, productoId} = req.body;
+    const { titulo, text, rating, productoId, usuarioId, userName} = req.body;
     const review = await Review.create({
         titulo: titulo,
         text: text,
         rating: rating,
+        userName: userName,
     });
     
         let act = await Producto.findOne({
@@ -39,9 +40,15 @@ try {
                 id: productoId
             }
         })
+        let usr = await Usuario.findOne({
+            where: {
+                id: usuarioId
+            }
+        })
         //console log para ver que id nos esta llegando
-        // console.log("Id del Producto",act.id); 
+        // console.log("Id del Producto",usuarioId); 
         await review.setProducto(act);
+        await review.setUsuario(usr);
    
     return res.json("Review Agregado Exitosamente")
 } catch (error) {
