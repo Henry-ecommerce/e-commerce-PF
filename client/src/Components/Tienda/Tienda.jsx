@@ -33,6 +33,7 @@ const Tienda = () => {
     return (
     <>
     <SearchBar/>
+    <p>{currentProducts.length ? null : "no hay productos"}</p>
     <div className={estilo.contenedor_general}>
        <div className={estilo.contenedor_filtros}><Filtros_Ordenamientos/></div>
     
