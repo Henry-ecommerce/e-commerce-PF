@@ -94,7 +94,9 @@ export function post_review(data) {
 			titulo: data.titulo,
 			text: data.text,
 			rating: data.rating,
-			productoId: [data.productoId]
+			productoId: [data.productoId],
+			usuarioId: data.usuarioId,
+			userName: data.userName,
 		})
 		  .then(function (response) {
 			console.log("Success:", response);
