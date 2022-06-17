@@ -6231,7 +6231,6 @@ router.get("/", async (req, res) => {
 /* ESTA RUTA ES PARA OBTENER LOS NOMBRES LO LOS PRODUCTOS MIENTRAS TIPEO EN EL INPUT, TIPO GOOGLE */
 router.get("/:name", async (req, res) => {
   const { name } = req.params;
-  console.log(name);
   if (name) {
     try {
       const search_products = await Producto.findAll({

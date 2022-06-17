@@ -66,7 +66,7 @@ function ProductDetail() {
       <>
         <Box fontWeight="black" fontSize="small" ml="600px" mt="4px">
           <Link to={"/"}>{"Home > "}</Link>
-          {`Detalle > ${product.categoria}`}
+          {`Detalle > ${product?.categoria}`}
         </Box>
         <Stack w="full" alignItems="center" justifyContent="space-between">
           <Box w="800px" h="800px" bg="white" p="10px" m="10px">
