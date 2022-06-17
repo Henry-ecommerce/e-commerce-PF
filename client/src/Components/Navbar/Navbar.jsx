@@ -140,8 +140,7 @@ function Navbar() {
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
                 {products_in_cart_local_storage?.length > 0 &&
-                  typeof products_in_cart_local_storage !== "string" &&
-                  products_in_cart_local_storage.length === 0 && (
+                  typeof products_in_cart_local_storage !== "string" && (
                       <Box
                         bg="#FE0100"
                         fontSize={"8px"}
@@ -187,10 +186,10 @@ function Navbar() {
                                 </Flex>
                                 <Stack>
                                   <Text ml="10px">
-                                    {elem.nombre.slice(
+                                    {elem.nombre?.length > 30 ? elem.nombre.slice(
                                       0,
                                       (elem.nombre?.length * 40) / 100
-                                    )}
+                                    ) : elem.nombre}
                                   </Text>
                                   <Flex
                                     align={"center"}
@@ -254,14 +253,14 @@ function Navbar() {
                           <Text mx="10px" fontWeight={"extrabold"}>
                             Total:{" "}
                             {products_in_cart_local_storage?.length > 0 &&
-                              products_in_cart_local_storage.reduce(
+                              (products_in_cart_local_storage.reduce(
                                 (a, b) =>
                                   Number(b.cantidad) <= 1
                                     ? a + Number(b.precio.PesosArg)
                                     : a +
                                       Number(b.precio.PesosArg) * b.cantidad,
                                 0
-                              )}
+                              )).toFixed(2)}
                           </Text>
                           <Link to="/user/carrito">
                             <Button

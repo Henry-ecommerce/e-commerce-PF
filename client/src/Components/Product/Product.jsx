@@ -35,8 +35,8 @@ function Product({
   nombre = nombre.split(",")[0];
   const cards = [
     imagen0,
-    "https://programacion.net/files/article/20161110041116_image-not-found.png",
-    "https://programacion.net/files/article/20161110041116_image-not-found.png",
+    imagen1 === undefined ? "https://programacion.net/files/article/20161110041116_image-not-found.png" : imagen1,
+    imagen2 === undefined ? "https://programacion.net/files/article/20161110041116_image-not-found.png" : imagen2,
   ];
   const settings = {
     dots: true,
@@ -189,7 +189,7 @@ function Product({
 								>{`$ ${precio.PesosArg}`}</Text>
 							)}
 							{descuento !== null
-								? `$ ${precio.PesosArg - (precio.PesosArg * descuento) / 100}`
+								? `$ ${(precio.PesosArg - (precio.PesosArg * descuento) / 100).toFixed(2)}`
 								: `$ ${precio.PesosArg}`}
 						</Box>
 
