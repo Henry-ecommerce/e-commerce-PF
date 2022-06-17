@@ -27,6 +27,7 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+
 import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
 

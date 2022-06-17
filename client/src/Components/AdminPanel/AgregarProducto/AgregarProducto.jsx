@@ -21,6 +21,7 @@ import HeaderAdmin from "../Admin/HeaderAdmin";
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuthAd";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 const AgregarProducto = () => {
 	const input_img_ref = useRef();
@@ -30,6 +31,8 @@ const AgregarProducto = () => {
 	const [errors, setErrors] = useState({});
 	const [alerta, setAlerta] = useState({});
 	const [imagenes, setImagenes] = useState([]);
+	const [i, setI] = useState();
+	const [imagenPreview, setImagenPreview] = useState([]);
 	let [arrCategorias, setArrCategorias] = useState([]);
 	let [form, setForm] = useState({
 		name: "",
@@ -41,6 +44,23 @@ const AgregarProducto = () => {
 		caracteristicas: {},
 		caracteristicas_titulo: [],
 	});
+
+	useEffect(() => {
+		if (i) {
+			const fileReader = new FileReader();
+			fileReader.onloadend = () => {
+				if (
+					!imagenPreview.includes(fileReader.result) &&
+					imagenPreview.length < 3
+				) {
+					setImagenPreview([...imagenPreview, fileReader.result]);
+				}
+			};
+			fileReader.readAsDataURL(i);
+		} else {
+			setImagenPreview([]);
+		}
+	}, [i]);
 
 	const validation = (values) => {
 		const errors = {};
@@ -94,7 +114,7 @@ const AgregarProducto = () => {
 		// console.log({ ...form, categorias: arrCategorias, imagenes: imagenes });
 		handleChange(e);
 		setErrors(validation(form));
-
+		console.log(imagenes)
 		try {
 			console.log(
 				{ ...form, categorias: arrCategorias, imagenes: imagenes },
@@ -102,8 +122,9 @@ const AgregarProducto = () => {
 			);
 			guardarProducto({
 				...form,
+				precio: { [moneda]: form.precio },
 				categorias: arrCategorias,
-				imagenes: imagenes,
+				imagenes: imagenPreview,
 			});
 			// setForm({
 			// 	name: "",
@@ -453,10 +474,20 @@ const AgregarProducto = () => {
 									// onBlur={handleOnblur}
 									value={form.imagenes}
 									name="imagenes"
-									type="text"
+									accept="image/*"
+									type="file"
 									ref={input_img_ref}
+									onChange={(e) => {
+										const file = e.target.files[0];
+										if (file && file.type.substr(0, 5) === "image") {
+											setI(file);
+											setImagenes([...imagenes, file]);
+										} else {
+											setI(null);
+										}
+									}}
 								/>
-								{imagenes.length < 3 && (
+								{/* {imagenes.length < 3 && (
 									<Button
 										bg="#242524"
 										color={"#FFFF"}
@@ -471,7 +502,24 @@ const AgregarProducto = () => {
 									>
 										Agregar
 									</Button>
-								)}
+								)} */}
+								<Flex justify={"space-between"} align="center">
+									{i !== null &&
+										imagenPreview?.map((e, i) => {
+											return (
+												<Box w="100px">
+													<Image
+														src={e}
+														alt="foto"
+														w="100%"
+														objectFit={"cover"}
+														key={i}
+													/>
+												</Box>
+											);
+										})}
+								</Flex>
+
 								{errors.imagenes && (
 									<Text color="#FE0A01" m="10px">
 										{errors.imagenes}
