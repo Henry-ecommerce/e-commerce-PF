@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const CLIENTD_ID =
+
   "51653310214-roqgisuuk3321m5if0h2r20fvc1jip1c.apps.googleusercontent.com";
 const CLIENTD_SECRET = "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";
 const REDIRECT_URI = "https://developers.google.com/oauthplayground";
@@ -30,8 +31,6 @@ const emailRegistro = async (datos) => {
     //preuvas
     // host: process.env.EMAIL_HOST,
     // port: process.env.EMAIL_PORT,
-    // auth: {
-    //   user: process.env.EMAIL_USER,
     //   pass: process.env.EMAIL_PASS,
     // },
   });

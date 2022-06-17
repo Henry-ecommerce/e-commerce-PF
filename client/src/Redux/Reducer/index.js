@@ -26,6 +26,7 @@ const initialState = {
   favorites: [],
 };
 
+
 if (
   localStorage.getItem("productos_carrito") === undefined ||
   localStorage.getItem("productos_carrito") === null

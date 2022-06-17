@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { post_review, product_to_review } from "../../Redux/Actions/index";
-import Product from "../Product/Product.jsx";
+import { useToast } from "@chakra-ui/react";
+
 import {
   FormControl,
   FormLabel,
@@ -9,23 +10,23 @@ import {
   Flex,
   Input,
   Textarea,
-  Box,
   Icon,
   IconButton,
   Button,
   Center,
+  Box,
+  Image,
 } from "@chakra-ui/react";
 
 import { AiFillStar } from "react-icons/ai";
 
 const Review = () => {
-
   let RegExpression = /^[a-zA-Z\s]*$/;
   let message = useRef("");
   const dispatch = useDispatch();
   const stars = [];
   const productToReview = useSelector((state) => state.product_to_review);
-  const [mensajeEnviado, setMensajeEnviado] = useState("");
+  const toast = useToast();
   const [rating, setRating] = useState(0);
   const [input, setInput] = useState({
     titulo: "",
@@ -38,7 +39,7 @@ const Review = () => {
     <Icon
       as={AiFillStar}
       boxSize={8}
-      fillOpacity={fill ? "100%" : "25%"}
+      fillOpacity={fill ? "100%" : "35%"}
       color="orange"
     />
   );
@@ -71,7 +72,7 @@ const Review = () => {
         setInput({
           ...input,
           rating: idx,
-          productoId: productToReview[0].id
+          productoId: productToReview[0].id,
         });
       }
     }
@@ -79,27 +80,37 @@ const Review = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setInput({
-    //   ...input,
-    //   productoId: productToReview[0].id,
-    // });
     if (
       input.titulo.length < 3 ||
       input.titulo.trim().length === 0 ||
-      input.text.trim().length === 0
+      input.text.trim().length === 0 ||
+      productToReview.length < 0
     ) {
-      setMensajeEnviado("Informacion Insuficiente");
-    } else { 
-      console.log("debera enviar",input);
+      toast({  
+        position: "top",
+        title: "Review No Creada",
+        description: "Por favor revisa la Informacion",
+        status: "error",
+        duration: 9000,
+        isClosable: true,})
+    } else {
+      //Console log para ver que esta enviando al back
+      // console.log("debera enviar", input);
       dispatch(post_review(input));
       dispatch(product_to_review([]));
       setInput({
         titulo: "",
         text: "",
         rating: 0,
-        productoId: productToReview
+        productoId: productToReview,
       });
-      setMensajeEnviado("Review Creada con Exito!");
+      toast({  
+      position: "top",
+      title: "Review Creada con Exito!",
+      description: "Gracias Por Compartir",
+      status: "success",
+      duration: 9000,
+      isClosable: true,});
     }
   };
 
@@ -119,107 +130,123 @@ const Review = () => {
   };
 
   return (
-    <Center align={"space-between"} justify={"center"}>
-      <Box
+    <Center>
+      <Flex
         color="black"
         bg="white"
         p="16px"
         fontSize={"2xl"}
         m="10"
         rounded="lg"
-        boxShadow="base"
-        minW="900px"
-        minH="600px"
+        boxShadow="md"
+        minW={"80%"}
+        minH="700px"
+        justify={"space-around"}
+        align={"center"}
       >
-        <Flex>
-          <Center>
-            <h1>{mensajeEnviado}</h1>
-            <Center m="30px" align={"space-between"} justify={"center"}>
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <FormControl>
-                  <Center justify={"center"}>
-                    <FormLabel
-                      htmlFor="title"
-                      fontWeight="black"
-                      fontSize="x-large"
-                    >
-                      Titulo
-                    </FormLabel>
-                  </Center>
-                  <Input
-                    id="title"
-                    name="titulo"
-                    type="text"
-                    size="md"
-                    w="500px"
-                    variant="outline"
-                    placeholder="¿Qué es lo que quieres compartir del producto?"
-                    onChange={(e) => handleInputCheck(e)}
-                    isRequired
-                  />
-                  <FormHelperText color="black" p="16px">
-                    {message.current}
-                  </FormHelperText>
-                  <Center>
-                    <FormLabel
-                      htmlFor="rating"
-                      fontWeight="black"
-                      fontSize="x-large"
-                    >
-                      Rating
-                    </FormLabel>
-                  </Center>
-                  {/* <p>{rating}</p> */}
-                  <Flex align={"center"} justify={"center"}>
-                    {stars}
-                  </Flex>
-                  <Center justify={"center"}>
-                    <FormLabel
-                      htmlFor="comentario"
-                      fontWeight="black"
-                      fontSize="x-large"
-                    >
-                      ¡Cuéntanos más sobre el producto!
-                    </FormLabel>
-                  </Center>
-                  <Textarea
-                    id="comentario"
-                    name="text"
-                    placeholder="¿Qué te gusto o que no te gusto? ¿Para qué usaste el producto?"
-                    onChange={(e) => handleInputCheck(e)}
-                    minH="200px"
-                    maxLength="280"
-                    isRequired
-                  />
-                  <Center>
-                    <Button
-                      type="submit"
-                      loadingText="Enviando"
-                      size="lg"
-                      bg={"black"}
-                      color={"white"}
-                      m={"20px"}
-                      _hover={{
-                        bg: "gray.700",
-                        color: "white",
-                      }}
-                    >
-                      Enviar
-                    </Button>
-                  </Center>
-                </FormControl>
-              </form>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <FormControl bg="white" borderRadius={"10px"} p={"20px"}>
+            <Center>
+              <FormLabel htmlFor="title" fontWeight="black" fontSize="x-large">
+                Titulo
+              </FormLabel>
             </Center>
-          </Center>
-          <Center>
-            {productToReview?.length > 0
-              ? productToReview.map((product) => {
-                  return <Product key={product.id} {...product} />;
-                })
-              : (<h1>"Sin Producto Seleccionado"</h1>)}
-          </Center>
-        </Flex>
-      </Box>
+            <Input
+              id="title"
+              name="titulo"
+              type="text"
+              size="md"
+              w="500px"
+              border="1px"
+              borderColor="black"
+              variant="outline"
+              maxLength="20"
+              placeholder="¿Qué es lo que quieres compartir del producto?"
+              onChange={(e) => handleInputCheck(e)}
+              isRequired
+            />
+            <FormHelperText color={"black"}>{message.current}</FormHelperText>
+            <Center>
+              <FormLabel htmlFor="rating" fontWeight="black" fontSize="x-large">
+                Rating
+              </FormLabel>
+            </Center>
+            <Flex align={"center"} justify={"center"}>
+              {stars}
+            </Flex>
+            <Center justify={"center"}>
+              <FormLabel
+                htmlFor="comentario"
+                fontWeight="black"
+                fontSize="x-large"
+              >
+                ¡Cuéntanos más sobre el producto!
+              </FormLabel>
+            </Center>
+            <Textarea
+              id="comentario"
+              name="text"
+              border="1px"
+              borderColor="black"
+              placeholder="¿Qué te gusto o que no te gusto? ¿Para qué usaste el producto?"
+              onChange={(e) => handleInputCheck(e)}
+              minH="200px"
+              maxLength="280"
+              isRequired
+            />
+            <Center>
+              <Button
+                type="submit"
+                loadingText="Enviando"
+                size="lg"
+                bg={"black"}
+                color={"white"}
+                m={"20px"}
+              >
+                Enviar
+              </Button>
+            </Center>
+          </FormControl>
+        </form>
+        <Center>
+          {productToReview?.length > 0 ? (
+            productToReview.map((product) => {
+              return (
+                <Center
+                  maxW="sm"
+                  borderRadius="lg"
+                  overflow="hidden"
+                  m={"10px"}
+                  p={"10px"}
+                  key={product.id}
+                >
+                  <Flex
+                    direction={"column"}
+                    justify={"center"}
+                    align={"center"}
+                  >
+                    <Image
+                      src={product.imagen0}
+                      alt={product.nombre}
+                      boxSize="250px"
+                    />
+                    <Box
+                      mt="1"
+                      fontWeight="semibold"
+                      as="h5"
+                      lineHeight="tight"
+                    >
+                      {product.nombre}
+                    </Box>
+                  </Flex>
+                </Center>
+              );
+            })
+          ) : (
+            <h1>"Sin Producto Seleccionado"</h1>
+          )}
+        </Center>
+      </Flex>
     </Center>
   );
 };

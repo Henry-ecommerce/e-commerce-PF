@@ -12,6 +12,7 @@ import {
   Button,
   HStack,
   VStack,
+  Center,
 } from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
@@ -19,6 +20,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import ReviewStars from "../ReviewStars/ReviewStars";
 
 function ProductDetail() {
   let { id } = useParams();
@@ -53,6 +55,10 @@ function ProductDetail() {
 
   function onReview() {
     dispatch(product_to_review([product]));
+  }
+
+  function displayRating(){
+    return Math.round(reviews.map(rtn => rtn.rating).reduce((prev,number) => prev + number,0) / reviews.length);
   }
 
   if (typeof product === "object") {
@@ -138,21 +144,9 @@ function ProductDetail() {
                   <Box w="200px" fontWeight="black">
                     {product.nombre}
                   </Box>
-                  <Flex align={"center"}>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"}>
-                      <AiFillStar />
-                    </Box>
-                    <Box fontSize={"2xl"} color="#9A9A9A">
-                      <AiFillStar />
-                    </Box>
-                    (23)
-                  </Flex>
+                  {
+                    <ReviewStars starRating = {displayRating()}/>
+                  }
                   <br />
                   <br />
                   <Box
@@ -271,7 +265,7 @@ function ProductDetail() {
 
             <Box pl="5" pr="5">
               {showReviews ? (
-                <Box>
+                <Box bg={'#EDEDED'} overflow={'auto'} h={'300px'} m={'15px'} p={'10px'} borderRadius={'10px'}>
                   {reviews.length > 0
                     ? reviews.map((r) => {
                         return (
@@ -279,10 +273,11 @@ function ProductDetail() {
                             key={r.id}
                             titulo={r.titulo}
                             comentario={r.text}
+                            rating={r.rating}
                           />
                         );
                       })
-                    : "Aun no Hay Reviews Se el Primero!"}
+                    : <Center>Aun no Hay Reviews Se el Primero!</Center>}
                 </Box>
               ) : null}
             </Box>

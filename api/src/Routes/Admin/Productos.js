@@ -6201,8 +6201,8 @@ router.get("/", async (req, res) => {
       }
 
       const search_products = await Producto.findAll({
-        include: Categoria,
         where: { nombre: { [Op.iLike]: `%${name}%` } },
+        include: Categoria,
       });
       if (search_products.length > 0) {
         res.json(search_products);

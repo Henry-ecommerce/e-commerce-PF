@@ -5,6 +5,7 @@ import Carousel from "../ProductCarousel/Carousel"
 
 import { AiOutlineEnvironment, AiOutlineCreditCard, AiOutlineCheckCircle } from "react-icons/ai";
 import { Box, Flex, Text } from "@chakra-ui/react";
+import FrontPageSlide from "../FrontPageSlide/FrontPageSlide";
 
 const Home = () => {
     const {products} = useSelector(state => state);
@@ -19,6 +20,7 @@ const Home = () => {
 
     return (
     <>
+    <Box width="70vw" ml="auto" mr="auto" mb="20px" textAlign={"center"}><FrontPageSlide></FrontPageSlide></Box>
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
         <div><Text fontSize={'25px'}>Productos en oferta</Text></div>
     </Box>

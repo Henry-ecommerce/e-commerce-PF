@@ -1,14 +1,15 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import ReviewStars from "../ReviewStars/ReviewStars";
 import {
   Text,
   Flex,
-  Spacer,
+  HStack,
   Avatar,
   Center,
   Container,
 } from "@chakra-ui/react";
-const ReviewCard = ({id, titulo, comentario}) => {
+const ReviewCard = ({ id, titulo, comentario,rating }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(<AiFillStar />);
@@ -16,35 +17,35 @@ const ReviewCard = ({id, titulo, comentario}) => {
   return (
     <Center key={id}>
       <Container
-        m={"20px"}
-        mb={"0"}
+        m={"10px"}
+        mb={"5px"}
         p={"5px"}
         maxW="2xl"
-        bg={"#EDEDED"}
+        bg={"white"}
+        color={"black"}
         boxShadow="base"
         borderRadius={"10px"}
       >
-        <Flex align={"center"} justify={"space-around"}>
-          <Flex
-            align={"center"}
-            justify={"center"}
-            direction={"column"}
-            m={"10px"}
-          >
+        <HStack align={"center"} justify={"center"} p={"10px"}>
+          <Flex align={"center"} justify={"center"} direction={"column"}>
             <Avatar bg={"black"} />
             <Container centerContent m={"10px"}>
               <Text>Usuario</Text>
             </Container>
-            <Flex>{stars}</Flex>
+            <Container centerContent>
+            <ReviewStars starRating={rating}/> 
+            </Container>
           </Flex>
-          <Spacer />
-          <Text p={"5px"}>
-          {titulo}
-          </Text>
-          <Text p={"5px"}>
-          {comentario}
-          </Text>
-        </Flex>
+          <Flex
+            direction={"column"}
+            align={"center"}
+            justify={"center"}
+            w={"100%"}
+          >
+            <Text p={"5px"} as='strong'>{titulo}</Text>
+            <Text p={"5px"}>{comentario}</Text>
+          </Flex>
+        </HStack>
       </Container>
     </Center>
   );

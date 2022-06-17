@@ -27,9 +27,11 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-// import MercadoPago from "../MercadoPago/MercadoPago";
-// import FavoriteButton from "../Product/FavoriteButton";
 import FormMercadoPago from "../MercadoPago/FormularioPago";
+import MercadoPago from "../MercadoPago/MercadoPago";
+import FavoriteButton from "../Product/FavoriteButton";
+
+
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -188,7 +190,7 @@ function Navbar() {
                                   <Text ml="10px">
                                     {elem.nombre.slice(
                                       0,
-                                      (elem.nombre.length * 40) / 100
+                                      (elem.nombre?.length * 40) / 100
                                     )}
                                   </Text>
                                   <Flex

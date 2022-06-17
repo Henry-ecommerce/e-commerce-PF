@@ -199,6 +199,7 @@ const ObtenerProductosAdmin = () => {
 									{productos.length > 0 &&
 										typeof productos !== "string" &&
 										productos.map((elem) => {
+											console.log(elem.precio)
 											return (
 												<Tr key={elem.id}>
 													<Td>
