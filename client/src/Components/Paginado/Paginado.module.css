@@ -12,7 +12,8 @@
 .numbers{
     text-decoration: none;
     list-style: none;
-    background-color: #D6ECF6;
+    color: #ECEDEC;
+    background-color: #242525;
     border-radius: 50px;
     justify-content: center;
     display: inline-block;
@@ -20,9 +21,8 @@
     cursor: pointer;
 }
 
-.numbers:hover{
-    border: 1px solid #211C42;
-    box-shadow: 0 0 5px #211C42;
+.numbers:hover {
+    background-color: #9a9a9a;
 }
 
 .number{
