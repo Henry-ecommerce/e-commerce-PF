@@ -143,15 +143,3 @@ export default function MisCompras() {
     </Box>
   );
 }
-
-// <Link to={`/review`}>
-// <Button
-//   m="5px"
-//   bg="#242525"
-//   color="#ECEDEC"
-//   _hover={{ bg: "#242525", color: "#ECEDEC" }}
-//   fontSize="small"
-// >
-//   Dejar un Review
-// </Button>
-// </Link>

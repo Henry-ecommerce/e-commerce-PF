@@ -7,6 +7,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Paginado from "../Paginado/Paginado";
 
 import estilo from "../Tienda/Tienda.module.css"
+import Paths from "../Paths/Paths";
 
 
 const Tienda = () => {
@@ -33,6 +34,11 @@ const Tienda = () => {
     return (
     <>
     <SearchBar/>
+
+    <p>{currentProducts.length ? null : "no hay productos"}</p>
+
+    <div className={estilo.paths}><Paths></Paths></div>
+
     <div className={estilo.contenedor_general}>
        <div className={estilo.contenedor_filtros}><Filtros_Ordenamientos/></div>
     
@@ -48,11 +54,13 @@ const Tienda = () => {
     }
 
     </div>
-    <Paginado 
+    <div className={estilo.paginado}>
+        <Paginado 
             productsPage={productsPage}
             allProducts={allProducts.length}
             paginado={paginado}
     />
+    </div>
 
     </>
     )

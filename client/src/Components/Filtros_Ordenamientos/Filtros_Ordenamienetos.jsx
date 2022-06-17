@@ -8,6 +8,8 @@ const Filtros_Ordenamientos = () => {
     const [seleccionado, setSeleccionado] = useState([]);
     const [ordenado, setOrdenado] = useState([]);
     const [marcas, setMarcas] = useState([]);
+    const [minmax, setMinmax] = useState({});
+    const [errormm, setErrormm] = useState("");
     const {categoriaobusqueda,page} = useParams();
     const {filtrados, searched_products} = useSelector(state => state)
     const navigate = useNavigate()
@@ -21,7 +23,8 @@ const Filtros_Ordenamientos = () => {
         let marcasAux = searched_products.map(e => e.marca);
         setMarcas([...new Set(marcasAux)]);
 
-        dispatch(get_filter_products(categoriaobusqueda,seleccionado,ordenado[0] || "nombre",ordenado[1] || "ASC"))
+        dispatch(get_filter_products(categoriaobusqueda,seleccionado,ordenado[0] || "nombre",ordenado[1] || "ASC",
+        minmax.min && minmax.max ? `${minmax.min}-${minmax.max}` : ""))
 
     },[categoriaobusqueda,dispatch,seleccionado.length,ordenado,searched_products.length]);
 
@@ -45,7 +48,29 @@ const Filtros_Ordenamientos = () => {
         if(e.target.value === "Mayor precio") setOrdenado(["precio", "DESC"])
         if(e.target.value === "Descuento") setOrdenado(["precio", "ASC"])
         if(e.target.value === "Calificacion") setOrdenado(["nombre", "DESC"])
-}
+    }
+    const handleOnChange = (e) => {
+        setMinmax({
+            ...minmax,
+            [e.target.name]: e.target.value,
+        })
+    }
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        if((minmax.min && minmax.max) && (minmax.min <= minmax.max)) {
+            setErrormm("");
+            dispatch(get_filter_products(
+                categoriaobusqueda,
+                seleccionado,
+                ordenado[0] || "nombre",
+                ordenado[1] || "ASC",
+                `${minmax.min}-${minmax.max}`
+                 ));
+        }
+        if(minmax.min >= minmax.max) {
+            setErrormm("Complete los datos correctamente");
+        }
+    }
 
 /* <p className={estilos.tipo_filtro}>Tipo</p>
                 {filtros.funciones?.map((e,i) => (<label key={i}><input onChange={e=>onCheck(e)} name={e} type="checkbox"></input> {e}</label>))}
@@ -72,7 +97,16 @@ const Filtros_Ordenamientos = () => {
             <div className={estilos.contenedor_inputs}>
                 <p>Marca</p>
                 {marcas?.map((e,i) => <label key={i}><input onChange={e=>onCheck(e)} name={e} type="checkbox"></input> {e}</label>)}
-            </div> 
+            </div>
+            <form onSubmit={e => handleOnSubmit(e)}>
+                <br/>
+                <p>Precio: </p>
+            <input className={estilos.inputs} placeholder="minimo" name="min" onChange={e => handleOnChange(e)} required></input>
+            <span> - </span>
+            <input className={estilos.inputs} placeholder="maximo" name="max" onChange={e => handleOnChange(e)} required></input>
+            <div className={estilos.button_contenedor}><button type="submit">enviar</button></div>
+            <p>{errormm}</p>
+            </form>
         </div>
     </div>
     </>

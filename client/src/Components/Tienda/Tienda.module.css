@@ -1,12 +1,17 @@
+.paths{
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contenedor_general {
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
+    width: 70vw;
     display: flex;
 }
 
 .contenedor_filtros {
-    position:static;
     display: inline;
     height: fit-content;
     width: fit-content;
@@ -28,3 +33,22 @@
     display: inline-block;
     margin: 10px
 }
+
+.paginado {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    
+    .contenedor_general {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    }

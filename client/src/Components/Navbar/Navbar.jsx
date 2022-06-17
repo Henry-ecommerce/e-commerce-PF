@@ -27,9 +27,10 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-
+import FormMercadoPago from "../MercadoPago/FormularioPago";
 import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
+
 
 
 function Navbar() {
@@ -262,17 +263,9 @@ function Navbar() {
                                 0
                               )).toFixed(2)}
                           </Text>
-                          <Link to="/user/carrito">
-                            <Button
-                              mx="10px"
-                              bg="#242525"
-                              color="#FFFF"
-                              _hover={{ bg: "#242525", color: "#FFFF" }}
-                            >
-                              Finalizar Compra
-                            </Button>
+                          <Link to="/user/formMercadoPago">
+                            <Button>Ir al pago</Button>
                           </Link>
-                          <MercadoPago />
                         </Flex>
                       </MenuItem>
                     </MenuList>

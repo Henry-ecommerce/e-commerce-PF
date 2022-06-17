@@ -21,6 +21,7 @@ import { useDispatch } from "react-redux";
 import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import ReviewStars from "../ReviewStars/ReviewStars";
+import Paths from "../Paths/Paths";
 
 function ProductDetail() {
   let { id } = useParams();
@@ -64,9 +65,8 @@ function ProductDetail() {
   if (typeof product === "object") {
     return (
       <>
-        <Box fontWeight="black" fontSize="small" ml="600px" mt="4px">
-          <Link to={"/"}>{"Home > "}</Link>
-          {`Detalle > ${product.categoria}`}
+        <Box width={"800px"} mr="auto" ml="auto">
+          <Paths></Paths>
         </Box>
         <Stack w="full" alignItems="center" justifyContent="space-between">
           <Box w="800px" h="800px" bg="white" p="10px" m="10px">

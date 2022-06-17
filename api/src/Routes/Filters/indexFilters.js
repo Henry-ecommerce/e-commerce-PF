@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     let funciones = req.query.funciones; // filtro
     let stock = req.query.stock; // orden
     let categoria = req.query.categoria; // filtro
-    const {categoryorsearch, order ,ascordesc} = req.query;
+    const {categoryorsearch, order ,ascordesc, minmax} = req.query;
 
     
     try {
@@ -24,14 +24,17 @@ router.get("/", async (req, res) => {
                 order: [["nombre", "ASC"]]
             });
             allProducts = allProducts?.filter(elem => elem.Categoria[0].nombre === categoryorsearch?.split("category=")[1])
+            
+            if(marca) allProducts = allProducts?.filter(elem => Array.isArray(marca)? marca.includes(elem.marca) : elem.marca === marca);
 
+            if(minmax) {
+                let min_max = minmax.split("-")
+                allProducts = allProducts?.filter(elem => elem.precio?.PesosArg >= parseInt(min_max[0]) && elem.precio?.PesosArg <= parseInt(min_max[1]));
+            }
+            
             if (order === "precio" && ascordesc === "ASC") allProducts = allProducts.sort((a,b) => parseFloat(a.precio?.PesosArg) - parseFloat(b.precio?.PesosArg));
             else if(order === "precio" && ascordesc === "DESC") allProducts = allProducts.sort((a,b) => parseFloat(b.precio?.PesosArg) - parseFloat(a.precio?.PesosArg));
-
-            if(!marca) return res.send(allProducts);
-
-            allProducts = allProducts?.filter(elem => Array.isArray(marca)? marca.includes(elem.marca) : elem.marca === marca);
-
+            
             return res.send(allProducts)
 
         }
