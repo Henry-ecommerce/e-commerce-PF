@@ -144,9 +144,7 @@ function ProductDetail() {
                   <Box w="200px" fontWeight="black">
                     {product.nombre}
                   </Box>
-                  {
-                    <ReviewStars starRating = {displayRating()}/>
-                  }
+                    <ReviewStars starRating = {displayRating()}/>({reviews.length})
                   <br />
                   <br />
                   <Box
@@ -274,6 +272,7 @@ function ProductDetail() {
                             titulo={r.titulo}
                             comentario={r.text}
                             rating={r.rating}
+                            user={r.userName}
                           />
                         );
                       })
