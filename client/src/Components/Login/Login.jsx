@@ -11,6 +11,7 @@ import {
   Stack,
   useColorModeValue,
   Text,
+  Box,
 } from "@chakra-ui/react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 // import { useAuth } from "../../Context/AuthContext";
@@ -131,12 +132,6 @@ export default function Login() {
 
   return (
     <>
-      <div>
-        <div id="singInDiv"></div>
-        {user && <button onClick={(e) => handleSingOut(e)}>Deslogin</button>}
-
-        {user && <div id="singInDiv"></div>}
-      </div>
       <Flex mt="100px" align={"center"} justify={"center"}>
         <Stack
           spacing={4}
@@ -144,13 +139,20 @@ export default function Login() {
           maxW={"md"}
           //bg={useColorModeValue("white", "gray.700")}
           rounded={"xl"}
-          boxShadow={"lg"}
+          boxShadow={"2xl"}
           p={6}
           my={1}
+          bg={"#FFFF"}
         >
-          <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "3xl" }}>
+          <Heading
+            lineHeight={1.1}
+            fontSize={{ base: "2xl", md: "3xl" }}
+            fontWeight={"extrabold"}
+            textAlign={"center"}
+          >
             Iniciar Sesion
           </Heading>
+
           {/* {errors && (
           <Box textAlign={"center"} color="#FE0A01" fontWeight={"extrabold"}>
             {errors}
@@ -190,13 +192,21 @@ export default function Login() {
                 Iniciar
               </Button>
             </Stack>
+            <Flex justify={"center"} mt={"20px"}>
+              <Box id="singInDiv"></Box>
+
+              {user && <div id="singInDiv"></div>}
+            </Flex>
           </form>
           <Stack pt={6}>
             <Text align={"center"}>
               Olvidaste tu contraseña?
               <RouterLink to="newPassword" style={{ color: "#4399E1" }}>
                 {" "}
-                Change Password
+                <span style={{ color: "#659DF6", fontWeight: "bolder" }}>
+                  {" "}
+                  Cambiar contraseña
+                </span>
               </RouterLink>
             </Text>
           </Stack>
@@ -204,8 +214,10 @@ export default function Login() {
             <Text align={"center"}>
               No tenes cuenta?
               <RouterLink to="signup" style={{ color: "#4399E1" }}>
-                {" "}
-                Registrate
+                <span style={{ color: "#659DF6", fontWeight: "bolder" }}>
+                  {" "}
+                  Registrate
+                </span>
               </RouterLink>
             </Text>
           </Stack>
