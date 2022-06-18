@@ -1,4 +1,4 @@
-# Proyecto E-Commerce!
+# Proyecto E-Commerce!🤞
 Un E-Commerce enfocado en agregar **valor** a la experiencia de **compra-venta** de sus usuarios que **simplemente funciona** con las tecnologías más confiables y usadas actualmente.
 # Enunciado
 En la actualidad es de vital importancia para cualquier negocio una plataforma web en la que sus clientes puedan hacer compras, tener artículos favoritos, que su navegación sea fácil, intuitiva y con un estilo que sobresalga.
