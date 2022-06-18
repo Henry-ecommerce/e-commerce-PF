@@ -10,22 +10,26 @@ const FrontPageSlide = () => {
     "https://wallpaperaccess.com/full/1232924.jpg",
   ]);
 
-  useEffect(() => {
-    setInterval(() => {
-      let primeraImagen = slide?.current?.children[0];
-      const trans = () => {
-        slide.current.style.transition = "none";
-        slide.current.style.transform = `translateX(0)`;
+  useEffect(()=>{
+        
+    let intervalo = setInterval(()=>{
+            if(slide.current){let primeraImagen = slide.current?.children[0];
+            const trans = () => {
+    
+                slide.current.style.transition = "none"
+                slide.current.style.transform = `translateX(0)`
+    
+                slide.current.appendChild(primeraImagen);}
 
-        slide.current.appendChild(primeraImagen);
-      };
+            slide.current.style.transition = "transform 2s"
+            slide.current.style.transform = `translateX(-${100}%)`
 
-      slide.current.style.transition = "transform 2s";
-      slide.current.style.transform = `translateX(-${100}%)`;
-
-      slide.current.addEventListener("transitionend", trans);
-    }, 5000);
-  }, []);
+            slide.current.addEventListener("transitionend",trans)}
+            else clearInterval(intervalo);
+            
+        },5000);
+    
+    },[])
 
   return (
     <>
