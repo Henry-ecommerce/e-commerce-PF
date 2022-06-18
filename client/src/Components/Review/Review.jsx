@@ -28,13 +28,17 @@ const Review = () => {
   const productToReview = useSelector((state) => state.product_to_review);
   const toast = useToast();
   const [rating, setRating] = useState(0);
+  let user = JSON.parse(localStorage.getItem("info_user"));
   const [input, setInput] = useState({
     titulo: "",
     text: "",
     rating: 0,
     productoId: productToReview,
+    usuarioId: user,
+    userName: ""
   });
-  // console.log("Id para mandar",productToReview);
+  //  console.log("Id para mandar",productToReview);
+  // console.log(input.usuarioId);
   const StarIcon = ({ fill }) => (
     <Icon
       as={AiFillStar}
@@ -73,6 +77,8 @@ const Review = () => {
           ...input,
           rating: idx,
           productoId: productToReview[0].id,
+          usuarioId: user.id,
+          userName: user.name,
         });
       }
     }
@@ -93,7 +99,15 @@ const Review = () => {
         status: "error",
         duration: 9000,
         isClosable: true,})
-    } else {
+    }else if(!user){
+      toast({  
+        position: "top",
+        title: "Review No Creada",
+        description: "Por favor Inicia Sesion",
+        status: "error",
+        duration: 9000,
+        isClosable: true,})
+    }else {
       //Console log para ver que esta enviando al back
       // console.log("debera enviar", input);
       dispatch(post_review(input));
@@ -103,6 +117,8 @@ const Review = () => {
         text: "",
         rating: 0,
         productoId: productToReview,
+        usuarioId: user,
+        userName: ""
       });
       toast({  
       position: "top",
