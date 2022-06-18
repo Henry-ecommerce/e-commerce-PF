@@ -7,12 +7,13 @@ import {
   Box,
   FormControl,
   Select,
+  Flex,
 } from "@chakra-ui/react";
 
 export default function FormMercadoPago() {
   const [pagar, setPagar] = useState(true);
   const [errors, setErrors] = useState({
-    pais: "Please insert a Country",
+    pais: "Recuerde que algunos campos son obligatorios",
     provincia: "",
     ciudad: "",
     CP: "",
@@ -34,7 +35,68 @@ export default function FormMercadoPago() {
     numeroDoc: "",
   });
 
-  function formErrors(err) {
+  const errorHandler = (propiedad) => {
+    if(propiedad.name === "pais" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Pais"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser una cadena de texto"})
+      else if (/\b(^[a-z])/g.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "La primera letra debe estar en mayusculas"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "provincia" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte una provincia o estado"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser una cadena de texto"})
+      else if (/\b(^[a-z])/g.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "La primera letra debe estar en mayusculas"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "ciudad" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte una ciudad"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser una cadena de texto"})
+      else if (/\b(^[a-z])/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "La primera letra debe estar en mayusculas"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "CP" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Codigo Postal"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[0-9]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser un numero"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "nombreCalle" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Nombre de Calle"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser una cadena de texto"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "numeroCalle" ){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Numero de Calle"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[0-9]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser un numero"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "numeroDoc" && datos.tipoDoc === "DNI"){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Numero de Documento"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else if (!/^[0-9]+$/.test(propiedad.value))   setErrors({...errors, [propiedad.name]: "El dato ingresado deberia ser un numero"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+    if(propiedad.name === "numeroDoc" && datos.tipoDoc === "Pasaporte"){
+      if(!propiedad.value)    setErrors({...errors, [propiedad.name]: "Porfavor inserte un Pasaporte"})
+      else if (!/^[^\s]+(\s+[^\s]+)*$/.test(propiedad.value))    setErrors({...errors, [propiedad.name]: "Porfavor elemine los espacios ingresados al principio o al final"})
+      else    setErrors({...errors, [propiedad.name]: ""})
+    };
+
+  }
+
+  /*function formErrors(err) {
     let errors = {};
     if (!err.pais) errors.pais = "Porfavor inserte un Pais";
     else if (!/^[^\s]+(\s+[^\s]+)*$/.test(err.pais)) {
@@ -97,7 +159,7 @@ export default function FormMercadoPago() {
     }
 
     return errors;
-  }
+  }*/
 
   function onInputChange(e) {
     setPagar(true);
@@ -106,12 +168,13 @@ export default function FormMercadoPago() {
       [e.target.name]: e.target.value,
     });
 
-    setErrors(
+    errorHandler(e.target)
+    /*setErrors(
       formErrors({
         ...datos,
         [e.target.name]: e.target.value,
       })
-    );
+    );*/
   }
 
   console.log(datos);
@@ -122,21 +185,32 @@ export default function FormMercadoPago() {
   }
 
   return (
+    <>
+    <Flex alignItems="center" justifyContent="center">
     <Box
-      w="700px"
-      bg="blackAlpha.100"
+    minWidth="350px"
+    borderRadius="10px"
+      w="60vw"
+      position="relative"
+      bg="#242525"
       h="1200px"
       display="flex"
       justifyItems="center"
-      m="50px"
-    >
+      m="10px"
+      p="20px"
+      
+    > 
       <Box
+      borderRadius="5px"
+      minWidth="300px"
         display="flex"
-        m="50px"
+        ml="auto"
+        mr="auto"
+        p="20px"
         justifyItems="center"
         flexDirection="column"
         bg="white"
-        w="600px"
+        w="60vw"
       >
         <Box fontWeight="black">
           Porfavor completa los siguientes campos para continuar con la compra
@@ -202,7 +276,7 @@ export default function FormMercadoPago() {
             <FormLabel>Codigo Postal</FormLabel>
             <Input
               autoComplete="off"
-              type="text"
+              type="number"
               placeholder="Codigo Postal"
               name="CP"
               value={datos.CP}
@@ -238,7 +312,7 @@ export default function FormMercadoPago() {
             <FormLabel>Numero de calle</FormLabel>
             <Input
               autoComplete="off"
-              type="text"
+              type="number"
               placeholder="Numero de calle"
               name="numeroCalle"
               value={datos.numeroCalle}
@@ -280,7 +354,7 @@ export default function FormMercadoPago() {
               name="tipoDoc"
               value={datos.tipoDoc}
               onChange={onInputChange}
-              type="text"
+              type="number"
               placeholder="Tipo de Documento"
             >
               <option>DNI</option>
@@ -306,10 +380,10 @@ export default function FormMercadoPago() {
             </Box>
           ) : null}
 
-          <Box m="15px">
+          <Box m="15px" bg="#9a9a9a" width="fit-content" borderRadius="10px" _hover={{bg: "#242525", cursor: "pointer"}}>
             <Button
               type="submit"
-              disabled={Object.keys(errors).length ? true : false}
+              disabled={Object.values(errors)?.reduce((a,b)=> a+b) ? true : false}
             >
               Pagar con MercadoPago
             </Button>
@@ -318,6 +392,8 @@ export default function FormMercadoPago() {
         </form>
       </Box>
     </Box>
+    </Flex>
+    </>
   );
 }
 

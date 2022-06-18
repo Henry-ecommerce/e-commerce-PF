@@ -47,7 +47,7 @@ export default function ForgetPassword() {
   };
   const { msg } = alerta;
   return (
-    <Flex mt="30px" align={"center"} justify={"center"}>
+    <Flex mt="30px" align={"center"} justify={"center"} my={"100px"}>
       <Stack
         spacing={4}
         w={"full"}
@@ -58,8 +58,12 @@ export default function ForgetPassword() {
         p={6}
         my={12}
       >
-        <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "2xl" }}>
-          Olvidastes tu contraseña?
+        <Heading
+          lineHeight={1.1}
+          fontSize={{ base: "2xl", md: "2xl" }}
+          textAlign={"center"}
+        >
+          ¿Olvidastes tu contraseña?
         </Heading>
         {/* {errors && (
           <Box textAlign={"center"} color="#FE0A01" fontWeight={"extrabold"}>
@@ -98,9 +102,14 @@ export default function ForgetPassword() {
         </form>
         <Stack pt={3}>
           <Text align={"center"}>
-            Ya sos usuario?
+            ¿Ya sos usuario?
             <Link color={"blue.400"}>
-              <RouterLink to="/login"> Login</RouterLink>
+              <RouterLink to="/login">
+                <span style={{ color: "#659DF6", fontWeight: "bolder" }}>
+                  {" "}
+                  Login
+                </span>
+              </RouterLink>
             </Link>
           </Text>
         </Stack>

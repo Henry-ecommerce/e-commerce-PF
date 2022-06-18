@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
       // allowNull: false,
     },
     items: {
-      type: DataTypes.JSON,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
     estado_envio: {
@@ -16,15 +16,15 @@ module.exports = (sequelize) => {
       defaultValue: false,
     },
     payments: {
-      type: DataTypes.JSON,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
     shipments: {
-      type: DataTypes.JSON,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
     payer: {
-      type: DataTypes.JSON,
+      type: DataTypes.JSONB,
       allowNull: false,
     },
   });

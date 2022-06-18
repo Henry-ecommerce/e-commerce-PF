@@ -57,7 +57,7 @@ const Filtros_Ordenamientos = () => {
     }
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        if((minmax.min && minmax.max) && (minmax.min <= minmax.max)) {
+        if((minmax.min && minmax.max) && ( minmax.min*1 <= minmax.max*1 )) {
             setErrormm("");
             dispatch(get_filter_products(
                 categoriaobusqueda,
@@ -67,7 +67,7 @@ const Filtros_Ordenamientos = () => {
                 `${minmax.min}-${minmax.max}`
                  ));
         }
-        if(minmax.min >= minmax.max) {
+        if(minmax.min*1 >= minmax.max*1) {
             setErrormm("Complete los datos correctamente");
         }
     }

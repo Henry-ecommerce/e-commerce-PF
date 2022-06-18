@@ -20,6 +20,7 @@ export default function MercadoPago({ items }) {
         Authorization: `Bearer ${token}`,
       },
     };
+
     console.log(token, datos);
     axios
       .post(`/user/pago`, datos, headers)
