@@ -13,9 +13,9 @@ export default function ReviewButton({ id }) {
   useEffect(() => {
     axios.get(`productos/detail/${id}`).then((result) => {
       setProduct(result.data);
-      console.log(result.data);
+      // console.log(result.data);
     });
-  });
+  }, []);
 
   function onReview() {
     dispatch(product_to_review([product]));

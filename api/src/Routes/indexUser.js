@@ -4,8 +4,9 @@ const Carrito = require("./controllers/user_cuenta/carrito");
 const obtenerPerfil = require("./controllers/user_cuenta/perfil");
 const Tienda = require("./controllers/user_cuenta/tienda");
 const Pago = require("./controllers/user_cuenta/pago");
-const Favoritos = require('./Favoritos/Favoritos')
-const Compras = require('./controllers/user_cuenta/compras')
+const Favoritos = require("./Favoritos/Favoritos");
+const Compras = require("./controllers/user_cuenta/compras");
+const comprasUsuario = require("./controllers/user_cuenta/comprasUsuario");
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
   checkRolUserMiddleware,
@@ -19,5 +20,6 @@ router.use("/perfil", [checkAuth, checkRolUserMiddleware], obtenerPerfil);
 router.use("/pago", [checkAuth, checkRolUserMiddleware], Pago);
 router.use("/favoritos", [checkAuth, checkRolUserMiddleware], Favoritos);
 router.use("/compras", [checkAuth, checkRolUserMiddleware], Compras);
+router.use("/pedido", [checkAuth, checkRolUserMiddleware], comprasUsuario);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Box,
   Menu,
@@ -17,11 +18,31 @@ import Review from "../Review/ReviewButton";
 
 export default function MisCompras() {
   let [select, setSelect] = useState("Nombre");
+  let [compra, setCompra] = useState();
 
-  let user = JSON.parse(localStorage.getItem("info_user"));
-  let productos = JSON.parse(localStorage.getItem("productos_carrito"));
-  console.log(productos);
-  console.log(user);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    let user = JSON.parse(localStorage.getItem("info_user"));
+
+    const headers = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    if (headers) {
+      axios.get(`/user/pedido/${user.id}`, headers).then((result) => {
+        console.log(result.data);
+        setCompra(result.data);
+      });
+    }
+  }, []);
+
+  let productos = result.data;
+  // items: id, title, quantity, unit_price, picture_url
+  // payments: status, status_detail
+  // createdAt: fecha
 
   return (
     <Box>

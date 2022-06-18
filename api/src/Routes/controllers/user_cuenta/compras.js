@@ -34,10 +34,10 @@ router.post("/", async (req, res) => {
       },
       defaults: {
         preference_id: preference_id,
-        payments: JSON.stringify(payments),
-        items: JSON.stringify(items),
-        shipments: JSON.stringify(shipments),
-        payer: JSON.stringify(payer),
+        payments: payments,
+        items: items,
+        shipments: shipments,
+        payer: payer,
       },
       include: Usuario,
     });
@@ -46,9 +46,13 @@ router.post("/", async (req, res) => {
       config
     );
     meta = preferencia.data;
-    pedido.setUsuario(meta.metadata.id);
-    let json = JSON.stringify(pedido)
-    
+    let user = await Usuario.findByPk(meta.metadata.id);
+
+    user.addPedido(pedido.id);
+
+    let a = await Pedido.findByPk(pedido.id, { include: Usuario });
+
+    let json = JSON.stringify(a);
     res.send(JSON.parse(json));
   } catch (err) {
     console.log(err);
