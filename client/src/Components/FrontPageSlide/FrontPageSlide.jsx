@@ -14,7 +14,7 @@ const FrontPageSlide = () => {
     useEffect(()=>{
         
         setInterval(()=>{
-            let primeraImagen = slide.current.children[0];
+            let primeraImagen = slide?.current?.children[0];
             const trans = () => {
     
                 slide.current.style.transition = "none"

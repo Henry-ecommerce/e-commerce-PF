@@ -21,19 +21,19 @@ const HeaderAdmin = () => {
         <li className="sidebar-li">
           <Link to="/admin/categorias">Categorias</Link>
         </li>
-        <li className="sidebar-li">
+        {/* <li className="sidebar-li">
           <Link to="/admin/ordenes">Ordenes</Link>
-        </li>
+        </li> */}
         <li className="sidebar-li">
           <Link to="/admin/users">Usuarios</Link>
         </li>
 
-        <li>
+        {/* <li>
           <Link to="/admin/ventas">Ventas</Link>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link to="/admin/transaciones">Transaciones</Link>
-        </li>
+        </li> */}
 
         <li>
           <button type="button" onClick={cerrarSesion}>
