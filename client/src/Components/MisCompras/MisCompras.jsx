@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Box,
   Menu,
@@ -10,6 +11,9 @@ import {
   SimpleGrid,
   Image,
   Button,
+  Grid,
+  GridItem,
+  Center,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,11 +21,31 @@ import Review from "../Review/ReviewButton";
 
 export default function MisCompras() {
   let [select, setSelect] = useState("Nombre");
+  let [compra, setCompra] = useState();
 
-  let user = JSON.parse(localStorage.getItem("info_user"));
-  let productos = JSON.parse(localStorage.getItem("productos_carrito"));
-  console.log(productos);
-  console.log(user);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    let user = JSON.parse(localStorage.getItem("info_user"));
+
+    const headers = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    if (headers) {
+      axios.get(`/user/pedido/${user.id}`, headers).then((result) => {
+        console.log(result.data);
+        setCompra(result.data);
+        console.log(compra, compra.items);
+      });
+    }
+  }, []);
+
+  // items: id, title, quantity, unit_price, picture_url
+  // payments: status, status_detail
+  // createdAt: fecha
 
   return (
     <Box>
@@ -70,72 +94,97 @@ export default function MisCompras() {
       <SimpleGrid
         column={[1]}
         spacing={7}
-        w="1300px"
-        ml="200px"
+        w="1100px"
+        ml="20px"
         alignItems="center"
         justifyItems="center"
       >
-        {productos?.length > 0 ? (
-          productos?.map((product) => {
-            return (
-              <Box bg="blackAlpha.200" borderRadius="5px">
-                <Box
-                  h="140px"
-                  display="flex"
-                  flexDirection="row"
-                  w="1000px"
-                  m="5px"
-                  bg="blackAlpha.300"
-                  borderRadius="5px"
-                  justifyItems="center"
-                >
-                  <Image
-                    m="10px"
-                    mt="15px"
-                    w="100px"
-                    h="100px"
-                    border="1px solid grey"
-                    src={product.imagen0}
-                  />
-
-                  <Box fontWeight="black" w="300px" margin="20px">
-                    {product.nombre}
-                  </Box>
-
-                  <Box fontWeight="black" margin="20px">
-                    ${product.precio.PesosArg}
-                  </Box>
-
-                  <Box fontWeight="black" w="100px" m="10px">
-                    Fecha de compra: 12/12/2012
-                  </Box>
-
+        {compra?.length > 0 ? (
+          compra.map((e) =>
+            e.items?.map((product) => {
+              return (
+                <Box bg="blackAlpha.20" borderRadius="5px">
                   <Box
+                    h="140px"
                     display="flex"
                     flexDirection="row"
+                    w="1000px"
+                    m="5px"
+                    bg="blackAlpha.300"
+                    borderRadius="5px"
                     justifyItems="center"
-                    mt="10px"
-                    ml="40px"
-                    mr="15px"
-                    w="200px"
                   >
-                    <Link to={`/detail/${product.id}`}>
-                      <Button
-                        mb="10px"
-                        bg="#242525"
-                        color="#ECEDEC"
-                        _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                        fontSize="small"
-                      >
-                        Volver a comprar
-                      </Button>
-                      <Review id={product.id} />
-                    </Link>
+                    <Image
+                      m="10px"
+                      mt="15px"
+                      w="100px"
+                      h="100px"
+                      border="1px solid grey"
+                      src={product.picture_url}
+                    />
+
+                    <Center fontWeight="black" w="300px" margin="20px">
+                      {product.title}
+                    </Center>
+                    <Grid
+                      templateColumns="repeat(2, 1fr)"
+                      gap={0}
+                      alignContent={"space-evenly"}
+                    >
+                      {product.quantity > 1 && (
+                        <Box fontWeight="black" mt="0px">
+                          {` ${product.quantity} uds`}
+                        </Box>
+                      )}
+                      <Box fontWeight="black" mt="0px">
+                        ${product.unit_price}
+                      </Box>
+                      {product.quantity > 1 && (
+                        <Box fontWeight="black" margin="0px">
+                          {"Total :"}
+                        </Box>
+                      )}
+                      {product.quantity > 1 && (
+                        <Box fontWeight="black" margin="0px">
+                          ${product.quantity * product.unit_price}
+                        </Box>
+                      )}
+                    </Grid>
+                    <Center fontWeight="black" w="100px" ml="30px">
+                      {`Fecha de compra: ${e.createdAt.slice(0, 10)}`}
+                    </Center>
+
+                    <Box
+                      display="flex"
+                      flexDirection="row"
+                      justifyItems="center"
+                      mt="10px"
+                      ml="40px"
+                      mr="15px"
+                      w="20px"
+                    >
+                      <Link to={`/detail/${product.id}`}>
+                        <Center mt="15px">
+                          <Review id={product.id} />
+                        </Center>
+                        <Center>
+                          <Button
+                            mt="10px"
+                            bg="#242525"
+                            color="#ECEDEC"
+                            _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                            fontSize="small"
+                          >
+                            Volver a comprar
+                          </Button>
+                        </Center>
+                      </Link>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            );
-          })
+              );
+            })
+          )
         ) : (
           <Box>Vaya parece que aun no has hecho compras :C...</Box>
         )}
