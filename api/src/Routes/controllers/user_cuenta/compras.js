@@ -11,7 +11,12 @@ mercadopago.configure({
 });
 
 router.post("/", async (req, res) => {
-  const { id } = req.query;
+  const { resource, topic } = req.body;
+
+  if (!resource && topic !== "merchant_orders") {
+    console.log(topic);
+    return res.send("no es una merchant order");
+  }
 
   const config = {
     headers: {
@@ -20,14 +25,7 @@ router.post("/", async (req, res) => {
     },
   };
   try {
-    let pagos = await axios.get(`https://api.mercadopago.com/v1/payments/${id}`);
-    let info = pagos.data
-    let orderId = info.order.id
-
-    const peticion = await axios.get(
-      `https://api.mercadopago.com/merchant_orders/${orderId}`,
-      config
-    );
+    const peticion = await axios.get(resource, config);
     let datos = peticion.data;
     const { payments, items, shipments, payer, preference_id } = datos;
     let [pedido, create] = await Pedido.findOrCreate({
@@ -41,12 +39,17 @@ router.post("/", async (req, res) => {
         shipments: JSON.stringify(shipments),
         payer: JSON.stringify(payer),
       },
+      include: Usuario,
     });
-    let preferencia = await axios.get(`https://api.mercadopago.com/checkout/preferences/${preference_id}`)
-    meta = preferencia.data 
-    pedido.addUsuario(meta.metadata.id)
-
-    res.send(pedido);
+    let preferencia = await axios.get(
+      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
+      config
+    );
+    meta = preferencia.data;
+    pedido.setUsuario(meta.metadata.id);
+    let json = JSON.stringify(pedido)
+    
+    res.send(JSON.parse(json));
   } catch (err) {
     console.log(err);
   }

@@ -17,10 +17,10 @@ router.post("/", async (req, res) => {
   let preference = {
     items: producto?.map((e) => {
       return {
-        id: producto.id,
+        id: e.id,
         title: e.nombre,
         description: "",
-        picture_url: e.img0,
+        picture_url: e.imagen0,
         category_id: "",
         quantity: e.cantidad,
         unit_price: parseInt(e.precio.PesosArg),
@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
         country_name: items.pais,
       },
     },
-    notification_url: "https://hookb.in/BYV2PJzWNRsknxZk3KPw",
+    notification_url: "https://hookb.in/dmjJ8Lp8X2txBzMxP0bZ",
     payment_methods: {
       excluded_payment_methods: [{}],
       excluded_payment_types: [{ id: "ticket" }],
