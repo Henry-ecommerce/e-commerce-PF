@@ -31,8 +31,6 @@ import FormMercadoPago from "../MercadoPago/FormularioPago";
 import MercadoPago from "../MercadoPago/MercadoPago";
 import FavoriteButton from "../Product/FavoriteButton";
 
-
-
 function Navbar() {
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
@@ -264,7 +262,7 @@ function Navbar() {
                                 0
                               )}
                           </Text>
-                          <Link to="/user/formMercadoPago">
+                          <Link to="/user/carrito">
                             <Button>Ir al pago</Button>
                           </Link>
                         </Flex>

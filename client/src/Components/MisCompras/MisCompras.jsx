@@ -22,6 +22,12 @@ import Review from "../Review/ReviewButton";
 export default function MisCompras() {
   let [select, setSelect] = useState("Nombre");
   let [compra, setCompra] = useState();
+<<<<<<< Updated upstream
+=======
+
+  let productos = JSON.parse(localStorage.getItem("productos_carrito"));
+
+>>>>>>> Stashed changes
   useEffect(() => {
     const token = localStorage.getItem("token");
     let user = JSON.parse(localStorage.getItem("info_user"));
