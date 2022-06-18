@@ -24,7 +24,7 @@ export default function Login() {
   const [alerta, setAlerta] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
 
   useEffect(() => {
     /*global google*/
@@ -54,7 +54,7 @@ export default function Login() {
 
   const handleSingOut = (e) => {
     try {
-      setUser({});
+      setUser();
     } catch (error) {
       console.log(error.message);
     }
@@ -74,6 +74,7 @@ export default function Login() {
           token: null,
           confirmado: true,
         };
+
         const { data } = await axios.post(
           `${process.env.REACT_APP_API}/registro/cliente/loginGoogle`,
           obje
@@ -86,6 +87,7 @@ export default function Login() {
       enviar();
     }
   }, [user]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if ([email, password].includes("")) {
@@ -127,9 +129,7 @@ export default function Login() {
     <>
       <div>
         <div id="singInDiv"></div>
-        {Object.keys(user).length !== 0 && (
-          <button onClick={(e) => handleSingOut(e)}>Deslogin</button>
-        )}
+        {user && <button onClick={(e) => handleSingOut(e)}>Deslogin</button>}
 
         {user && <div id="singInDiv"></div>}
       </div>

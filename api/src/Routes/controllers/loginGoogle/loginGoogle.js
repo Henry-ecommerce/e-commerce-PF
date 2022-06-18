@@ -16,7 +16,7 @@ router.post("/", async (req, res, next) => {
     const existeUsuario = await Usuario.findOne({
       where: { email },
     });
-    console.log(existeUsuario);
+    //console.log(`soy yo`, existeUsuario.dataValues);
     if (!existeUsuario) {
       console.log("Se agrego correctamente");
       const newUser = await Usuario.create({
@@ -31,8 +31,9 @@ router.post("/", async (req, res, next) => {
         confirmado,
       });
       res.json(newUser);
+    } else {
+      res.json(existeUsuario);
     }
-    res.json(existeUsuario);
   } catch (error) {
     console.log(error.message);
   }
