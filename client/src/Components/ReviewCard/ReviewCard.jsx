@@ -9,7 +9,8 @@ import {
   Center,
   Container,
 } from "@chakra-ui/react";
-const ReviewCard = ({ id, titulo, comentario,rating }) => {
+
+const ReviewCard = ({ id, titulo, comentario,rating, user }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(<AiFillStar />);
@@ -30,7 +31,7 @@ const ReviewCard = ({ id, titulo, comentario,rating }) => {
           <Flex align={"center"} justify={"center"} direction={"column"}>
             <Avatar bg={"black"} />
             <Container centerContent m={"10px"}>
-              <Text>Usuario</Text>
+              <Text>{user}</Text>
             </Container>
             <Container centerContent>
             <ReviewStars starRating={rating}/> 

@@ -16,7 +16,11 @@ const Home = () => {
         dispatch(get_all_products())
     },[dispatch])
 
-    const division = [products?.slice(0,12),products?.slice(12,24),products?.slice(24,36)]
+    let productos_descuento = [products?.filter(e => e.descuento !== null && e.descuento > 0).slice(0,12),products?.slice(12,24),products?.slice(24,36)]
+    let productos_sin_descuento = products?.filter(e => e.descuento === null || e.descuento === 0) // ESTO ES TEMPORAL, CUENTO TENGAMOS LO DE LAS COMPRAS SE VA A CAMBIAR
+    let productos_pocas_unidades = [products?.filter(e => e.stock <= 10).slice(0,12),products?.slice(12,24),products?.slice(24,36)] 
+
+    const division = [productos_sin_descuento.slice(0,12),products?.slice(12,24),products?.slice(24,36)]
 
     return (
     <>
@@ -24,7 +28,7 @@ const Home = () => {
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
         <div><Text fontSize={'25px'}>Productos en oferta</Text></div>
     </Box>
-    <Box mt="25px" mb="25px"><Carousel items={division[0]} /></Box>
+    <Box mt="25px" mb="25px"><Carousel items={productos_descuento[0]} /></Box>
     
     <Box width="auto" height="174px" mt="25px" mb="25px" borderTop=" 2px solid #D9D9D9" borderBottom="2px solid #D9D9D9">
         <div>
@@ -53,12 +57,12 @@ const Home = () => {
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
         <div><Text fontSize="25px">Mas Vendidos</Text></div>
     </Box>
-    <Box mt="25px" mb="25px"><Carousel items={division[1]} /></Box>
+    <Box mt="25px" mb="25px"><Carousel items={division[0]} /></Box>
     
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
         <div><Text fontSize="25px">Ultimas Unidades</Text></div>
     </Box>
-    <Box mt="25px" mb="25px"><Carousel items={division[2]} /></Box>
+    <Box mt="25px" mb="25px"><Carousel items={productos_pocas_unidades[0]} /></Box>
     </>
     )
 }

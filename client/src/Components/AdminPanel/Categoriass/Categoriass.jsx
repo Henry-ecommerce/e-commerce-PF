@@ -163,7 +163,7 @@ const Categoriass = () => {
 				<Box
 					className="form"
 					position={"absolute"}
-					top="25%"
+					top="35%"
 					left="50%"
 					bg="#FFFF"
 					p="20px"

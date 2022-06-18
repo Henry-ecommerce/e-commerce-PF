@@ -7,6 +7,7 @@ const { Producto, Categoria } = require("../../db");
 let _productos = [
   {
     id: 1,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte NVIDIA GeForce GTX 1660 Ti OC, 6GB 192-bit GDDR6, PCI Express x16 3.0",
     marca: "Nvidia",
@@ -23,7 +24,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N166TOC-6GD-1.jpg",
@@ -34,6 +35,7 @@ let _productos = [
   },
   {
     id: 2,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS NVIDIA GeForce RTX 2060 Dual OC EVO, 6GB 192-bit GDDR6, PCI Express 3.0",
     marca: "Nvidia",
@@ -51,7 +53,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XL/CP-ASUS-90YV0CH2-M0AA00-1.jpg",
@@ -62,6 +64,7 @@ let _productos = [
   },
   {
     id: 3,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI NVIDIA GeForce GTX 1660 SUPER VENTUS XS OC, 6GB 192-bit GDDR6, PCI Express x16 3.0",
     marca: "Nvidia",
@@ -78,7 +81,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/XL/CP-MSI-V375-279R-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/XL/CP-MSI-V375-279R-2.jpg",
@@ -86,6 +89,7 @@ let _productos = [
   },
   {
     id: 4,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte AMD Radeon RX 6600 Eagle 8G, 8GB 128-bit GDDR6, PCI Express x8 4.0",
     marca: "AMD",
@@ -101,7 +105,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "2",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-f750ed.jpg",
@@ -112,6 +116,7 @@ let _productos = [
   },
   {
     id: 5,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD Radeon RX 6600 8GB 128 bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -128,7 +133,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
@@ -139,6 +144,7 @@ let _productos = [
   },
   {
     id: 6,
+    descuento : 10,
     nombre:
       "Tarjeta de Video EVGA NVIDIA GeForce RTX 2060 XC Gaming, 12GB 192-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -155,7 +161,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-EVGA-12G-P4-2263-KR-f25521.jpg",
@@ -166,6 +172,7 @@ let _productos = [
   },
   {
     id: 7,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ZOTAC NVIDIA GeForce GTX 1660 SUPER AMP, 6GB 192-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -182,7 +189,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-T16620D-10M-1.jpg",
@@ -193,6 +200,7 @@ let _productos = [
   },
   {
     id: 8,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS NVIDIA GeForce GTX 1650 Dual, 4GB 128-bit GDDR5, PCI Express 3.0",
     marca: "NVIDIA",
@@ -209,7 +217,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0CV3-MVAA00-1.jpg",
@@ -220,6 +228,7 @@ let _productos = [
   },
   {
     id: 9,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte NVIDIA GeForce GTX 1650 OC, 4GB 128-bit GDDR5, PCI Express 3.0 x16",
     marca: "NVIDIA",
@@ -247,6 +256,7 @@ let _productos = [
   },
   {
     id: 10,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Zotac NVIDIA GeForce GTX 1660 Super Gaming Twin Fan, 6GB 192-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -274,6 +284,7 @@ let _productos = [
   },
   {
     id: 11,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte NVIDIA GeForce GTX 1660 OC, 6GB 192-bit GDDR5, PCI Express x16 3.0",
     marca: "NVIDIA",
@@ -301,6 +312,7 @@ let _productos = [
   },
   {
     id: 12,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PNY NVIDIA GeForce GTX 1650 Dual Fan, 4GB 128-bit GDDR6, PCI Express x16",
     marca: "NVIDIA",
@@ -328,6 +340,7 @@ let _productos = [
   },
   {
     id: 13,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI NVIDIA GeForce RTX 2060 VENTUS GP OC, 6GB 192-bit DDR6, PCI Express x16 3.0",
     marca: "NVIDIA",
@@ -354,6 +367,7 @@ let _productos = [
   },
   {
     id: 14,
+    descuento : 10,
     nombre:
       "Tarjeta de Vídeo ASUS TUF Gaming NVIDIA GeForce GTX 1650 OC Edition, 4GB 128 bit GDDR6, PCI Express x16 3.0",
     marca: "NVIDIA",
@@ -381,6 +395,7 @@ let _productos = [
   },
   {
     id: 15,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte NVIDIA GeForce RTX 2060 WINDFORCE OC 12G, 12GB 192-bit GDDR6, PCI Express x16 3.0",
     marca: "NVIDIA",
@@ -408,6 +423,7 @@ let _productos = [
   },
   {
     id: 16,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI NVIDIA GeForce RTX 3080 Ti Gaming X TRIO, 12GB 384-bit GDDR6X, PCI Express 4.0",
     marca: "NVIDIA",
@@ -435,6 +451,7 @@ let _productos = [
   },
   {
     id: 17,
+    descuento : 10,
     nombre:
       "Tarjeta de Video AORUS NVIDIA GeForce RTX 3080 Ti Master Gaming, 12GB 384-bit GDDR6X, PCI Express x16 4.0",
     marca: "NVIDIA",
@@ -462,6 +479,7 @@ let _productos = [
   },
   {
     id: 18,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD Radeon RX 6800 XT TUF Gaming OC, 16GB 256-bit GDDR6, PCI Express 4.0",
     marca: "NVIDIA",
@@ -489,6 +507,7 @@ let _productos = [
   },
   {
     id: 19,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD Radeon RX 6800 XT TUF Gaming OC, 16GB 256-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -516,6 +535,7 @@ let _productos = [
   },
   {
     id: 20,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI NVIDIA GeForce RTX 3090 VENTUS 3X 24G OC, 24GB 384-bit GDDR6X, PCI Express 4.0",
     marca: "NVIDIA",
@@ -532,7 +552,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-GEFORCERTX3090VENTUS3X24GOC-1.jpg",
@@ -543,6 +563,7 @@ let _productos = [
   },
   {
     id: 21,
+    descuento : 10,
     nombre:
       "Tarjeta de Video EVGA NVIDIA GeForce RTX 3080 Ti XC3 Ultra Gaming, 12GB 384-bit GDDR6X, PCI Express 4.0",
     marca: "NVIDIA",
@@ -559,7 +580,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-EVGA-12G-P5-3955-KR-034bd8.jpg",
@@ -570,6 +591,7 @@ let _productos = [
   },
   {
     id: 22,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte NVIDIA GeForce GTX 1650 D6 OC rev. 2.0, 4GB 128-bit GDDR6, PCI Express x16 3.0",
     marca: "NVIDIA",
@@ -586,7 +608,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-N1656OC-4GDREV20-1.jpg",
@@ -597,6 +619,7 @@ let _productos = [
   },
   {
     id: 23,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Sapphire Pulse AMD Radeon RX 6600, 8GB 128-bit DDR6, PCI Express 4.0",
     marca: "AMD",
@@ -612,7 +635,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11310-01-20G-45e6aa.jpg",
@@ -623,6 +646,7 @@ let _productos = [
   },
   {
     id: 24,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PowerColor Fighter AMD Radeon RX 6600, 8GB 128-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -639,7 +663,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX66008GBD6-3DH-d31522.jpg",
@@ -650,6 +674,7 @@ let _productos = [
   },
   {
     id: 25,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PowerColor Fighter AMD Radeon RX 6600, 8GB 128-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -666,7 +691,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX66008GBD6-3DH-d31522.jpg",
@@ -677,6 +702,7 @@ let _productos = [
   },
   {
     id: 26,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS Dual AMD Radeon RX 6700 XT, 12GB 192-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -691,7 +717,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-1.jpg",
@@ -702,6 +728,7 @@ let _productos = [
   },
   {
     id: 27,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS Dual AMD Radeon RX 6700 XT, 12GB 192-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -716,7 +743,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-1.jpg",
@@ -727,6 +754,7 @@ let _productos = [
   },
   {
     id: 28,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte AMD Radeon RX 6600 Eagle 8G, 8GB 128-bit GDDR6, PCI Express x8 4.0",
     marca: "AMD",
@@ -741,7 +769,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R66EAGLE-8GD-689c41.jpg",
@@ -752,6 +780,7 @@ let _productos = [
   },
   {
     id: 29,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD Radeon RX 6900 XT Gaming, 16GB 256-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -767,7 +796,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "2",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GF0-M0AA00-1.jpg",
@@ -778,6 +807,7 @@ let _productos = [
   },
   {
     id: 30,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PowerColor AMD Radeon RX 6800 XT OC, 16GB 256-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -793,7 +823,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6800XT16GBD6-3DHROC-c6e078.jpg",
@@ -804,6 +834,7 @@ let _productos = [
   },
   {
     id: 31,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD Radeon RX 6600 8GB 128 bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -819,7 +850,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
@@ -830,6 +861,7 @@ let _productos = [
   },
   {
     id: 32,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Sapphire NITRO+ AMD Radeon RX 6600 XT Gaming OC, 8GB 128-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -845,7 +877,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-1.jpg",
@@ -856,6 +888,7 @@ let _productos = [
   },
   {
     id: 33,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Sapphire NITRO+ AMD Radeon RX 6600 XT Gaming OC, 8GB 128-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -871,7 +904,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-1.jpg",
@@ -882,6 +915,7 @@ let _productos = [
   },
   {
     id: 34,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PowerColor AMD Radeon RX 6700 XT, 12GB 192-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -897,7 +931,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6700XT12GBD6-3DHEOC-1.jpg",
@@ -908,6 +942,7 @@ let _productos = [
   },
   {
     id: 35,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte AMD Radeon RX 6800 Gaming OC, 16GB 256-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -922,7 +957,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R68GAMINGOC-16GD-1.jpg",
@@ -933,6 +968,7 @@ let _productos = [
   },
   {
     id: 36,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI AMD Radeon RX 6700 XT Mech 2X 12G, 12GB 192-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -946,7 +982,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-RX6700XTMECH2X12G-1.jpg",
@@ -957,6 +993,7 @@ let _productos = [
   },
   {
     id: 37,
+    descuento : 10,
     nombre:
       "Tarjeta de Video PowerColor Hellhound AMD Radeon RX 6600 XT OC, 8GB 128-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -971,7 +1008,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX6600XT8GBD6-3DHLOC-51e171.jpg",
@@ -982,6 +1019,7 @@ let _productos = [
   },
   {
     id: 38,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS TUF Gaming AMD Radeon RX 6800, 16GB, 256-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -996,7 +1034,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800-O16G-GAMING-1.jpg",
@@ -1007,6 +1045,7 @@ let _productos = [
   },
   {
     id: 39,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS AMD TUF Gaming Radeon RX 6700 XT OC, 12GB 256-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -1021,7 +1060,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G80-M0AA00-1.jpg",
@@ -1032,6 +1071,7 @@ let _productos = [
   },
   {
     id: 40,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Gigabyte AMD Radeon RX 6700 XT Gaming OC, 12GB 192-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -1045,7 +1085,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R67XTGAMINGOC-12GD-1.jpg",
@@ -1056,6 +1096,7 @@ let _productos = [
   },
   {
     id: 41,
+    descuento : 10,
     nombre:
       "Tarjeta de Video AORUS AMD Radeon RX 6800 Master 16G, 16GB 256-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -1069,7 +1110,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "2",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-GV-R68AORUSM-16GD-1.jpg",
@@ -1080,6 +1121,7 @@ let _productos = [
   },
   {
     id: 42,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS ROG Strix AMD Radeon RX 6600 XT OC, 8GB 128-bit GDDR6, PCI Express 4.0",
     marca: "AMD",
@@ -1093,7 +1135,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GN0-M0NA00-ce069d.jpg",
@@ -1104,6 +1146,7 @@ let _productos = [
   },
   {
     id: 43,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Sapphire NITRO+ AMD Radeon RX 6700 XT, 12GB 192-bit GDDR6, PCI Express x16 4.0",
     marca: "AMD",
@@ -1118,7 +1161,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11306-01-20G-1.jpg",
@@ -1129,6 +1172,7 @@ let _productos = [
   },
   {
     id: 44,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Palit NVIDIA GeForce RTX 3070 Ti GamingPro, 8GB 256-bit GDDR6X, PCI Express x16 4.0",
     marca: "NVIDIA",
@@ -1144,7 +1188,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-PALIT-NED307T019P2-1046A-854e9d.jpg",
@@ -1155,6 +1199,7 @@ let _productos = [
   },
   {
     id: 45,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ZOTAC NVIDIA GeForce RTX 3060 Ti Twin Edge LHR, 8GB 256-bit GDDR6, PCI Express x16 4.0",
     marca: "NVIDIA",
@@ -1170,7 +1215,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-A30610E-10MLHR-1.jpg",
@@ -1181,6 +1226,7 @@ let _productos = [
   },
   {
     id: 46,
+    descuento : 10,
     nombre:
       "Tarjeta de Video MSI NVIDA GeForce RTX 3080 VENTUS 3X PLUS 12G OC LHR, 12GB 384-bit GDDR6X, PCI Express 4.0",
     marca: "NVIDIA",
@@ -1196,7 +1242,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-GEFORCERTX3080VENTUS3XPLUS12GOCLHR-7c4b19.jpg",
@@ -1207,6 +1253,7 @@ let _productos = [
   },
   {
     id: 47,
+    descuento : 10,
     nombre:
       "Tarjeta de Video Zotac NVIDIA GeForce GTX 1650 AMP Core, 4GB 128-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -1222,7 +1269,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ZOTAC-ZT-T16520J-10L-1af9f5.jpg",
@@ -1233,6 +1280,7 @@ let _productos = [
   },
   {
     id: 48,
+    descuento : 10,
     nombre:
       "Tarjeta de Video EVGA NVIDIA GeForce GTX 1660 SUPER SC ULTRA GAMING, 6GB 192-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -1248,7 +1296,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-EVGA-06G-P4-1068-KR-1.jpg",
@@ -1259,6 +1307,7 @@ let _productos = [
   },
   {
     id: 49,
+    descuento : 10,
     nombre:
       "Tarjeta de Video AORUS NVIDIA GeForce RTX 3060 Ti Elite 8G (rev. 2.0), 8GB 256-bit GDDR6, PCI-E 4.0 x 16",
     marca: "NVIDIA",
@@ -1275,7 +1324,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-GV-N306TAORUSE-8GDREV20-6323c1.jpg",
@@ -1286,6 +1335,7 @@ let _productos = [
   },
   {
     id: 50,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS NVIDIA Dual GeForce GTX 1650 OC MINI, 4GB 128-bit GDDR6, PCI Express 3.0",
     marca: "NVIDIA",
@@ -1302,7 +1352,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "1",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0EH8-M0AA00-1.jpg",
@@ -1313,6 +1363,7 @@ let _productos = [
   },
   {
     id: 51,
+    descuento : 10,
     nombre:
       "Tarjeta de Video ASUS NVIDIA KO GeForce RTX 3070 V2 LHR, 8GB 256-bit GDDR6, PCI Express 4.0",
     marca: "NVIDIA",
@@ -1328,7 +1379,7 @@ let _productos = [
       "Cantidad de DisplayPorts": "3",
     },
     funciones: "Video",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-KO-RTX3070-8G-V2-GAMING-6c4ed5.jpg",
@@ -1339,6 +1390,7 @@ let _productos = [
   },
   {
     id: 53,
+    descuento : 10,
     nombre: "Mousepad Gamer Yeyian Krieg 2035, 44.4x35.5cm, Grosor 3mm, Negro",
     marca: "Yeyian",
     precio: {
@@ -1352,7 +1404,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-MP2035-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-MP2035-1.jpg",
@@ -1360,6 +1412,7 @@ let _productos = [
   },
   {
     id: 54,
+    descuento : 10,
     nombre:
       "Mousepad Gamer Primus Arena L, 39 x 31cm, Grosor 3mm, Negro/Morado",
     marca: "Gamer Primus",
@@ -1374,7 +1427,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-PRIMUS-PMP-10L-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-PRIMUS-PMP-10L-1.jpg",
@@ -1382,6 +1435,7 @@ let _productos = [
   },
   {
     id: 56,
+    descuento : 10,
     nombre: "Mousepad Gamer HyperX FURY S Pro XL, 90x42cm, Grosor 4mm, Negro",
     marca: "HyperX",
     precio: {
@@ -1395,7 +1449,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-1.jpg",
@@ -1406,6 +1460,7 @@ let _productos = [
   },
   {
     id: 57,
+    descuento : 10,
     nombre: "Mousepad Logitech Desk Mat, 70 x 30cm, 2mm, Lavanda",
     marca: "Logitech",
     precio: {
@@ -1419,7 +1474,7 @@ let _productos = [
       "Color del producto": "Lavanda",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-956-000036-f815df.jpg",
@@ -1430,6 +1485,7 @@ let _productos = [
   },
   {
     id: 58,
+    descuento : 10,
     nombre: "Mousepad Gamer Ocelot Gaming OMP01, 35 x 25cm, Grosor 3mm, Negro",
     marca: "Logitech",
     precio: {
@@ -1441,7 +1497,7 @@ let _productos = [
       "Color del producto": "Lavanda",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
@@ -1452,6 +1508,7 @@ let _productos = [
   },
   {
     id: 59,
+    descuento : 10,
     nombre: "Mousepad Gamer Ocelot Gaming OMP01, 35 x 25cm, Grosor 3mm, Negro",
     marca: " Gamer Ocelot",
     precio: {
@@ -1465,7 +1522,7 @@ let _productos = [
       "Color del producto": "Lavanda",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
@@ -1476,6 +1533,7 @@ let _productos = [
   },
   {
     id: 60,
+    descuento : 10,
     nombre: "Mousepad Gamer Trust GXT 758, 93 x 30cm, Grosor 3mm, Negro",
     marca: "Trust",
     precio: {
@@ -1489,7 +1547,7 @@ let _productos = [
       "Color del producto": "Lavanda",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-21569-372626.png",
@@ -1500,6 +1558,7 @@ let _productos = [
   },
   {
     id: 61,
+    descuento : 10,
     nombre: "Mousepad Yeyian Krieg Serie 1081, 80 x 40cm, 3mm, Negro",
     marca: "Yeyian",
     precio: {
@@ -1513,7 +1572,7 @@ let _productos = [
       "Color del producto": "Lavanda",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YSS-MP1081N-e3fc11.jpg",
@@ -1524,6 +1583,7 @@ let _productos = [
   },
   {
     id: 62,
+    descuento : 10,
     nombre: "Mousepad NZXT MXL900, 90 x 35cm, Grosor 3mm, Negro",
     marca: "NZXT",
     precio: {
@@ -1537,7 +1597,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NZXT-MM-XXLSP-BL-e21835.jpg",
@@ -1548,6 +1608,7 @@ let _productos = [
   },
   {
     id: 63,
+    descuento : 10,
     nombre:
       "MMousepad Gamer Ocelot Gaming OMPXL01, 80 x 30cm, Grosor 4mm, Negro",
     marca: "Ocelot",
@@ -1562,7 +1623,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMPXL01-1.jpg",
@@ -1573,6 +1634,7 @@ let _productos = [
   },
   {
     id: 64,
+    descuento : 10,
     nombre: "Binden Descansa Muñecas AC4101L, 44 x 9.5cm, Negro",
     marca: "Binden",
     precio: {
@@ -1586,7 +1648,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BINDEN-FAN-AC4101L-1.jpg",
@@ -1597,6 +1659,7 @@ let _productos = [
   },
   {
     id: 65,
+    descuento : 10,
     nombre:
       "Mousepad Gamer Nextep Dragon XT RGB XL, 80 x 35cm, Grosor 4mm, Negro/Rojo",
     marca: "Nextep",
@@ -1611,7 +1674,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483-1.jpg",
@@ -1619,6 +1682,7 @@ let _productos = [
   },
   {
     id: 66,
+    descuento : 10,
     nombre:
       "Mousepad Gamer Naceb con Carga Inalámbrica NA-0926, 31x40cm, Grosor 3mm, Negro",
     marca: "Naceb",
@@ -1633,7 +1697,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0926-1.jpg",
@@ -1644,6 +1708,7 @@ let _productos = [
   },
   {
     id: 67,
+    descuento : 10,
     nombre: "Mousepad NZXT MXL900, 90 x 35cm, Grosor 3mm, Gris",
     marca: "NZXT",
     precio: {
@@ -1657,7 +1722,7 @@ let _productos = [
       "Color del producto": "Gris",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NZXT-MM-XXLSP-GR-de72c3.jpg",
@@ -1668,6 +1733,7 @@ let _productos = [
   },
   {
     id: 68,
+    descuento : null,
     nombre: "Mousepad Gigabyte MP100, 35 x 26cm, Grosor 3mm, Negro",
     marca: "Gigabyte",
     precio: {
@@ -1681,7 +1747,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-MP100-1.jpg",
@@ -1692,6 +1758,7 @@ let _productos = [
   },
   {
     id: 69,
+    descuento : null,
     nombre: "Mousepad VSG ARMAGEDON L, 35 x 32cm, Grosor 3mm, Negro/Verde",
     marca: "VSG",
     precio: {
@@ -1705,7 +1772,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-VSG-VG-MP67-29cda7.jpg",
@@ -1716,6 +1783,7 @@ let _productos = [
   },
   {
     id: 70,
+    descuento : null,
     nombre:
       "Mousepad Trust GXT 765 Glide-Flex RGB, 25x35cm, Grosor 3mm, Negro, con Hub USB de 4 Puertos",
     marca: "Trust",
@@ -1730,7 +1798,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-23646-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-TRUST-23646-2.jpg",
@@ -1738,6 +1806,7 @@ let _productos = [
   },
   {
     id: 71,
+    descuento : null,
     nombre: "Mousepad Gamer Nextep Dragon XT XL, 80 x 35cm, Grosor 4mm, Negro",
     marca: "Nextep",
     precio: {
@@ -1751,7 +1820,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483R-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-NEXTEP-NE-483R-1.jpg",
@@ -1759,6 +1828,7 @@ let _productos = [
   },
   {
     id: 73,
+    descuento : null,
     nombre: "Mousepad Game Factor MPG500 XL RGB, 80 x 30cm, Grosor 4mm, Negro",
     marca: "Game Factor",
     precio: {
@@ -1772,7 +1842,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-MPG500-1.jpg",
@@ -1783,6 +1853,7 @@ let _productos = [
   },
   {
     id: 74,
+    descuento : null,
     nombre:
       "Mousepad Gamer Vorago MPG-200, 35 x 44.4cm, Grosor 3mm, Negro/Azul",
     marca: "Game Factor",
@@ -1797,7 +1868,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-VORAGO-MPG-200-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-VORAGO-MPG-200-2.jpg",
@@ -1805,6 +1876,7 @@ let _productos = [
   },
   {
     id: 75,
+    descuento : null,
     nombre: "HyperX Micrófono QuadCast, Alámbrico, Negro/Rojo",
     marca: "HyperX",
     precio: {
@@ -1819,7 +1891,7 @@ let _productos = [
       "Color del producto": "Negro, Rojo",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MICQC-BK-1.jpg",
@@ -1830,6 +1902,7 @@ let _productos = [
   },
   {
     id: 76,
+    descuento : null,
     nombre: "HyperX Micrófono SoloCast, Alámbrico, 100mA, para PS4/PC/MAC",
     marca: "HyperX",
     precio: {
@@ -1844,7 +1917,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HMIS1X-XX-BKG-1.jpg",
@@ -1855,6 +1928,7 @@ let _productos = [
   },
   {
     id: 77,
+    descuento : null,
     nombre: "Ocelot Gaming Micrófono OGMIC-02, Alámbrico, 100mA, 94dB",
     marca: "Ocelot",
     precio: {
@@ -1869,7 +1943,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGMIC-02-1.jpg",
@@ -1880,6 +1954,7 @@ let _productos = [
   },
   {
     id: 78,
+    descuento : null,
     nombre: "Blue Microphones Micrófono Yeti Nano, Alámbrico, USB, 150mA, Gris",
     marca: "Blue",
     precio: {
@@ -1894,7 +1969,7 @@ let _productos = [
       "Color del producto": "Gris",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BLUEMICROPHONES-988-000088-a0720c.jpg",
@@ -1905,6 +1980,7 @@ let _productos = [
   },
   {
     id: 79,
+    descuento : null,
     nombre: "Razer Micrófono Seiren X, Alámbrico, USB, Rosa",
     marca: "Razer",
     precio: {
@@ -1919,7 +1995,7 @@ let _productos = [
       "Color del producto": " Rosa",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-RAZER-RZ19-02290300-R3M1-1.jpg",
@@ -1930,6 +2006,7 @@ let _productos = [
   },
   {
     id: 80,
+    descuento : null,
     nombre: "Balam Rush Micrófono Gamer Stelar MC970, Alámbrico, 160 Ohmio",
     marca: "Balam Rush",
     precio: {
@@ -1944,7 +2021,7 @@ let _productos = [
       "Color del producto": " Rosa",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-932967-b4b05a.jpg",
@@ -1955,6 +2032,7 @@ let _productos = [
   },
   {
     id: 81,
+    descuento : null,
     nombre: "OEM Micrófono KM-21, Alámbrico, Negro",
     marca: "OEM ",
     precio: {
@@ -1969,7 +2047,7 @@ let _productos = [
       "Color del producto": " Rosa",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-OEM-KM-21-4fb532.jpg",
     imagen1:
@@ -1979,6 +2057,7 @@ let _productos = [
   },
   {
     id: 82,
+    descuento : null,
     nombre:
       "Game Factor Micrófono KIT MCG601 + MAG500, Alámbrico, Negro, incluye Micrófono Profesional/Soporte de Movimiento 360",
     marca: "Game Factor",
@@ -1994,7 +2073,7 @@ let _productos = [
       "Color del producto": " Rosa",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-KITMCG601+MAG500-1.jpg",
@@ -2005,6 +2084,7 @@ let _productos = [
   },
   {
     id: 83,
+    descuento : null,
     nombre: "Razer Micrófono Seiren X, Alámbrico, USB, Blanco",
     marca: "Razer",
     precio: {
@@ -2019,7 +2099,7 @@ let _productos = [
       "Color del producto": "Blanco",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-RAZER-RZ19-02290400-R3M1-1.jpg",
@@ -2030,6 +2110,7 @@ let _productos = [
   },
   {
     id: 84,
+    descuento : null,
     nombre:
       "Blue Microphone Micrófono Snowball Ice, Alámbrico, USB, Negro - incluye Webcam AVvermedia PW313",
     marca: "Razer",
@@ -2045,7 +2126,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Microfonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Microfonos", id: 3 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BLUEMICROPHONES-SNOWBALLICE+AVERMEDIAPW313-818d02.jpg",
@@ -2056,6 +2137,7 @@ let _productos = [
   },
   {
     id: 85,
+    descuento : null,
     nombre:
       "Logitech Audífonos Gamer G733 7.1 para PS4/PC, Inalámbrico, USB, Azul",
     marca: "Logitech",
@@ -2071,7 +2153,7 @@ let _productos = [
       "Color del producto": " Azul",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000942-1.jpg",
@@ -2082,6 +2164,7 @@ let _productos = [
   },
   {
     id: 52,
+    descuento : null,
     nombre: "Mousepad Balam Rush Narok XL, 90 x 40cm, 4mm, Negro/Rojo",
     marca: "Balam Rush",
     precio: {
@@ -2095,7 +2178,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931441-1.jpg",
@@ -2106,6 +2189,7 @@ let _productos = [
   },
   {
     id: 55,
+    descuento : null,
     nombre: "Mousepad Gamer HyperX FURY S Pro XL, 90x42cm, Grosor 4mm, Negro",
     marca: "Gamer Primus",
     precio: {
@@ -2119,7 +2203,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-1.jpg",
@@ -2130,6 +2214,7 @@ let _productos = [
   },
   {
     id: 72,
+    descuento : null,
     nombre:
       "Mousepad Gamer BRobotix 497288, 79.2 x 30cm, Grosor 4mm, Planisferio",
     marca: "BRobotix",
@@ -2144,7 +2229,7 @@ let _productos = [
       "Color del producto": "Multicolor",
     },
     funciones: "Mousepads",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mousepads", id: 2 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BROBOTIX-497288-1.jpg",
@@ -2155,6 +2240,7 @@ let _productos = [
   },
   {
     id: 86,
+    descuento : null,
     nombre:
       "Logitech Audífonos Gamer G733 7.1 para PS4/PC, Inalámbrico, USB, Lila",
     marca: "Logitech",
@@ -2170,7 +2256,7 @@ let _productos = [
       "Color del producto": " Lila",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000889-1.jpg",
@@ -2181,6 +2267,7 @@ let _productos = [
   },
   {
     id: 87,
+    descuento : null,
     nombre:
       "Naceb Audífonos Gamer Black Mamba, Alámbrico, 2 Metros, 3.5mm, Negro",
     marca: "Naceb",
@@ -2196,7 +2283,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0317-1.jpg",
@@ -2207,6 +2294,7 @@ let _productos = [
   },
   {
     id: 88,
+    descuento : null,
     nombre:
       "Corsair Audífonos Gamer HS50 PRO STEREO, Alámbrico, 1.8 Metros, 3.5mm, Negro",
     marca: "Naceb",
@@ -2222,7 +2310,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011215-NA-1.jpg",
@@ -2233,6 +2321,7 @@ let _productos = [
   },
   {
     id: 89,
+    descuento : null,
     nombre:
       "Ocelot Gaming Audífonos Gamer OGEH02, Alámbrico, 2.2 Metros, 3.5mm, Negro",
     marca: "Naceb",
@@ -2248,7 +2337,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEH02-1.jpg",
@@ -2259,6 +2348,7 @@ let _productos = [
   },
   {
     id: 90,
+    descuento : null,
     nombre:
       "Ocelot Gaming Audífonos Gamer OGMH02, Alámbrico, 2.2 Metros, 3.5mm/USB, Negro",
     marca: "Naceb",
@@ -2273,7 +2363,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGMH02-1.jpg",
@@ -2284,6 +2374,7 @@ let _productos = [
   },
   {
     id: 91,
+    descuento : null,
     nombre: "Naceb Audífonos Gamer Naja 7.1, Alámbrico, 2 Metros, USB, Negro",
     marca: "Naceb",
     precio: {
@@ -2297,7 +2388,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0315-1.jpg",
@@ -2308,6 +2399,7 @@ let _productos = [
   },
   {
     id: 92,
+    descuento : null,
     nombre:
       "Logitech Audífonos Gamer G733 7.1 para PS4/PC, Inalámbrico, USB, Negro",
     marca: "Logitech",
@@ -2322,7 +2414,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000863-1.jpg",
@@ -2333,6 +2425,7 @@ let _productos = [
   },
   {
     id: 93,
+    descuento : null,
     nombre: "Logitech Audífonos Gamer G Pro, Alámbrico, 2 Metros, 3.5mm, Negro",
     marca: "Logitech",
     precio: {
@@ -2346,7 +2439,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000811-1.jpg",
@@ -2357,6 +2450,7 @@ let _productos = [
   },
   {
     id: 94,
+    descuento : null,
     nombre:
       "Yeyian Audífonos Gamer Proud Series 3500 para Xbox One/PS4, Alámbrico, 1.8 Metros, 3.5 mm, Negro",
     marca: "Yeyian",
@@ -2371,7 +2465,7 @@ let _productos = [
       "Color del producto": " Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YDG-33405-1.jpg",
@@ -2382,6 +2476,7 @@ let _productos = [
   },
   {
     id: 95,
+    descuento : null,
     nombre:
       "Logitech Audífonos Gamer G733 7.1 para PS4/PC, Inalámbrico, USB, Blanco",
     marca: "Logitech",
@@ -2396,7 +2491,7 @@ let _productos = [
       "Color del producto": "Blanco",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-981-000882-5.jpg",
@@ -2407,6 +2502,7 @@ let _productos = [
   },
   {
     id: 96,
+    descuento : null,
     nombre:
       "ASUS Audífonos Gamer TUF Gaming H3 7.1, Alámbrico, 1.3 Metros + 1.3 Metros de Extensión, 3.5mm, Negro/Gris",
     marca: "ASUS",
@@ -2421,7 +2517,7 @@ let _productos = [
       "Color del producto": "Negro, Gris",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YH028G-B1UA00-1.jpg",
@@ -2432,6 +2528,7 @@ let _productos = [
   },
   {
     id: 97,
+    descuento : null,
     nombre:
       "Balam Rush Audífonos Gamer Hesix 7.1, Alámbrico, 2.1 Metros, USB-A, Negro",
     marca: "Balam Rush",
@@ -2446,7 +2543,7 @@ let _productos = [
       "Color del producto": "Negro, Gris",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-929776-1.jpg",
@@ -2457,6 +2554,7 @@ let _productos = [
   },
   {
     id: 98,
+    descuento : null,
     nombre:
       "Corsair Audífonos Gamer VIRTUOSO RGB WIRELESS 7.1, Inalámbrico, USB + 3.5mm, Blanco",
     marca: "Corsair",
@@ -2471,7 +2569,7 @@ let _productos = [
       "Color del producto": "Blanco",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011186-NA-1.jpg",
@@ -2482,6 +2580,7 @@ let _productos = [
   },
   {
     id: 99,
+    descuento : null,
     nombre: "orsair Audífonos Gamer HS35, Alámbrico, 1.1 Metros, 3.5mm, Negro",
     marca: "Corsair",
     precio: {
@@ -2495,7 +2594,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Audifonos",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Audifonos", id: 4 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CA-9011195-NA-1.jpg",
@@ -2506,6 +2605,7 @@ let _productos = [
   },
   {
     id: 100,
+    descuento : null,
     nombre:
       "Gabinete Cooler Master Box TD500 Mesh con Ventana Midi Tower, ATX/EATX/micro ATX/Mini-ITX/SSI CEB, USB 3.0, sin Fuente, Blanco",
     marca: "Cooler Master",
@@ -2523,7 +2623,7 @@ let _productos = [
       "Color del producto": "Blanco",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MCB-D500D-WGNN-S01-1.jpg",
@@ -2534,6 +2634,7 @@ let _productos = [
   },
   {
     id: 101,
+    descuento : null,
     nombre:
       "Gabinete Corsair SPEC-05 con Ventana LED Rojo, Midi-Tower, ATX, USB 3.0, incluye Fuente de 550W, Negro",
     marca: "Corsair",
@@ -2551,7 +2652,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CC-9020126-NA-1.jpg",
@@ -2562,6 +2663,7 @@ let _productos = [
   },
   {
     id: 102,
+    descuento : null,
     nombre:
       "abinete NZXT H510 con Ventana, Midi-Tower, ATX,Micro-ATX,Mini-ATX, USB 3.1, sin Fuente, Blanco",
     marca: "NZXT",
@@ -2579,7 +2681,7 @@ let _productos = [
       "Color del producto": "Blanco",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NZXT-CA-H510B-W1-1.jpg",
@@ -2590,6 +2692,7 @@ let _productos = [
   },
   {
     id: 103,
+    descuento : null,
     nombre:
       "Gabinete Ocelot Gaming OGEC02 con Ventana, Tower, ATX/Micro ATX/Mini-ITX, USB 2.0/3.0, sin Fuente, Negro",
     marca: "Ocelot",
@@ -2606,7 +2709,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEC02-1.jpg",
@@ -2617,6 +2720,7 @@ let _productos = [
   },
   {
     id: 104,
+    descuento : null,
     nombre:
       "Gabinete Naceb Hydra con Ventana RGB, Full-Tower, ATX, USB 2.0/3.0, sin Fuente, Negro",
     marca: "Naceb",
@@ -2633,7 +2737,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-0602-1.jpg",
@@ -2644,6 +2748,7 @@ let _productos = [
   },
   {
     id: 105,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Shadow 2200 con Ventana RGB, Full-Tower, ATX, USB 3.0, sin Fuente, Negro",
     marca: "Naceb",
@@ -2660,7 +2765,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGS-68808-1.jpg",
@@ -2671,6 +2776,7 @@ let _productos = [
   },
   {
     id: 106,
+    descuento : null,
     nombre:
       "Gabinete Acteck Ultron X RGB, Micro Tower, micro ATX/Mini-ITX, USB 3.2, incluye Fuente de 500W, Negro",
     marca: "Naceb",
@@ -2687,7 +2793,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
@@ -2698,6 +2804,7 @@ let _productos = [
   },
   {
     id: 107,
+    descuento : null,
     nombre:
       "Gabinete Acteck Ultron X RGB, Micro Tower, micro ATX/Mini-ITX, USB 3.2, incluye Fuente de 500W, Negro",
     marca: "Naceb",
@@ -2714,7 +2821,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
@@ -2725,6 +2832,7 @@ let _productos = [
   },
   {
     id: 108,
+    descuento : null,
     nombre:
       "Gabinete Acteck Ultron X RGB, Micro Tower, micro ATX/Mini-ITX, USB 3.2, incluye Fuente de 500W, Negro",
     marca: "Acteck",
@@ -2741,7 +2849,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
@@ -2752,6 +2860,7 @@ let _productos = [
   },
   {
     id: 109,
+    descuento : null,
     nombre:
       "Gabinete Ocelot Gaming OGEC01 con Ventana RGB, Tower, ATX/Micro ATX/Mini-ITX, USB 2.0/3.0, sin Fuente, Negro - No Incluye Ventiladores",
     marca: "Ocelot",
@@ -2768,7 +2877,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEC01-1.jpg",
@@ -2779,6 +2888,7 @@ let _productos = [
   },
   {
     id: 111,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
     marca: "Corsair",
@@ -2795,7 +2905,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
@@ -2806,6 +2916,7 @@ let _productos = [
   },
   {
     id: 110,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
     marca: "Yeyian",
@@ -2822,7 +2933,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
@@ -2833,6 +2944,7 @@ let _productos = [
   },
   {
     id: 112,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
     marca: "Yeyian",
@@ -2849,7 +2961,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
@@ -2860,6 +2972,7 @@ let _productos = [
   },
   {
     id: 113,
+    descuento : null,
     nombre:
       "Gabinete ASUS TUF Gaming GT301 con Ventana, Midi-Tower, ATX/Micro-ATX/Mini-ATX, USB 3.2, sin Fuente, Negro",
     marca: "ASUSn",
@@ -2876,7 +2989,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90DC0040-B49000-1.jpg",
@@ -2887,6 +3000,7 @@ let _productos = [
   },
   {
     id: 114,
+    descuento : null,
     nombre:
       "Gabinete Balam Rush DragonFly con Ventana, Midi-Tower, ATX/Micro ATX/Mini-ATX, USB 3.0, sin Fuente, Negro",
     marca: "Balam Rush",
@@ -2903,7 +3017,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-929561-1.jpg",
@@ -2914,6 +3028,7 @@ let _productos = [
   },
   {
     id: 115,
+    descuento : null,
     nombre:
       "Gabinete DeepCool MATREXX 50 ADD-RGB 4F con Ventana, Midi-Tower/ATX/EATX/Micro ATX/Mini-ITX, USB 2.0/3.0, sin Fuente, Negro",
     marca: "DeepCool",
@@ -2930,7 +3045,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-DEEPCOOL-DP-ATX-MATREXX50-AR-4F-NE-1.jpg",
@@ -2941,6 +3056,7 @@ let _productos = [
   },
   {
     id: 116,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Haizen 2500 con Ventana, Midi-Tower, Micro ATX/Mini-ATX, USB 3.0, sin Fuente, Blanco",
     marca: "DeepCool",
@@ -2957,7 +3073,7 @@ let _productos = [
       "Color del producto": "Blamco",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-1.jpg",
@@ -2968,6 +3084,7 @@ let _productos = [
   },
   {
     id: 117,
+    descuento : null,
     nombre:
       "Gabinete Yeyian Haizen 2500 con Ventana, Midi-Tower, Micro ATX/Mini-ATX, USB 3.0, sin Fuente, Blanco",
     marca: "Yeyian",
@@ -2984,7 +3101,7 @@ let _productos = [
       "Color del producto": "Blamco",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-1.jpg",
@@ -2995,6 +3112,7 @@ let _productos = [
   },
   {
     id: 118,
+    descuento : null,
     nombre:
       "Gabinete XPG Starker con Ventana ARGB, Midi-Tower, ATX/Micro ATX/Mini-ATX, USB 3.0, incluye Fuente de 600W, Negro",
     marca: "XPG",
@@ -3011,7 +3129,7 @@ let _productos = [
       "Color del producto": "Blamco",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-STARKERCP-BKCUS-1.jpg",
@@ -3022,6 +3140,7 @@ let _productos = [
   },
   {
     id: 119,
+    descuento : null,
     nombre: "Disipador para CPU Corsair A500 Dual Fan, 120mm, 2400RPM",
     marca: "Corsair",
     precio: {
@@ -3033,7 +3152,7 @@ let _productos = [
       "Número de ventiladores": "2 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CT-9010003-WW-1.jpg",
@@ -3044,6 +3163,7 @@ let _productos = [
   },
   {
     id: 120,
+    descuento : null,
     nombre: "Disipador CPU AeroCool Cylon 4F RGB, 120mm, 800 - 1800RPM, Negro",
     marca: "AeroCool",
     precio: {
@@ -3055,7 +3175,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AEROCOOL-CYLON4F-1.jpg",
@@ -3066,6 +3186,7 @@ let _productos = [
   },
   {
     id: 121,
+    descuento : null,
     nombre: "Disipador CPU Balam Rush Eolox ASX10 RGB, 120mm, 800 - 1800RPM",
     marca: "Balam Rush",
     precio: {
@@ -3077,7 +3198,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931311-1.jpg",
@@ -3088,6 +3209,7 @@ let _productos = [
   },
   {
     id: 122,
+    descuento : null,
     nombre: "Disipador CPU Thermaltake UX200 ARGB, 120mm, 300 - 1500RPM, Negro",
     marca: "Balam Rush",
     precio: {
@@ -3099,7 +3221,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-THERMALTAKE-CL-P065-AL12SW-A-1.jpg",
@@ -3110,6 +3232,7 @@ let _productos = [
   },
   {
     id: 123,
+    descuento : null,
     nombre: "Disipador CPU Cooler Master Hyper T20, 955mm, 2000RPM, Negro",
     marca: "Cooler",
     precio: {
@@ -3121,7 +3244,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-T20-20FK-R1-a0afed.jpg",
@@ -3132,6 +3255,7 @@ let _productos = [
   },
   {
     id: 124,
+    descuento : null,
     nombre: "Disipador CPU Yeyian Storm 1200 RGB, 120mm, 1000 - 1800RPM, Negro",
     marca: "Yeyian",
     precio: {
@@ -3143,7 +3267,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-AC1200-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-AC1200-1.jpg",
@@ -3151,6 +3275,7 @@ let _productos = [
   },
   {
     id: 125,
+    descuento : null,
     nombre: "Disipador CPU Aerocool Cylon 3, 120mm, 600 - 1800RPM, Negro",
     marca: "Aerocool",
     precio: {
@@ -3162,7 +3287,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AEROCOOL-CYLON3-1.jpg",
@@ -3173,6 +3298,7 @@ let _productos = [
   },
   {
     id: 126,
+    descuento : null,
     nombre:
       "Disipador CPU Cooler Master Hyper 212 ARGB, 120mm, 650-1800RPM, Negro",
     marca: "Cooler",
@@ -3185,7 +3311,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-2V2L-18PA-R1-2cfed4.jpg",
@@ -3196,6 +3322,7 @@ let _productos = [
   },
   {
     id: 127,
+    descuento : null,
     nombre:
       "Disipador CPU Gigabyte AORUS ATC800 RGB, 120mm, 600RPM - 2000RPM, Negro",
     marca: "Gigabyte",
@@ -3208,7 +3335,7 @@ let _productos = [
       "Número de ventiladores": "2 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-ATC800-1.jpg",
@@ -3219,6 +3346,7 @@ let _productos = [
   },
   {
     id: 128,
+    descuento : null,
     nombre: "Disipador CPU Vetroo Darkstorm RGB, 120mm, 1600RPM, Negro",
     marca: "Vetroo",
     precio: {
@@ -3230,7 +3358,7 @@ let _productos = [
       "Número de ventiladores": "2 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-VETROO-VT-CPU-RGB-M2-2780e7.jpg",
@@ -3241,6 +3369,7 @@ let _productos = [
   },
   {
     id: 129,
+    descuento : null,
     nombre:
       "Disipador CPU Cooler Master MasterAir G200P, 92mm, 800RPM - 2600RPM, Negro/Plata",
     marca: "Vetroo",
@@ -3253,7 +3382,7 @@ let _productos = [
       "Número de ventiladores": "1 Ventilador(es)",
     },
     funciones: "Disipadores-para-CPU",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Disipadores-para-CPU", id: 6 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MAP-G2PN-126PC-R1-1.jpg",
@@ -3264,6 +3393,7 @@ let _productos = [
   },
   {
     id: 130,
+    descuento : null,
     nombre:
       "Kit de Ventilador In Win SIRIUS LOOP ASL120 RGB, 120mm, 500 - 1800RPM, Negro, 3 Piezas",
     marca: "Vetroo",
@@ -3278,7 +3408,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INWIN-ASL120FAN-3PK-1.jpg",
@@ -3289,6 +3419,7 @@ let _productos = [
   },
   {
     id: 131,
+    descuento : null,
     nombre:
       "Ventilador In Win Saturn ASN120 ARGB, 120mm, 500 - 1800RPM, Negro - 3 Piezas",
     marca: "In Win",
@@ -3303,7 +3434,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INWIN-IW-FN-ASN120-3PK-1.jpg",
@@ -3314,6 +3445,7 @@ let _productos = [
   },
   {
     id: 132,
+    descuento : null,
     nombre:
       "Ventilador In Win Jupiter AJ120 RGB, 120mm, 500RPM - 1800RPM, Negro - 3 Piezas",
     marca: "In Win",
@@ -3328,7 +3460,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INWIN-IW-FN-AJ120-3PK-1.jpg",
@@ -3339,6 +3471,7 @@ let _productos = [
   },
   {
     id: 133,
+    descuento : null,
     nombre:
       "Ventilador Game Factor FKG400 RGB, 120mm, 1500RPM, Negro - 3 Piezas",
     marca: "Game Factor",
@@ -3353,7 +3486,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GAMEFACTOR-FKG400-1.jpg",
@@ -3364,6 +3497,7 @@ let _productos = [
   },
   {
     id: 134,
+    descuento : null,
     nombre:
       "Ventilador Cooler Master SickleFlow 120 ARGB Reverse, 120mm, 650 - 1800RPM, Negro",
     marca: "Game Factor",
@@ -3378,7 +3512,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-MFX-B2DR-18NPA-R1-e6f89b.jpg",
@@ -3389,6 +3523,7 @@ let _productos = [
   },
   {
     id: 135,
+    descuento : null,
     nombre:
       "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
     marca: "Game Factor",
@@ -3403,7 +3538,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
@@ -3414,6 +3549,7 @@ let _productos = [
   },
   {
     id: 235,
+    descuento : null,
     nombre: "SSD Kingston NV1 NVMe, 250GB, PCI Express 3.0, M.2",
     marca: "Kingston",
     precio: {
@@ -3428,7 +3564,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XS/CP-KINGSTON-SNVS250G-1.jpg",
@@ -3439,6 +3575,7 @@ let _productos = [
   },
   {
     id: 136,
+    descuento : null,
     nombre:
       "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
     marca: "Game Factor",
@@ -3453,7 +3590,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
@@ -3464,6 +3601,7 @@ let _productos = [
   },
   {
     id: 137,
+    descuento : null,
     nombre:
       "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
     marca: "Game Factor",
@@ -3478,7 +3616,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
@@ -3489,6 +3627,7 @@ let _productos = [
   },
   {
     id: 138,
+    descuento : null,
     nombre:
       "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
     marca: "Game Factor",
@@ -3503,7 +3642,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
@@ -3514,6 +3653,7 @@ let _productos = [
   },
   {
     id: 139,
+    descuento : null,
     nombre:
       "Ventilador Ocelot Gaming OGF01 RGB (No Controlable), 120mm, 1200RPM, Negro",
     marca: "Ocelot",
@@ -3528,7 +3668,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGF01-1.jpg",
@@ -3539,6 +3679,7 @@ let _productos = [
   },
   {
     id: 140,
+    descuento : null,
     nombre: "Ventilador XPG Vento 120 ARGB LED, 120mm, 1200RPM, Negro",
     marca: "XPG ",
     precio: {
@@ -3552,7 +3693,7 @@ let _productos = [
       "Iluminación de color": "Rojo/Verde/Azul",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-VENTO120ARGB-BKCWW-1.jpg",
@@ -3563,6 +3704,7 @@ let _productos = [
   },
   {
     id: 141,
+    descuento : null,
     nombre:
       "Ventilador Cooler Master Hyper 212 Black Edition with LGA1700, 120mm, 800-2000RPM, Negro",
     marca: "Cooler Master",
@@ -3576,7 +3718,7 @@ let _productos = [
       "Diámetro de ventilador": "12 cm",
     },
     funciones: "Ventiladores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Ventiladores", id: 7 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-COOLERMASTER-RR-212S-20PK-R2-b6966e.jpg",
@@ -3587,6 +3729,7 @@ let _productos = [
   },
   {
     id: 142,
+    descuento : null,
     nombre:
       "Tarjeta Madre ASUS Micro ATX PRIME H410M-E, S-1200, Intel H410, HDMI, 64GB DDR4 para Intel",
     marca: "Intel",
@@ -3604,7 +3747,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB13H0-M0AAY0-1.jpg",
@@ -3615,6 +3758,7 @@ let _productos = [
   },
   {
     id: 143,
+    descuento : null,
     nombre:
       "Tarjeta Madre Gigabyte Micro ATX H410M H (REV. 1.0), S-1200, Intel H410 Express, HDMI, 64GB DDR4 para Inte",
     marca: "Intel",
@@ -3632,7 +3776,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-H410MH(REV10)-1.jpg",
@@ -3643,6 +3787,7 @@ let _productos = [
   },
   {
     id: 144,
+    descuento : null,
     nombre:
       "Tarjeta Madre ASUS Micro ATX PRIME H410M-A/CSM, S-1200, Intel H410, HDMI, 64GB DDR4 para Inte",
     marca: "Intel",
@@ -3660,7 +3805,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-PRIMEH410M-ACSM-1.jpg",
@@ -3671,6 +3816,7 @@ let _productos = [
   },
   {
     id: 145,
+    descuento : null,
     nombre:
       "Tarjeta Madre Biostar Micro ATX H310MHP, S-1151, Intel H310, HDMI, 32GB DDR4 para Intel",
     marca: "Intel",
@@ -3688,7 +3834,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-BIOSTAR-H310MHP-1.jpg",
@@ -3699,6 +3845,7 @@ let _productos = [
   },
   {
     id: 146,
+    descuento : null,
     nombre:
       "Tarjeta Madre AORUS ATX Extendida Z490 XTREME, S-1200, Intel Z490, HDMI, 128GB DDR4 para Intel",
     marca: "Intel",
@@ -3716,7 +3863,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-Z490AORUSXTREME-1.jpg",
@@ -3727,6 +3874,7 @@ let _productos = [
   },
   {
     id: 147,
+    descuento : null,
     nombre:
       "arjeta Madre AORUS XL-ATX X299X Xtreme Waterforce, S-2066, Intel X299 Express, max. 256GB DDR4 para Intel",
     marca: "Intel",
@@ -3744,7 +3892,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-X299XAORUSXTREMEWATERFORCE-1.jpg",
@@ -3755,6 +3903,7 @@ let _productos = [
   },
   {
     id: 148,
+    descuento : null,
     nombre:
       "Tarjeta Madre ASUS micro ATX Prime B365M-A, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
     marca: "Intel",
@@ -3772,7 +3921,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB10N0-M0AAY0-1.jpg",
@@ -3783,6 +3932,7 @@ let _productos = [
   },
   {
     id: 149,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
     marca: "Intel",
@@ -3800,7 +3950,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
@@ -3808,6 +3958,7 @@ let _productos = [
   },
   {
     id: 150,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
     marca: "Intel",
@@ -3825,7 +3976,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
@@ -3833,6 +3984,7 @@ let _productos = [
   },
   {
     id: 151,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
     marca: "Intel",
@@ -3850,7 +4002,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
@@ -3858,6 +4010,7 @@ let _productos = [
   },
   {
     id: 152,
+    descuento : null,
     nombre:
       "Tarjeta Madre AORUS micro ATX B450 AORUS M (rev. 1.0), S-AM4, AMD B450, HDMI, 64GB DDR4 para AMD ",
     marca: "AMD",
@@ -3875,7 +4028,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-1.jpg",
@@ -3886,6 +4039,7 @@ let _productos = [
   },
   {
     id: 153,
+    descuento : null,
     nombre:
       "Tarjeta Madre AORUS ATX B550 Elite V2, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -3903,7 +4057,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-1.jpg",
@@ -3914,6 +4068,7 @@ let _productos = [
   },
   {
     id: 154,
+    descuento : null,
     nombre:
       "Tarjeta Madre ASUS Micro ATX TUF Gaming B450M-Plus II, S-AM4, AMD B450, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -3931,7 +4086,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB1620-M0EAY0-d97bb2.jpg",
@@ -3942,6 +4097,7 @@ let _productos = [
   },
   {
     id: 155,
+    descuento : null,
     nombre:
       "Tarjeta Madre Gigabyte micro ATX A520M S2H, S-AM4, AMD A520, HDMI, 64GB DDR4 para AMD",
     marca: "AMD",
@@ -3959,7 +4115,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-A520MS2H-1.jpg",
@@ -3970,6 +4126,7 @@ let _productos = [
   },
   {
     id: 156,
+    descuento : null,
     nombre:
       "Tarjeta Madre AORUS B450 AORUS PRO WIFI (rev. 1.0), S-AM4, AMD B450, HDMI, 64GB DDR4 para AMD ",
     marca: "AMD",
@@ -3987,7 +4144,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSPROWIFI-1.jpg",
@@ -3998,6 +4155,7 @@ let _productos = [
   },
   {
     id: 157,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI ATX MAG B550 TOMAHAWK, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4015,7 +4173,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
@@ -4026,6 +4184,7 @@ let _productos = [
   },
   {
     id: 158,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI ATX MAG B550 TOMAHAWK, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4043,7 +4202,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
@@ -4054,6 +4213,7 @@ let _productos = [
   },
   {
     id: 159,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI ATX MAG B550 TOMAHAWK, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4071,7 +4231,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
@@ -4082,6 +4242,7 @@ let _productos = [
   },
   {
     id: 160,
+    descuento : null,
     nombre:
       "Tarjeta Madre MSI ATX MAG B550 TOMAHAWK, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4099,7 +4260,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
@@ -4110,6 +4271,7 @@ let _productos = [
   },
   {
     id: 161,
+    descuento : null,
     nombre:
       "Tarjeta Madre Gigabyte ATX B450 GAMING X, S-AM4, AMD B450, HDMI, 64GB DDR4 para AM",
     marca: "AMD",
@@ -4127,7 +4289,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-B450GAMINGX-1.jpg",
@@ -4138,6 +4300,7 @@ let _productos = [
   },
   {
     id: 162,
+    descuento : null,
     nombre:
       "Tarjeta Madre ASUS ATX ROG STRIX B550-F GAMING, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4155,7 +4318,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB14S0-M0AAY0-1.jpg",
@@ -4166,6 +4329,7 @@ let _productos = [
   },
   {
     id: 163,
+    descuento : null,
     nombre:
       "Tarjeta Madre Gigabyte ATX B550 Gaming X, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
     marca: "AMD",
@@ -4183,7 +4347,7 @@ let _productos = [
       " Tipo de memoria": "DDR4-SDRAM",
     },
     funciones: "Tarjetas-Madre",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-B550GAMINGX-1.jpg",
@@ -4194,6 +4358,7 @@ let _productos = [
   },
   {
     id: 164,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-91051, AMD Ryzen 5 PRO 4650G 3.70GHz, 8GB, 1TB, Wi-Fi, Windows 10 Prueba, Negro",
     marca: "AMD",
@@ -4210,7 +4375,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTPCR58GBRENOIRB-1.jpg",
@@ -4221,6 +4386,7 @@ let _productos = [
   },
   {
     id: 165,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-05030, AMD E1-6010 1.35GHz, 8GB, 240GB SSD, Wi-Fi, Windows 10 Prueba",
     marca: "AMD",
@@ -4237,7 +4403,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTACE18GBRADEONR2-1c8407.jpg",
@@ -4248,6 +4414,7 @@ let _productos = [
   },
   {
     id: 166,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gamer CM-30032, Intel Core i7-10700F 2.90GHz, 16GB, 3TB + 500GB SSD, NVIDIA GeForce RTX 3060, Windows 10 Prueba",
     marca: "Intel",
@@ -4264,7 +4431,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTAEI716GB3060W-1cb80d.jpg",
@@ -4275,6 +4442,7 @@ let _productos = [
   },
   {
     id: 167,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-053602, AMD Ryzen 5 5600G 3.90GHz, 16GB, 2TB + 120GB SSD, Wi-Fi, Windows 10 Prueba, Blanco",
     marca: "Intel",
@@ -4291,7 +4459,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTBRR516GBRENOIRW-1.jpg",
@@ -4302,6 +4470,7 @@ let _productos = [
   },
   {
     id: 168,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-20601, AMD Ryzen 3 Pro 4350G 3.80GHz, 8GB, 240GB SSD, WiFi, Windows 10 Prueba, Blanco",
     marca: "AMD",
@@ -4318,7 +4487,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTRMR38GBRENOIRW-1.jpg",
@@ -4329,6 +4498,7 @@ let _productos = [
   },
   {
     id: 169,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-05033, AMD A4-3350B 2GHz, 8GB, 1TB, Wi-Fi, Windows 10 Prueba",
     marca: "AMD",
@@ -4345,7 +4515,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTRMR38GBRENOIRW-1.jpg",
@@ -4356,6 +4526,7 @@ let _productos = [
   },
   {
     id: 170,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4372,7 +4543,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4383,6 +4554,7 @@ let _productos = [
   },
   {
     id: 171,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4399,7 +4571,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4410,6 +4582,7 @@ let _productos = [
   },
   {
     id: 172,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4426,7 +4599,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4437,6 +4610,7 @@ let _productos = [
   },
   {
     id: 173,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4453,7 +4627,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4464,6 +4638,7 @@ let _productos = [
   },
   {
     id: 174,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4480,7 +4655,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4491,6 +4666,7 @@ let _productos = [
   },
   {
     id: 175,
+    descuento : null,
     nombre:
       "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
     marca: "AMD",
@@ -4507,7 +4683,7 @@ let _productos = [
       "Sistema operativo instalado": "Windows 10 Prueba",
     },
     funciones: "PC-s-Gamer",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
@@ -4518,6 +4694,7 @@ let _productos = [
   },
   {
     id: 176,
+    descuento : null,
     nombre:
       "Procesador AMD Ryzen 5 5600G con Gráficos Radeon 7, S-AM4, 3.90GHz, Six-Core, 16MB L3 Caché - incluye Disipador Wraith Stealth",
     marca: "AMD",
@@ -4533,7 +4710,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000252BOX-1.jpg",
@@ -4544,6 +4721,7 @@ let _productos = [
   },
   {
     id: 177,
+    descuento : null,
     nombre:
       "Procesador AMD Ryzen 7 5700G, S-AM4, 3.80GHz, 8-Core, 16MB L3 Caché - incluye Disipador Wraith Stealth",
     marca: "AMD",
@@ -4559,7 +4737,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000263BOX-1.jpg",
@@ -4570,6 +4748,7 @@ let _productos = [
   },
   {
     id: 178,
+    descuento : null,
     nombre:
       "Procesador AMD Ryzen 5 5600X, S-AM4, 3.70GHz, 32MB L3 Cache - incluye Disipador Wraith Stealth",
     marca: "AMD",
@@ -4585,7 +4764,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000065BOX-1.jpg",
@@ -4596,6 +4775,7 @@ let _productos = [
   },
   {
     id: 179,
+    descuento : null,
     nombre:
       "Procesador AMD Ryzen 7 5800X, S-AM4, 3.80GHz, 8-Core, 32MB L3 Cache - no incluye Disipador",
     marca: "AMD",
@@ -4611,7 +4791,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000063WOF-1.jpg",
@@ -4622,6 +4802,7 @@ let _productos = [
   },
   {
     id: 180,
+    descuento : null,
     nombre:
       "Procesador AMD Ryzen 9 5900X, S-AM4, 3.70GHz, 64MB L3 Cache - no incluye Disipador",
     marca: "AMD",
@@ -4637,7 +4818,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-AMD-100-100000061WOF-2.jpg",
@@ -4648,6 +4829,7 @@ let _productos = [
   },
   {
     id: 181,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-12900KF, S-1700, 3.20GHz, 16-Core, 30MB Smart Cache (12va Generación - Alder Lake)",
     marca: "Intel",
@@ -4663,7 +4845,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
@@ -4674,6 +4856,7 @@ let _productos = [
   },
   {
     id: 182,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-12900KF, S-1700, 3.20GHz, 16-Core, 30MB Smart Cache (12va Generación - Alder Lake)",
     marca: "Intel",
@@ -4689,7 +4872,7 @@ let _productos = [
       "Número de núcleos": "6",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
@@ -4700,6 +4883,7 @@ let _productos = [
   },
   {
     id: 185,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-12900K Intel UHD Graphics 770, S-1700, 3.20GHz, 16-Core, 30MB Smart Cache (12va. Generación - Alder Lake)",
     marca: "Intel",
@@ -4716,7 +4900,7 @@ let _productos = [
       "Número de núcleos": "10",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900K-a6160e.jpg",
@@ -4727,6 +4911,7 @@ let _productos = [
   },
   {
     id: 186,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-10900F, S-1200, 2.80GHz, 10-Core, 20MB SmartCache (10ma Generación - Comet Lake)",
     marca: "Intel",
@@ -4743,7 +4928,7 @@ let _productos = [
       "Número de núcleos": "10",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-1.jpg",
@@ -4754,6 +4939,7 @@ let _productos = [
   },
   {
     id: 187,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-10900F, S-1200, 2.80GHz, 10-Core, 20MB SmartCache (10ma Generación - Comet Lake)",
     marca: "Intel",
@@ -4770,7 +4956,7 @@ let _productos = [
       "Número de núcleos": "10",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-1.jpg",
@@ -4781,6 +4967,7 @@ let _productos = [
   },
   {
     id: 188,
+    descuento : null,
     nombre:
       "Memoria Ram XPG Spectrix D50 Tungsten Grey DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4797,7 +4984,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-ST50-1.jpg",
@@ -4808,6 +4995,7 @@ let _productos = [
   },
   {
     id: 189,
+    descuento : null,
     nombre:
       "Memoria RAM Kingston FURY Beast Black DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP",
     marca: "Kingston",
@@ -4824,7 +5012,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-KF432C16BB8-1.jpg",
@@ -4835,6 +5023,7 @@ let _productos = [
   },
   {
     id: 190,
+    descuento : null,
     nombre:
       "Memoria Ram XPG Spectrix D60G DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4851,7 +5040,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XL/CP-XPG-AX4U32008G16A-ST60-1.jpg",
@@ -4862,6 +5051,7 @@ let _productos = [
   },
   {
     id: 191,
+    descuento : null,
     nombre: "Memoria RAM XPG Spectrix D50 DDR4, 3200MHz, 8GB, Non-ECC, XMP",
     marca: "XPG",
     precio: {
@@ -4877,7 +5067,7 @@ let _productos = [
       "Latencia CAS": "8",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SW50-2.jpg",
@@ -4888,6 +5078,7 @@ let _productos = [
   },
   {
     id: 192,
+    descuento : null,
     nombre:
       "Memoria Ram XPG Gammix D30 Silver DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4904,7 +5095,7 @@ let _productos = [
       "Latencia CAS": "8",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SR30-1.jpg",
@@ -4915,6 +5106,7 @@ let _productos = [
   },
   {
     id: 193,
+    descuento : null,
     nombre:
       "Memoria RAM XPG Gammix D10 Black DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4931,7 +5123,7 @@ let _productos = [
       "Latencia CAS": "8",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-SB10-1.jpg",
@@ -4942,6 +5134,7 @@ let _productos = [
   },
   {
     id: 194,
+    descuento : null,
     nombre:
       "Kit Memoria RAM XPG Spectrix D50 RGB White DDR4, 3200MHz, 16GB (2 x 8GB), Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4958,7 +5151,7 @@ let _productos = [
       "Latencia CAS": "8",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U32008G16A-DW50-1.jpg",
@@ -4969,6 +5162,7 @@ let _productos = [
   },
   {
     id: 195,
+    descuento : null,
     nombre:
       "Memoria RAM XPG SPECTRIX D60G DDR4, 3200MHz, 16GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -4985,7 +5179,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U320016G16A-ST60-1.jpg",
@@ -4996,6 +5190,7 @@ let _productos = [
   },
   {
     id: 196,
+    descuento : null,
     nombre:
       "Memoria RAM Kingston FURY BEAST DDR4, 3200MHz, 16GB, Non-ECC, CL16, XMP",
     marca: "Kingston",
@@ -5012,7 +5207,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-KF432C16BB116-1.jpg",
@@ -5023,6 +5218,7 @@ let _productos = [
   },
   {
     id: 202,
+    descuento : null,
     nombre:
       "Mouse Gamer Logitech Óptico G305, Inalámbrico, USB, 12.000DPI, Negro",
     marca: "Logitech",
@@ -5039,7 +5235,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Gabinetes",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Gabinetes", id: 5 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-1.jpg",
@@ -5050,6 +5246,7 @@ let _productos = [
   },
   {
     id: 203,
+    descuento : null,
     nombre:
       "Mouse Ergonómico Logitech Óptico G502 Hero Lightspeed, Inalámbrico, USB, 16000DPI, Negro",
     marca: "Logitech",
@@ -5066,7 +5263,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005566-1.jpg",
@@ -5077,6 +5274,7 @@ let _productos = [
   },
   {
     id: 204,
+    descuento : null,
     nombre:
       "Mouse Gamer Ocelot Gaming Óptico OGEM02, Alámbrico, USB A, 2400DPI, Negro",
     marca: "Logitech",
@@ -5093,7 +5291,7 @@ let _productos = [
       "Color del producto": "Negro",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEM02-1.jpg",
@@ -5104,6 +5302,7 @@ let _productos = [
   },
   {
     id: 205,
+    descuento : null,
     nombre:
       "Mouse Gamer Logitech Óptico G305, Inalámbrico, USB, 12.000DPI, Lila",
     marca: "Logitech",
@@ -5120,7 +5319,7 @@ let _productos = [
       "Color del producto": "Lila",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-006021-1.jpg",
@@ -5131,6 +5330,7 @@ let _productos = [
   },
   {
     id: 206,
+    descuento : null,
     nombre:
       "Mouse Gamer Logitech Óptico G305, Inalámbrico, USB, 12.000DPI, Negro",
     marca: "Logitech",
@@ -5147,7 +5347,7 @@ let _productos = [
       "Color del producto": "Lila",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-1.jpg",
@@ -5158,6 +5358,7 @@ let _productos = [
   },
   {
     id: 208,
+    descuento : null,
     nombre: "Mouse Dell Láser MS3220, Alámbrico, USB, 3200DPI, Negro",
     marca: "Dell Láser",
     precio: {
@@ -5173,7 +5374,7 @@ let _productos = [
       "Color del producto": "Lila",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
@@ -5184,6 +5385,7 @@ let _productos = [
   },
   {
     id: 209,
+    descuento : null,
     nombre: "Mouse Dell Láser MS3220, Alámbrico, USB, 3200DPI, Negro",
     marca: "Dell Láser",
     precio: {
@@ -5199,7 +5401,7 @@ let _productos = [
       "Color del producto": "Lila",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
@@ -5210,6 +5412,7 @@ let _productos = [
   },
   {
     id: 210,
+    descuento : null,
     nombre:
       "Disco Duro Interno Toshiba HDWD110UZSVA 3.5'', 1TB, SATA, 6 Gbit/s, 7200RPM, 64MB Cache",
     marca: "Toshiba",
@@ -5224,7 +5427,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-TOSHIBA-HDWD110UZSVA-1.jpg",
@@ -5235,6 +5438,7 @@ let _productos = [
   },
   {
     id: 198,
+    descuento : null,
     nombre:
       "Fuente de Poder Corsair AX1600i 80 PLUS Titanium, 20+4 pin ATX, 140mm, 1600W",
     marca: "Corsair",
@@ -5251,7 +5455,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Fuentes-de-Poder-para-PC-s",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Fuentes-de-Poder-para-PC-s", id: 14 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-CORSAIR-CP-9020087-NA-1.jpg",
@@ -5262,6 +5466,7 @@ let _productos = [
   },
   {
     id: 199,
+    descuento : null,
     nombre: "Fuente de Poder XPG PYLON 80 PLUS Bronze, 24-pin ATX, 120mm, 550W",
     marca: "XPG",
     precio: {
@@ -5275,7 +5480,7 @@ let _productos = [
       "Certificación 80 PLUS": "80 PLUS Platinum",
     },
     funciones: "Fuentes-de-Poder-para-PC-s",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Fuentes-de-Poder-para-PC-s", id: 14 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-PYLON550B-BKCUS-2.jpg",
@@ -5286,6 +5491,7 @@ let _productos = [
   },
   {
     id: 200,
+    descuento : null,
     nombre:
       "Fuente de Poder Gigabyte P750GM 80 PLUS Gold, 20+4 pin ATX, 120mm, 750W",
     marca: "Gigabyte",
@@ -5300,7 +5506,7 @@ let _productos = [
       "Certificación 80 PLUS": "80 PLUS Platinum",
     },
     funciones: "Fuentes-de-Poder-para-PC-s",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Fuentes-de-Poder-para-PC-s", id: 14 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GP-P750GM-1.jpg",
@@ -5311,6 +5517,7 @@ let _productos = [
   },
   {
     id: 201,
+    descuento : null,
     nombre:
       "Fuente de Poder Thermaltake Toughpower Grand RGB 80 PLUS Platinum, 24-pin ATX, 140mm, 1050W",
     marca: "Thermaltake",
@@ -5325,7 +5532,7 @@ let _productos = [
       "Certificación 80 PLUS": "80 PLUS Platinum",
     },
     funciones: "Fuentes-de-Poder-para-PC-s",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Fuentes-de-Poder-para-PC-s", id: 14 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YE0090-B001N0-1.png",
@@ -5336,6 +5543,7 @@ let _productos = [
   },
   {
     id: 207,
+    descuento : null,
     nombre:
       "Mouse Gamer Naceb Láser NA-630, Alámbrico, USB, Izquierdo, 2400DPI, Negro/Plata",
     marca: "Naceb",
@@ -5352,7 +5560,7 @@ let _productos = [
       "Color del producto": "Lila",
     },
     funciones: "Mouse",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Mouse", id: 12 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
@@ -5363,6 +5571,7 @@ let _productos = [
   },
   {
     id: 211,
+    descuento : null,
     nombre:
       "Disco Duro Interno Seagate Barracuda 3.5'', 2TB, SATA III, 6 Gbit/s, 7200RPM, 256MB Cache",
     marca: "SATA",
@@ -5377,7 +5586,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM008-1.jpg",
@@ -5388,6 +5597,7 @@ let _productos = [
   },
   {
     id: 212,
+    descuento : null,
     nombre:
       "Disco Duro Interno Seagate Barracuda 3.5'', 1TB, SATA III, 6 Gbit/s, 7200RPM, 64MB Cache",
     marca: "SATA",
@@ -5402,7 +5612,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM008-1.jpg",
@@ -5413,6 +5623,7 @@ let _productos = [
   },
   {
     id: 213,
+    descuento : null,
     nombre:
       "Disco Duro Interno Western Digital WD Caviar Blue 3.5'', 1TB, SATA III, 6 Gbit/s, 7200RPM, 64MB Cache",
     marca: "SATA",
@@ -5427,7 +5638,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD10EZEX-6e58bd.jpg",
@@ -5438,6 +5649,7 @@ let _productos = [
   },
   {
     id: 214,
+    descuento : null,
     nombre:
       "Disco Duro Interno Western Digital WD Blue 3.5, 2TB, SATA III, 6 Gbit/s, 5400RPM, 256MB Caché",
     marca: "SATA",
@@ -5452,7 +5664,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD20EZAZ-1.jpg",
@@ -5463,6 +5675,7 @@ let _productos = [
   },
   {
     id: 215,
+    descuento : null,
     nombre:
       "Disco Duro Interno Seagate Barracuda 3.5'', 2TB, SATA III, 6 Gbit/s, 5400RPM, 256MB Cache",
     marca: "SATA",
@@ -5477,7 +5690,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SEAGATE-ST2000DM005-1.jpg",
@@ -5488,6 +5701,7 @@ let _productos = [
   },
   {
     id: 216,
+    descuento : null,
     nombre:
       "Disco Duro Interno Western Digital WD Black Series 3.5'', 2TB, SATA III, 6 Gbit/s, 7200RPM, 64MB Cache",
     marca: "SATA",
@@ -5502,7 +5716,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Discos-Duros",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Discos-Duros", id: 13 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WD2003FZEX-1.jpg",
@@ -5513,6 +5727,7 @@ let _productos = [
   },
   {
     id: 217,
+    descuento : null,
     nombre:
       "Teclado Gamer Logitech G213 Prodigy LED RGB, Alámbrico, Negro, (Inglés)",
     marca: "Logitech",
@@ -5527,7 +5742,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Teclados",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Teclados", id: 15 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-920-008084-1.jpg",
@@ -5538,6 +5753,7 @@ let _productos = [
   },
   {
     id: 218,
+    descuento : null,
     nombre: "Teclado Ghia GTA50, Alámbrico, USB, Negro (Español)",
     marca: "Ghia",
     precio: {
@@ -5551,7 +5767,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Teclados",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Teclados", id: 15 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-GHIA-GTA50-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-GHIA-GTA50-1.jpg",
@@ -5559,6 +5775,7 @@ let _productos = [
   },
   {
     id: 221,
+    descuento : null,
     nombre: "Teclado Dell KB216, Alámbrico, USB, Negro (Español)",
     marca: "Dell",
     precio: {
@@ -5572,7 +5789,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Teclados",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Teclados", id: 15 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-DELL-580-ADRC-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-DELL-580-ADRC-2.jpg",
@@ -5580,6 +5797,7 @@ let _productos = [
   },
   {
     id: 183,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-10900K Intel UHD Graphics 630, S-1200, 3.70GHz, 10-Core, 20MB Caché (10ma Generación Comet Lake",
     marca: "Intel",
@@ -5596,7 +5814,7 @@ let _productos = [
       "Número de núcleos": "10",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900K-1.jpg",
@@ -5607,6 +5825,7 @@ let _productos = [
   },
   {
     id: 184,
+    descuento : null,
     nombre:
       "Procesador Intel Core i9-11900K, S-1200, 3.50GHz, 8-Core, 16MB Smart Cache (11va Generación Rocket Lake",
     marca: "Intel",
@@ -5623,7 +5842,7 @@ let _productos = [
       "Número de núcleos": "10",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900K-1.jpg",
@@ -5634,6 +5853,7 @@ let _productos = [
   },
   {
     id: 197,
+    descuento : null,
     nombre:
       "Memoria RAM XPG SPECTRIX D41 RGB Tungsten Grey DDR4, 3200MHz, 16GB, Non-ECC, CL16, XMP",
     marca: "XPG",
@@ -5650,7 +5870,7 @@ let _productos = [
       "Latencia CAS": "16",
     },
     funciones: "Procesadores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Procesadores", id: 11 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XL/CP-XPG-AX4U320016G16A-ST41-1.jpg",
@@ -5661,6 +5881,7 @@ let _productos = [
   },
   {
     id: 219,
+    descuento : null,
     nombre:
       "Teclado Gamer Ocelot Gaming OGEK01 RGB, Alámbrico, Negro (Español)",
     marca: "Ocelot",
@@ -5675,7 +5896,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Teclados",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Teclados", id: 15 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEK01-1.jpg",
@@ -5686,6 +5907,7 @@ let _productos = [
   },
   {
     id: 220,
+    descuento : null,
     nombre:
       "Teclado Gamer Ocelot Gaming OGEK03 RGB, Alámbrico, Negro (Español)",
     marca: "Ocelot",
@@ -5700,7 +5922,7 @@ let _productos = [
       "Tamaño de búfer": "64 MB",
     },
     funciones: "Teclados",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Teclados", id: 15 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEK03-1.jpg",
@@ -5711,6 +5933,7 @@ let _productos = [
   },
   {
     id: 226,
+    descuento : null,
     nombre:
       "Monitor Gamer Yeyian Odraz LED 27, 4K Ultra HD, Widescreen, FreeSync, 60Hz, HDMI, Negro",
     marca: "Yeyian",
@@ -5728,7 +5951,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YMG-4K27-01-042f96.jpg",
@@ -5739,6 +5962,7 @@ let _productos = [
   },
   {
     id: 227,
+    descuento : null,
     nombre:
       "Monitor Curvo Samsung LC24F390FHL LED 23.5'', Full HD, Widescreen, FreeSync, HDMI, Negro",
     marca: "Samsung",
@@ -5756,7 +5980,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-1.jpg",
@@ -5767,6 +5991,7 @@ let _productos = [
   },
   {
     id: 228,
+    descuento : null,
     nombre:
       "Monitor Curvo Samsung LC24F390FHL LED 23.5'', Full HD, Widescreen, FreeSync, HDMI, Negro",
     marca: "Samsung",
@@ -5784,7 +6009,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-1.jpg",
@@ -5795,6 +6020,7 @@ let _productos = [
   },
   {
     id: 229,
+    descuento : null,
     nombre:
       "Monitor Gamer Curvo MSI Optix G241VC LED 23.6, Full HD, Widescreen, FreeSync, 75Hz, HDMI, Negro",
     marca: "MSI",
@@ -5812,7 +6038,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-OPTIXG241VC-1.jpg",
@@ -5823,6 +6049,7 @@ let _productos = [
   },
   {
     id: 230,
+    descuento : null,
     nombre:
       "Monitor Gamer ASUS TUF Gaming VG27WQ LED 27, Wide Quad, Widescreen, Adaptive-sync, FreeSync, 165Hz, HDMI, Bocinas Integradas (2 x 4W), Negro",
     marca: "ASUS TUF",
@@ -5840,7 +6067,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90LM05F0-B01E10-1.jpg",
@@ -5851,6 +6078,7 @@ let _productos = [
   },
   {
     id: 231,
+    descuento : null,
     nombre:
       "Monitor Gamer Curvo Gigabyte G34WQC LCD 34, Quad HD, Ultra Wide, Widescreen, Adaptive-Sync, 144Hz, HDMI, Bocinas Integradas (2 x 2W), Negro",
     marca: "Gigabyte",
@@ -5868,7 +6096,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-20VM0-GG34WQCBI-1SAR-1.jpg",
@@ -5879,6 +6107,7 @@ let _productos = [
   },
   {
     id: 232,
+    descuento : null,
     nombre: "SSD Kingston NV1 NVMe, 500GB, PCI Express 3.0, M.2",
     marca: "Gigabyte",
     precio: {
@@ -5893,7 +6122,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-SNVS500G-1.jpg",
@@ -5904,6 +6133,7 @@ let _productos = [
   },
   {
     id: 233,
+    descuento : null,
     nombre:
       "SSD Western Digital WD Green SN350 NVMe, 480GB, PCI Express 3.0, M.2",
     marca: "Gigabyte",
@@ -5919,7 +6149,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS480G2G0C-1.jpg",
@@ -5930,6 +6160,7 @@ let _productos = [
   },
   {
     id: 234,
+    descuento : null,
     nombre: "SSD Western Digital WD Green SN350 NVMe, 1TB, PCI Express, M.2",
     marca: "Western Digital",
     precio: {
@@ -5944,7 +6175,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS100T3G0C-c0f70c.jpg",
@@ -5955,6 +6186,7 @@ let _productos = [
   },
   {
     id: 223,
+    descuento : null,
     nombre:
       "Monitor Samsung LU32J590UQLXZX LED 32, 4K Ultra HD, Widescreen, FreeSync, HDMI, Negro",
     marca: "Samsung",
@@ -5972,7 +6204,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/XL/CP-SAMSUNG-LU32J590UQLXZX-6.jpg",
@@ -5983,6 +6215,7 @@ let _productos = [
   },
   {
     id: 224,
+    descuento : null,
     nombre:
       "Monitor Gamer LG 32UN500-W LED 32'', 4K Ultra HD, Widescreen, FreeSync, HDMI, Bocinas Integradas (2 x 5W), Negro/Blanco",
     marca: "LG",
@@ -6000,7 +6233,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-LG-32UN500-W-1.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-LG-32UN500-W-2.jpg",
@@ -6008,6 +6241,7 @@ let _productos = [
   },
   {
     id: 225,
+    descuento : null,
     nombre:
       "Monitor Samsung LU28R550UQLXZX LED 28, 4K Ultra HD, Widescreen, HDMI, Azul/Gris",
     marca: "Samsung",
@@ -6025,7 +6259,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LU28R550UQLXZX-1.jpg",
@@ -6036,6 +6270,7 @@ let _productos = [
   },
   {
     id: 236,
+    descuento : null,
     nombre: "SSD PNY CS900, 240GB, SATA III, 2.5'', 7mm",
     marca: "PNY",
     precio: {
@@ -6050,7 +6285,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-PNY-SSD7CS900-240-RB-1.jpg",
@@ -6061,6 +6296,7 @@ let _productos = [
   },
   {
     id: 237,
+    descuento : null,
     nombre:
       "SSD Western Digital WD Green SN350 NVMe, 240GB, PCI Express 3.0, M.2",
     marca: "Western Digital",
@@ -6076,7 +6312,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-WESTERNDIGITAL-WDS240G2G0C-1.png",
@@ -6087,6 +6323,7 @@ let _productos = [
   },
   {
     id: 238,
+    descuento : null,
     nombre: "SSD XPG Spectrix S40G, 512GB, PCI Express 3.0, M.2",
     marca: "XPG",
     precio: {
@@ -6101,7 +6338,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AS40G-512GT-C-1.jpg",
@@ -6112,6 +6349,7 @@ let _productos = [
   },
   {
     id: 239,
+    descuento : null,
     nombre: "SSD Adata SWORDFISH 3D NAND, 250GB, PCI Express, M.2 2280",
     marca: "Adata",
     precio: {
@@ -6126,7 +6364,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-ADATA-ASWORDFISH-250G-C-1.jpg",
@@ -6137,6 +6375,7 @@ let _productos = [
   },
   {
     id: 240,
+    descuento : null,
     nombre: "SSD XPG GAMMIX S41 3D NAND, 512GB, PCI Express, M.2",
     marca: "XPG",
     precio: {
@@ -6151,7 +6390,7 @@ let _productos = [
       "Velocidad de escritura": "1700 MB/s",
     },
     funciones: "SSD",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "SSD", id: 8 }],
     imagen0:
       "https://www.cyberpuerta.mx/img/product/M/CP-XPG-AGAMMIXS41-512G-C-1.jpg",
@@ -6162,6 +6401,7 @@ let _productos = [
   },
   {
     id: 222,
+    descuento : null,
     nombre:
       "Monitor Gamer LG 27UL500-W LED 27, 4K Ultra HD, Widescreen, FreeSync, HDMI, Plata",
     marca: "LG",
@@ -6179,7 +6419,7 @@ let _productos = [
       "Cantidad de puertos HDMI": "2",
     },
     funciones: "Monitores",
-    stock: 0,
+    stock: 2,
     categoria: [{ nombre: "Monitores", id: 16 }],
     imagen0: "https://www.cyberpuerta.mx/img/product/XL/CP-LG-27UL500-W-4.jpg",
     imagen1: "https://www.cyberpuerta.mx/img/product/XL/CP-LG-27UL500-W-1.jpg",
@@ -6197,7 +6437,7 @@ router.get("/", async (req, res) => {
         const search_products = await Producto.findAll({
           include: Categoria,
         });
-        return res.send(search_products?.filter(elem => elem.Categoria[0].nombre === nombre[1]))
+        return res.send(search_products?.filter(elem => elem.Categoria[0].nombre === nombre[1] && elem.stock > 0))
       }
 
       const search_products = await Producto.findAll({
@@ -6205,7 +6445,7 @@ router.get("/", async (req, res) => {
         include: Categoria,
       });
       if (search_products.length > 0) {
-        res.json(search_products);
+        res.json(search_products.filter(e => e.stock > 0));
       } else {
         res.send("No encontrado");
       }
@@ -6218,7 +6458,7 @@ router.get("/", async (req, res) => {
         include: Categoria,
       });
       if (all_products.length > 0) {
-        res.json(all_products);
+          res.json(all_products.filter(e => e.stock > 0));
       } else {
         res.send("No hay productos");
       }
@@ -6240,6 +6480,7 @@ router.get("/:name", async (req, res) => {
       if (search_products.length > 0) {
         res.json(
           search_products
+            .filter(e => e.stock > 0)
             .map((elm) => elm.nombre.slice(0, (elm.nombre.length * 40) / 100))
             .slice(0, 9)
         );
@@ -6263,6 +6504,7 @@ router.post("/create", async (req, res) => {
         caracteristicas: elem.caracteristicas,
         funciones: elem.funciones,
         stock: elem.stock,
+        descuento : elem.descuento,
         imagen0: elem.imagen0,
         imagen1: elem.imagen1,
         imagen2: elem.imagen2,

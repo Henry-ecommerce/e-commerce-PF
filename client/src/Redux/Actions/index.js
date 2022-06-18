@@ -94,7 +94,9 @@ export function post_review(data) {
 			titulo: data.titulo,
 			text: data.text,
 			rating: data.rating,
-			productoId: [data.productoId]
+			productoId: [data.productoId],
+			usuarioId: data.usuarioId,
+			userName: data.userName,
 		})
 		  .then(function (response) {
 			console.log("Success:", response);
@@ -113,12 +115,14 @@ export function product_to_review(product){
 //     }
 // }
 
-export function get_filter_products(categoryorsearch,filter,order,tipo) {
+export function get_filter_products(categoryorsearch,filter,order,tipo,minmax) {
 	let marca = "";
 	filter.forEach(e => { marca += "marca=" + e + "&"
 	})
 	return async (dispatch) => {
-		let filter_products = await axios.get(`/filter?categoryorsearch=${categoryorsearch}&order=${order}&ascordesc=${tipo}&${marca}`);
+		let filter_products = await axios.get(
+			`/filter?categoryorsearch=${categoryorsearch}&order=${order}&ascordesc=${tipo}&${marca}minmax=${minmax}`
+			);
 		return dispatch({
 			type: GET_FILTER_PRODUCTS,
 			payload: filter_products.data,

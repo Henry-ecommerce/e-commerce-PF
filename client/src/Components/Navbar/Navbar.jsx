@@ -139,21 +139,20 @@ function Navbar() {
             <Box cursor={"pointer"} ml={4} color="#ECEDEC">
               <Box>
                 {products_in_cart_local_storage?.length > 0 &&
-                  typeof products_in_cart_local_storage !== "string" &&
-                  products_in_cart_local_storage.length === 0 && (
-                    <Box
-                      bg="#FE0100"
-                      fontSize={"8px"}
-                      textAlign="center"
-                      borderRadius={"full"}
-                      pos="absolute"
-                      w="12px"
-                      top="6px"
-                      right="34px"
-                    >
-                      {products_in_cart_local_storage?.length}
-                    </Box>
-                  )}
+                  typeof products_in_cart_local_storage !== "string" && (
+                      <Box
+                        bg="#FE0100"
+                        fontSize={"8px"}
+                        textAlign="center"
+                        borderRadius={"full"}
+                        pos="absolute"
+                        w="12px"
+                        top="6px"
+                        right="34px"
+                      >
+                        {products_in_cart_local_storage?.length}
+                      </Box>
+                    )}
                 <Menu autoSelect={false} closeOnSelect={false}>
                   <MenuButton
                     disabled={
@@ -186,10 +185,10 @@ function Navbar() {
                                 </Flex>
                                 <Stack>
                                   <Text ml="10px">
-                                    {elem.nombre.slice(
+                                    {elem.nombre?.length > 30 ? elem.nombre.slice(
                                       0,
                                       (elem.nombre?.length * 40) / 100
-                                    )}
+                                    ) : elem.nombre}
                                   </Text>
                                   <Flex
                                     align={"center"}
@@ -253,14 +252,14 @@ function Navbar() {
                           <Text mx="10px" fontWeight={"extrabold"}>
                             Total:{" "}
                             {products_in_cart_local_storage?.length > 0 &&
-                              products_in_cart_local_storage.reduce(
+                              (products_in_cart_local_storage.reduce(
                                 (a, b) =>
                                   Number(b.cantidad) <= 1
                                     ? a + Number(b.precio.PesosArg)
                                     : a +
                                       Number(b.precio.PesosArg) * b.cantidad,
                                 0
-                              )}
+                              )).toFixed(2)}
                           </Text>
                           <Link to="/user/carrito">
                             <Button>Ir al pago</Button>
