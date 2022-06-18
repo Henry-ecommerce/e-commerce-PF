@@ -4,8 +4,8 @@ const Carrito = require("./controllers/user_cuenta/carrito");
 const obtenerPerfil = require("./controllers/user_cuenta/perfil");
 const Tienda = require("./controllers/user_cuenta/tienda");
 const Pago = require("./controllers/user_cuenta/pago");
-const Favoritos = require('./Favoritos/Favoritos')
-const Compras = require('./controllers/user_cuenta/compras')
+const Favoritos = require("./Favoritos/Favoritos");
+const Compras = require("./controllers/user_cuenta/compras");
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
   checkRolUserMiddleware,

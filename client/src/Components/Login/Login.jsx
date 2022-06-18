@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   Button,
@@ -42,6 +43,7 @@ export default function Login() {
 
   const handleCallbackResponse = async (respose) => {
     localStorage.setItem("token", respose.credential);
+
     const userObject = jwt_decode(respose.credential);
     localStorage.setItem(
       "info_user",
@@ -79,7 +81,9 @@ export default function Login() {
           `${process.env.REACT_APP_API}/registro/cliente/loginGoogle`,
           obje
         );
+        console.log(data.token);
 
+        localStorage.setItem("token", data.token);
         localStorage.setItem("info_user", JSON.stringify(data));
         setAuth(data);
         navegates("/");
