@@ -10,7 +10,9 @@ const FrontPageSlide = () => {
     "https://wallpaperaccess.com/full/1232924.jpg",
   ]);
 
-  let intervalo = setInterval(()=>{
+  useEffect(()=>{
+        
+    let intervalo = setInterval(()=>{
             if(slide.current){let primeraImagen = slide.current?.children[0];
             const trans = () => {
     
@@ -27,7 +29,7 @@ const FrontPageSlide = () => {
             
         },5000);
     
-    },[]);
+    },[])
 
   return (
     <>
