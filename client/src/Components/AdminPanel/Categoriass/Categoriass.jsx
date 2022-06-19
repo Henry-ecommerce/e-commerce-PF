@@ -498,7 +498,7 @@ const Categoriass = () => {
 														}
 														overflowX={"scroll"}
 													>
-														{elem?.Productos?.map(({ nombre, id }) => {
+														{elem?.Productos?.filter((num,pos,arr) =>  pos === arr.indexOf(num)).map(({ nombre, id }) => {
 															return <MenuItem key={id}>{nombre}</MenuItem>;
 														})}
 													</MenuList>

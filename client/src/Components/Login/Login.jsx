@@ -22,7 +22,7 @@ import useAuth from "../../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 export default function Login() {
   const navegates = useNavigate();
-  const { setAuth } = useAuth();
+  const { setAuth, _obtenerProducto } = useAuth();
   const [alerta, setAlerta] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -116,6 +116,7 @@ export default function Login() {
       if (data.rol === "Owner") {
         navegates("/owner");
       } else if (data.rol === "Admin") {
+        _obtenerProducto()
         navegates("/admin");
       } else {
         navegates("/");

@@ -152,6 +152,32 @@ export const AdminProvider = ({ children }) => {
 		obtenerProducto();
 	}
 	}, []);
+	const _obtenerProducto = async () => {
+			try {
+				const token = localStorage.getItem("token");
+				if (!token) return;
+				const config = {
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+				};
+				const { data } = await axios.get(
+					`${process.env.REACT_APP_API}/admin/obtener`,
+					config
+				);
+				setProductos(data);
+				let marcas = {};
+				data.map((elem) => {
+					if (!marcas.hasOwnProperty([elem.marca])) {
+						marcas[elem.marca] = elem.marca;
+					}
+				});
+				setMarca(Object.keys(marcas));
+			} catch (error) {
+				console.log(error.response.data.msg);
+			}
+		};
 
 	const obtenerProducto_por_nombre = async (nombre) => {
 		try {
@@ -275,10 +301,6 @@ export const AdminProvider = ({ children }) => {
 		productos_a_eliminar,
 		productos_a_agregar
 	) => {
-		// eslint-disable-next-line no-restricted-globals
-		// const confirmar = confirm(
-		// 	"¿Confirmas que desas eliminar el siguiente registro ?"
-		// );
 		const token = localStorage.getItem("token");
 
 		const config = {
@@ -295,6 +317,7 @@ export const AdminProvider = ({ children }) => {
 				body,
 				config
 			);
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -378,6 +401,7 @@ export const AdminProvider = ({ children }) => {
 				producto,
 				pagos,
 				_marca,
+				_obtenerProducto
 			}}
 		>
 			{children}

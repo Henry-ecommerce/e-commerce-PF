@@ -40,6 +40,7 @@ import MisCompras from "./Components/MisCompras/MisCompras";
 import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 
 function App() {
+  
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
