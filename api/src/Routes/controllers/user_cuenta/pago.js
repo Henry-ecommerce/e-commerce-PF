@@ -1,10 +1,7 @@
 const { Router } = require("express");
-const { APP_USR } = process.env;
-
+const { APP_USR, FRONTEND_URL, BACKEND_URL } = process.env;
 const router = Router();
-
 const mercadopago = require("mercadopago");
-
 mercadopago.configure({
   access_token: APP_USR,
 });
@@ -57,16 +54,17 @@ router.post("/", async (req, res) => {
         country_name: items.pais,
       },
     },
-    notification_url: "https://hookb.in/qBjWKX6QZyTEqJGEyQYg",
+    external_reference: user.id.toString(),
+    notification_url: `${BACKEND_URL}/user/compras`,
     payment_methods: {
       excluded_payment_methods: [{}],
       excluded_payment_types: [{ id: "ticket" }],
     },
 
     back_urls: {
-      failure: "http://localhost:3000/",
-      pending: "",
-      success: "http://localhost:3000/",
+      failure: `${BACKEND_URL}/user/compras`,
+      pending: `${BACKEND_URL}/user/compras`,
+      success: `${BACKEND_URL}/user/compras`,
     },
     metadata: {
       id: user.id,
@@ -77,7 +75,6 @@ router.post("/", async (req, res) => {
     .create(preference)
     .then(function (response) {
       console.log(response.body);
-      // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
       res.send(response.body.init_point);
     })
     .catch(function (error) {
