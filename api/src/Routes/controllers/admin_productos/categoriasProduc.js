@@ -55,6 +55,89 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// router.put("/:id", async (req, res) => {
+
+
+// 	const { id } = req.params;
+// 	const { nombre, productos_a_eliminar, productos_a_agregar } = req.body;
+
+// 	if (id && nombre && productos_a_agregar.length === 0 && productos_a_eliminar.length === 0) {
+// 		let category_update = await Categoria.findOne({
+// 			where: { id },
+// 			include: Producto,
+// 		});
+// 		category_update["nombre"] = nombre;
+// 		await category_update.save();
+// 		res.json(category_update);
+// 	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length > 0) {
+// 		let category_update = await Categoria.findOne({
+// 			where: { id },
+// 			include: Producto,
+// 		});
+// 		category_update["nombre"] = nombre;
+// 		let nombres_productos =
+// 			category_update.Productos.length > 0 &&
+// 			category_update.Productos.map(({ nombre }) => nombre);
+
+// 		if (
+// 			productos_a_eliminar
+// 				.map((e) => !nombres_productos.includes(e) && e)
+// 				.filter((e) => e !== false)
+// 		) {
+// 			let find_productos_a_eliminar = await Producto.findAll({
+// 				where: { nombre: productos_a_eliminar.map((e) => e) },
+// 			});
+// 			let find_productos_a_agregar = await Producto.findAll({
+// 				where: { nombre: productos_a_agregar.map((e) => e) },
+// 			});
+// 			await category_update.removeProducto(find_productos_a_eliminar);
+// 			await category_update.addProducto(find_productos_a_agregar);
+// 			await category_update.save();
+// 			res.json(category_update);
+// 		} else {
+// 			await category_update.save();
+// 			res.json(category_update);
+// 		}
+// 	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length === 0) {
+// 		let category_update = await Categoria.findOne({
+// 			where: { id },
+// 			include: Producto,
+// 		});
+// 		category_update["nombre"] = nombre;
+// 		let nombres_productos =
+// 			category_update.Productos.length > 0 &&
+// 			category_update.Productos.map(({ nombre }) => nombre);
+
+// 		if (
+// 			productos_a_eliminar
+// 				.map((e) => !nombres_productos.includes(e) && e)
+// 				.filter((e) => e !== false)
+// 		) {
+// 			let find_productos_a_agregar = await Producto.findAll({
+// 				where: { nombre: productos_a_agregar.map((e) => e) },
+// 			});
+// 			await category_update.addProducto(find_productos_a_agregar);
+// 			await category_update.save();
+// 			res.json(category_update);
+// 		} else {
+// 			await category_update.save();
+// 			res.json(category_update);
+// 		}
+// 	} else if (id &&nombre &&productos_a_agregar.length === 0 &&productos_a_eliminar.length > 0) {
+// 		let category_update = await Categoria.findOne({
+// 			where: { id },
+// 			include: Producto,
+// 		});
+// 		category_update["nombre"] = nombre;
+// 		let find_productos_a_eliminar = await Producto.findAll({
+// 			where: { nombre: productos_a_eliminar.map((e) => e) },
+// 		});
+// 		await category_update.removeProducto(find_productos_a_eliminar);
+// 		await category_update.save();
+// 		res.json(category_update);
+// 	}
+// });
+
 router.put("/:id", async (req, res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_eliminar, productos_a_agregar } = req.body;
@@ -67,7 +150,7 @@ router.put("/:id", async (req, res) => {
 		category_update["nombre"] = nombre;
 		await category_update.save();
 		res.json(category_update);
-	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length > 0) {
+	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length > 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -96,32 +179,24 @@ router.put("/:id", async (req, res) => {
 			await category_update.save();
 			res.json(category_update);
 		}
-	} else if (id &&nombre &&productos_a_agregar.length > 0 &&productos_a_eliminar.length === 0) {
+	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length === 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
 		});
-		category_update["nombre"] = nombre;
-		let nombres_productos =
-			category_update.Productos.length > 0 &&
-			category_update.Productos.map(({ nombre }) => nombre);
 
-		if (
-			productos_a_eliminar
-				.map((e) => !nombres_productos.includes(e) && e)
-				.filter((e) => e !== false)
-		) {
+		let nombres_productos = category_update.Productos.length > 0 && category_update.Productos.map(({ nombre }) => nombre);
+
+		category_update["nombre"] = nombre;
+
 			let find_productos_a_agregar = await Producto.findAll({
 				where: { nombre: productos_a_agregar.map((e) => e) },
 			});
 			await category_update.addProducto(find_productos_a_agregar);
 			await category_update.save();
 			res.json(category_update);
-		} else {
-			await category_update.save();
-			res.json(category_update);
-		}
-	} else if (id &&nombre &&productos_a_agregar.length === 0 &&productos_a_eliminar.length > 0) {
+
+	} else if (id && nombre && productos_a_agregar.length === 0 && productos_a_eliminar.length > 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
