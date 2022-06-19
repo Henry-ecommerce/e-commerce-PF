@@ -58,8 +58,12 @@ function ProductDetail() {
     dispatch(product_to_review([product]));
   }
 
-  function displayRating(){
-    return Math.round(reviews.map(rtn => rtn.rating).reduce((prev,number) => prev + number,0) / reviews.length);
+  function displayRating() {
+    return Math.round(
+      reviews
+        .map((rtn) => rtn.rating)
+        .reduce((prev, number) => prev + number, 0) / reviews.length
+    );
   }
 
   if (typeof product === "object") {
@@ -144,7 +148,7 @@ function ProductDetail() {
                   <Box w="200px" fontWeight="black">
                     {product.nombre}
                   </Box>
-                    <ReviewStars starRating = {displayRating()}/>({reviews.length})
+                  <ReviewStars starRating={displayRating()} />({reviews.length})
                   <br />
                   <br />
                   <Box
@@ -176,7 +180,7 @@ function ProductDetail() {
                         </Button>
                       </Link>
                       ;
-                      <Link to={"/review"}>
+                      {/* <Link to={"/review"}>
                         <Button
                           bg="#242525"
                           color="#ECEDEC"
@@ -187,7 +191,7 @@ function ProductDetail() {
                         >
                           Escribir Mi Opinión
                         </Button>
-                      </Link>
+                      </Link> */}
                     </VStack>
                   </HStack>
                 </Flex>
@@ -263,20 +267,29 @@ function ProductDetail() {
 
             <Box pl="5" pr="5">
               {showReviews ? (
-                <Box bg={'#EDEDED'} overflow={'auto'} h={'300px'} m={'15px'} p={'10px'} borderRadius={'10px'}>
-                  {reviews.length > 0
-                    ? reviews.map((r) => {
-                        return (
-                          <ReviewCard
-                            key={r.id}
-                            titulo={r.titulo}
-                            comentario={r.text}
-                            rating={r.rating}
-                            user={r.userName}
-                          />
-                        );
-                      })
-                    : <Center>Aun no Hay Reviews Se el Primero!</Center>}
+                <Box
+                  bg={"#EDEDED"}
+                  overflow={"auto"}
+                  h={"300px"}
+                  m={"15px"}
+                  p={"10px"}
+                  borderRadius={"10px"}
+                >
+                  {reviews.length > 0 ? (
+                    reviews.map((r) => {
+                      return (
+                        <ReviewCard
+                          key={r.id}
+                          titulo={r.titulo}
+                          comentario={r.text}
+                          rating={r.rating}
+                          user={r.userName}
+                        />
+                      );
+                    })
+                  ) : (
+                    <Center>Aun no Hay Reviews Se el Primero!</Center>
+                  )}
                 </Box>
               ) : null}
             </Box>

@@ -16,7 +16,7 @@ import { MdFavorite } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { get_user_favorites } from "../../Redux/Actions";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function FavoriteButton({ origin, productId }) {
   let { favorites } = useSelector((state) => state);
@@ -24,11 +24,13 @@ function FavoriteButton({ origin, productId }) {
   let user = JSON.parse(localStorage.getItem("info_user"));
   let [AlreadyFavorite, setFavorite] = useState(false);
 
-  useEffect(() => {}, [favorites, dispatch, user?.id, productId]);
+  useEffect(() => {
+    if (favorites?.filter((e) => e.id === productId).length) {
+      setFavorite(true);
+    }
+  }, [favorites, dispatch, user?.id, productId]);
 
   function addFavorite(id, productId) {
-
-    dispatch(get_user_favorites(user?.id));
     const token = localStorage.getItem("token");
     if (!token) {
       console.log("no hay token");
@@ -47,11 +49,13 @@ function FavoriteButton({ origin, productId }) {
       userId: id,
     };
 
-    if (favorites.filter((e) => e.id === productId).length) {
-      axios.post("user/favoritos/remove", datos, config);
+    if (AlreadyFavorite) {
       setFavorite(false);
+      axios.post("user/favoritos/remove", datos, config);
+      dispatch(get_user_favorites(user?.id));
     } else {
       axios.post("/user/favoritos", datos, config);
+      dispatch(get_user_favorites(user?.id));
       setFavorite(true);
     }
   }
