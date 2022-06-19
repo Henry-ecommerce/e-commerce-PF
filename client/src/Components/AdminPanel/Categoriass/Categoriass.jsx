@@ -49,8 +49,6 @@ const Categoriass = () => {
 		useState([]);
 	const [productos_a_eliminar_editar, setProductos_a_eliminar_editar] =
 		useState([]);
-	console.log(productos_a_eliminar_editar, "Eliminar en editar");
-	console.log(nuevosProductosEditarCategoria);
 
 	const {
 		categorias,
