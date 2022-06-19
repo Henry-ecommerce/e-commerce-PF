@@ -38,6 +38,7 @@ import Banner from "./Components/Banner/Banner";
 import Carrito from "./Components/Carrito/Carrito";
 import MisCompras from "./Components/MisCompras/MisCompras";
 import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
+import ErrorRutas from "./Components/ErrorRutas/ErrorRutas";
 
 function App() {
   return (
@@ -83,7 +84,7 @@ function App() {
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="perfil" element={<Pruevas />} />
           <Route path="wishList" element={<WishList />} />
-          <Route path="carrito" element={<Carrito />}/>
+          <Route path="carrito" element={<Carrito />} />
           <Route path="misCompras" element={<MisCompras />} />
         </Route>
 
@@ -102,6 +103,7 @@ function App() {
           path="/products/:categoriaobusqueda/:page"
           element={<Tienda />}
         />
+        <Route path="*" element={<ErrorRutas />} />
       </Routes>
       <Footer />
     </Box>
