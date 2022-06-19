@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
 	const { nombre, productos } = req.body;
-	
+
 	if (nombre && !productos) {
 		await Categoria.create({ nombre });
 		let new_category = await Categoria.findOne({ where: { nombre } });
@@ -58,9 +58,13 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_eliminar, productos_a_agregar } = req.body;
-	
 
-	if (id &&nombre &&productos_a_agregar.length === 0 &&productos_a_eliminar.length === 0) {
+	if (
+		id &&
+		nombre &&
+		productos_a_agregar.length === 0 &&
+		productos_a_eliminar.length === 0
+	) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -68,7 +72,12 @@ router.put("/:id", async (req, res) => {
 		category_update["nombre"] = nombre;
 		await category_update.save();
 		res.json(category_update);
-	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length > 0) {
+	} else if (
+		id &&
+		nombre &&
+		productos_a_agregar.length > 0 &&
+		productos_a_eliminar.length > 0
+	) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -91,10 +100,16 @@ router.put("/:id", async (req, res) => {
 			});
 			await category_update.removeProducto(find_productos_a_eliminar);
 			await category_update.addProducto(find_productos_a_agregar);
-			await category_update.save();
 			res.json(category_update);
+		} else {
+			await category_update.save();
 		}
-	} else if (id && nombre && productos_a_agregar.length > 0 && productos_a_eliminar.length === 0) {
+	} else if (
+		id &&
+		nombre &&
+		productos_a_agregar.length > 0 &&
+		productos_a_eliminar.length === 0
+	) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
@@ -116,8 +131,13 @@ router.put("/:id", async (req, res) => {
 			await category_update.save();
 			res.json(category_update);
 		}
-	} else if (id && nombre && productos_a_agregar.length === 0 && productos_a_eliminar.length > 0) {
-		console.log('hola')
+	} else if (
+		id &&
+		nombre &&
+		productos_a_agregar.length === 0 &&
+		productos_a_eliminar.length > 0
+	) {
+		console.log("hola");
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,
