@@ -24,8 +24,8 @@ let _categorias = [
 
 router.post("/create", async (req, res) => {
     try {
-        _categorias?.map((el) => {
-            Categoria.create({
+        _categorias?.map(async (el) => {
+            await Categoria.create({
                 nombre: el.name,
                 imagen: el.imagen,
             })

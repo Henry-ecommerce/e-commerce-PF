@@ -158,11 +158,7 @@ router.put("/:id", async (req, res) => {
 			category_update.Productos.length > 0 &&
 			category_update.Productos.map(({ nombre }) => nombre);
 
-		if (
-			productos_a_eliminar
-				.map((e) => !nombres_productos.includes(e) && e)
-				.filter((e) => e !== false)
-		) {
+		if (productos_a_eliminar.map((e) => !nombres_productos.includes(e) && e).filter((e) => e !== false)) {
 			let find_productos_a_eliminar = await Producto.findAll({
 				where: { nombre: productos_a_eliminar.map((e) => e) },
 			});
