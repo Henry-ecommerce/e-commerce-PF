@@ -6438,7 +6438,7 @@ router.get("/", async (req, res) => {
         });
         return res.send(
           search_products?.filter(
-            (elem) => elem.Categoria[0].nombre === nombre[1] && elem.stock > 0
+            (elem) => elem?.Categoria[0]?.nombre === nombre[1] && elem?.stock > 0
           )
         );
       }

@@ -31,7 +31,7 @@ server.use("/admin", indexAdmin);
 server.use("/owner", indexOwner);
 server.use("/user", indexUser);
 
-db.sync({ force: false }).then(() => {
+db.sync({ force: true }).then(() => {
   server.listen(process.env.PORT, () => {
     console.log("Server rinning in Port:", process.env.PORT);
   });
