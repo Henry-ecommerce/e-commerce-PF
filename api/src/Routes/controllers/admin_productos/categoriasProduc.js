@@ -60,7 +60,7 @@ router.put("/:id", async (req, res) => {
 	const { nombre, productos_a_eliminar, productos_a_agregar } = req.body;
 	
 
-	if (id &&nombre &&productos_a_agregar.length === 0 &&productos_a_eliminar.length === 0) {
+	if (id &&nombre && productos_a_agregar.length === 0 && productos_a_eliminar.length === 0) {
 		let category_update = await Categoria.findOne({
 			where: { id },
 			include: Producto,

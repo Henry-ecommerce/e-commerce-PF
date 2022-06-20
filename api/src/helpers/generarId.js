@@ -5,5 +5,3 @@ const generarId = () => {
 module.exports = {
   generarId,
 };
-//json wed token
-//doker
