@@ -155,7 +155,7 @@ router.put("/:id", async (req, res) => {
 		});
 		category_update["nombre"] = nombre;
 		let nombres_productos =
-			category_update.Productos.length > 0 &&
+			await category_update.Productos.length > 0 &&
 			category_update.Productos.map(({ nombre }) => nombre);
 
 		if (productos_a_eliminar.map((e) => !nombres_productos.includes(e) && e).filter((e) => e !== false)) {
@@ -179,9 +179,9 @@ router.put("/:id", async (req, res) => {
 			include: Producto,
 		});
 
-		let nombres_productos = category_update.Productos.length > 0 && category_update.Productos.map(({ nombre }) => nombre);
+		let nombres_productos = await category_update.Productos.length > 0 && category_update.Productos.map(({ nombre }) => nombre);
 
-		category_update["nombre"] = nombre;
+		category_update["nombre"] = nombre
 		if (
 			productos_a_eliminar
 				.map((e) => !nombres_productos.includes(e) && e)
