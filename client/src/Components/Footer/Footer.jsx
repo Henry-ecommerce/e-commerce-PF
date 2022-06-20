@@ -64,7 +64,7 @@ export default function Footer() {
             </NavLink>
             <Link href={"#"}>Sobre nosotros</Link>
             <Link href={"#"}>Pago seguro</Link>
-            <Link href={"#"}>Conecte con nosotros</Link>
+            <Link to={"/map"}>Conecte con nosotros</Link>
             <Link href={"#"}>Mapa del sitio</Link>
             <Link href={"#"}>Tiendas</Link>
           </Stack>

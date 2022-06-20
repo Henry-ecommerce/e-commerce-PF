@@ -34,22 +34,22 @@ const emailCompraAdmin = async (datos) => {
     //   pass: process.env.EMAIL_PASS,
     // },
   });
-  const { email, name } = datos;
+  const { email, name, email2 } = datos;
 
   const info = await transport.sendMail({
     from: "E-comers",
-    to: email,
+    to: email2,
     subject: "Pedido user notification",
     text: "Pedido user notification",
     html: `<h2>E-comers</h2>
     
     <h3>Hola Admin</h3>
 
-    <p> El usuario con el nombre: ${name} y el correo electronico ${email}</p>
+    <p> El usuario con el nombre: ${name} y el correo electronico ${email} realizo una compra</p>
 
-    <p>Confirma su pedid para que el envió sea procesado😄</p>
+    <p>Confirma su pedido para que el envió sea procesado😄</p>
 
-     <p><span>Si tu no creaste la cuenta, puedes ignorar el mensaje ☺</span></p>
+
     `,
   });
   console.log("Mensaje enviado: %s", info.messageId);

@@ -3,6 +3,9 @@ const { APP_USR, FRONTEND_URL } = process.env;
 const axios = require("axios");
 const router = Router();
 const { Usuario, Pedido } = require("../../../db");
+const { emailCompraUser } = require("../../../helpers/emailCompraUser");
+const { emailCompraAdmin } = require("../../../helpers/emailCompraAdmin");
+const { emailPagoDenegado } = require("../../../helpers/emailPagoDenegado");
 
 const mercadopago = require("mercadopago");
 
@@ -47,9 +50,28 @@ router.get("/", async (req, res) => {
     let user = await Usuario.findByPk(meta.metadata.id);
 
     user.addPedido(pedido.id);
+    console.log(pedido);
 
     console.log("LLEGUE HASTA ACA!");
-    return res.redirect(`${FRONTEND_URL}`);
+    if (pedido.payments[0].status === "approved") {
+      emailCompraUser({
+        email: user.email,
+        name: user.name,
+      });
+
+      emailCompraAdmin({
+        email2: "sdmoreno51@gmail.com",
+        email: user.email,
+        name: user.name,
+      });
+      return res.redirect(`${FRONTEND_URL}/pagoss/aceptado`);
+    } else {
+      emailPagoDenegado({
+        email: user.email,
+        name: user.name,
+      });
+      return res.redirect(`${FRONTEND_URL}/pagoss/denegado`);
+    }
   } catch (err) {
     console.log(err);
   }
@@ -95,6 +117,24 @@ router.post("/", async (req, res) => {
     let user = await Usuario.findByPk(meta.metadata.id);
 
     user.addPedido(pedido.id);
+
+    if (pedido.payments[0].status === "approved") {
+      emailCompraUser({
+        email: user.email,
+        name: user.name,
+      });
+
+      emailCompraAdmin({
+        email2: "sdmoreno51@gmail.com",
+        email: user.email,
+        name: user.name,
+      });
+    } else {
+      emailPagoDenegado({
+        email: user.email,
+        name: user.name,
+      });
+    }
   } catch (err) {
     console.log(err);
   }

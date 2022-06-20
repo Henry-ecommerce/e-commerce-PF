@@ -21,7 +21,7 @@ import {
 	MenuItem,
 	Select,
 } from "@chakra-ui/react";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useLayoutEffect } from "react";
 import useAuthAd from "../../../hooks/useAuthAd";
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import { BiEditAlt } from "react-icons/bi";
@@ -55,8 +55,17 @@ const Categoriass = () => {
 		agregarCategorias,
 		productos,
 		eliminarCategoria,
-		actualizarCategoria,
+		// actualizarCategoria,
+		_obtenerCategorias,
+		actualizarCategoria_agregar_eliminar_relacion,
+		actualizarCategoria_eliminar_relacion,
+		actualizarCategoria_agregar_relacion,
+		actualizarCategoria_nombre,
 	} = useAuthAd();
+
+	useLayoutEffect(() => {
+		_obtenerCategorias()
+	}, [])
 
 	function foo() {
 		return categorias
@@ -119,19 +128,42 @@ const Categoriass = () => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		// eslint-disable-next-line no-restricted-globals
-		const confirmar = confirm(
-			"¿Confirmas que desas guardar los cambios del siguiente registro ?"
-		);
-		if (confirmar) {
+		if(infoCategoria.id && nombreCategoriaInput && productos_a_eliminar_editar.length > 0 && nuevosProductosEditarCategoria.length > 0){
 			setEditar(false);
-			actualizarCategoria(
+			setOpenForm(false)
+			actualizarCategoria_agregar_eliminar_relacion(
 				infoCategoria.id,
 				nombreCategoriaInput,
 				productos_a_eliminar_editar,
 				nuevosProductosEditarCategoria
 			);
-			window.location.reload();
+			setTimeout(() => window.location.reload(), 100)
+		} else if (infoCategoria.id && nombreCategoriaInput && productos_a_eliminar_editar.length > 0 && nuevosProductosEditarCategoria.length === 0) {
+			setEditar(false);
+			setOpenForm(false)
+			actualizarCategoria_eliminar_relacion(
+				infoCategoria.id,
+				nombreCategoriaInput,
+				productos_a_eliminar_editar,
+			);
+			setTimeout(() => window.location.reload(), 100)
+		} else if (infoCategoria.id && nombreCategoriaInput && productos_a_eliminar_editar.length === 0 && nuevosProductosEditarCategoria.length > 0){
+			setEditar(false);
+			setOpenForm(false)
+			actualizarCategoria_agregar_relacion(
+				infoCategoria.id,
+				nombreCategoriaInput,
+				nuevosProductosEditarCategoria
+			);
+			setTimeout(() => window.location.reload(), 100)
+		} else if (infoCategoria.id && nombreCategoriaInput && productos_a_eliminar_editar.length === 0 && nuevosProductosEditarCategoria.length === 0){
+			setEditar(false);
+			setOpenForm(false)
+			actualizarCategoria_nombre(
+				infoCategoria.id,
+				nombreCategoriaInput,
+			);
+			setTimeout(() => window.location.reload(), 100)
 		}
 	}
 
@@ -151,6 +183,7 @@ const Categoriass = () => {
 		if (errors.nombre === "" && errors.productos === "") {
 			agregarCategorias(nombreCategoriaInput, productos_de_agregar);
 			setAgregar(false);
+			window.location.reload()
 		}
 	}
 
@@ -172,7 +205,10 @@ const Categoriass = () => {
 				>
 					<Button
 						mb="20px"
-						onClick={() => setOpenForm(false)}
+						onClick={() => {
+							setOpenForm(false)
+							// window.location.reload()
+						}}
 						bg="#242524"
 						color="#FFFF"
 					>
@@ -188,7 +224,7 @@ const Categoriass = () => {
 								name="nombre"
 							/>
 						</FormControl>
-						{categorias?.find(({ nombre }) => nombre === infoCategoria.nombre)
+						{categorias?.find(({ nombre }) => nombre === infoCategoria?.nombre)
 							.Productos?.length > 0 ? (
 							<Stack>
 								<Stack
@@ -283,7 +319,9 @@ const Categoriass = () => {
 								_hover={{
 									bg: "#242524",
 								}}
-								onClick={() => setEnviarPutCategoria(true)}
+								onClick={() => {
+									setEnviarPutCategoria(true)
+								}}
 							>
 								Guardar
 							</Button>

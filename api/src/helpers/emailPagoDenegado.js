@@ -14,7 +14,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRES_TOKEN });
 
-const emailCompraAdmin = async (datos) => {
+const emailPagoDenegado = async (datos) => {
   const accessToken = await oAuth2Client.getAccessToken();
   const transport = nodemailer.createTransport({
     service: "gmail",
@@ -26,6 +26,13 @@ const emailCompraAdmin = async (datos) => {
       refreshToken: REFRES_TOKEN,
       accessToken: accessToken,
     },
+    //preuvas
+    // host: process.env.EMAIL_HOST,
+    // port: process.env.EMAIL_PORT,
+    // auth: {
+    //   user: process.env.EMAIL_USER,
+    //   pass: process.env.EMAIL_PASS,
+    // },
   });
   const { email, name } = datos;
 
@@ -36,20 +43,20 @@ const emailCompraAdmin = async (datos) => {
     text: "Pedido user notification",
     html: `<h2>E-comers</h2>
     
-    <h3>Hola ${name}</h3>
+    <h3>User</h3>
+    <p>Hola ${name}😄</p>
+    <p>Lo sentimos!!,  No se puedo completar tu compra, porfavor revisa tus medios de pago y vuelve a intentarlo</p>
 
-    <p>Compra confrimada</p>
+    <p>Si tienes alguna otra duda respecto al pago, contacta a tu banco o a nuestro soporte</p>
 
-    <p>el envio esta en proceso😄</p>
 
-     <p><span>Si tu no creaste la cuenta, puedes ignorar el mensaje ☺</span></p>
     `,
   });
   console.log("Mensaje enviado: %s", info.messageId);
 };
 
 module.exports = {
-  emailCompraAdmin,
+  emailPagoDenegado,
 };
 
 {
