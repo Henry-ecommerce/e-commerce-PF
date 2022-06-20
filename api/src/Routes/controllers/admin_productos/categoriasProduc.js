@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.put('/:id/cambiar_nombre',(req,res) => {
+router.put('/:id/cambiar_nombre',  async (req,res) => {
 	const { id } = req.params;
 	const { nombre } = req.body;
 if (id && nombre ) {
@@ -69,7 +69,7 @@ if (id && nombre ) {
 	}
 })
 
-router.put('/:id/eliminar_relacion',(req,res) => {
+router.put('/:id/eliminar_relacion', async (req,res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_eliminar } = req.body;
 		let category_update = await Categoria.findOne({
@@ -85,7 +85,7 @@ router.put('/:id/eliminar_relacion',(req,res) => {
 		res.json(category_update);
 })
 
-router.put('/:id/agregar_relacion',(req,res) => {
+router.put('/:id/agregar_relacion', async (req,res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_agregar } = req.body;
 		let category_update = await Categoria.findOne({
@@ -110,7 +110,7 @@ router.put('/:id/agregar_relacion',(req,res) => {
 		}
 })
 
-router.put('/:id/agregar_eliminar_relacion', (req,res) => {
+router.put('/:id/agregar_eliminar_relacion',  async (req,res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_eliminar, productos_a_agregar } = req.body;
 
