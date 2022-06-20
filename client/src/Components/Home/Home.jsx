@@ -2,13 +2,17 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products } from "../../Redux/Actions";
 import Carousel from "../ProductCarousel/Carousel"
+import MensajesAutomaticos from "../MensajesAutomaticos/MensajesAutomaticos";
 
 import { AiOutlineEnvironment, AiOutlineCreditCard, AiOutlineCheckCircle } from "react-icons/ai";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, calc, Flex, Text } from "@chakra-ui/react";
 import FrontPageSlide from "../FrontPageSlide/FrontPageSlide";
+import { useState } from "react";
+import {MdHelpOutline, MdHighlightOff} from "react-icons/md"
 
 const Home = () => {
     const {products} = useSelector(state => state);
+    const [visible,setVisible] = useState("");
 
     const dispatch = useDispatch();
 
@@ -24,6 +28,21 @@ const Home = () => {
 
     return (
     <>
+
+     <Box position="fixed" zIndex={"2000"}>
+        <Box position={"absolute"} left="calc(98vw - 360px)" top={"100px"}>
+            <Flex ml="10px" display={ visible ? "visible" : "none"}>
+                <MensajesAutomaticos></MensajesAutomaticos>
+            </Flex>
+            
+            <Box position={"absolute"}  maxW="40px" p="5px 5px 5px 5px" fontSize={"30px"} color={"white"} textAlign={"center"} bg="#242525" borderRadius="50%" m="10px" mt={visible? null : "435px"}  ml="320px" boxShadow='md' cursor={"pointer"} _hover={{bg: "#9a9a9a"}} onClick={e => setVisible(visible ? false : true)}>
+                {visible ? <MdHighlightOff></MdHighlightOff> : <MdHelpOutline></MdHelpOutline>}
+            
+            </Box>
+        </Box>
+    </Box> 
+    
+
     <Box width="70vw" ml="auto" mr="auto" mb="20px" textAlign={"center"}><FrontPageSlide></FrontPageSlide></Box>
     <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
         <div><Text fontSize={'25px'}>Productos en oferta</Text></div>
