@@ -14,7 +14,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRES_TOKEN });
 
-const emailCompraAdmin = async (datos) => {
+const emailPagoDenegado = async (datos) => {
   const accessToken = await oAuth2Client.getAccessToken();
   const transport = nodemailer.createTransport({
     service: "gmail",
@@ -34,20 +34,20 @@ const emailCompraAdmin = async (datos) => {
     //   pass: process.env.EMAIL_PASS,
     // },
   });
-  const { email, name, email2 } = datos;
+  const { email, name } = datos;
 
   const info = await transport.sendMail({
     from: "E-comers",
-    to: email2,
+    to: email,
     subject: "Pedido user notification",
     text: "Pedido user notification",
     html: `<h2>E-comers</h2>
     
-    <h3>Hola Admin</h3>
+    <h3>User</h3>
+    <p>Hola ${name}😄</p>
+    <p>Lo sentimos!!,  No se puedo completar tu compra, porfavor revisa tus medios de pago y vuelve a intentarlo</p>
 
-    <p> El usuario con el nombre: ${name} y el correo electronico ${email} realizo una compra</p>
-
-    <p>Confirma su pedido para que el envió sea procesado😄</p>
+    <p>Si tienes alguna otra duda respecto al pago, contacta a tu banco o a nuestro soporte</p>
 
 
     `,
@@ -56,7 +56,7 @@ const emailCompraAdmin = async (datos) => {
 };
 
 module.exports = {
-  emailCompraAdmin,
+  emailPagoDenegado,
 };
 
 {

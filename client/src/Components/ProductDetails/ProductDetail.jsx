@@ -13,10 +13,11 @@ import {
   HStack,
   VStack,
   Center,
+  Text,
 } from "@chakra-ui/react";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaEmber, FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -64,6 +65,12 @@ function ProductDetail() {
         .map((rtn) => rtn.rating)
         .reduce((prev, number) => prev + number, 0) / reviews.length
     );
+  }
+
+  let hola;
+  if (product?.caracteristicas) {
+    let a = Object?.entries(product?.caracteristicas);
+    hola = a?.map((e) => e[0] + " : " + e[1]);
   }
 
   if (typeof product === "object") {
@@ -295,7 +302,13 @@ function ProductDetail() {
             </Box>
             <Box>
               {showEspecification ? (
-                <Box>Ver como renderizar las caracteristicas</Box>
+                <Box>
+                  <br />
+
+                  {hola?.map((e) => (
+                    <Text fontWeight="black">{e}</Text>
+                  ))}
+                </Box>
               ) : null}
             </Box>
           </Box>

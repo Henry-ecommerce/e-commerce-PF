@@ -43,8 +43,7 @@ const emailCompraUser = async (datos) => {
     text: "Pedido user notification",
     html: `<h2>E-comers</h2>
     <p>Hola: ${name}.  
-     Tu pedido está siendo procesado, espera
-     a que la transacción finalices para que tu pedido quede finalizado.
+     Tu pedido está siendo procesado.
      Gracias por tu compra</p>
    
      <p>Gracias por tu compra 😄</p>
