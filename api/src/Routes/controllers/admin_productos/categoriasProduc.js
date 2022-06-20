@@ -153,23 +153,24 @@ router.put("/:id", async (req, res) => {
 			where: { id },
 			include: Producto,
 		});
-		category_update["nombre"] = nombre;
 		let nombres_productos =
-			await category_update.Productos.length > 0 &&
-			category_update.Productos.map(({ nombre }) => nombre);
-
-		if (productos_a_eliminar.map((e) => !nombres_productos.includes(e) && e).filter((e) => e !== false)) {
+		await category_update.Productos.length > 0 &&
+		category_update.Productos.map(({ nombre }) => nombre);
+		let m = await productos_a_eliminar.map((e) => !nombres_productos.includes(e) && e).filter((e) => e !== false)
+		if (m) {
 			let find_productos_a_eliminar = await Producto.findAll({
 				where: { nombre: productos_a_eliminar.map((e) => e) },
 			});
 			let find_productos_a_agregar = await Producto.findAll({
 				where: { nombre: productos_a_agregar.map((e) => e) },
 			});
+			category_update["nombre"] = nombre;
 			await category_update.removeProducto(find_productos_a_eliminar);
 			await category_update.addProducto(find_productos_a_agregar);
 			await category_update.save();
 			res.json(category_update);
 		} else {
+			category_update["nombre"] = nombre;
 			await category_update.save();
 			res.json(category_update);
 		}
