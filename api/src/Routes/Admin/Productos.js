@@ -6484,7 +6484,7 @@ router.get("/:name", async (req, res) => {
         res.json(
           search_products
             .filter((e) => e.stock > 0)
-            .map((elm) => elm.nombre.slice(0, (elm.nombre.length * 40) / 100))
+            .map((elm) => elm.nombre.length > 40 ? elm.nombre.slice(0, (elm.nombre.length * 40) / 100) : elm.nombre)
             .slice(0, 9)
         );
       } else {
