@@ -19,7 +19,7 @@ router.use("/perfil", [checkAuth, checkRolUserMiddleware], obtenerPerfil);
 // router.use("/perfil", [checkAuth, checkRolUserMiddleware], Tienda);
 router.use("/pago", [checkAuth, checkRolUserMiddleware], Pago);
 router.use("/favoritos", [checkAuth, checkRolUserMiddleware], Favoritos);
-router.use("/compras", [checkAuth, checkRolUserMiddleware], Compras);
+router.use("/compras", Compras);
 router.use("/pedido", [checkAuth, checkRolUserMiddleware], comprasUsuario);
 
 module.exports = router;
