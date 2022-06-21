@@ -8,10 +8,12 @@ const router = Router();
 router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
+
     //Busca el user
     const userExite = await Usuario.findOne({
       where: { email },
     });
+
     if (!userExite) {
       const error = new Error("El usuario no existe");
       return res.status(404).json({ msg: error.message });
@@ -19,6 +21,13 @@ router.post("/", async (req, res) => {
 
     if (!userExite.confirmado) {
       const error = new Error("Tu cuenta no se confirmo");
+      return res.status(403).json({ msg: error.message });
+    }
+
+    if (userExite.baneo) {
+      const error = new Error(
+        "Cuenta baneada, contacte a soporte para mas detalles"
+      );
       return res.status(403).json({ msg: error.message });
     }
     // Comprobar passfrom con pass hash

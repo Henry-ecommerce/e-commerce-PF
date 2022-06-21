@@ -39,8 +39,8 @@ import Carrito from "./Components/Carrito/Carrito";
 import MisCompras from "./Components/MisCompras/MisCompras";
 import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 import ErrorRutas from "./Components/ErrorRutas/ErrorRutas";
-import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado";
-import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado";
+import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado/PagoAprevado";
+import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado/PagoDenegado";
 
 function App() {
   return (
