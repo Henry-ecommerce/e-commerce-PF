@@ -90,8 +90,8 @@ const Filtros_Ordenamientos = () => {
                     <option>Nombre</option>
                     <option>Menor precio</option>
                     <option>Mayor precio</option>
-                    <option>Descuento</option>
-                    <option>Calificacion</option>
+                    {/* <option>Descuento</option> */}
+                    {/* <option>Calificacion</option> */}
                 </select>
             </label>
             <div className={estilos.contenedor_inputs}>

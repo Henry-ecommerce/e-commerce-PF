@@ -43,6 +43,7 @@ import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado/PagoAprevad
 import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado/PagoDenegado";
 
 function App() {
+  
   return (
     <Box bg="#EDEDED" className="App">
       <Navbar />
