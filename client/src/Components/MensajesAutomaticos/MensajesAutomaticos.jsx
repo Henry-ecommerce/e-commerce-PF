@@ -14,7 +14,137 @@ const MensajesAutomaticos = () => {
         {
          clave: "envios",
          respuesta: "los tiempos de envio tanto como los coste depende del lugar de destino y la empresa encargada del transporte"
-        }
+        },
+        {
+            clave: "envio",
+            respuesta: "los tiempos de envio tanto como los coste depende del lugar de destino y la empresa encargada del transporte"
+        },
+        {
+            clave: "vida",
+            respuesta: "42"
+        },
+        {
+            clave: "universo",
+            respuesta: "42"
+        },
+        {
+            clave: "pago",
+            respuesta: "Los pagos se realizan atravez de Mercado Pago, los medios disponibles los puede ver aqui: web, si has tenido un problema con el pago puedes comunicarte con atencion al cliente"
+        },
+        {
+            clave: "pagos",
+            respuesta: "Los pagos se realizan atravez de Mercado Pago, los medios disponibles los puede ver aqui: web, si has tenido un problema con el pago puedes comunicarte con atencion al cliente"
+        },
+        {
+            clave: "tiempo",
+            respuesta: "los tiempos de envio tanto como los coste depende del lugar de destino y la empresa encargada del transporte"
+        },
+        {
+            clave: "tiempos",
+            respuesta: "los tiempos de envio tanto como los coste depende del lugar de destino y la empresa encargada del transporte"
+        },
+        {
+            clave: "problema",
+            respuesta: "si has tenido algun problema con el pago del producto, el envio, o recibiste un producto equivocado puedes comunicarte con atencion al cliente para una mejor resolucion del problema"
+        },
+        {
+            clave: "problemas",
+            respuesta: "si has tenido algun problema con el pago del producto, el envio, o recibiste un producto equivocado puedes comunicarte con atencion al cliente para una mejor resolucion del problema"
+        },
+        {
+            clave: "henry",
+            respuesta: "estudiar en soyhenry es lo mejor"
+        },
+        {
+            clave: "soyhenry",
+            respuesta: "estudiar en soyhenry es lo mejor"
+        },
+        {
+            clave: "pelada",
+            respuesta: "dicen que la calva de toni da suerte al frotarla"
+        },
+        {
+            clave: "pelado",
+            respuesta: "dicen que la calva de toni da suerte al frotarla"
+        },
+        {
+            clave: "humano",
+            respuesta: "si quieres hablar con un humano, puedes comunicarte con servicio de atencion al cliente perdon las molestias"
+        },
+        {
+            clave: "persona",
+            respuesta: "si quieres hablar con un humano, puedes comunicarte con servicio de atencion al cliente perdon las molestias"
+        },
+        {
+            clave: "retirar",
+            respuesta: "puedes retirar tus compras en nuestros locales adheridos, en cualquier horario habil, recuerda consultar antes si hay stock del producto en el local"
+        },
+        {
+            clave: "horario",
+            respuesta: "los horarios de atencion al cliente tanto como los de retiro de productos son de xxAm a xxPm"
+        },
+        {
+            clave: "horarios",
+            respuesta: "los horarios de atencion al cliente tanto como los de retiro de productos son de xxAm a xxPm"
+        },
+        {
+            clave: "contacto",
+            respuesta: "puedes contactarnos a este numero xxxxxxx email xxxxxx direccion xxxxxx"
+        },
+        {
+            clave: "direccion",
+            respuesta: "puedes contactarnos a este numero xxxxxxx email xxxxxx direccion xxxxxx"
+        },
+        {
+            clave: "telefono",
+            respuesta: "puedes contactarnos a este numero xxxxxxx email xxxxxx direccion xxxxxx"
+        },
+        {
+            clave: "email",
+            respuesta: "puedes contactarnos a este numero xxxxxxx email xxxxxx direccion xxxxxx"
+        },
+        {
+            clave: "contactarme",
+            respuesta: "puedes contactarnos a este numero xxxxxxx email xxxxxx direccion xxxxxx"
+        },
+        {
+            clave: "registo",
+            respuesta: "puedes registarte con tu email completando los datos correspondientes, o hacerlo mas rapido vinculando tu cuenta de google"
+        },
+        {
+            clave: "registrarme",
+            respuesta: "puedes registarte con tu email completando los datos correspondientes, o hacerlo mas rapido vinculando tu cuenta de google"
+        },
+        {
+            clave: "roto",
+            respuesta: "si el producto te llego roto o en mal estado, puedes comunicarte con atencion al cliente para mejor seguimiento del inconveninete, lamentamos las molestias"
+        },
+        {
+            clave: "rotos",
+            respuesta: "si el producto te llego roto o en mal estado, puedes comunicarte con atencion al cliente para mejor seguimiento del inconveninete, lamentamos las molestias"
+        },
+        {
+            clave: "mal",
+            respuesta: "si el producto te llego roto o en mal estado, puedes comunicarte con atencion al cliente para mejor seguimiento del inconveninete, lamentamos las molestias"
+        },
+        {
+            clave: "tienda",
+            respuesta: "De momento contamos con una unica tienda fisica y esta ubicada en: calle falsa 1234"
+        },
+        {
+            clave: "local",
+            respuesta: "De momento contamos con una unica tienda fisica y esta ubicada en: calle falsa 1234"
+        },
+        {
+            clave: "ubicacion",
+            respuesta: "De momento contamos con una unica tienda fisica y esta ubicada en: calle falsa 1234"
+        },
+        {
+            clave: "ubicado",
+            respuesta: "De momento contamos con una unica tienda fisica y esta ubicada en: calle falsa 1234"
+        },
+        
+        
     ]);
 
     const [opciones, setOpciones] = useState([
@@ -79,7 +209,7 @@ const MensajesAutomaticos = () => {
             setRespuesta(busqueda.respuesta) 
             setHayOpciones(false);}
         else {
-            setRespuesta("lo siento, mi inteligencia es limitada, asi que aun no puedo responder esa pregunta"); 
+            setRespuesta("lo siento, mi inteligencia es limitada, asi que aun no puedo responder esa pregunta, podrias intentar ser mas claro o directo, tal vez asi pueda ayudarte, lamento las molestias"); 
             setHayOpciones(false);}
 
         setInput("");}
@@ -92,7 +222,7 @@ const MensajesAutomaticos = () => {
 
 
     return(
-        <>
+        <Box boxShadow='md'>
         <Box bg={"#242525"} h={"25px"} w={"350px"} textAlign="center" color={"white"} borderRadius={"10px 10px 0 0"}> Ventana de Ayuda </Box>
         <Flex flexDirection={"column"} justifyContent="space-between" h="400px" width={"350px"} textAlign={"center"} bg="white" p={"5px"} borderRadius={"0 0 10px 10px"}>
             <Box >
@@ -122,7 +252,7 @@ const MensajesAutomaticos = () => {
             
 
         </Flex>
-        </>
+        </Box>
     )
 }
 
