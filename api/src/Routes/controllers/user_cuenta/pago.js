@@ -55,16 +55,16 @@ router.post("/", async (req, res) => {
       },
     },
     external_reference: user.id.toString(),
-    notification_url: `${BACKEND_URL}/user/compras`,
+    notification_url: ``,
     payment_methods: {
       excluded_payment_methods: [{}],
       excluded_payment_types: [{ id: "ticket" }],
     },
 
     back_urls: {
-      failure: `${FRONTEND_URL}/pagoss/denegado`,
+      failure: `${BACKEND_URL}/user/compras`,
       pending: `${BACKEND_URL}/user/compras`,
-      success: `${FRONTEND_URL}/pagoss/aceptado`,
+      success: `${BACKEND_URL}/user/compras`,
     },
     metadata: {
       id: user.id,
