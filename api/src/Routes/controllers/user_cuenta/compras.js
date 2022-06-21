@@ -26,7 +26,14 @@ router.get("/", async (req, res) => {
   try {
     const peticion = await axios.get(urlmerchant, config);
     let datos = peticion.data;
+    console.log(datos);
     const { payments, items, shipments, payer, preference_id } = datos;
+
+    let preferencia = await axios.get(
+      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
+      config
+    );
+
     let [pedido, create] = await Pedido.findOrCreate({
       where: {
         preference_id: preference_id,
@@ -35,21 +42,17 @@ router.get("/", async (req, res) => {
         preference_id: preference_id,
         payments: payments,
         items: items,
-        shipments: shipments,
+        shipments: preferencia.data.shipments.receiver_address,
         payer: payer,
       },
       include: Usuario,
     });
 
-    let preferencia = await axios.get(
-      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
-      config
-    );
-
     meta = preferencia.data;
     let user = await Usuario.findByPk(meta.metadata.id);
 
     user.addPedido(pedido.id);
+
     console.log(pedido);
 
     console.log("LLEGUE HASTA ACA!");
@@ -94,6 +97,12 @@ router.post("/", async (req, res) => {
     const peticion = await axios.get(resource, config);
     let datos = peticion.data;
     const { payments, items, shipments, payer, preference_id } = datos;
+
+    let preferencia = await axios.get(
+      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
+      config
+    );
+
     let [pedido, create] = await Pedido.findOrCreate({
       where: {
         preference_id: preference_id,
@@ -102,16 +111,11 @@ router.post("/", async (req, res) => {
         preference_id: preference_id,
         payments: payments,
         items: items,
-        shipments: shipments,
+        shipments: preferencia.data.shipments.receiver_address,
         payer: payer,
       },
       include: Usuario,
     });
-
-    let preferencia = await axios.get(
-      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
-      config
-    );
 
     meta = preferencia.data;
     let user = await Usuario.findByPk(meta.metadata.id);

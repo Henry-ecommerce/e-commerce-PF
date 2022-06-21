@@ -39,8 +39,8 @@ import Carrito from "./Components/Carrito/Carrito";
 import MisCompras from "./Components/MisCompras/MisCompras";
 import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 import ErrorRutas from "./Components/ErrorRutas/ErrorRutas";
-import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado";
-import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado";
+import PagoConfirmado from "./Components/PagoMercadiLibre/PagoAprevado/PagoConfirmado";
+import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado/PagoDenegado";
 
 function App() {
   return (
@@ -106,7 +106,7 @@ function App() {
           element={<Tienda />}
         />
         <Route path="/pagoss/denegado" element={<PagoDenegado />} />
-        <Route path="/pagoss/aceptado" element={<PagoAprevado />} />
+        <Route path="/pagoss/aceptado" element={<PagoConfirmado />} />
 
         <Route path="*" element={<ErrorRutas />} />
       </Routes>
