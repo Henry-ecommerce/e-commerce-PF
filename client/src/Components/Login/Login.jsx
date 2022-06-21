@@ -114,10 +114,10 @@ export default function Login() {
 
       setAuth(data);
       if (data.rol === "Owner") {
-        navegates("/owner");
+        navegates("/");
       } else if (data.rol === "Admin") {
-        _obtenerProducto()
-        navegates("/admin");
+        _obtenerProducto();
+        navegates("/");
       } else {
         navegates("/");
       }
