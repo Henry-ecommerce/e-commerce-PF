@@ -17,6 +17,12 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
+
+    let m =products?.filter(e => e.descuento !== null && e.descuento > 0)
+    let productos_descuento = [m.slice(0,m.length - 1),products?.slice(12,24),products?.slice(24,36)]
+    let productos_sin_descuento = products?.filter(e => e.descuento === null || e.descuento === 0) // ESTO ES TEMPORAL, CUENTO TENGAMOS LO DE LAS COMPRAS SE VA A CAMBIAR
+    let productos_pocas_unidades = [products?.filter(e => e.stock <= 10).slice(0,12),products?.slice(12,24),products?.slice(24,36)] 
+
   let user = JSON.parse(localStorage.getItem("info_user"));
 
   useEffect(() => {
@@ -24,21 +30,22 @@ const Home = () => {
     dispatch(get_all_products());
   }, [dispatch]);
 
-  let productos_descuento = [
-    products
-      ?.filter((e) => e.descuento !== null && e.descuento > 0)
-      .slice(0, 12),
-    products?.slice(12, 24),
-    products?.slice(24, 36),
-  ];
-  let productos_sin_descuento = products?.filter(
-    (e) => e.descuento === null || e.descuento === 0
-  ); // ESTO ES TEMPORAL, CUENTO TENGAMOS LO DE LAS COMPRAS SE VA A CAMBIAR
-  let productos_pocas_unidades = [
-    products?.filter((e) => e.stock <= 10).slice(0, 12),
-    products?.slice(12, 24),
-    products?.slice(24, 36),
-  ];
+
+  // let productos_descuento = [
+  //   products
+  //     ?.filter((e) => e.descuento !== null && e.descuento > 0)
+  //     .slice(0, 12),
+  //   products?.slice(12, 24),
+  //   products?.slice(24, 36),
+  // ];
+  // let productos_sin_descuento = products?.filter(
+  //   (e) => e.descuento === null || e.descuento === 0
+  // ); // ESTO ES TEMPORAL, CUENTO TENGAMOS LO DE LAS COMPRAS SE VA A CAMBIAR
+  // let productos_pocas_unidades = [
+  //   products?.filter((e) => e.stock <= 10).slice(0, 12),
+  //   products?.slice(12, 24),
+  //   products?.slice(24, 36),
+  // ];
 
   const division = [
     productos_sin_descuento.slice(0, 12),

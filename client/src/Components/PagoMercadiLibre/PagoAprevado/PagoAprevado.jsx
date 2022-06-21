@@ -8,29 +8,16 @@ const PagoConfirmado = () => {
       <div className="mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white">
         <>
           <Box textAlign="center" py={10} px={6} my={"150px"}>
-            <Box display="inline-block">
-              <Flex
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                bg={"red.500"}
-                rounded={"50px"}
-                w={"55px"}
-                h={"55px"}
-                textAlign="center"
-              >
-                <CheckCircleIcon boxSize={"20px"} color={"white"} />
-              </Flex>
-            </Box>
+            <CheckCircleIcon boxSize={"50px"} color={"green.500"} />
             <Heading as="h2" size="xl" mt={6} mb={2}>
-              Su pago fue rechazado
+              Gracias por su compra, pago aprobado correctamente
             </Heading>
-            <Link to="/" style={{ color: "black" }}>
+            <Link to="/">
               Regresa al
               <span style={{ color: "#659DF6", fontWeight: "bolder" }}>
                 {" "}
-                inicio para continuar
-              </span>
+                inicio para continuar 🙌
+              </span>{" "}
             </Link>
           </Box>
         </>
