@@ -11,6 +11,7 @@ import {
   Image,
   Portal,
   Stack,
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 // import { useAuth } from "../../Context/AuthContext";
@@ -27,9 +28,6 @@ import {
 } from "../../Redux/Actions";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import FormMercadoPago from "../MercadoPago/FormularioPago";
-import MercadoPago from "../MercadoPago/MercadoPago";
-import FavoriteButton from "../Product/FavoriteButton";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -40,7 +38,7 @@ function Navbar() {
   });
   const navigate = useNavigate();
   const { cerrarSesion } = useAuth();
-
+  const toast = useToast();
   let user = JSON.parse(localStorage.getItem("info_user"));
 
   return (
@@ -226,20 +224,33 @@ function Navbar() {
                                       borderRadius={"full"}
                                       color="#FFFF"
                                       _hover={{ bg: "#242525", color: "#FFFF" }}
-                                      onClick={() =>
-                                        dispatch(
-                                          add_quantity_in_cart_local_storage(
-                                            elem
-                                          )
-                                        )
-                                      }
+                                      onClick={() => {
+                                        if (elem.cantidad >= elem.stock) {
+                                          toast({
+                                            position: "top",
+                                            title: "Lo sentimos!",
+                                            description:
+                                              "No tenemos mas stock de este producto :(",
+                                            status: "warning",
+                                            duration: 6000,
+                                            isClosable: true,
+                                          });
+                                        } else {
+                                          dispatch(
+                                            add_quantity_in_cart_local_storage(
+                                              elem
+                                            )
+                                          );
+                                        }
+                                      }}
                                     >
                                       +
                                     </Button>
-                                    <Text
-                                      mx="10px"
-                                      w={"95px"}
-                                    >{`$ ${elem.precio.PesosArg}`}</Text>
+                                    <Text mx="10px" w={"95px"}>
+                                      {typeof elem.precio === "Object"
+                                        ? `$ ${elem.precio.PesosArg}`
+                                        : `$ ${elem.precio}`}
+                                    </Text>
                                     <Box
                                       onClick={() =>
                                         dispatch(
@@ -257,7 +268,7 @@ function Navbar() {
                             </MenuItem>
                           );
                         })}
-                      <MenuItem display="block">
+                      <MenuItem display="block" closeOnSelect>
                         <Flex align="center" justify="center" h="100px">
                           <Text mx="10px" fontWeight={"extrabold"}>
                             Total:{" "}
@@ -266,9 +277,8 @@ function Navbar() {
                                 .reduce(
                                   (a, b) =>
                                     Number(b.cantidad) <= 1
-                                      ? a + Number(b.precio.PesosArg)
-                                      : a +
-                                        Number(b.precio.PesosArg) * b.cantidad,
+                                      ? a + Number(b.precio)
+                                      : a + Number(b.precio) * b.cantidad,
                                   0
                                 )
                                 .toFixed(2)}
