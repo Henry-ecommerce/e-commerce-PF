@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Flex,
   Box,
@@ -17,6 +17,8 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
 import AddToCart from "../AddToCardComponents/AddToCart";
+import ReviewStars from "../ReviewStars/ReviewStars";
+import axios from "axios";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import Slider from "react-slick";
 
@@ -49,7 +51,20 @@ function Product({
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    axios.get(`/review/:${id}`).then((res) => {
+      setReviews(res.data);
+    });
+  }, [id]);
+  
+  function displayRating() {
+    return Math.round(
+      reviews
+        .map((rtn) => rtn.rating)
+        .reduce((prev, number) => prev + number, 0) / reviews.length
+    );
+  }
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = useState(null);
@@ -163,19 +178,7 @@ function Product({
 							</Box>
 						</Link>
 						<Flex align={"center"}>
-							<Box fontSize={"2xl"}>
-								<AiFillStar />
-							</Box>
-							<Box fontSize={"2xl"}>
-								<AiFillStar />
-							</Box>
-							<Box fontSize={"2xl"}>
-								<AiFillStar />
-							</Box>
-							<Box fontSize={"2xl"} color="#9A9A9A">
-								<AiFillStar />
-							</Box>
-							(23)
+						<ReviewStars starRating={displayRating()} />({reviews.length})
 						</Flex>
 					</Stack>
 
