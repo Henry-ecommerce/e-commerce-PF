@@ -15,6 +15,7 @@ import {
   Center,
   Text,
 } from "@chakra-ui/react";
+import AddToCart from "../AddToCardComponents/AddToCart";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { FaEmber, FaShoppingCart } from "react-icons/fa";
@@ -23,6 +24,7 @@ import { product_to_review } from "../../Redux/Actions/index";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import Paths from "../Paths/Paths";
+import FavoriteButton from "../Product/FavoriteButton";
 
 function ProductDetail() {
   let { id } = useParams();
@@ -41,11 +43,9 @@ function ProductDetail() {
   useEffect(() => {
     axios.get(`productos/detail/${id}`).then((result) => {
       setProduct(result.data);
-      console.log(result.data);
     });
     axios.get(`/review/:${id}`).then((res) => {
       setReviews(res.data);
-      console.log("Reviews ", res.data);
     });
   }, [id]);
 
@@ -71,6 +71,15 @@ function ProductDetail() {
   if (product?.caracteristicas) {
     let a = Object?.entries(product?.caracteristicas);
     hola = a?.map((e) => e[0] + " : " + e[1]);
+  }
+
+  let precioFinal;
+
+  if (product.descuento === 0) {
+    precioFinal = product.precio;
+  } else {
+    let desc = product.precio?.PesosArg * (product.descuento / 100);
+    precioFinal = parseInt(product.precio?.PesosArg - desc);
   }
 
   if (typeof product === "object") {
@@ -127,24 +136,18 @@ function ProductDetail() {
               </Box>
 
               <Box>
+                <Box
+                  position={"relative"}
+                  m="0"
+                  top="10px"
+                  mb="10px"
+                  left="10px"
+                  ml="200px"
+                >
+                  <FavoriteButton productId={product.id} origin={"hola"} />
+                </Box>
                 <Stack direction="column">
-                  <Button
-                    position={"relative"}
-                    bg="#242525"
-                    color="#ECEDEC"
-                    borderRadius={"full"}
-                    p="10px"
-                    fontSize={"2xl"}
-                    m="0"
-                    top="10px"
-                    left="10px"
-                    ml="200px"
-                    w="45px"
-                  >
-                    <AiOutlineHeart />
-                  </Button>
-
-                  <Box alignContent="center" w="100%" p={3} boxSize="300px">
+                  <Box alignContent="center" mt="50px" w="100%" boxSize="300px">
                     <Image src={img ? img : product.imagen0} />
                   </Box>
                 </Stack>
@@ -159,46 +162,56 @@ function ProductDetail() {
                   <br />
                   <br />
                   <Box
-                    fontWeight="black"
-                    fontSize="x-large"
-                  >{`$ ${product.precio?.PesosArg}`}</Box>
+                    as="span"
+                    color={"#242525"}
+                    fontWeight="bold"
+                    fontSize="20px"
+                  >
+                    {product.descuento !== null && (
+                      <Text
+                        fontSize={"15px"}
+                        color="#9A9A9A"
+                        textDecoration={"line-through"}
+                      >{`Antes : $ ${product.precio?.PesosArg}`}</Text>
+                    )}
+                    {product.descuento !== null
+                      ? `Ahora : $ ${(
+                          product.precio?.PesosArg -
+                          (product?.precio?.PesosArg * product.descuento) / 100
+                        ).toFixed(2)}`
+                      : `$ ${product.precio?.PesosArg}`}
+                  </Box>
                   <br />
                   <br />
-                  <div>Espacio Para Promociones Bancarias</div>
                   <br />
                   <HStack spacing="15px">
-                    <AddToCartIcon
-                      nombre={product.nombre}
-                      precio={product.precio}
-                      marca={product.marca}
-                      imagen0={product.imagen0}
-                      id={product.id}
-                    />
+                    {product.stock > 0 ? (
+                      <AddToCartIcon
+                        nombre={product.nombre}
+                        precio={precioFinal}
+                        marca={product.marca}
+                        imagen0={product.imagen0}
+                        id={product.id}
+                        stock={product.stock}
+                      />
+                    ) : null}
+
                     <VStack spacing="15px">
-                      <Link to={`#`}>
-                        <Button
-                          bg="#242525"
-                          color="#ECEDEC"
-                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                          fontSize="small"
-                          w="150px"
-                        >
-                          COMPRAR
-                        </Button>
+                      <Link to="/user/carrito">
+                        {product.stock > 0 ? (
+                          <AddToCart
+                            nombre={product.nombre}
+                            precio={precioFinal}
+                            marca={product.marca}
+                            imagen0={product.imagen0}
+                            id={product.id}
+                            stock={product.stock}
+                            texto="COMPRAR AHORA"
+                          />
+                        ) : (
+                          <Text>Lo sentimos no hay stock de este producto</Text>
+                        )}
                       </Link>
-                      ;
-                      {/* <Link to={"/review"}>
-                        <Button
-                          bg="#242525"
-                          color="#ECEDEC"
-                          _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                          fontSize="small"
-                          w="150px"
-                          onClick={onReview}
-                        >
-                          Escribir Mi Opinión
-                        </Button>
-                      </Link> */}
                     </VStack>
                   </HStack>
                 </Flex>
