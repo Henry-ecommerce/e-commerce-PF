@@ -32,13 +32,6 @@ const HeaderOwner = () => {
         <li>
           <Link to="/owner/transaciones">Transaciones</Link>
         </li>
-
-        <li>
-          <Link to="/owner/baneos">Baneos</Link>
-        </li>
-        <li>
-          <Link to="/owner/UpdateRol">UpdateRol</Link>
-        </li>
         <li>
           <button type="button" onClick={cerrarSesion}>
             Cerrar sesion

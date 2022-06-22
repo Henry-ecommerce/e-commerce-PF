@@ -7,6 +7,7 @@ import { GrLocation } from "react-icons/gr";
 import { MdLogout } from "react-icons/md";
 import { BiShoppingBag, BiStoreAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
+
 const EditarPerfil = () => {
   let user = JSON.parse(localStorage.getItem("info_user"));
 

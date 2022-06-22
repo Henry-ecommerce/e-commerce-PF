@@ -506,34 +506,6 @@ let _productos = [
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-2.jpg",
   },
   {
-    id: 19,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video ASUS AMD Radeon RX 6800 XT TUF Gaming OC, 16GB 256-bit GDDR6, PCI Express 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "1310.27",
-      PesosMX: "25,819.00",
-      PesosArg: "157589.75",
-    },
-    caracteristicas: {
-      "Frecuencia del procesador": "1665 MHz",
-      "Frecuencia boost": "1770 MHz",
-      "Cantidad de puertos HDMI": "3",
-      "Cantidad de puertos DVI-I": "0",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 13,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-3.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-TUF-RX6800XT-O16G-GAMING-2.jpg",
-  },
-  {
     id: 20,
     descuento: 10,
     nombre:
@@ -644,34 +616,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/XL/CP-SAPPHIRE-11310-01-20G-9140ad.jpg",
   },
-  {
-    id: 24,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video PowerColor Fighter AMD Radeon RX 6600, 8GB 128-bit GDDR6, PCI Express 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "652.57",
-      PesosMX: "12,859.00",
-      PesosArg: "78486.64",
-    },
-    caracteristicas: {
-      "Frecuencia del procesador": "2044 MHz",
-      "Frecuencia boost": "2491 MHz",
-      "Cantidad de puertos HDMI": "1",
-      "Cantidad de puertos DVI-I": "0",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 2,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-POWERCOLOR-AXRX66008GBD6-3DH-d31522.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-POWERCOLOR-AXRX66008GBD6-3DH-085f77.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-POWERCOLOR-AXRX66008GBD6-3DH-eb0d1b.jpg",
-  },
+
   {
     id: 25,
     descuento: 10,
@@ -725,58 +670,6 @@ let _productos = [
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-2.jpg",
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-3.jpg",
-  },
-  {
-    id: 27,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video ASUS Dual AMD Radeon RX 6700 XT, 12GB 192-bit GDDR6, PCI Express 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "971.27",
-      PesosMX: "19,139.00",
-      PesosArg: "116817.47",
-    },
-    caracteristicas: {
-      "Cantidad de puertos HDMI": "1",
-      "Cantidad de puertos DVI-I": "0",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 2,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0G82-M0NA00-3.jpg",
-  },
-  {
-    id: 28,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video Gigabyte AMD Radeon RX 6600 Eagle 8G, 8GB 128-bit GDDR6, PCI Express x8 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "523.67",
-      PesosMX: "10,319.00",
-      PesosArg: "62983.41",
-    },
-    caracteristicas: {
-      "Frecuencia del procesador": "2491 MHz",
-      "Cantidad de puertos HDMI": "2",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 2,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-GIGABYTE-GV-R66EAGLE-8GD-689c41.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-87d74f.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-GIGABYTE-GV-R66EAGLE-8GD-c81bcb.jpg",
   },
   {
     id: 29,
@@ -833,61 +726,7 @@ let _productos = [
       "https://www.cyberpuerta.mx/img/product/XL/CP-POWERCOLOR-AXRX6800XT16GBD6-3DHROC-887dc6.jpg",
   },
   {
-    id: 31,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video ASUS AMD Radeon RX 6600 8GB 128 bit GDDR6, PCI Express 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "594.21",
-      PesosMX: "11,709.00",
-      PesosArg: "71467.46",
-    },
-    caracteristicas: {
-      "Frecuencia del procesador": "2044 MHz",
-      "Frecuencia boost": "2491 MHz",
-      "Cantidad de puertos HDMI": "1",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 2,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-ASUS-90YV0GP0-MTAA00-c7e36d.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-ASUS-90YV0GP0-MTAA00-3b366b.jpg",
-  },
-  {
     id: 32,
-    descuento: 10,
-    nombre:
-      "Tarjeta de Video Sapphire NITRO+ AMD Radeon RX 6600 XT Gaming OC, 8GB 128-bit GDDR6, PCI Express x16 4.0",
-    marca: "AMD",
-    precio: {
-      Dolares: "714.99",
-      PesosMX: "14089.00",
-      PesosArg: "85994.11",
-    },
-    caracteristicas: {
-      "Frecuencia del procesador": "2428 MHz",
-      "Frecuencia boost": "2607 MHz",
-      "Cantidad de puertos HDMI": "1",
-      "Cantidad de DisplayPorts": "3",
-    },
-    funciones: "Video",
-    stock: 2,
-    categoria: [{ nombre: "Tarjeta Grafica", id: 1 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAPPHIRE-11309-01-20G-3.jpg",
-  },
-  {
-    id: 33,
     descuento: 10,
     nombre:
       "Tarjeta de Video Sapphire NITRO+ AMD Radeon RX 6600 XT Gaming OC, 8GB 128-bit GDDR6, PCI Express x16 4.0",
@@ -1482,29 +1321,6 @@ let _productos = [
       "https://www.cyberpuerta.mx/img/product/XL/CP-LOGITECH-956-000036-8d3e67.jpg",
     imagen2:
       "https://www.cyberpuerta.mx/img/product/XL/CP-LOGITECH-956-000036-7a1da0.jpg",
-  },
-  {
-    id: 58,
-    descuento: 10,
-    nombre: "Mousepad Gamer Ocelot Gaming OMP01, 35 x 25cm, Grosor 3mm, Negro",
-    marca: "Logitech",
-    precio: {
-      Dolares: "14.56",
-      PesosMX: "287.00",
-      PesosArg: "1751.74",
-    },
-    caracteristicas: {
-      "Color del producto": "Lavanda",
-    },
-    funciones: "Mousepads",
-    stock: 2,
-    categoria: [{ nombre: "Mousepads", id: 2 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OMP01-1.jpg",
   },
   {
     id: 59,
@@ -2187,31 +2003,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931441-1.jpg",
   },
-  {
-    id: 55,
-    descuento: null,
-    nombre: "Mousepad Gamer HyperX FURY S Pro XL, 90x42cm, Grosor 4mm, Negro",
-    marca: "Gamer Primus",
-    precio: {
-      Dolares: "24.36",
-      PesosMX: "480.00",
-      PesosArg: "2929.74",
-    },
-    caracteristicas: {
-      Ancho: "900 mm",
-      Grosor: "4 mm",
-      "Color del producto": "Negro",
-    },
-    funciones: "Mousepads",
-    stock: 2,
-    categoria: [{ nombre: "Mousepads", id: 2 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-HYPERX-HX-MPFS-XL-3.jpg",
-  },
+
   {
     id: 72,
     descuento: null,
@@ -2774,34 +2566,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGS-68808-3.jpg",
   },
-  {
-    id: 106,
-    descuento: null,
-    nombre:
-      "Gabinete Acteck Ultron X RGB, Micro Tower, micro ATX/Mini-ITX, USB 3.2, incluye Fuente de 500W, Negro",
-    marca: "Naceb",
-    precio: {
-      Dolares: "38.01",
-      PesosMX: "749.00",
-      PesosArg: "4571.62",
-    },
-    caracteristicas: {
-      "Tarjetas madre soportada": "Full-Tower",
-      "Cantidad de puertos USB 3.0": "2",
-      "Disco duro soportado": "2.5",
-      "Ventiladores frontales instalados": "3x 120 mm",
-      "Color del producto": "Negro",
-    },
-    funciones: "Gabinetes",
-    stock: 2,
-    categoria: [{ nombre: "Gabinetes", id: 5 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-3.jpg",
-  },
+
   {
     id: 107,
     descuento: null,
@@ -2830,34 +2595,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-3.jpg",
   },
-  {
-    id: 108,
-    descuento: null,
-    nombre:
-      "Gabinete Acteck Ultron X RGB, Micro Tower, micro ATX/Mini-ITX, USB 3.2, incluye Fuente de 500W, Negro",
-    marca: "Acteck",
-    precio: {
-      Dolares: "38.01",
-      PesosMX: "749.00",
-      PesosArg: "4571.62",
-    },
-    caracteristicas: {
-      "Tarjetas madre soportada": "Full-Tower",
-      "Cantidad de puertos USB 3.0": "2",
-      "Disco duro soportado": "2.5",
-      "Ventiladores frontales instalados": "3x 120 mm",
-      "Color del producto": "Negro",
-    },
-    funciones: "Gabinetes",
-    stock: 2,
-    categoria: [{ nombre: "Gabinetes", id: 5 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-929547-3.jpg",
-  },
+
   {
     id: 109,
     descuento: null,
@@ -2886,64 +2624,9 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-OCELOTGAMING-OGEC01-3.jpg",
   },
-  {
-    id: 111,
-    descuento: null,
-    nombre:
-      "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
-    marca: "Corsair",
-    precio: {
-      Dolares: "38.52",
-      PesosMX: "759",
-      PesosArg: "4632.66",
-    },
-    caracteristicas: {
-      "Tarjetas madre soportada": "ATX,Micro ATX,Mini-ITX",
-      "Cantidad de puertos USB 3.0": "2",
-      "Disco duro soportado": "2.5",
-      "Ventiladores frontales instalados": "3x 120 mm",
-      "Color del producto": "Negro",
-    },
-    funciones: "Gabinetes",
-    stock: 2,
-    categoria: [{ nombre: "Gabinetes", id: 5 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-3.jpg",
-  },
+
   {
     id: 110,
-    descuento: null,
-    nombre:
-      "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
-    marca: "Yeyian",
-    precio: {
-      Dolares: "38.52",
-      PesosMX: "759",
-      PesosArg: "4632.66",
-    },
-    caracteristicas: {
-      "Tarjetas madre soportada": "ATX,Micro ATX,Mini-ITX",
-      "Cantidad de puertos USB 3.0": "2",
-      "Disco duro soportado": "2.5",
-      "Ventiladores frontales instalados": "3x 120 mm",
-      "Color del producto": "Negro",
-    },
-    funciones: "Gabinetes",
-    stock: 2,
-    categoria: [{ nombre: "Gabinetes", id: 5 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YGV-68811-3.jpg",
-  },
-  {
-    id: 112,
     descuento: null,
     nombre:
       "Gabinete Yeyian Vortex 1200 con Ventana Lateral Acrilico y Cristal Templado Frontal, Midi-Tower, ATX, USB 2.0/3.1, sin Fuente, Negro",
@@ -3054,34 +2737,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-DEEPCOOL-DP-ATX-MATREXX50-AR-4F-NE-3.jpg",
   },
-  {
-    id: 116,
-    descuento: null,
-    nombre:
-      "Gabinete Yeyian Haizen 2500 con Ventana, Midi-Tower, Micro ATX/Mini-ATX, USB 3.0, sin Fuente, Blanco",
-    marca: "DeepCool",
-    precio: {
-      Dolares: "50",
-      PesosMX: "1000",
-      PesosArg: "6103.63",
-    },
-    caracteristicas: {
-      "Tarjetas madre soportada": "ATX,Micro ATX,Mini-ITX",
-      "Cantidad de puertos USB 3.0": "2",
-      "Disco duro soportado": "2.5",
-      "Ventiladores frontales instalados": "3x 120 mm",
-      "Color del producto": "Blamco",
-    },
-    funciones: "Gabinetes",
-    stock: 2,
-    categoria: [{ nombre: "Gabinetes", id: 5 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-YEYIAN-YCH-042820-3.jpg",
-  },
+
   {
     id: 117,
     descuento: null,
@@ -3521,32 +3177,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/XL/CP-COOLERMASTER-MFX-B2DR-18NPA-R1-587479.jpg",
   },
-  {
-    id: 135,
-    descuento: null,
-    nombre:
-      "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
-    marca: "Game Factor",
-    precio: {
-      Dolares: "25.83",
-      PesosMX: "509.00",
-      PesosArg: "3106.75",
-    },
-    caracteristicas: {
-      "Nivel de ruido": "27 dB",
-      "Diámetro de ventilador": "12 cm",
-      "Iluminación de color": "Rojo/Verde/Azul",
-    },
-    funciones: "Ventiladores",
-    stock: 2,
-    categoria: [{ nombre: "Ventiladores", id: 7 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-3.jpg",
-  },
+
   {
     id: 235,
     descuento: null,
@@ -3573,58 +3204,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/XS/CP-KINGSTON-SNVS250G-3.jpg",
   },
-  {
-    id: 136,
-    descuento: null,
-    nombre:
-      "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
-    marca: "Game Factor",
-    precio: {
-      Dolares: "25.83",
-      PesosMX: "509.00",
-      PesosArg: "3106.75",
-    },
-    caracteristicas: {
-      "Nivel de ruido": "27 dB",
-      "Diámetro de ventilador": "12 cm",
-      "Iluminación de color": "Rojo/Verde/Azul",
-    },
-    funciones: "Ventiladores",
-    stock: 2,
-    categoria: [{ nombre: "Ventiladores", id: 7 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-3.jpg",
-  },
-  {
-    id: 137,
-    descuento: null,
-    nombre:
-      "Ventilador Balam Rush EOLOX AIR 3 ARGB LED, 120mm, 1200RPM, Negro - 3 Piezas, incluye Control",
-    marca: "Game Factor",
-    precio: {
-      Dolares: "25.83",
-      PesosMX: "509.00",
-      PesosArg: "3106.75",
-    },
-    caracteristicas: {
-      "Nivel de ruido": "27 dB",
-      "Diámetro de ventilador": "12 cm",
-      "Iluminación de color": "Rojo/Verde/Azul",
-    },
-    funciones: "Ventiladores",
-    stock: 2,
-    categoria: [{ nombre: "Ventiladores", id: 7 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-BALAMRUSH-BR-931335-3.jpg",
-  },
+
   {
     id: 138,
     descuento: null,
@@ -3876,7 +3456,7 @@ let _productos = [
     id: 147,
     descuento: null,
     nombre:
-      "arjeta Madre AORUS XL-ATX X299X Xtreme Waterforce, S-2066, Intel X299 Express, max. 256GB DDR4 para Intel",
+      "Tarjeta Madre AORUS XL-ATX X299X Xtreme Waterforce, S-2066, Intel X299 Express, max. 256GB DDR4 para Intel",
     marca: "Intel",
     precio: {
       Dolares: "1792.89",
@@ -3930,113 +3510,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-ASUS-90MB10N0-M0AAY0-3.jpg",
   },
-  {
-    id: 149,
-    descuento: null,
-    nombre:
-      "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
-    marca: "Intel",
-    precio: {
-      Dolares: "88.76",
-      PesosMX: "1,749.00",
-      PesosArg: "10675.26",
-    },
-    caracteristicas: {
-      "Familia de procesador": "Intel",
-      "Circuito integrado de tarjeta madre": "Intel H410",
-      "Socket de procesador": "LGA 1200",
-      "Circuito integrado": "Intel H410",
-      " Memoria interna, máxima": "64 GB",
-      " Tipo de memoria": "DDR4-SDRAM",
-    },
-    funciones: "Tarjetas-Madre",
-    stock: 2,
-    categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
-    imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
-    imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
-    imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
-  },
-  {
-    id: 150,
-    descuento: null,
-    nombre:
-      "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
-    marca: "Intel",
-    precio: {
-      Dolares: "88.76",
-      PesosMX: "1,749.00",
-      PesosArg: "10675.26",
-    },
-    caracteristicas: {
-      "Familia de procesador": "Intel",
-      "Circuito integrado de tarjeta madre": "Intel H410",
-      "Socket de procesador": "LGA 1200",
-      "Circuito integrado": "Intel H410",
-      " Memoria interna, máxima": "64 GB",
-      " Tipo de memoria": "DDR4-SDRAM",
-    },
-    funciones: "Tarjetas-Madre",
-    stock: 2,
-    categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
-    imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
-    imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
-    imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
-  },
-  {
-    id: 151,
-    descuento: null,
-    nombre:
-      "Tarjeta Madre MSI Micro-ATX B365M PRO-VDH, S-1151, Intel B365, HDMI, 64GB DDR4 para Intel",
-    marca: "Intel",
-    precio: {
-      Dolares: "88.76",
-      PesosMX: "1,749.00",
-      PesosArg: "10675.26",
-    },
-    caracteristicas: {
-      "Familia de procesador": "Intel",
-      "Circuito integrado de tarjeta madre": "Intel H410",
-      "Socket de procesador": "LGA 1200",
-      "Circuito integrado": "Intel H410",
-      " Memoria interna, máxima": "64 GB",
-      " Tipo de memoria": "DDR4-SDRAM",
-    },
-    funciones: "Tarjetas-Madre",
-    stock: 2,
-    categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
-    imagen0: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-1.png",
-    imagen1: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-2.png",
-    imagen2: "https://www.cyberpuerta.mx/img/product/M/CP-MSI-7C39-001R-3.png",
-  },
-  {
-    id: 152,
-    descuento: null,
-    nombre:
-      "Tarjeta Madre AORUS micro ATX B450 AORUS M (rev. 1.0), S-AM4, AMD B450, HDMI, 64GB DDR4 para AMD ",
-    marca: "AMD",
-    precio: {
-      Dolares: "106.52",
-      PesosMX: "2099.00",
-      PesosArg: "12811.53",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD",
-      "Circuito integrado de tarjeta madre": "AMD B450",
-      "Socket de procesador": "Socket AM4",
-      "Circuito integrado": "AMD B450",
-      " Memoria interna, máxima": "64 GB",
-      " Tipo de memoria": "DDR4-SDRAM",
-    },
-    funciones: "Tarjetas-Madre",
-    stock: 2,
-    categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-AORUS-B450AORUSM-3.jpg",
-  },
+
   {
     id: 153,
     descuento: null,
@@ -4240,35 +3714,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-3.jpg",
   },
-  {
-    id: 160,
-    descuento: null,
-    nombre:
-      "Tarjeta Madre MSI ATX MAG B550 TOMAHAWK, S-AM4, AMD B550, HDMI, 128GB DDR4 para AMD",
-    marca: "AMD",
-    precio: {
-      Dolares: "174.04",
-      PesosMX: "13459.00",
-      PesosArg: "28905.20",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD",
-      "Circuito integrado de tarjeta madre": "AMD B550",
-      "Socket de procesador": "Socket AM4",
-      "Circuito integrado": "AMD B550",
-      " Memoria interna, máxima": "64 GB",
-      " Tipo de memoria": "DDR4-SDRAM",
-    },
-    funciones: "Tarjetas-Madre",
-    stock: 2,
-    categoria: [{ nombre: "Tarjetas-Madre", id: 9 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-MSI-MAGB550TOMAHAWK-3.jpg",
-  },
+
   {
     id: 161,
     descuento: null,
@@ -4524,174 +3970,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTRMR38GBRENOIRW-3.jpg",
   },
-  {
-    id: 170,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
-  {
-    id: 171,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
-  {
-    id: 172,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
-  {
-    id: 173,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
-  {
-    id: 174,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
-  {
-    id: 175,
-    descuento: null,
-    nombre:
-      "Computadora Gamer Xtreme PC Gaming CM-50156, AMD Ryzen 5 5600X 3.70GHz, 16GB, 1TB + 500GB SSD, AMD Radeon RX 6600 XT, Windows 10 Prueba",
-    marca: "AMD",
-    precio: {
-      Dolares: "500",
-      PesosMX: "10000",
-      PesosArg: "61036.35",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 5 PRO",
-      "Frecuencia del procesador": "3.70 GHz",
-      "Memoria interna": "8 GB",
-      "Capacidad total de almacenaje": "1000 GB",
-      "Sistema operativo instalado": "Windows 10 Prueba",
-    },
-    funciones: "PC-s-Gamer",
-    stock: 2,
-    categoria: [{ nombre: "PC-s-Gamer", id: 10 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-XTREMEPCGAMING-XTCOR516GB6600XTB-eb79a8.jpg",
-  },
+
   {
     id: 176,
     descuento: null,
@@ -4854,33 +4133,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/XL/CP-INTEL-BX8071512900KF-fb1bb6.jpg",
   },
-  {
-    id: 182,
-    descuento: null,
-    nombre:
-      "Procesador Intel Core i9-12900KF, S-1700, 3.20GHz, 16-Core, 30MB Smart Cache (12va Generación - Alder Lake)",
-    marca: "Intel",
-    precio: {
-      Dolares: "606.90",
-      PesosMX: "11,959.00",
-      PesosArg: "72993.37",
-    },
-    caracteristicas: {
-      "Familia de procesador": "AMD Ryzen 9",
-      "Modelo del procesador": "5600G",
-      "Socket de procesador": "Socket AM4",
-      "Número de núcleos": "6",
-    },
-    funciones: "Procesadores",
-    stock: 2,
-    categoria: [{ nombre: "Procesadores", id: 11 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8071512900KF-2beebf.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/XL/CP-INTEL-BX8071512900KF-fb1bb6.jpg",
-  },
+
   {
     id: 185,
     descuento: null,
@@ -4937,34 +4190,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-3.jpg",
   },
-  {
-    id: 187,
-    descuento: null,
-    nombre:
-      "Procesador Intel Core i9-10900F, S-1200, 2.80GHz, 10-Core, 20MB SmartCache (10ma Generación - Comet Lake)",
-    marca: "Intel",
-    precio: {
-      Dolares: "386.14",
-      PesosMX: "7,609.00",
-      PesosArg: "46442.56",
-    },
-    caracteristicas: {
-      "Familia de procesador": "Intel® Core™ i9-10xxx",
-      "Modelo del procesador": "i9-10900K",
-      "Frecuencia del procesador": "3.7 GHz",
-      "Socket de procesador": "LGA 1200",
-      "Número de núcleos": "10",
-    },
-    funciones: "Procesadores",
-    stock: 2,
-    categoria: [{ nombre: "Procesadores", id: 11 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-INTEL-BX8070110900F-3.jpg",
-  },
+
   {
     id: 188,
     descuento: null,
@@ -5328,34 +4554,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-006021-3.jpg",
   },
-  {
-    id: 206,
-    descuento: null,
-    nombre:
-      "Mouse Gamer Logitech Óptico G305, Inalámbrico, USB, 12.000DPI, Negro",
-    marca: "Logitech",
-    precio: {
-      Dolares: "34.46",
-      PesosMX: "679.00",
-      PesosArg: "4144.37",
-    },
-    caracteristicas: {
-      Tecnología: "Óptico",
-      "Resolución de movimiento": "12000 DPI",
-      "Tecnología de conectividad": "Inalámbrico",
-      "Cantidad de botones": "6",
-      "Color del producto": "Lila",
-    },
-    funciones: "Mouse",
-    stock: 2,
-    categoria: [{ nombre: "Mouse", id: 12 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-LOGITECH-910-005281-3.jpg",
-  },
+
   {
     id: 208,
     descuento: null,
@@ -5383,33 +4582,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-3.jpg",
   },
-  {
-    id: 209,
-    descuento: null,
-    nombre: "Mouse Dell Láser MS3220, Alámbrico, USB, 3200DPI, Negro",
-    marca: "Dell Láser",
-    precio: {
-      Dolares: "8.12",
-      PesosMX: "160.00",
-      PesosArg: "976.58",
-    },
-    caracteristicas: {
-      Tecnología: "Óptico",
-      "Resolución de movimiento": "12000 DPI",
-      "Tecnología de conectividad": "Inalámbrico",
-      "Cantidad de botones": "6",
-      "Color del producto": "Lila",
-    },
-    funciones: "Mouse",
-    stock: 2,
-    categoria: [{ nombre: "Mouse", id: 12 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-NACEBTECHNOLOGY-NA-630-3.jpg",
-  },
+
   {
     id: 210,
     descuento: null,
@@ -5989,35 +5162,7 @@ let _productos = [
     imagen2:
       "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-3.jpg",
   },
-  {
-    id: 228,
-    descuento: null,
-    nombre:
-      "Monitor Curvo Samsung LC24F390FHL LED 23.5'', Full HD, Widescreen, FreeSync, HDMI, Negro",
-    marca: "Samsung",
-    precio: {
-      Dolares: "214.22",
-      PesosMX: "4189",
-      PesosArg: "25850.26",
-    },
-    caracteristicas: {
-      "Diagonal de la pantalla": "68,6 cm (27)",
-      "Tipo HD": "4K Ultra HD",
-      Resolución: "3840 x 2160 Pixeles",
-      "Tiempo de respuesta": "5 ms",
-      "Velocidad de actualización": "60 Hz",
-      "Cantidad de puertos HDMI": "2",
-    },
-    funciones: "Monitores",
-    stock: 2,
-    categoria: [{ nombre: "Monitores", id: 16 }],
-    imagen0:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-1.jpg",
-    imagen1:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-2.jpg",
-    imagen2:
-      "https://www.cyberpuerta.mx/img/product/M/CP-SAMSUNG-LC24F390FHLXZX-3.jpg",
-  },
+
   {
     id: 229,
     descuento: null,
@@ -6438,7 +5583,8 @@ router.get("/", async (req, res) => {
         });
         return res.send(
           search_products?.filter(
-            (elem) => elem?.Categoria[0]?.nombre === nombre[1] && elem?.stock > 0
+            (elem) =>
+              elem?.Categoria[0]?.nombre === nombre[1] && elem?.stock > 0
           )
         );
       }
@@ -6484,7 +5630,11 @@ router.get("/:name", async (req, res) => {
         res.json(
           search_products
             .filter((e) => e.stock > 0)
-            .map((elm) => elm.nombre.length > 40 ? elm.nombre.slice(0, (elm.nombre.length * 40) / 100) : elm.nombre)
+            .map((elm) =>
+              elm.nombre.length > 40
+                ? elm.nombre.slice(0, (elm.nombre.length * 40) / 100)
+                : elm.nombre
+            )
             .slice(0, 9)
         );
       } else {

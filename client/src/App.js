@@ -47,10 +47,9 @@ import OrdenesOwner from "./Components/OwnerPanel/OrdenesOwner/OrdenesOwner";
 import UserOwner from "./Components/OwnerPanel/UserOwner/UserOwner";
 import VentasOwner from "./Components/OwnerPanel/VentasOwner/VentasOwner";
 import TransacionesOwner from "./Components/OwnerPanel/Transaciones/TransacionesOwner";
-import UpdateRangos from "./Components/OwnerPanel/UpdateRango/UpdateRango";
-import Baneos from "./Components/OwnerPanel/Baneos/Baneos";
 import ObtenerProductosOwner from "./Components/OwnerPanel/ObtenerProductosOwner/ObtenerProductosOwner";
 import AdministrarProductosOwner from "./Components/OwnerPanel/PanelOwner/AdministrarProductosOwner";
+import PerfilUserOwner from "./Components/OwnerPanel/PerfilUserOwner/PerfilUserOwner";
 
 function App() {
   return (
@@ -108,10 +107,9 @@ function App() {
           <Route path="categorias" element={<CategoriasOwner />} />
           <Route path="ordenes" element={<OrdenesOwner />} />
           <Route path="users" element={<UserOwner />} />
+          <Route path="users/perfil/:id" element={<PerfilUserOwner />} />
           <Route path="ventas" element={<VentasOwner />} />
           <Route path="transaciones" element={<TransacionesOwner />} />
-          <Route path="UpdateRol" element={<UpdateRangos />} />
-          <Route path="Baneos" element={<Baneos />} />
           <Route path="perfil" element={<EditarPerfil />} />
         </Route>
 
