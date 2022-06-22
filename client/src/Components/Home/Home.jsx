@@ -55,8 +55,8 @@ const Home = () => {
 
   return (
     <>
-     <Box position="fixed" zIndex={"2000"}>
-        <Box position={"absolute"} left="calc(98vw - 360px)" top={"100px"}>
+     <Box position="fixed" zIndex={"2000"} left="calc(98vw - 360px)" top="calc(98vh - 600px)">
+        <Box position={"absolute"}  top={"100px"}>
             <Flex ml="10px" display={ visible ? "visible" : "none"}>
                 <MensajesAutomaticos></MensajesAutomaticos>
             </Flex>
@@ -67,12 +67,9 @@ const Home = () => {
             </Box>
         </Box>
     </Box> 
-      <Box width="70vw" ml="auto" mr="auto" mb="20px" textAlign={"center"}><FrontPageSlide></FrontPageSlide></Box>
-      <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-
-        <div>
+      <Box mb="20px" textAlign={"center"}><FrontPageSlide></FrontPageSlide></Box>
+      <Box width="70vw" maxWidth="1440px" ml="auto" mr="auto" fontSize="2.5em" fontWeight="550">
           <Text fontSize={"25px"}>Productos en oferta</Text>
-        </div>
       </Box>
       <Box mt="25px" mb="25px">
         <Carousel items={productos_descuento[0]} />
@@ -80,24 +77,24 @@ const Home = () => {
 
       <Box
         width="auto"
-        height="174px"
-        mt="25px"
-        mb="25px"
+        height="fit-content"
+        minHeight="174px"
+        m={"25px auto 25px auto"}
         borderTop=" 2px solid #D9D9D9"
         borderBottom="2px solid #D9D9D9"
       >
-        <div>
           <Flex
-            justifyContent="space-evenly"
-            align="center"
+          m={"0px auto 0px auto"}
+            width="60vw"
+            maxWidth="1440px"
+            justifyContent="space-between"
             wrap="wrap"
-            height="174px"
+            minHeight="174px"
+            height="fit-content"
             color="#9A9A9A"
             fontSize="calc(20px + 0.5vw)"
-            pl="150px"
-            pr="150px"
           >
-            <Flex align="center">
+            <Flex align="center" mt="10px" mb="5px">
               <Box fontSize="40px" mr="15px">
                 <AiOutlineEnvironment />{" "}
               </Box>
@@ -107,7 +104,7 @@ const Home = () => {
               </Text>
             </Flex>
 
-            <Flex align="center">
+            <Flex align="center" mt="10px" mb="10px">
               <Box fontSize="40px" mr="15px">
                 <AiOutlineCreditCard />
               </Box>
@@ -118,7 +115,7 @@ const Home = () => {
               </Text>
             </Flex>
 
-            <Flex align="center">
+            <Flex align="center" mt="5px" mb="10px">
               <Box fontSize="40px" mr="15px">
                 <AiOutlineCheckCircle />
               </Box>
@@ -129,22 +126,17 @@ const Home = () => {
               </Text>
             </Flex>
           </Flex>
-        </div>
       </Box>
 
-      <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-        <div>
+      <Box width="70vw" maxWidth="1440px" ml="auto" mr="auto" fontSize="2.5em" fontWeight="550"  >
           <Text fontSize="25px">Mas Vendidos</Text>
-        </div>
       </Box>
       <Box mt="25px" mb="25px">
         <Carousel items={division[0]} />
       </Box>
 
-      <Box width="70vw" fontSize="2.5em" fontWeight="550" ml="auto" mr="auto">
-        <div>
+      <Box width="70vw" maxWidth="1440px" ml="auto" mr="auto" fontSize="2.5em" fontWeight="550">
           <Text fontSize="25px">Ultimas Unidades</Text>
-        </div>
       </Box>
       <Box mt="25px" mb="25px">
         <Carousel items={productos_pocas_unidades[0]} />
