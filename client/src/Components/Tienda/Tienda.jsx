@@ -35,13 +35,21 @@ const Tienda = () => {
     <>
     <SearchBar/>
 
-    <p>{currentProducts.length ? null : "no hay productos"}</p>
+    
 
     <div className={estilo.paths}><Paths></Paths></div>
 
+       <div className={estilo.paginado}>
+        <Paginado 
+            productsPage={productsPage}
+            allProducts={allProducts.length}
+            paginado={paginado}
+    />
+    </div>
     <div className={estilo.contenedor_general}>
        <div className={estilo.contenedor_filtros}><Filtros_Ordenamientos/></div>
     
+
        {/* <div className={estilo.contenedor_productos}>{(filtrados).map((e,i) => <div className={estilo.producto} key={i}><Product {...e}/></div>)}</div> */}
     { loading ? "Cargando" /* aca podria ir un gif de cargando o algo asi... */:
         <ul>
@@ -52,7 +60,7 @@ const Tienda = () => {
         ))}
         </ul>
     }
-
+        <div className={!currentProducts.length ? estilo.sin_resultados : estilo.display_none}>"No hay productos"</div>
     </div>
     <div className={estilo.paginado}>
         <Paginado 
