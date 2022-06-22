@@ -62,22 +62,22 @@ router.get("/", async (req, res) => {
 
     console.log("LLEGUE HASTA ACA!");
     if (pedido.payments[0].status === "approved") {
-      // emailCompraUser({
-      //   email: user.email,
-      //   name: user.name,
-      // });
+      emailCompraUser({
+        email: user.email,
+        name: user.name,
+      });
 
-      // emailCompraAdmin({
-      //   email2: "sdmoreno51@gmail.com",
-      //   email: user.email,
-      //   name: user.name,
-      // });
+      emailCompraAdmin({
+        email2: "sdmoreno51@gmail.com",
+        email: user.email,
+        name: user.name,
+      });
       return res.redirect(`${FRONTEND_URL}/pagoss/aceptado`);
     } else {
-      // emailPagoDenegado({
-      //   email: user.email,
-      //   name: user.name,
-      // });
+      emailPagoDenegado({
+        email: user.email,
+        name: user.name,
+      });
       return res.redirect(`${FRONTEND_URL}/pagoss/denegado`);
     }
   } catch (err) {
