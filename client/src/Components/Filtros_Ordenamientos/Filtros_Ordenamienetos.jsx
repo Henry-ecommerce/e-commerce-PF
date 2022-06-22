@@ -10,6 +10,7 @@ const Filtros_Ordenamientos = () => {
   const [marcas, setMarcas] = useState([]);
   const [minmax, setMinmax] = useState({});
   const [errormm, setErrormm] = useState("");
+  const [ver, setVer] = useState(false);
   const { categoriaobusqueda, page } = useParams();
   const { filtrados, searched_products } = useSelector((state) => state);
   const navigate = useNavigate();
@@ -110,22 +111,41 @@ const Filtros_Ordenamientos = () => {
               <option>Nombre</option>
               <option>Menor precio</option>
               <option>Mayor precio</option>
-              <option>Descuento</option>
-              <option>Calificacion</option>
+              {/* <option>Descuento</option> */}
+              {/* <option>Calificacion</option> */}
             </select>
           </label>
           <div className={estilos.contenedor_inputs}>
             <p>Marca</p>
-            {marcas?.map((e, i) => (
-              <label key={i}>
-                <input
-                  onChange={(e) => onCheck(e)}
-                  name={e}
-                  type="checkbox"
-                ></input>{" "}
-                {e}
-              </label>
-            ))}
+            {marcas?.map((e, i) => {
+              return i >= 5 ? (
+                <label className={ver ? null : estilos.no_visible} key={i}>
+                  <input
+                    onChange={(e) => onCheck(e)}
+                    name={e}
+                    type="checkbox"
+                  ></input>{" "}
+                  {e}
+                </label>
+              ) : (
+                <label key={i}>
+                  <input
+                    onChange={(e) => onCheck(e)}
+                    name={e}
+                    type="checkbox"
+                  ></input>{" "}
+                  {e}
+                </label>
+              );
+            })}
+            {marcas?.length >= 5 ? (
+              <span
+                className={estilos.boton_ver}
+                onClick={(e) => setVer(ver ? false : true)}
+              >
+                {ver ? "Ocultar" : "Ver todos"}
+              </span>
+            ) : null}
           </div>
           <form onSubmit={(e) => handleOnSubmit(e)}>
             <br />

@@ -14,7 +14,6 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import Registro from "./Components/Registro/Registro";
 import ConfirmarCuenta from "./Components/ConfirmarCuenta/ConfirmarCuenta";
 import AdministrarProductos from "./Components/AdminPanel/AdministrarProductos/AdministrarProductos";
-import AdministrarProductosOwner from "./Components/AdminPanel/AdministrarProductos/AdministrarProductosOwner";
 import EditarPerfil from "./Components/EditarPerfil/EditarPerfil";
 import CambiasPassw from "./Components/CambiasPassw/CambiasPassw";
 import Pruevas from "./Components/Pruevas/Pruevas";
@@ -41,6 +40,16 @@ import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 import ErrorRutas from "./Components/ErrorRutas/ErrorRutas";
 import PagoConfirmado from "./Components/PagoMercadiLibre/PagoAprevado/PagoConfirmado";
 import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado/PagoDenegado";
+import EditProctoOwner from "./Components/OwnerPanel/EditProctoOwner/EditProctoOwner";
+import AgregarProductoOwner from "./Components/OwnerPanel/AgregarProductoOwner/AgregarProductoOwner";
+import CategoriasOwner from "./Components/OwnerPanel/CategoriasOwner/CategoriasOwner";
+import OrdenesOwner from "./Components/OwnerPanel/OrdenesOwner/OrdenesOwner";
+import UserOwner from "./Components/OwnerPanel/UserOwner/UserOwner";
+import VentasOwner from "./Components/OwnerPanel/VentasOwner/VentasOwner";
+import TransacionesOwner from "./Components/OwnerPanel/Transaciones/TransacionesOwner";
+import ObtenerProductosOwner from "./Components/OwnerPanel/ObtenerProductosOwner/ObtenerProductosOwner";
+import AdministrarProductosOwner from "./Components/OwnerPanel/PanelOwner/AdministrarProductosOwner";
+import PerfilUserOwner from "./Components/OwnerPanel/PerfilUserOwner/PerfilUserOwner";
 
 function App() {
   return (
@@ -92,7 +101,16 @@ function App() {
 
         <Route path="/owner" element={<HomeOwner />}>
           <Route index element={<AdministrarProductosOwner />} />
-          <Route path="perfil" element={<Pruevas />} />
+          <Route path="edit" element={<ObtenerProductosOwner />} />
+          <Route path="edit/producto" element={<EditProctoOwner />} />
+          <Route path="agregar" element={<AgregarProductoOwner />} />
+          <Route path="categorias" element={<CategoriasOwner />} />
+          <Route path="ordenes" element={<OrdenesOwner />} />
+          <Route path="users" element={<UserOwner />} />
+          <Route path="users/perfil/:id" element={<PerfilUserOwner />} />
+          <Route path="ventas" element={<VentasOwner />} />
+          <Route path="transaciones" element={<TransacionesOwner />} />
+          <Route path="perfil" element={<EditarPerfil />} />
         </Route>
 
         <Route path="/map" element={<Map />} />

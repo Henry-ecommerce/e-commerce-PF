@@ -43,6 +43,10 @@ let Usuarios = (sequelize) =>
       direccion: {
         type: DataTypes.TEXT,
       },
+      baneo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
     },
     { timestamps: false }
   );

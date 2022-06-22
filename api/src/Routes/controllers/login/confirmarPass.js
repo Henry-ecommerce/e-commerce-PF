@@ -22,7 +22,7 @@ router.get("/:token", async (req, res) => {
     await usuarioConfirmar.save();
     return res.json({ msg: "Cuenta confirmada correctamente" });
   } catch (error) {
-    res.status(400).json({ msg: `Peticion no valida ${error}` });
+    res.status(400).json({ msg: `Peticion no valida ${error.message}` });
   }
 });
 

@@ -61,9 +61,14 @@ function Navbar() {
             <MenuItem>
               <Link to="/#">Pedido</Link>
             </MenuItem>
-            {(user?.rol === "Admin" || user?.rol === "Owner") && (
+            {user?.rol === "Admin" && (
               <MenuItem>
                 <Link to="/admin/categorias">Admin</Link>
+              </MenuItem>
+            )}
+            {user?.rol === "Owner" && (
+              <MenuItem>
+                <Link to="/owner/categorias">Admin</Link>
               </MenuItem>
             )}
           </MenuList>
@@ -81,8 +86,11 @@ function Navbar() {
               <Link to="/#">Pedido</Link>
             </Box>
             <Box mx="15px">
-              {(user?.rol === "Admin" || user?.rol === "Owner") && (
-                <Link to="/admin/edit">Admin</Link>
+              {user?.rol === "Admin" && (
+                <Link to="/admin/edit">Panel Admin</Link>
+              )}
+              {user?.rol === "Owner" && (
+                <Link to="/owner/edit">Panel Owner</Link>
               )}
             </Box>
           </Flex>

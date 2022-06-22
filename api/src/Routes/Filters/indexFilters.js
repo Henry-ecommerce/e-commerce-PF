@@ -23,8 +23,9 @@ router.get("/", async (req, res) => {
                 include: Categoria,
                 order: [["nombre", "ASC"]]
             });
-            allProducts = allProducts?.filter(elem => elem.Categoria[0].nombre === categoryorsearch?.split("category=")[1])
-            
+            // allProducts = allProducts?.filter(elem => elem.Categoria[0].nombre === categoryorsearch?.split("category=")[1])
+            // allProducts = allProducts?.filter(elem => elem?.Categoria?.includes(categoryorsearch?.split("category=")[1]))\
+            allProducts = allProducts?.filter(elem => elem.Categoria.find(e => e.nombre === categoryorsearch?.split("category=")[1]))
             if(marca) allProducts = allProducts?.filter(elem => Array.isArray(marca)? marca.includes(elem.marca) : elem.marca === marca);
 
             if(minmax) {
