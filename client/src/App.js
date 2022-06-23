@@ -39,8 +39,8 @@ import Carrito from "./Components/Carrito/Carrito";
 import MisCompras from "./Components/MisCompras/MisCompras";
 import FormMercadoPago from "./Components/MercadoPago/FormularioPago";
 import ErrorRutas from "./Components/ErrorRutas/ErrorRutas";
-import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado";
-import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado";
+import PagoAprevado from "./Components/PagoMercadiLibre/PagoAprevado/PagoAprevado";
+import PagoDenegado from "./Components/PagoMercadiLibre/PagoDenegado/PagoDenegado";
 
 function App() {
   return (
@@ -73,7 +73,7 @@ function App() {
           <Route path="edit" element={<ObtenerProductosAdmin />} />
           <Route path="edit/producto" element={<EditProductos />} />
           <Route path="agregar" element={<AgregarProducto />} />
-          <Route path="categorias" element={<Categoriass />} />
+          <Route path="categorias/:num" element={<Categoriass />} />
           <Route path="ordenes" element={<Ordenes />} />
           <Route path="users" element={<Users />} />
           <Route path="ventas" element={<Ventas />} />

@@ -65,7 +65,7 @@ function Navbar() {
             </MenuItem>
             {(user?.rol === "Admin" || user?.rol === "Owner") && (
               <MenuItem>
-                <Link to="/admin/categorias">Admin</Link>
+                <Link to="/admin">Admin</Link>
               </MenuItem>
             )}
           </MenuList>
@@ -84,7 +84,7 @@ function Navbar() {
             </Box>
             <Box mx="15px">
               {(user?.rol === "Admin" || user?.rol === "Owner") && (
-                <Link to="/admin/edit">Admin</Link>
+                <Link to="/admin">Admin</Link>
               )}
             </Box>
           </Flex>
