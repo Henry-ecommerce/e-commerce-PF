@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Categoria } = require("../../db");
+const { Producto } = require("../../db");
 const Sequelize = require("sequelize");
 const router = Router();
 
@@ -118,7 +119,7 @@ router.post("/create", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let categorias = await Categoria.findAll();
+    let categorias = await Categoria.findAll({include : Producto});
     categorias ? res.send(categorias) : res.send("No hay categorias");
   } catch (error) {
     console.log(error);

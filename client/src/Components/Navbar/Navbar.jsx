@@ -63,7 +63,7 @@ function Navbar() {
             </MenuItem>
             {user?.rol === "Admin" && (
               <MenuItem>
-                <Link to="/admin/categorias">Admin</Link>
+                <Link to="/admin">Admin</Link>
               </MenuItem>
             )}
             {user?.rol === "Owner" && (

@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import {
 	TableContainer,
 	Table,
@@ -36,6 +36,7 @@ const ObtenerProductosAdmin = () => {
 		_marca,
 		eliminarProducto,
 		putProducto,
+		_obtenerProducto,
 	} = useAuthAd();
 	const [input, setInput] = useState("");
 	const [_precio, setPrecio] = useState("Dolares");
@@ -55,6 +56,10 @@ const ObtenerProductosAdmin = () => {
 			obtenerProducto_por_nombre(input);
 		}
 	}
+
+	 useLayoutEffect(() => {
+    _obtenerProducto()
+  },[])
 
 	useEffect(() => {
 		if (marca_seleccionada !== "") {

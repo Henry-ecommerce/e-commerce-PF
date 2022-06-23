@@ -5573,6 +5573,7 @@ let _productos = [
 ];
 
 router.get("/", async (req, res) => {
+
   const { name } = req.query;
   if (name) {
     let nombre = name?.split("category=");
@@ -5589,32 +5590,32 @@ router.get("/", async (req, res) => {
         );
       }
 
-      const search_products = await Producto.findAll({
-        where: { nombre: { [Op.iLike]: `%${name}%` } },
-        include: Categoria,
-      });
-      if (search_products.length > 0) {
-        res.json(search_products.filter((e) => e.stock > 0));
-      } else {
-        res.send("No encontrado");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    try {
-      const all_products = await Producto.findAll({
-        include: Categoria,
-      });
-      if (all_products.length > 0) {
-        res.json(all_products.filter((e) => e.stock > 0));
-      } else {
-        res.send("No hay productos");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+			const search_products = await Producto.findAll({
+				where: { nombre: { [Op.iLike]: `%${name}%` } },
+				include: Categoria,
+			});
+			if (search_products.length > 0) {
+				res.json(search_products.filter((e) => e.stock > 0));
+			} else {
+				res.send("No encontrado");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	} else {
+		try {
+			const all_products = await Producto.findAll({
+				include: Categoria,
+			});
+			if (all_products.length > 0) {
+				res.json(all_products.filter((e) => e.stock > 0));
+			} else {
+				res.send("No hay productos");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
 });
 
 /* ESTA RUTA ES PARA OBTENER LOS NOMBRES LO LOS PRODUCTOS MIENTRAS TIPEO EN EL INPUT, TIPO GOOGLE */
@@ -5647,90 +5648,90 @@ router.get("/:name", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  try {
-    _productos?.map(async (elem) => {
-      let producto = await Producto.create({
-        nombre: elem.nombre,
-        marca: elem.marca,
-        precio: elem.precio,
-        caracteristicas: elem.caracteristicas,
-        funciones: elem.funciones,
-        stock: elem.stock,
-        descuento: elem.descuento,
-        imagen0: elem.imagen0,
-        imagen1: elem.imagen1,
-        imagen2: elem.imagen2,
-      });
-      await producto.addCategoria(elem.categoria[0].id);
-    });
-    res.json("Se agrego la información correctamente");
-  } catch (error) {
-    console.log(error);
-  }
+	try {
+		_productos?.map(async (elem) => {
+			let producto = await Producto.create({
+				nombre: elem.nombre,
+				marca: elem.marca,
+				precio: elem.precio,
+				caracteristicas: elem.caracteristicas,
+				funciones: elem.funciones,
+				stock: elem.stock,
+				descuento: elem.descuento,
+				imagen0: elem.imagen0,
+				imagen1: elem.imagen1,
+				imagen2: elem.imagen2,
+			});
+			await producto.addCategoria(elem.categoria[0].id);
+		});
+		res.json("Se agrego la información correctamente");
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 router.put("/update", async (req, res) => {
-  const { id, name, completed, active } = req.body;
-  if (!id) {
-    res.send("Falto el id!");
-  } else if (id && !name && !completed && !active) {
-    res.send("Falto informacion!");
-  } else if (id && name && !completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    await todo.save();
-    res.json(todo);
-  } else if (id && name && completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    todo.completed = completed;
-    await todo.save();
-    res.json(todo);
-  } else if (id && !name && completed && !active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.completed = completed;
-    await todo.save();
-    res.json(todo);
-  } else if (id && !name && !completed && active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.active = active;
-    await todo.save();
-    res.json(todo);
-  } else if (id && name && completed && active) {
-    const todo = await Producto.findOne({ where: { id } });
-    todo.name = name;
-    todo.completed = completed;
-    todo.active = active;
-    await todo.save();
-    res.json(todo);
-  }
+	const { id, name, completed, active } = req.body;
+	if (!id) {
+		res.send("Falto el id!");
+	} else if (id && !name && !completed && !active) {
+		res.send("Falto informacion!");
+	} else if (id && name && !completed && !active) {
+		const todo = await Producto.findOne({ where: { id } });
+		todo.name = name;
+		await todo.save();
+		res.json(todo);
+	} else if (id && name && completed && !active) {
+		const todo = await Producto.findOne({ where: { id } });
+		todo.name = name;
+		todo.completed = completed;
+		await todo.save();
+		res.json(todo);
+	} else if (id && !name && completed && !active) {
+		const todo = await Producto.findOne({ where: { id } });
+		todo.completed = completed;
+		await todo.save();
+		res.json(todo);
+	} else if (id && !name && !completed && active) {
+		const todo = await Producto.findOne({ where: { id } });
+		todo.active = active;
+		await todo.save();
+		res.json(todo);
+	} else if (id && name && completed && active) {
+		const todo = await Producto.findOne({ where: { id } });
+		todo.name = name;
+		todo.completed = completed;
+		todo.active = active;
+		await todo.save();
+		res.json(todo);
+	}
 });
 
 router.delete("/delete", async (req, res) => {
-  const { id } = req.query;
-  try {
-    const deleted_todo = await Producto.destroy({ where: { id } });
-    if (deleted_todo >= 1) {
-      res.send("Producto eliminado con exito");
-    } else {
-      res.send("Hubo un error");
-    }
-  } catch (error) {
-    console.log(error);
-  }
+	const { id } = req.query;
+	try {
+		const deleted_todo = await Producto.destroy({ where: { id } });
+		if (deleted_todo >= 1) {
+			res.send("Producto eliminado con exito");
+		} else {
+			res.send("Hubo un error");
+		}
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 router.get("/detail/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const product_detail = await Producto.findOne({
-      include: Categoria,
-      where: { id: id },
-    });
-    product_detail ? res.json(product_detail) : res.send("No hay productos!");
-  } catch (error) {
-    console.log(error);
-  }
+	try {
+		const { id } = req.params;
+		const product_detail = await Producto.findOne({
+			include: Categoria,
+			where: { id: id },
+		});
+		product_detail ? res.json(product_detail) : res.send("No hay productos!");
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 module.exports = router;
