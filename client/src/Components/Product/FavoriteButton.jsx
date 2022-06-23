@@ -70,11 +70,13 @@ function FavoriteButton({ origin, productId }) {
               bg="#242525"
               color="#ECEDEC"
               borderRadius={"full"}
-              p="10px"
-              fontSize={"2xl"}
+              p="9px 6px 7px 6px"
+              fontSize={"3xl"}
               m="0"
               top="10px"
               left="10px"
+              maxH="40px"
+              maxW="40px"
             >
               <AiOutlineHeart />
             </Button>
