@@ -8,6 +8,7 @@ const getCategorias = require("./controllers/admin_productos/categoriasProduc");
 const getOrdenes = require("./controllers/admin_productos/ordenes");
 const getventas = require("./controllers/admin_productos/ventas");
 const getTransacciones = require("./controllers/admin_productos/transaciones");
+const hardCodeoPedidos = require("../Routes/controllers/user_cuenta/hardCodePedidos")
 
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
@@ -27,6 +28,7 @@ router.use(
 router.use("/categorias", [checkAuth, checkRolAdminMiddleware], getCategorias);
 router.use("/crear", [checkAuth, checkRolAdminMiddleware], agregarProducto);
 router.use("/obtener", [checkAuth, checkRolAdminMiddleware], obtenerProducto);
+router.use("/pedidos", hardCodeoPedidos);
 router.use(
   "/modificar",
   [checkAuth, checkRolAdminMiddleware],

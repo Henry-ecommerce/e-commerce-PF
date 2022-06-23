@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
     },
     shipments: {
       type: DataTypes.JSONB,
-      allowNull: false,
+      
     },
     payer: {
       type: DataTypes.JSONB,
