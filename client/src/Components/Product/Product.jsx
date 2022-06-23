@@ -191,19 +191,7 @@ function Product({
               </Box>
             </Link>
             <Flex align={"center"}>
-              <Box fontSize={"2xl"}>
-                <AiFillStar />
-              </Box>
-              <Box fontSize={"2xl"}>
-                <AiFillStar />
-              </Box>
-              <Box fontSize={"2xl"}>
-                <AiFillStar />
-              </Box>
-              <Box fontSize={"2xl"} color="#9A9A9A">
-                <AiFillStar />
-              </Box>
-              (23)
+            <ReviewStars starRating={displayRating()} />({reviews.length})
             </Flex>
           </Stack>
 
