@@ -5,548 +5,750 @@ import axios from "axios";
 const AuthProviderProducContext = createContext();
 
 export const AdminProvider = ({ children }) => {
-	const [productos, setProductos] = useState([]);
-	const [producto, setProducto] = useState({});
-	const [users, setUsers] = useState([]);
-	const [categorias, setCategorias] = useState([]);
-	const [ordenes, setOrdenes] = useState([]);
-	const [ventas, setVentas] = useState([]);
-	const [pagos, setPagos] = useState([]);
-	const [_marca, setMarca] = useState("");
+  const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({});
+  const [users, setUsers] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [ordenes, setOrdenes] = useState([]);
+  const [ventas, setVentas] = useState([]);
+  const [pagos, setPagos] = useState([]);
+  const [_marca, setMarca] = useState("");
+  const [baneos, setBaneos] = useState([]);
+  // const [rols, setRols] = useState("");
+  const [perfilIDUser, setPerfilIDUser] = useState([]);
 
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem("info_user"));
-		if (user?.rol === "Admin" || user?.rol === "Owner") {
-			const pagos = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/transacciones`,
-						config
-					);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("info_user"));
 
-					setPagos(data);
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			pagos();
-			const ventas = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/ventas`,
-						config
-					);
+    if (user?.rol === "Admin") {
+      const pagos = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/transacciones`,
+            config
+          );
 
-					setVentas(data);
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			ventas();
-			const ordenes = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/ordenes`,
-						config
-					);
+          setPagos(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      pagos();
+      const ventas = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/ventas`,
+            config
+          );
 
-					setOrdenes(data);
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			ordenes();
-			const obtenerCategorias = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/categorias`,
-						config
-					);
+          setVentas(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ventas();
+      const ordenes = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/ordenes`,
+            config
+          );
 
-					setCategorias(data);
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			obtenerCategorias();
+          setOrdenes(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ordenes();
+      const obtenerCategorias = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/categorias`,
+            config
+          );
 
-			const obtenerUsers = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/users`,
-						config
-					);
+          setCategorias(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerCategorias();
 
-					setUsers(data);
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			obtenerUsers();
-			const obtenerProducto = async () => {
-				try {
-					const token = localStorage.getItem("token");
-					if (!token) return;
-					const config = {
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
-						},
-					};
-					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/obtener`,
-						config
-					);
-					setProductos(data);
-					let marcas = {};
-					data.map((elem) => {
-						if (!marcas.hasOwnProperty([elem.marca])) {
-							marcas[elem.marca] = elem.marca;
-						}
-					});
-					setMarca(Object.keys(marcas));
-				} catch (error) {
-					console.log(error.response.data.msg);
-				}
-			};
-			obtenerProducto();
-		}
-	}, []);
+      const obtenerUsers = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/users`,
+            config
+          );
 
-	const obtenerProducto_por_nombre = async (nombre) => {
-		try {
-			const token = localStorage.getItem("token");
-			if (!token) return;
-			const config = {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
-				},
-			};
-			const { data } = await axios.get(
-				`${process.env.REACT_APP_API}/admin/obtener?nombre=${nombre}`,
-				config
-			);
-			setProductos(data);
-		} catch (error) {
-			setProductos(error.response.data.msg);
-			console.log(error.response.data.msg);
-		}
-	};
+          setUsers(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerUsers();
+      const obtenerProducto = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/obtener`,
+            config
+          );
+          setProductos(data);
+          let marcas = {};
+          data.map((elem) => {
+            if (!marcas.hasOwnProperty([elem.marca])) {
+              marcas[elem.marca] = elem.marca;
+            }
+          });
+          setMarca(Object.keys(marcas));
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerProducto();
+    } else if (user?.rol === "Owner") {
+      //********************************************************* */
+      const pagos = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/transacciones`,
+            config
+          );
 
-	const obtenerProductos_filtrados = async (marca, stock, precio) => {
-		let endpoint;
-		if (marca && !stock && !precio) {
-			endpoint = `?marca=${marca}`;
-		} else if (!marca && stock && !precio) {
-			endpoint = `?stock=${stock}`;
-		} else if (!marca && !stock && precio) {
-			endpoint = `?precio=${precio}`;
-		}
-		try {
-			const token = localStorage.getItem("token");
-			if (!token) return;
-			const config = {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
-				},
-			};
-			const { data } = await axios.get(
-				`${process.env.REACT_APP_API}/admin/obtener/filtro${endpoint}`,
-				config
-			);
+          setPagos(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      pagos();
+      const ventas = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/ventas`,
+            config
+          );
 
-			setProductos(data);
-		} catch (error) {
-			setProductos(error.response.data.msg);
-			console.log(error.response.data.msg);
-		}
-	};
+          setVentas(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ventas();
+      const ordenes = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/ordenes`,
+            config
+          );
 
-	const guardarProducto = async (producto) => {
-		const token = localStorage.getItem("token");
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		if (producto?.id) {
-			try {
-				const { data } = await axios.put(
-					`${process.env.REACT_APP_API}/admin/modificar/${producto.id}`,
-					producto,
-					config
-				);
-				const productoActualizado = productos.map((e) =>
-					e.id === data.id ? data : e
-				);
-				setProductos(productoActualizado);
-			} catch (error) {
-				console.log(error.response.data.msg);
-			}
-		} else {
-			try {
-				console.log(producto, "estoy aca");
-				const { data } = await axios.post(`/admin/crear`, producto, config);
-				const { createdAt, updatedAt, ...productosAlmacenados } = data;
-				setProductos([productosAlmacenados, ...productos]);
-			} catch (error) {
-				console.log(error.response.data.msg);
-			}
-		}
-	};
-	const putProducto = (e) => {
-		setProducto(e);
-	};
+          setOrdenes(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      ordenes();
+      const obtenerCategorias = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/categorias`,
+            config
+          );
 
-	const eliminarCategoria = async (id) => {
-		// eslint-disable-next-line no-restricted-globals
-		const confirmar = confirm(
-			"¿Confirmas que desas eliminar el siguiente registro ?"
-		);
-		const token = localStorage.getItem("token");
+          setCategorias(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerCategorias();
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		if (confirmar) {
-			try {
-				// eslint-disable-next-line no-unused-vars
-				await axios.delete(
-					`${process.env.REACT_APP_API}/admin/categorias/${id}`,
-					config
-				);
-				const categoriaActualizadas = categorias.filter((e) => e.id !== id);
-				setCategorias(categoriaActualizadas);
-				// setCategorias(categorias => [...categorias,categoriaActualizadas]);
-			} catch (error) {
-				console.log(error.message);
-			}
-		}
-	};
+      const obtenerUsers = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/usuarios`,
+            config
+          );
 
-	const actualizarCategoria = async (
-		id,
-		nombre,
-		productos_a_eliminar,
-		productos_a_agregar
-	) => {
-		// eslint-disable-next-line no-restricted-globals
-		// const confirmar = confirm(
-		// 	"¿Confirmas que desas eliminar el siguiente registro ?"
-		// );
-		const token = localStorage.getItem("token");
+          setUsers(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerUsers();
+      const obtenerProducto = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/owner/obtener`,
+            config
+          );
+          setProductos(data);
+          let marcas = {};
+          data.map((elem) => {
+            if (!marcas.hasOwnProperty([elem.marca])) {
+              marcas[elem.marca] = elem.marca;
+            }
+          });
+          setMarca(Object.keys(marcas));
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      obtenerProducto();
+    }
+  }, []);
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre, productos_a_eliminar, productos_a_agregar };
-		try {
-			// eslint-disable-next-line no-unused-vars
-			await axios.put(
-				`${process.env.REACT_APP_API}/admin/categorias/${id}`,
-				body,
-				config
-			);
-		} catch (error) {
-			console.log(error.message);
-		}
-	};
+  const obtenerProducto_por_nombre = async (nombre) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/admin/obtener?nombre=${nombre}`,
+        config
+      );
+      setProductos(data);
+    } catch (error) {
+      setProductos(error.response.data.msg);
+      console.log(error.response.data.msg);
+    }
+  };
 
-	const agregarCategorias = async (nombre, productos) => {
-		// eslint-disable-next-line no-restricted-globals
-		const confirmar = confirm(
-			"¿Confirmas que desas eliminar el siguiente registro ?"
-		);
-		const token = localStorage.getItem("token");
+  const obtenerProductos_filtrados = async (marca, stock, precio) => {
+    let endpoint;
+    if (marca && !stock && !precio) {
+      endpoint = `?marca=${marca}`;
+    } else if (!marca && stock && !precio) {
+      endpoint = `?stock=${stock}`;
+    } else if (!marca && !stock && precio) {
+      endpoint = `?precio=${precio}`;
+    }
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/admin/obtener/filtro${endpoint}`,
+        config
+      );
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre, productos };
-		if (confirmar) {
-			try {
-				// eslint-disable-next-line no-unused-vars
-				const {data} = await axios.post(
-					`${process.env.REACT_APP_API}/admin/categorias`,
-					body,
-					config
-				);
-				// const categoriaActualizadas = categorias.filter((e) => e.id !== id);
-				setCategorias(data);
-			} catch (error) {
-				console.log(error.message);
-			}
-		}
-	};
+      setProductos(data);
+    } catch (error) {
+      setProductos(error.response.data.msg);
+      console.log(error.response.data.msg);
+    }
+  };
 
-	const eliminarProducto = async (id) => {
-		// eslint-disable-next-line no-restricted-globals
-		const confirmar = confirm(
-			"¿Confirmas que desas eliminar el siguiente registro ?"
-		);
-		const token = localStorage.getItem("token");
+  const guardarProducto = async (producto) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    if (producto?.id) {
+      try {
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_API}/admin/modificar/${producto.id}`,
+          producto,
+          config
+        );
+        const productoActualizado = productos.map((e) =>
+          e._id === data._id ? data : e
+        );
+        setProductos(productoActualizado);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    } else {
+      try {
+        console.log(producto, "estoy aca");
+        const { data } = await axios.post(`/admin/crear`, producto, config);
+        const { createdAt, updatedAt, ...productosAlmacenados } = data;
+        setProductos([productosAlmacenados, ...productos]);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    }
+  };
+  //   const banear = async(baneos)=>{
+  // 	if (baneos?.id) {
+  // 		try {
+  // 		  const { data } = await axios.put(
+  // 			`${process.env.REACT_APP_API}/admin/modificar/${baneos.id}`,
+  // 			producto,
+  // 			config
+  // 		  );
+  // 		  const productoActualizado = productos.map((e) =>
+  // 			e._id === data._id ? data : e
+  // 		  );
+  // 		  setProductos(productoActualizado);
+  // 		} catch (error) {
+  // 		  console.log(error.response.data.msg);
+  // 		}
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
+  //   }
+  const putProducto = (e) => {
+    setProducto(e);
+  };
+  const putBan = (e) => {
+    setBaneos(e);
+  };
+  const putRol = (e) => {
+    setProducto(e);
+  };
+  const obtenerPerfilId = async (id) => {
+    const token = localStorage.getItem("token");
 
-		if (confirmar) {
-			try {
-				// eslint-disable-next-line no-unused-vars
-				const { data } = await axios.delete(
-					`${process.env.REACT_APP_API}/admin/borrar/${id}`,
-					config
-				);
-				const productosActualizado = productos.filter((e) => e.id !== id);
-				setProductos(productosActualizado);
-			} catch (error) {
-				console.log(error.message);
-			}
-		}
-	};
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-	const _obtenerProducto = async () => {
-		try {
-			const token = localStorage.getItem("token");
-			if (!token) return;
-			const config = {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
-				},
-			};
-			const { data } = await axios.get(
-				`${process.env.REACT_APP_API}/admin/obtener`,
-				config
-			);
-			setProductos(data);
-			let marcas = {};
-			data.map((elem) => {
-				if (!marcas.hasOwnProperty([elem.marca])) {
-					marcas[elem.marca] = elem.marca;
-				}
-			});
-			setMarca(Object.keys(marcas));
-		} catch (error) {
-			console.log(error.response.data.msg);
-		}
-	};
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios(
+        `${process.env.REACT_APP_API}/owner/perfilUser/${id}`,
+        config
+      );
+      console.log(`Soy la funcion`, data);
+      setPerfilIDUser(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-	const _obtenerCategorias = async () => {
-		try {
-			const token = localStorage.getItem("token");
-			if (!token) return;
-			const config = {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
-				},
-			};
-			const { data } = await axios.get(
-				`${process.env.REACT_APP_API}/admin/categorias`,
-				config
-			);
+  const UpdateRolUser = async (id, roles) => {
+    let obj = {
+      rols: roles,
+    };
+    const token = localStorage.getItem("token");
 
-			setCategorias(data);
-		} catch (error) {
-			console.log(error.response.data.msg);
-		}
-	};
+    console.log(`soy el aut rols`, obj);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/owner/update-rango/${id}`,
+        obj,
+        config
+      );
+      console.log(`Soy la RolUpdate`, data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const BanearUsuario = async (id, ban) => {
+    let obj = {
+      baneo: ban,
+    };
+    const token = localStorage.getItem("token");
 
-	const actualizarCategoria_nombre = async (id, nombre) => {
-		const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre };
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const { data } = await axios.put(
-				`${process.env.REACT_APP_API}/admin/categorias/${id}/cambiar_nombre`,
-				body,
-				config
-			);
-			setCategorias(data);
-			// setCategorias(categorias => [...categorias,data]);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/owner/ban/${id}`,
+        obj,
+        config
+      );
+      console.log(`Soy la baneo`, data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const eliminarCategoria = async (id) => {
+    // eslint-disable-next-line no-restricted-globals
+    const confirmar = confirm(
+      "¿Confirmas que desas eliminar el siguiente registro ?"
+    );
+    const token = localStorage.getItem("token");
 
-	const actualizarCategoria_agregar_relacion = async (
-		id,
-		nombre,
-		productos_a_agregar
-	) => {
-		const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    if (confirmar) {
+      try {
+        // eslint-disable-next-line no-unused-vars
+        await axios.delete(
+          `${process.env.REACT_APP_API}/admin/categorias/${id}`,
+          config
+        );
+        const categoriaActualizadas = categorias.filter((e) => e.id !== id);
+        setCategorias(categoriaActualizadas);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre, productos_a_agregar };
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const { data } = await axios.put(
-				`${process.env.REACT_APP_API}/admin/categorias/${id}/agregar_relacion`,
-				body,
-				config
-			);
-			setCategorias(data);
-			// setCategorias(categorias => [...categorias,data]);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+  const actualizarCategoria_nombre = async (id, nombre) => {
+    const token = localStorage.getItem("token");
 
-	const actualizarCategoria_eliminar_relacion = async (
-		id,
-		nombre,
-		productos_a_eliminar
-	) => {
-		const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const body = { nombre };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/admin/categorias/${id}/cambiar_nombre`,
+        body,
+        config
+      );
+      // setCategorias(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre, productos_a_eliminar };
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const { data } = await axios.put(
-				`${process.env.REACT_APP_API}/admin/categorias/${id}/eliminar_relacion`,
-				body,
-				config
-			);
-			setCategorias(data);
-			// setCategorias(categorias => [...categorias,data]);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+  const actualizarCategoria_agregar_relacion = async (
+    id,
+    nombre,
+    productos_a_agregar
+  ) => {
+    const token = localStorage.getItem("token");
 
-	const actualizarCategoria_agregar_eliminar_relacion = async (
-		id,
-		nombre,
-		productos_a_eliminar,
-		productos_a_agregar
-	) => {
-		const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const body = { nombre, productos_a_agregar };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/admin/categorias/${id}/agregar_relacion`,
+        body,
+        config
+      );
+      // setCategorias(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-		const body = { nombre, productos_a_eliminar, productos_a_agregar };
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const { data } = await axios.put(
-				`${process.env.REACT_APP_API}/admin/categorias/${id}/agregar_eliminar_relacion`,
-				body,
-				config
-			);
-			setCategorias(data);
-			// setCategorias(categorias => [...categorias,data]);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+  const actualizarCategoria_eliminar_relacion = async (
+    id,
+    nombre,
+    productos_a_eliminar
+  ) => {
+    const token = localStorage.getItem("token");
 
-	return (
-		<AuthProviderProducContext.Provider
-			value={{
-				guardarProducto,
-				obtenerProducto_por_nombre,
-				putProducto,
-				eliminarProducto,
-				obtenerProductos_filtrados,
-				eliminarCategoria,
-				actualizarCategoria,
-				agregarCategorias,
-				users,
-				ordenes,
-				categorias,
-				ventas,
-				productos,
-				producto,
-				pagos,
-				_marca,
-				_obtenerProducto,
-				_obtenerCategorias,
-				actualizarCategoria_nombre,
-				actualizarCategoria_agregar_relacion,
-				actualizarCategoria_eliminar_relacion,
-				actualizarCategoria_agregar_eliminar_relacion,
-			}}
-		>
-			{children}
-		</AuthProviderProducContext.Provider>
-	);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const body = { nombre, productos_a_eliminar };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/admin/categorias/${id}/eliminar_relacion`,
+        body,
+        config
+      );
+      // setCategorias(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const actualizarCategoria_agregar_eliminar_relacion = async (
+    id,
+    nombre,
+    productos_a_eliminar,
+    productos_a_agregar
+  ) => {
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const body = { nombre, productos_a_eliminar, productos_a_agregar };
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/admin/categorias/${id}/agregar_eliminar_relacion`,
+        body,
+        config
+      );
+      // setCategorias(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const agregarCategorias = async (nombre, productos) => {
+    // eslint-disable-next-line no-restricted-globals
+    const confirmar = confirm(
+      "¿Confirmas que desas eliminar el siguiente registro ?"
+    );
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const body = { nombre, productos };
+    if (confirmar) {
+      try {
+        // eslint-disable-next-line no-unused-vars
+        await axios.post(
+          `${process.env.REACT_APP_API}/admin/categorias`,
+          body,
+          config
+        );
+        // const categoriaActualizadas = categorias.filter((e) => e.id !== id);
+        setCategorias(categorias);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const eliminarProducto = async (id) => {
+    // eslint-disable-next-line no-restricted-globals
+    const confirmar = confirm(
+      "¿Confirmas que desas eliminar el siguiente registro ?"
+    );
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    if (confirmar) {
+      try {
+        // eslint-disable-next-line no-unused-vars
+        const { data } = await axios.delete(
+          `${process.env.REACT_APP_API}/admin/borrar/${id}`,
+          config
+        );
+        const productosActualizado = productos.filter((e) => e.id !== id);
+        setProductos(productosActualizado);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+  const _obtenerProducto = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/admin/obtener`,
+        config
+      );
+      setProductos(data);
+      let marcas = {};
+      data.map((elem) => {
+        if (!marcas.hasOwnProperty([elem.marca])) {
+          marcas[elem.marca] = elem.marca;
+        }
+      });
+      setMarca(Object.keys(marcas));
+    } catch (error) {
+      console.log(error.response.data.msg);
+    }
+  };
+  const _obtenerCategorias = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/admin/categorias`,
+        config
+      );
+
+      setCategorias(data);
+    } catch (error) {
+      console.log(error.response.data.msg);
+    }
+  };
+
+  return (
+    <AuthProviderProducContext.Provider
+      value={{
+        guardarProducto,
+        obtenerProducto_por_nombre,
+        putProducto,
+        putBan,
+        putRol,
+        perfilIDUser,
+        eliminarProducto,
+        obtenerProductos_filtrados,
+        eliminarCategoria,
+        obtenerPerfilId,
+        UpdateRolUser,
+        BanearUsuario,
+        // actualizarCategoria,
+        agregarCategorias,
+        users,
+        ordenes,
+        categorias,
+        ventas,
+        productos,
+        producto,
+        pagos,
+        _marca,
+        _obtenerProducto,
+        _obtenerCategorias,
+        actualizarCategoria_agregar_eliminar_relacion,
+        actualizarCategoria_eliminar_relacion,
+        actualizarCategoria_agregar_relacion,
+        actualizarCategoria_nombre,
+      }}
+    >
+      {children}
+    </AuthProviderProducContext.Provider>
+  );
 };
 
 export default AuthProviderProducContext;

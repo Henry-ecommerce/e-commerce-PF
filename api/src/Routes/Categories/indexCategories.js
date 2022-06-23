@@ -102,21 +102,20 @@ let _categorias = [
 ];
 
 router.post("/create", async (req, res) => {
-  try {
-    _categorias?.map(async (el) => {
-      await Categoria.create({
-        nombre: el.name,
-        imagen: el.imagen,
-      });
-    });
-    let categorias = await Categoria.findAll();
-    categorias
-      ? res.send("Categorias Creadas")
-      : res.send("Categorias NO creadas");
-  } catch (error) {
-    console.log(error);
-  }
-});
+    try {
+        _categorias?.map(async (el) => {
+            await Categoria.create({
+                nombre: el.name,
+                imagen: el.imagen,
+            })
+        })
+        let categorias = await Categoria.findAll();
+        categorias ? res.send("Categorias Creadas") : res.send("Categorias NO creadas")
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 router.get("/", async (req, res) => {
   try {

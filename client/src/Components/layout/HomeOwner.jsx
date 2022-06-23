@@ -1,7 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import Header from "../../helper/Header";
-import Footer from "../../helper/Footer";
 
 const HomeOwner = () => {
   const { auth, cargando } = useAuth();
@@ -9,8 +7,6 @@ const HomeOwner = () => {
   if (cargando) return "Cargando...";
   return (
     <>
-      <Header />
-
       {auth?.rol === "Owner" ? (
         <main className="conteiner mx-auto mt-20">
           <Outlet />
@@ -18,8 +14,6 @@ const HomeOwner = () => {
       ) : (
         <Navigate to="/login" />
       )}
-
-      <Footer />
     </>
   );
 };

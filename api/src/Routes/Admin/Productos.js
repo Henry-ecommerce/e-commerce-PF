@@ -5573,20 +5573,22 @@ let _productos = [
 ];
 
 router.get("/", async (req, res) => {
-	const { name } = req.query;
-	if (name) {
-		let nombre = name?.split("category=");
-		try {
-			if (nombre[1]) {
-				const search_products = await Producto.findAll({
-					include: Categoria,
-				});
-				return res.send(
-					search_products?.filter(
-						(elem) => elem.Categoria[0].nombre === nombre[1] && elem.stock > 0
-					)
-				);
-			}
+
+  const { name } = req.query;
+  if (name) {
+    let nombre = name?.split("category=");
+    try {
+      if (nombre[1]) {
+        const search_products = await Producto.findAll({
+          include: Categoria,
+        });
+        return res.send(
+          search_products?.filter(
+            (elem) =>
+              elem?.Categoria[0]?.nombre === nombre[1] && elem?.stock > 0
+          )
+        );
+      }
 
 			const search_products = await Producto.findAll({
 				where: { nombre: { [Op.iLike]: `%${name}%` } },
@@ -5618,27 +5620,31 @@ router.get("/", async (req, res) => {
 
 /* ESTA RUTA ES PARA OBTENER LOS NOMBRES LO LOS PRODUCTOS MIENTRAS TIPEO EN EL INPUT, TIPO GOOGLE */
 router.get("/:name", async (req, res) => {
-	const { name } = req.params;
-	if (name) {
-		try {
-			const search_products = await Producto.findAll({
-				include: Categoria,
-				where: { nombre: { [Op.iLike]: `%${name}%` } },
-			});
-			if (search_products.length > 0) {
-				res.json(
-					search_products
-						.filter((e) => e.stock > 0)
-						.map((elm) => elm.nombre.slice(0, (elm.nombre.length * 40) / 100))
-						.slice(0, 9)
-				);
-			} else {
-				res.send("No encontrado");
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}
+  const { name } = req.params;
+  if (name) {
+    try {
+      const search_products = await Producto.findAll({
+        include: Categoria,
+        where: { nombre: { [Op.iLike]: `%${name}%` } },
+      });
+      if (search_products.length > 0) {
+        res.json(
+          search_products
+            .filter((e) => e.stock > 0)
+            .map((elm) =>
+              elm.nombre.length > 40
+                ? elm.nombre.slice(0, (elm.nombre.length * 40) / 100)
+                : elm.nombre
+            )
+            .slice(0, 9)
+        );
+      } else {
+        res.send("No encontrado");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 });
 
 router.post("/create", async (req, res) => {

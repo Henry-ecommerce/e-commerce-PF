@@ -81,3 +81,17 @@
 .button_contenedor button:hover {
     background-color: #9a9a9a;
 }
+
+.no_visible{
+    display: none !important; 
+}
+
+.boton_ver {
+    color: blue;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.boton_ver:hover {
+    color: #252525;
+}

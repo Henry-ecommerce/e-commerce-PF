@@ -8,8 +8,8 @@ mercadopago.configure({
 
 router.post("/", async (req, res) => {
   const { user, producto, items } = req.body;
-  console.log(user);
-  console.log(producto);
+  // console.log(user);
+  // console.log(producto);
 
   let preference = {
     items: producto?.map((e) => {
@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
         picture_url: e.imagen0,
         category_id: "",
         quantity: e.cantidad,
-        unit_price: parseInt(e.precio.PesosArg),
+        unit_price: parseInt(e.precio),
       };
     }),
     payer: {
@@ -55,16 +55,16 @@ router.post("/", async (req, res) => {
       },
     },
     external_reference: user.id.toString(),
-    notification_url: `${BACKEND_URL}/user/compras`,
+    notification_url: ``,
     payment_methods: {
       excluded_payment_methods: [{}],
       excluded_payment_types: [{ id: "ticket" }],
     },
 
     back_urls: {
-      failure: `${FRONTEND_URL}/pagoss/denegado`,
+      failure: `${BACKEND_URL}/user/compras`,
       pending: `${BACKEND_URL}/user/compras`,
-      success: `${FRONTEND_URL}/pagoss/aceptado`,
+      success: `${BACKEND_URL}/user/compras`,
     },
     metadata: {
       id: user.id,
@@ -74,7 +74,7 @@ router.post("/", async (req, res) => {
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      console.log(response.body);
+      // console.log(response.body);
       res.send(response.body.init_point);
     })
     .catch(function (error) {

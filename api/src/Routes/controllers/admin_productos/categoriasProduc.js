@@ -99,7 +99,7 @@ router.put("/:id/agregar_relacion", async (req, res) => {
 		category_update.Productos.map(({ nombre }) => nombre);
 
 	category_update["nombre"] = nombre;
-	if (nombres_productos) {
+	if (nombres_productos.length > 0) {
 		if (
 			productos_a_agregar
 				.map((e) => nombres_productos && !nombres_productos.includes(e) && e)
