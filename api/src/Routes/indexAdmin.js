@@ -9,7 +9,7 @@ const getOrdenes = require("./controllers/admin_productos/ordenes");
 const getventas = require("./controllers/admin_productos/ventas");
 const getTransacciones = require("./controllers/admin_productos/transaciones");
 const hardCodeoPedidos = require("../Routes/controllers/user_cuenta/hardCodePedidos")
-
+const PedidosAdmin = require("./controllers/user_cuenta/pedidosAdmin")
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
   checkRolAdminMiddleware,
@@ -29,6 +29,7 @@ router.use("/categorias", [checkAuth, checkRolAdminMiddleware], getCategorias);
 router.use("/crear", [checkAuth, checkRolAdminMiddleware], agregarProducto);
 router.use("/obtener", [checkAuth, checkRolAdminMiddleware], obtenerProducto);
 router.use("/pedidos", hardCodeoPedidos);
+router.use("/envios", PedidosAdmin);
 router.use(
   "/modificar",
   [checkAuth, checkRolAdminMiddleware],

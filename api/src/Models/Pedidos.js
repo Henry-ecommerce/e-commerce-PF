@@ -11,9 +11,9 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     estado_envio: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: "creado",
     },
     payments: {
       type: DataTypes.JSONB,
