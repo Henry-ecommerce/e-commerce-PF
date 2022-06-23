@@ -217,9 +217,11 @@ const Categoriass = () => {
 
 		if (errors.nombre === "" && errors.productos === "") {
 			agregarCategorias(nombreCategoriaInput, productos_de_agregar);
-			setActualizar(!actualizar);
-			setAgregar(false);
-			// window.location.reload()
+			setloading(true)
+			setTimeout(() => {
+				setloading(false)
+				window.location.reload(false)
+			}, 1000);
 		}
 	}
 
