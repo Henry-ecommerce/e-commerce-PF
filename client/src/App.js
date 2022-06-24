@@ -88,6 +88,7 @@ function App() {
           <Route path="ventas" element={<Ventas />} />
           <Route path="transaciones" element={<Transacciones />} />
           <Route path="perfil" element={<EditarPerfil />} />
+          <Route path="users/perfil/:id" element={<PerfilUserOwner />} />
         </Route>
 
         <Route path="/user" element={<HomeUser />}>

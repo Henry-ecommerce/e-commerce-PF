@@ -7,7 +7,8 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { name, apellido, fecha_nacimiento, email, password, rol } = req.body;
+    const { name, apellido, fecha_nacimiento, email, password, rol, img } =
+      req.body;
     //Previene usuarios registrados
     const existeUsuario = await Usuario.findOne({
       where: { email },
@@ -30,6 +31,7 @@ router.post("/", async (req, res) => {
         fecha_nacimiento,
         password: passCheta,
         rol, /// Solo por pruebas
+        img,
       });
 
       emailRegistro({
