@@ -9,6 +9,7 @@ const getOrdenes = require("./controllers/admin_productos/ordenes");
 const getventas = require("./controllers/admin_productos/ventas");
 const getTransacciones = require("./controllers/admin_productos/transaciones");
 const hardCodeoPedidos = require("../Routes/controllers/user_cuenta/hardCodePedidos")
+const pedidosAdmin = require('../Routes/controllers/user_cuenta/pedidosAdmin')
 
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
@@ -39,5 +40,6 @@ router.use(
   [checkAuth, checkRolAdminMiddleware],
   borrarBorrarProducto
 );
+router.use('/pedidosAdmin',pedidosAdmin)
 
 module.exports = router;
