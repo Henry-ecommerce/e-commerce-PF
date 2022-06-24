@@ -36,7 +36,7 @@ const EditarPerfil = () => {
     } else {
       if (email !== user.email) {
         setAlerta({
-          msg: "Informacios actualizada se va a cerrar la sescion para ver los cambios",
+          msg: "Información actualizada se va a cerrar la sección para ver los cambios",
           error: false,
         });
 
@@ -60,7 +60,7 @@ const EditarPerfil = () => {
         email: usuario.email,
       };
       setAlerta({
-        msg: "Informacios actualizada se va a cerrar la sescion para ver los cambios",
+        msg: "Información actualizada se va a cerrar la sección para ver los cambios",
         error: false,
       });
 
