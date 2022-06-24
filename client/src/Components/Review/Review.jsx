@@ -155,24 +155,29 @@ const Review = () => {
         m="10"
         rounded="lg"
         boxShadow="md"
-        minW={"80%"}
-        minH="700px"
+        w={"70vw"}
+        maxW="1440px"
+        minW={"350px"}
+        h="fit-content"
         justify={"space-around"}
         align={"center"}
+        wrap="wrap-reverse"
+        alignItems={"center"}
       >
         <form onSubmit={(e) => handleSubmit(e)}>
-          <FormControl bg="white" borderRadius={"10px"} p={"20px"}>
+          <FormControl bg="white" borderRadius={"10px"} p={"20px 0px 20px 0px"} textAlign="center">
             <Center>
-              <FormLabel htmlFor="title" fontWeight="black" fontSize="x-large">
+              <FormLabel htmlFor="title" fontWeight="black" fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}>
                 Titulo
               </FormLabel>
             </Center>
-            <Input
+            <Input 
               id="title"
               name="titulo"
               type="text"
               size="md"
-              w="500px"
+              w="35vw"
+              minW={"330px"}
               border="1px"
               borderColor="black"
               variant="outline"
@@ -183,7 +188,7 @@ const Review = () => {
             />
             <FormHelperText color={"black"}>{message.current}</FormHelperText>
             <Center>
-              <FormLabel htmlFor="rating" fontWeight="black" fontSize="x-large">
+              <FormLabel htmlFor="rating" fontWeight="black" fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}>
                 Rating
               </FormLabel>
             </Center>
@@ -194,7 +199,7 @@ const Review = () => {
               <FormLabel
                 htmlFor="comentario"
                 fontWeight="black"
-                fontSize="x-large"
+                fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}
               >
                 ¡Cuéntanos más sobre el producto!
               </FormLabel>
@@ -206,6 +211,8 @@ const Review = () => {
               borderColor="black"
               placeholder="¿Qué te gusto o que no te gusto? ¿Para qué usaste el producto?"
               onChange={(e) => handleInputCheck(e)}
+              w="35vw"
+              minW={"330px"}
               minH="200px"
               maxLength="280"
               isRequired
