@@ -174,7 +174,7 @@ const Carrito = () => {
                 <br />
 
                   <Button 
-                    borderRadius="5px" bg="#242525" color="#FFFF"> {infoDirection.items.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
+                    borderRadius="5px" bg="#242525" color="#FFFF"> {infoDirection?.items?.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
                   </Button><br/><br/>
                 
                 <Link to="/">
