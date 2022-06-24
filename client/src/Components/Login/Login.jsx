@@ -71,7 +71,6 @@ export default function Login() {
           apellido: user.family_name,
           password: user.jti,
           email: user.email,
-          img: user.picture,
           fecha_nacimiento: null,
           rol: "User",
           token: null,

@@ -43,29 +43,32 @@ const AuthProviderUser = ({ children }) => {
   };
   const actualizarPerfil = async (datos) => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      setCargando(false);
-      return;
-    }
-
     const config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     };
+    console.log(`soy congi`, config);
 
+    const obj = {
+      name: datos.name,
+      apellido: datos.apellido,
+      img: datos.img,
+      fecha_nacimiento: datos.fecha_nacimiento,
+      direccion: datos.direccion,
+      email: datos.email,
+    };
+    console.log(`dasdasdasd`, obj.img);
     try {
       const { data } = await axios.put(
-        `${process.env.REACT_APP_API}/registro/perfil/${datos.id}`,
-        datos,
+        `${process.env.REACT_APP_API}/user/perfil/update/info/${datos.id}`,
+        obj,
         config
       );
-      return {
-        msg: "Almacenado correctamente",
-        error: true,
-      };
+      setAuth(data);
     } catch (error) {
+      console.log(error.message);
       return {
         msg: error.response.data.msg,
         error: true,

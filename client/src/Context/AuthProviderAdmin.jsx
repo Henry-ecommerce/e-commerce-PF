@@ -415,7 +415,7 @@ export const AdminProvider = ({ children }) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const { data } = await axios(
-        `${process.env.REACT_APP_API}/owner/perfilUser/${id}`,
+        `${process.env.REACT_APP_API}/admin/pedido/${id}`,
         config
       );
       console.log(`Soy la funcion`, data);
@@ -441,7 +441,7 @@ export const AdminProvider = ({ children }) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const { data } = await axios.put(
-        `${process.env.REACT_APP_API}/owner/update-rango/${id}`,
+        `${process.env.REACT_APP_API}/admin/update-rango/${id}`,
         obj,
         config
       );
@@ -466,11 +466,10 @@ export const AdminProvider = ({ children }) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const { data } = await axios.put(
-        `${process.env.REACT_APP_API}/owner/ban/${id}`,
+        `${process.env.REACT_APP_API}/admin/ban/${id}`,
         obj,
         config
       );
-      console.log(`Soy la baneo`, data);
     } catch (error) {
       console.log(error.message);
     }
