@@ -14,6 +14,8 @@ export default function MercadoPago({ items }) {
       producto: JSON.parse(localStorage.getItem("productos_carrito")),
     };
 
+    localStorage.setItem('user_direction', JSON.stringify(datos));
+
     const headers = {
       headers: {
         "Content-Type": "application/json",
