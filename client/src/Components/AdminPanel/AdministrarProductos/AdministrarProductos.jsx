@@ -60,7 +60,7 @@ const AdministrarProductos = () => {
 
 	let _categorias = [
 		{
-			data: Object.values(totalPorCategorias).slice(0,6),
+			data: totalPorCategorias !== undefined && Object.values(totalPorCategorias).slice(0,6),
 			// data: [80, 50, 30, 40, 100, 20],
 		},
 	];
@@ -98,7 +98,12 @@ const AdministrarProductos = () => {
 			},
 		},
 		xaxis: {
-			categories: Object.keys(totalPorCategorias)?.slice(0,6)?.map(e => categorias?.filter(m => m.id === Number(e)))?.map(e => e[0].nombre),
+			(totalPorCategorias !== undefined ||
+				Object.keys(totalPorCategorias).length > 0) &&
+				Object.keys(totalPorCategorias)
+					?.slice(0, 6)
+					?.map((e) => categorias?.filter((m) => m.id === Number(e)))
+					?.map((e) => e[0].nombre),
 			// categories: categorias.map(({ nombre }) => nombre),
 		},
 		yaxis: {

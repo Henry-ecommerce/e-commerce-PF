@@ -49,6 +49,6 @@ router.use(
   [checkAuth, checkRolAdminMiddleware],
   borrarBorrarProducto
 );
-router.use('/pedidosAdmin',pedidosAdmin)
+// router.use('/pedidosAdmin', pedidosAdmin)
 
 module.exports = router;

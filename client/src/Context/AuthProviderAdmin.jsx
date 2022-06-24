@@ -163,7 +163,7 @@ export const AdminProvider = ({ children }) => {
 
 			const _obtenerPedidos = async () => {
 				try {
-					const { data } = await axios.get(`/admin/pedidosAdmin`);
+					const { data } = await axios.get(`/admin/envios`);
 					let total = data
 						.map((e) => e.payments)
 						.reduce((a, b) => a + b[0].transaction_amount, 0);
