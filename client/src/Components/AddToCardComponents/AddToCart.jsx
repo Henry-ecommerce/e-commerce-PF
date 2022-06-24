@@ -12,11 +12,11 @@ export default function AddToCart({
   stock,
 }) {
   const toast = useToast();
-  nombre = nombre.split(",")[0];
+  nombre = nombre?.split(",")[0];
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
 
-  let filter = products_in_cart_local_storage.filter((el) => el.id === id);
+  let filter = products_in_cart_local_storage?.filter((el) => el.id === id);
 
   return (
     <Button
