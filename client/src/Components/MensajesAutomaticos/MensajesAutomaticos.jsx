@@ -60,14 +60,6 @@ const MensajesAutomaticos = () => {
             respuesta: "estudiar en soyhenry es lo mejor"
         },
         {
-            clave: "pelada",
-            respuesta: "dicen que la calva de toni da suerte al frotarla"
-        },
-        {
-            clave: "pelado",
-            respuesta: "dicen que la calva de toni da suerte al frotarla"
-        },
-        {
             clave: "humano",
             respuesta: "si quieres hablar con un humano, puedes comunicarte con servicio de atencion al cliente perdon las molestias"
         },
