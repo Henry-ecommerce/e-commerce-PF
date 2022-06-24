@@ -19,6 +19,8 @@ import {
   delete_product_in_cart_local_storage,
 } from "../../Redux/Actions";
 import { BsFillTrashFill } from "react-icons/bs";
+import DireccionUser from "../DireccionUser/DireccionUser";
+import Mercadopago from "../MercadoPago/MercadoPago";
 
 const Carrito = () => {
   const { products_in_cart_local_storage } = useSelector((state) => state);
@@ -37,6 +39,7 @@ const Carrito = () => {
   }, [dispatch]);
 
   let localStor = JSON.parse(localStorage.getItem("productos_carrito"));
+  let infoDirection = JSON.parse(localStorage.getItem("user_direction"));
 
   let sum =
     products_in_cart_local_storage?.length > 0 &&
@@ -47,6 +50,19 @@ const Carrito = () => {
           : a + Number(b.precio) * b.cantidad,
       0
     );
+
+    const datos = {
+      pais: infoDirection?.items?.pais ,
+      provincia: infoDirection?.items?.provincia ,
+      ciudad: infoDirection?.items?.ciudad ,
+      CP: infoDirection?.items?.CP ,
+      nombreCalle: infoDirection?.items?.nombreCalle ,
+      numeroCalle: infoDirection?.items?.numeroCalle ,
+      piso: infoDirection?.items?.piso ,
+      telefono: infoDirection?.items?.telefono ,
+      tipoDoc: infoDirection?.items?.tipoDoc ,
+      numeroDoc: infoDirection?.items?.numeroDoc ,
+  }
 
   return (
     <>
@@ -150,19 +166,17 @@ const Carrito = () => {
                 p="20px"
                 borderRadius="10px"
               >
-                {/* <Text fontSize="1em" fontWeight="550" color="#666">
-									Subtotal ${sum.toFixed(2)}
-								</Text> */}
+                <DireccionUser/>
                 <br />
                 <Text fontSize="1.5em" fontWeight="550">
                   Total ${sum.toFixed(2)}
                 </Text>
                 <br />
-                <Link to="/user/formMercadoPago">
-                  <Button borderRadius="5px" bg="#242525" color="#FFFF">
-                    Finalizar compra
-                  </Button>
-                </Link>
+
+                  <Button 
+                    borderRadius="5px" bg="#242525" color="#FFFF"> {infoDirection.items.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
+                  </Button><br/><br/>
+                
                 <Link to="/">
                   <Button
                     borderRadius="5px"
