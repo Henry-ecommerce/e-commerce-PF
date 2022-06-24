@@ -50,6 +50,7 @@ import TransacionesOwner from "./Components/OwnerPanel/Transaciones/Transaciones
 import ObtenerProductosOwner from "./Components/OwnerPanel/ObtenerProductosOwner/ObtenerProductosOwner";
 import AdministrarProductosOwner from "./Components/OwnerPanel/PanelOwner/AdministrarProductosOwner";
 import PerfilUserOwner from "./Components/OwnerPanel/PerfilUserOwner/PerfilUserOwner";
+import DetallePedido from "./Components/AdminPanel/DetallePedido/DetallePedido";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
           <Route path="agregar" element={<AgregarProducto />} />
           <Route path="categorias" element={<Categoriass />} />
           <Route path="ordenes" element={<Ordenes />} />
+          <Route path="detalle/:id" element={<DetallePedido />} />
           <Route path="users" element={<Users />} />
           <Route path="ventas" element={<Ventas />} />
           <Route path="transaciones" element={<Transacciones />} />

@@ -12,11 +12,10 @@ import {
   Image,
   Button,
   Grid,
-  GridItem,
   Center,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+
 import Review from "../Review/ReviewButton";
 
 export default function MisCompras() {
@@ -36,16 +35,11 @@ export default function MisCompras() {
 
     if (headers) {
       axios.get(`/user/pedido/${user.id}`, headers).then((result) => {
-        console.log(result.data);
         setCompra(result.data);
-        console.log(compra, compra.items);
+        console.log(result.data);
       });
     }
   }, []);
-
-  // items: id, title, quantity, unit_price, picture_url
-  // payments: status, status_detail
-  // createdAt: fecha
 
   return (
     <Box>
@@ -108,7 +102,7 @@ export default function MisCompras() {
                     h="140px"
                     display="flex"
                     flexDirection="row"
-                    w="1000px"
+                    w="1200px"
                     m="5px"
                     bg="blackAlpha.300"
                     borderRadius="5px"
@@ -122,6 +116,23 @@ export default function MisCompras() {
                       border="1px solid grey"
                       src={product.picture_url}
                     />
+
+                    <Box
+                      display="flex"
+                      flexDirection="row"
+                      justifyItems="center"
+                      fontWeight="black"
+                      mt="10px"
+                      ml="40px"
+                      mr="15px"
+                      w="90px"
+                    >
+                      {e.estado_envio === "Creado" ? (
+                        <Box> Estado de tu envio : En proceso</Box>
+                      ) : (
+                        <Box> Estado de tu envio : {e.estado_envio} </Box>
+                      )}
+                    </Box>
 
                     <Center fontWeight="black" w="300px" margin="20px">
                       {product.title}
