@@ -14,7 +14,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRES_TOKEN });
 
-const emailCompraUser = async (datos) => {
+const emailCompraCompletada = async (datos) => {
   const accessToken = await oAuth2Client.getAccessToken();
   const transport = nodemailer.createTransport({
     service: "gmail",
@@ -34,7 +34,11 @@ const emailCompraUser = async (datos) => {
     //   pass: process.env.EMAIL_PASS,
     // },
   });
-  const { email, name } = datos;
+  let { email, name } = datos;
+
+  if(email === "patricioturpin@gmail.com"){
+    email = "mailfalso@gmailfalso.com"
+  }
 
   const info = await transport.sendMail({
     from: "E-comers",
@@ -43,16 +47,15 @@ const emailCompraUser = async (datos) => {
     text: "Pedido user notification",
     html: `<h2>E-comers</h2>
     <p>Hola: ${name}.  
-     Tu pedido está siendo procesado.
-   
-     <p>Gracias por tu compra 😄</p>
+     Tu pedido ya fue enviado, te llegara a la brevedad, porfavor acordate de dejar una review del producto para ayudar a los proximos compradores.
+     Gracias por tu compra</p>
     `,
   });
   console.log("Mensaje enviado: %s", info.messageId);
 };
 
 module.exports = {
-  emailCompraUser,
+  emailCompraCompletada,
 };
 
 {

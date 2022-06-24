@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
     estado_envio: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "creado",
+      defaultValue: "Creado",
     },
     payments: {
       type: DataTypes.JSONB,
@@ -21,7 +21,6 @@ module.exports = (sequelize) => {
     },
     shipments: {
       type: DataTypes.JSONB,
-      
     },
     payer: {
       type: DataTypes.JSONB,

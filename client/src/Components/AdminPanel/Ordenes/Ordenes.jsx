@@ -13,48 +13,54 @@ import {
   MenuList,
   MenuItem,
   Flex,
-  Img,
   Box,
-  Input,
-  Button,
   Text,
-  Checkbox,
 } from "@chakra-ui/react";
-import useAuthAd from "../../../hooks/useAuthAd";
+
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiEditAlt } from "react-icons/bi";
-import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
-import EditProductos from "../EditProductos/EditProductos";
 import axios from "axios";
-
 const ObtenerProductosAdmin = () => {
-
-  const [formEdit, setFormEdit] = useState(false);
-  const [editar, setEditar] = useState(false);
-  const [eliminar, setEliminar] = useState(false);
-
   const [pedidos, setPedidos] = useState("");
-
-
-
-  function handleSubmit(e) {}
+  const [filtrados, setFiltrados] = useState("");
 
   useLayoutEffect(() => {
     axios
       .get("/admin/envios")
       .then((res) => res.data)
+      .then((fil) => fil?.filter((el) => el.payments[0].status === "approved"))
       .then((data) => setPedidos(data));
   }, []);
 
- 
+  function filtro(estado) {
+    axios
+      .get("/admin/envios")
+      .then((res) => res.data)
+      .then((fil) => fil?.filter((el) => el.payments[0].status === "approved"))
+      .then((data) => setFiltrados(data))
+      .then(() => {
+        if (estado !== "Todos") {
+          let filtrar = filtrados?.filter((el) => el.estado_envio === estado);
+          setPedidos(filtrar);
+        } else {
+          axios
+            .get("/admin/envios")
+            .then((res) => res.data)
+            .then((fil) =>
+              fil?.filter((el) => el.payments[0].status === "approved")
+            )
+            .then((data) => setPedidos(data));
+        }
+      });
+  }
+
   return (
     <Flex>
       <HeaderAdmin />
-      {pedidos.length > 0 ? (
+      {pedidos?.length > 0 ? (
         <Box w="83%" m="auto" mt="30px">
-          
           <Box h="500px" overflowY={"scroll"} borderRadius="10px" mt="30px">
             <TableContainer>
               <Table size={"md"} variant="striped" bg="#BFBFBF">
@@ -79,6 +85,7 @@ const ObtenerProductosAdmin = () => {
                           </MenuButton>
                           <MenuList p={0} color={"#242525"}>
                             <MenuItem
+                              onClick={() => filtro("Creado")}
                               bg={"#242525"}
                               color={"#FFFF"}
                               _hover={{
@@ -88,7 +95,9 @@ const ObtenerProductosAdmin = () => {
                             >
                               Creado
                             </MenuItem>
+
                             <MenuItem
+                              onClick={() => filtro("Procesando")}
                               bg={"#242525"}
                               color={"#FFFF"}
                               _hover={{
@@ -99,6 +108,7 @@ const ObtenerProductosAdmin = () => {
                               Procesando
                             </MenuItem>
                             <MenuItem
+                              onClick={() => filtro("Cancelado")}
                               bg={"#242525"}
                               color={"#FFFF"}
                               _hover={{
@@ -109,6 +119,7 @@ const ObtenerProductosAdmin = () => {
                               Cancelado
                             </MenuItem>
                             <MenuItem
+                              onClick={() => filtro("Completado")}
                               bg={"#242525"}
                               color={"#FFFF"}
                               _hover={{
@@ -117,6 +128,17 @@ const ObtenerProductosAdmin = () => {
                               }}
                             >
                               Completado
+                            </MenuItem>
+                            <MenuItem
+                              onClick={() => filtro("Todos")}
+                              bg={"#242525"}
+                              color={"#FFFF"}
+                              _hover={{
+                                bg: "gray",
+                                color: "#FFFF",
+                              }}
+                            >
+                              Todos
                             </MenuItem>
                           </MenuList>
                         </Menu>
@@ -142,14 +164,52 @@ const ObtenerProductosAdmin = () => {
                 <Tbody textAlign={"center"} bg="#FFFF">
                   {pedidos.length > 0 &&
                     pedidos.map((elem) => {
+                      let envio;
+
+                      if (elem.estado_envio === "Completado") {
+                        envio = (
+                          <Text bg="green.200" color="black" fontSize="25px">
+                            Completado
+                          </Text>
+                        );
+                      }
+                      if (elem.estado_envio === "Cancelado") {
+                        envio = (
+                          <Text bg="red.300" color="black" fontSize="25px">
+                            Cancelado
+                          </Text>
+                        );
+                      }
+                      if (elem.estado_envio === "Procesando") {
+                        envio = (
+                          <Text bg="yellow" color="black" fontSize="25px">
+                            Procesando
+                          </Text>
+                        );
+                      }
+                      if (elem.estado_envio === "Creado") {
+                        envio = (
+                          <Text bg="orange.400" color="black" fontSize="25px">
+                            Creado
+                          </Text>
+                        );
+                      }
+
                       return (
                         <Tr key={elem.id}>
                           <Td padding={"0px"}>
-                            <Link to="#" w="100%">
-                              <Td>Pedido: {elem.id}</Td>
+                            <Link to={`/admin/detalle/${elem.id}`} w="100%">
+                              <Td>
+                                <Flex>
+                                  <BiEditAlt mr="5px" />
+                                  <Box ml="15px">
+                                    {`  MODIFICAR PEDIDO N°: ${elem.id}`}
+                                  </Box>
+                                </Flex>
+                              </Td>
                             </Link>
                           </Td>
-                          <Td>{elem.estado_envio}</Td>
+                          <Td>{envio}</Td>
                           <Td>$ {elem.payments[0].total_paid_amount}</Td>
                           <Td>{elem.payer.email}</Td>
                           <Td>{`${elem.shipments?.street_name} ${elem.shipments?.street_number} ${elem.shipments?.city_name}`}</Td>
