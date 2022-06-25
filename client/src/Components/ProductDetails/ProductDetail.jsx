@@ -163,6 +163,7 @@ function ProductDetail() {
                         src={product.imagen0}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                     <Button
@@ -176,6 +177,7 @@ function ProductDetail() {
                         src={product.imagen1}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                     <Button
@@ -189,6 +191,7 @@ function ProductDetail() {
                         src={product.imagen2}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                   </Stack>
@@ -216,6 +219,7 @@ function ProductDetail() {
                     <Box>
                       <Image
                         boxSize={"25vw"}
+                        objectFit="contain"
                         src={img ? img : product.imagen0}
                       />
                     </Box>
@@ -370,6 +374,8 @@ function ProductDetail() {
                           <Image
                             w="60vw"
                             minW="330px"
+                            maxH="400px"
+                            objectFit="contain"
                             src={img ? img : product.imagen0}
                           />
                         </Box>
@@ -389,11 +395,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen0)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen0}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                         <Button
@@ -408,11 +415,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen1)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen1}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                         <Button
@@ -427,11 +435,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen2)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen2}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                       </Stack>
