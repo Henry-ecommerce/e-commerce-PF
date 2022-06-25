@@ -71,7 +71,7 @@ function ProductDetail() {
       },
     };
 
-    if (headers) {
+    if (headers && user?.id) {
       axios.get(`/user/pedido/${user.id}`, headers).then((result) =>
         result.data?.map((e) =>
           setRev(
@@ -292,7 +292,7 @@ function ProductDetail() {
                               fontSize="small"
                               w="150px"
                             >
-                              Escribir Mi Opinión
+                              ESCRIBIR UNA OPINION
                             </Button>
                           </PopoverTrigger>
                           <Portal>
