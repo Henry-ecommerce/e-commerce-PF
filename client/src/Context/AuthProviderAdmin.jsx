@@ -779,7 +779,7 @@ export const AdminProvider = ({ children }) => {
 const _obtenerPedidos = async () => {
 				try {
 					const { data } = await axios.get(`/admin/envios`);
-					let total = data.map((e) => e.payments).reduce((a, b) => a + b[0].transaction_amount, 0);
+					let total = data.map((e) => e.payments).filter(e => e.length > 0).reduce((a, b) => a + b[0]?.transaction_amount, 0)
 					let total_ganancia = (total * 40) / 100;
 					setTatalOrdenes(data.length);
 					setTotalMeses(data.map((e) => e.payments[0].date_approved.split("-")[1]));
