@@ -116,6 +116,13 @@ function ProductDetail() {
     precioFinal = parseInt(product.precio?.PesosArg - desc);
   }
 
+  let ultima;
+  if (product?.stock === 1) {
+    ultima = "Compra ahora! Es la ultima unidad disponible!";
+  } else {
+    ultima = `Unidades disponibles : ${product.stock}`;
+  }
+
   if (typeof product === "object") {
     return (
       <>
@@ -248,6 +255,7 @@ function ProductDetail() {
                     </Box>
                     <br />
                     <br />
+                    <Text fontSize="20px">{ultima ? ultima : null}</Text>
                     <br />
                     <HStack spacing="15px">
                       {product.stock > 0 ? (
