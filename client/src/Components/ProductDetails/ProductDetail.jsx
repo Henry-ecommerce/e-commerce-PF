@@ -15,6 +15,14 @@ import {
   Center,
   Text,
   useMediaQuery,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+  Portal,
 } from "@chakra-ui/react";
 import AddToCart from "../AddToCardComponents/AddToCart";
 import AddToCartIcon from "../AddToCardComponents/AddToCartIcon";
@@ -26,6 +34,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import Paths from "../Paths/Paths";
 import FavoriteButton from "../Product/FavoriteButton";
+import Review from "../Review/ReviewButton";
 
 function ProductDetail() {
   let { id } = useParams();
@@ -40,8 +49,9 @@ function ProductDetail() {
   const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
+  const [Rev, setRev] = useState([]);
 
-  const [mayor900w] = useMediaQuery('(min-width: 900px)');
+  const [mayor900w] = useMediaQuery("(min-width: 900px)");
 
   useEffect(() => {
     axios.get(`productos/detail/${id}`).then((result) => {
@@ -50,6 +60,27 @@ function ProductDetail() {
     axios.get(`/review/:${id}`).then((res) => {
       setReviews(res.data);
     });
+
+    const token = localStorage.getItem("token");
+    let user = JSON.parse(localStorage.getItem("info_user"));
+
+    const headers = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    if (headers) {
+      axios.get(`/user/pedido/${user.id}`, headers).then((result) =>
+        result.data?.map((e) =>
+          setRev(
+            ...Rev,
+            e.items?.filter((el) => el.id == id)
+          )
+        )
+      );
+    }
   }, [id]);
 
   const [img, setImg] = useState();
@@ -88,292 +119,414 @@ function ProductDetail() {
   if (typeof product === "object") {
     return (
       <>
-        <Box width={"70vw"} maxW="1440" minW="350px" mt="10px" mr="auto" ml="auto">
+        <Box
+          width={"70vw"}
+          maxW="1440"
+          minW="350px"
+          mt="10px"
+          mr="auto"
+          ml="auto"
+        >
           <Paths></Paths>
         </Box>
 
-        
-        <Stack w="full"  alignItems="center">
-          <Box w="70vw" maxW="1440" minW="350px" h="fit-content" bg="white" p="10px" m="10px">
-            
+        <Stack w="full" alignItems="center">
+          <Box
+            w="70vw"
+            maxW="1440"
+            minW="350px"
+            h="fit-content"
+            bg="white"
+            p="10px"
+            m="10px"
+          >
             {/*MAYOR A 900 HASTA LINEA 236*/}
-            {mayor900w ?
-            <Flex justifyContent="space-between">
-              
-              
-
-              <Box ml="5px"> 
-                <Stack direction="column"> 
-                  <Button
-                    boxSize="120px"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen0 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen0)}
-                  >
-                    <Image
-                      src={product.imagen0}
-                      alt={`Picture`}
-                      boxSize="100px"
-                    />
-                  </Button>
-                  <Button
-                    boxSize="120px"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen1 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen1)}
-                  >
-                    <Image
-                      src={product.imagen1}
-                      alt={`Picture`}
-                      boxSize="100px"
-                    />
-                  </Button>
-                  <Button
-                    boxSize="120px"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen2 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen2)}
-                  >
-                    <Image
-                      src={product.imagen2}
-                      alt={`Picture`}
-                      boxSize="100px"
-                    />
-                  </Button>
-                </Stack>
-              </Box> 
-
-
-
-              <Box position="relative">
-                <Box 
-                  position={"absolute"}
-                  m="0"
-                  top="10px"
-                  mb="10px"
-                  left="10px"
-                  ml="19vw"
-                  mr="1vw"
-                >
-                  <FavoriteButton productId={product.id} origin={"hola"} />
-                </Box>
-                
-                <Stack h={"100%"} direction="column" alignItems={"center"} justifyContent="center">
-                  <Box >
-                    <Image boxSize={"25vw"} src={img ? img : product.imagen0} />
-                  </Box>
-                </Stack>
-              </Box>
-
-
-
-              <Box w={"25vw"}>
-                <Flex direction="column" alignContent="space-between">
-                  <Box w="25vw" fontSize={"20px"} fontWeight="black">
-                    {product.nombre}
-                  </Box>
-                  <br />
-                  <ReviewStars starRating={displayRating()} />({reviews.length})
-                  <br />
-                  <br />
-                  <Box
-                    as="span"
-                    color={"#242525"}
-                    fontWeight="bold"
-                    fontSize="30px"
-                  >
-                    {product.descuento !== null && (
-                      <Text
-                        fontSize={"15px"}
-                        color="#9A9A9A"
-                        textDecoration={"line-through"}
-                      >{`Antes : $ ${product.precio?.PesosArg}`}</Text>
-                    )}
-                    {product.descuento !== null
-                      ? ` $ ${(
-                          product.precio?.PesosArg -
-                          (product?.precio?.PesosArg * product.descuento) / 100
-                        ).toFixed(2)}`
-                      : `$ ${product.precio?.PesosArg}`}
-                  </Box>
-                  <br />
-                  <br />
-                  <br />
-                  <HStack spacing="15px">
-                    {product.stock > 0 ? (
-                      <AddToCartIcon
-                        nombre={product.nombre}
-                        precio={precioFinal}
-                        marca={product.marca}
-                        imagen0={product.imagen0}
-                        id={product.id}
-                        stock={product.stock}
+            {mayor900w ? (
+              <Flex justifyContent="space-between">
+                <Box ml="5px">
+                  <Stack direction="column">
+                    <Button
+                      boxSize="120px"
+                      bg="white"
+                      border="2px"
+                      borderColor={img === product.imagen0 ? "black" : "white"}
+                      onClick={() => changeImg(product.imagen0)}
+                    >
+                      <Image
+                        src={product.imagen0}
+                        alt={`Picture`}
+                        boxSize="100px"
                       />
-                    ) : null}
+                    </Button>
+                    <Button
+                      boxSize="120px"
+                      bg="white"
+                      border="2px"
+                      borderColor={img === product.imagen1 ? "black" : "white"}
+                      onClick={() => changeImg(product.imagen1)}
+                    >
+                      <Image
+                        src={product.imagen1}
+                        alt={`Picture`}
+                        boxSize="100px"
+                      />
+                    </Button>
+                    <Button
+                      boxSize="120px"
+                      bg="white"
+                      border="2px"
+                      borderColor={img === product.imagen2 ? "black" : "white"}
+                      onClick={() => changeImg(product.imagen2)}
+                    >
+                      <Image
+                        src={product.imagen2}
+                        alt={`Picture`}
+                        boxSize="100px"
+                      />
+                    </Button>
+                  </Stack>
+                </Box>
 
-                    <VStack spacing="15px">
-                      <Link to="/user/carrito">
+                <Box position="relative">
+                  <Box
+                    position={"absolute"}
+                    m="0"
+                    top="10px"
+                    mb="10px"
+                    left="10px"
+                    ml="19vw"
+                    mr="1vw"
+                  >
+                    <FavoriteButton productId={product.id} origin={"hola"} />
+                  </Box>
+
+                  <Stack
+                    h={"100%"}
+                    direction="column"
+                    alignItems={"center"}
+                    justifyContent="center"
+                  >
+                    <Box>
+                      <Image
+                        boxSize={"25vw"}
+                        src={img ? img : product.imagen0}
+                      />
+                    </Box>
+                  </Stack>
+                </Box>
+
+                <Box w={"25vw"}>
+                  <Flex direction="column" alignContent="space-between">
+                    <Box w="25vw" fontSize={"20px"} fontWeight="black">
+                      {product.nombre}
+                    </Box>
+                    <br />
+                    <ReviewStars starRating={displayRating()} />(
+                    {reviews.length})
+                    <br />
+                    <br />
+                    <Box
+                      as="span"
+                      color={"#242525"}
+                      fontWeight="bold"
+                      fontSize="30px"
+                    >
+                      {product.descuento !== null && (
+                        <Text
+                          fontSize={"15px"}
+                          color="#9A9A9A"
+                          textDecoration={"line-through"}
+                        >{`Antes : $ ${product.precio?.PesosArg}`}</Text>
+                      )}
+                      {product.descuento !== null
+                        ? ` $ ${(
+                            product.precio?.PesosArg -
+                            (product?.precio?.PesosArg * product.descuento) /
+                              100
+                          ).toFixed(2)}`
+                        : `$ ${product.precio?.PesosArg}`}
+                    </Box>
+                    <br />
+                    <br />
+                    <br />
+                    <HStack spacing="15px">
+                      {product.stock > 0 ? (
+                        <AddToCartIcon
+                          nombre={product.nombre}
+                          precio={precioFinal}
+                          marca={product.marca}
+                          imagen0={product.imagen0}
+                          id={product.id}
+                          stock={product.stock}
+                        />
+                      ) : null}
+
+                      <VStack spacing="15px">
+                        <Link to="/user/carrito">
+                          {product.stock > 0 ? (
+                            <AddToCart
+                              nombre={product.nombre}
+                              precio={precioFinal}
+                              marca={product.marca}
+                              imagen0={product.imagen0}
+                              id={product.id}
+                              stock={product.stock}
+                              texto="COMPRAR AHORA"
+                            />
+                          ) : (
+                            <Text>
+                              Lo sentimos no hay stock de este producto
+                            </Text>
+                          )}
+                        </Link>
+                      </VStack>
+                      {Rev.length > 0 ? (
+                        <Review id={product.id} />
+                      ) : (
+                        <Popover>
+                          <PopoverTrigger>
+                            <Button
+                              bg="#242525"
+                              color="#ECEDEC"
+                              _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                              fontSize="small"
+                              w="150px"
+                            >
+                              Escribir Mi Opinión
+                            </Button>
+                          </PopoverTrigger>
+                          <Portal>
+                            <PopoverContent>
+                              <PopoverArrow />
+                              <PopoverHeader>
+                                Para Dejar Una Opinion Debe Haber Comprado El
+                                Producto
+                              </PopoverHeader>
+                              <PopoverCloseButton />
+                              <PopoverBody>
+                                <Link to="/user/carrito">
+                                  <AddToCart
+                                    nombre={product.nombre}
+                                    precio={precioFinal}
+                                    marca={product.marca}
+                                    imagen0={product.imagen0}
+                                    id={product.id}
+                                    stock={product.stock}
+                                    texto="COMPRAR AHORA"
+                                  />
+                                </Link>
+                              </PopoverBody>
+                            </PopoverContent>
+                          </Portal>
+                        </Popover>
+                      )}
+                    </HStack>
+                  </Flex>
+                </Box>
+              </Flex>
+            ) : (
+              <Flex justifyContent="center">
+                <Box w={"70vw"} minW="350px">
+                  <Flex direction="column" alignItems="center">
+                    <Box
+                      w="60vw"
+                      minW="330px"
+                      textAlign={"center"}
+                      fontSize={"20px"}
+                      fontWeight="black"
+                    >
+                      {product.nombre}
+                    </Box>
+                    <ReviewStars starRating={displayRating()} />(
+                    {reviews.length})
+                    <Box position="relative">
+                      <Box
+                        position={"absolute"}
+                        m="0"
+                        top="10px"
+                        mb="10px"
+                        left="80%"
+                      >
+                        <FavoriteButton
+                          productId={product.id}
+                          origin={"hola"}
+                        />
+                      </Box>
+
+                      <Stack direction="column">
+                        <Box
+                          alignContent="center"
+                          w="100%"
+                          boxSize="fit-content"
+                        >
+                          <Image
+                            w="60vw"
+                            minW="330px"
+                            src={img ? img : product.imagen0}
+                          />
+                        </Box>
+                      </Stack>
+                    </Box>
+                    <Box ml="5px">
+                      <Stack direction="row">
+                        <Button
+                          minW="110px"
+                          minH="110px"
+                          boxSize="20vw"
+                          bg="white"
+                          border="2px"
+                          borderColor={
+                            img === product.imagen0 ? "black" : "white"
+                          }
+                          onClick={() => changeImg(product.imagen0)}
+                        >
+                          <Image
+                            minW="110px"
+                            minH="110px"
+                            src={product.imagen0}
+                            alt={`Picture`}
+                            boxSize="20vw"
+                          />
+                        </Button>
+                        <Button
+                          minW="110px"
+                          minH="110px"
+                          boxSize="20vw"
+                          bg="white"
+                          border="2px"
+                          borderColor={
+                            img === product.imagen1 ? "black" : "white"
+                          }
+                          onClick={() => changeImg(product.imagen1)}
+                        >
+                          <Image
+                            minW="110px"
+                            minH="110px"
+                            src={product.imagen1}
+                            alt={`Picture`}
+                            boxSize="20vw"
+                          />
+                        </Button>
+                        <Button
+                          minW="110px"
+                          minH="110px"
+                          boxSize="20vw"
+                          bg="white"
+                          border="2px"
+                          borderColor={
+                            img === product.imagen2 ? "black" : "white"
+                          }
+                          onClick={() => changeImg(product.imagen2)}
+                        >
+                          <Image
+                            minW="110px"
+                            minH="110px"
+                            src={product.imagen2}
+                            alt={`Picture`}
+                            boxSize="20vw"
+                          />
+                        </Button>
+                      </Stack>
+                    </Box>
+                    <Box
+                      as="span"
+                      color={"#242525"}
+                      fontWeight="bold"
+                      fontSize="30px"
+                    >
+                      {product.descuento !== null && (
+                        <Text
+                          fontSize={"15px"}
+                          color="#9A9A9A"
+                          textDecoration={"line-through"}
+                        >{`Antes : $ ${product.precio?.PesosArg}`}</Text>
+                      )}
+                      {product.descuento !== null
+                        ? ` $ ${(
+                            product.precio?.PesosArg -
+                            (product?.precio?.PesosArg * product.descuento) /
+                              100
+                          ).toFixed(2)}`
+                        : `$ ${product.precio?.PesosArg}`}
+                    </Box>
+                    <Box mt="10px" mb="20px">
+                      <HStack spacing="15px">
                         {product.stock > 0 ? (
-                          <AddToCart
+                          <AddToCartIcon
                             nombre={product.nombre}
                             precio={precioFinal}
                             marca={product.marca}
                             imagen0={product.imagen0}
                             id={product.id}
                             stock={product.stock}
-                            texto="COMPRAR AHORA"
                           />
+                        ) : null}
+
+                        <VStack spacing="15px">
+                          <Link to="/user/carrito">
+                            {product.stock > 0 ? (
+                              <AddToCart
+                                nombre={product.nombre}
+                                precio={precioFinal}
+                                marca={product.marca}
+                                imagen0={product.imagen0}
+                                id={product.id}
+                                stock={product.stock}
+                                texto="COMPRAR AHORA"
+                              />
+                            ) : (
+                              <Text>
+                                Lo sentimos no hay stock de este producto
+                              </Text>
+                            )}
+                          </Link>
+                        </VStack>
+                        {Rev.length > 0 ? (
+                          <Review id={product.id} />
                         ) : (
-                          <Text>Lo sentimos no hay stock de este producto</Text>
+                          <Popover>
+                            <PopoverTrigger>
+                              <Button
+                                bg="#242525"
+                                color="#ECEDEC"
+                                _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                                fontSize="small"
+                                w="150px"
+                              >
+                                Escribir Mi Opinión
+                              </Button>
+                            </PopoverTrigger>
+                            <Portal>
+                              <PopoverContent>
+                                <PopoverArrow />
+                                <PopoverHeader>
+                                  Para Dejar Una Opinion Debe Haber Comprado El
+                                  Producto
+                                </PopoverHeader>
+                                <PopoverCloseButton />
+                                <PopoverBody>
+                                  <Link to="/user/carrito">
+                                    <AddToCart
+                                      nombre={product.nombre}
+                                      precio={precioFinal}
+                                      marca={product.marca}
+                                      imagen0={product.imagen0}
+                                      id={product.id}
+                                      stock={product.stock}
+                                      texto="COMPRAR AHORA"
+                                    />
+                                  </Link>
+                                </PopoverBody>
+                              </PopoverContent>
+                            </Portal>
+                          </Popover>
                         )}
-                      </Link>
-                    </VStack>
-                  </HStack>
-                </Flex>
-              </Box>
-            </Flex>  :
-            
-            <Flex justifyContent="center">
-              
-              <Box w={"70vw" } minW="350px" >
-                <Flex direction="column" alignItems="center">
-                  <Box w="60vw" minW="330px" textAlign={"center"} fontSize={"20px"} fontWeight="black">
-                    {product.nombre}
-                  </Box>
-                  <ReviewStars starRating={displayRating()} />({reviews.length})
-                  
-                  <Box position="relative">
-                <Box 
-                  position={"absolute"}
-                  m="0"
-                  top="10px"
-                  mb="10px"
-                  left="80%"
-                >
-                  <FavoriteButton productId={product.id} origin={"hola"} />
+                      </HStack>
+                    </Box>
+                  </Flex>
                 </Box>
-                
-                <Stack direction="column">
-                  <Box alignContent="center" w="100%" boxSize="fit-content">
-                    <Image w="60vw" minW="330px" src={img ? img : product.imagen0} />
-                  </Box>
-                </Stack>
-              </Box>
-
-              <Box ml="5px"> 
-                <Stack direction="row"> 
-                  <Button minW="110px" minH="110px"
-                    boxSize="20vw"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen0 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen0)}
-                  >
-                    <Image minW="110px" minH="110px"
-                      src={product.imagen0}
-                      alt={`Picture`}
-                      boxSize="20vw"
-                    />
-                  </Button>
-                  <Button minW="110px" minH="110px"
-                    boxSize="20vw"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen1 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen1)}
-                  >
-                    <Image minW="110px" minH="110px"
-                      src={product.imagen1}
-                      alt={`Picture`}
-                      boxSize="20vw"
-                    />
-                  </Button>
-                  <Button minW="110px" minH="110px"
-                    boxSize="20vw"
-                    bg="white"
-                    border="2px"
-                    borderColor={img === product.imagen2 ? "black" : "white"}
-                    onClick={() => changeImg(product.imagen2)}
-                  >
-                    <Image minW="110px" minH="110px"
-                      src={product.imagen2}
-                      alt={`Picture`}
-                      boxSize="20vw"
-                    />
-                  </Button>
-                </Stack>
-              </Box> 
-                  
-                  <Box
-                    as="span"
-                    color={"#242525"}
-                    fontWeight="bold"
-                    fontSize="30px"
-                  >
-                    {product.descuento !== null && (
-                      <Text
-                        fontSize={"15px"}
-                        color="#9A9A9A"
-                        textDecoration={"line-through"}
-                      >{`Antes : $ ${product.precio?.PesosArg}`}</Text>
-                    )}
-                    {product.descuento !== null
-                      ? ` $ ${(
-                          product.precio?.PesosArg -
-                          (product?.precio?.PesosArg * product.descuento) / 100
-                        ).toFixed(2)}`
-                      : `$ ${product.precio?.PesosArg}`}
-                  </Box>
-                 
-
-                 <Box mt="10px" mb="20px">
-                  <HStack spacing="15px">
-                    {product.stock > 0 ? (
-                      <AddToCartIcon
-                        nombre={product.nombre}
-                        precio={precioFinal}
-                        marca={product.marca}
-                        imagen0={product.imagen0}
-                        id={product.id}
-                        stock={product.stock}
-                      />
-                    ) : null}
-
-                    <VStack spacing="15px">
-                      <Link to="/user/carrito">
-                        {product.stock > 0 ? (
-                          <AddToCart
-                            nombre={product.nombre}
-                            precio={precioFinal}
-                            marca={product.marca}
-                            imagen0={product.imagen0}
-                            id={product.id}
-                            stock={product.stock}
-                            texto="COMPRAR AHORA"
-                          />
-                        ) : (
-                          <Text>Lo sentimos no hay stock de este producto</Text>
-                        )}
-                      </Link>
-                    </VStack>
-                  </HStack>
-                  </Box>
-                </Flex>
-              </Box>
-              
-              
-              
-              
-              
-
-            </Flex>
-            
-            }
-
-
+              </Flex>
+            )}
 
             <Stack direction="row" spacing={4} align="center" mt="15px" pl="5">
               <Button

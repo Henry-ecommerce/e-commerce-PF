@@ -87,7 +87,7 @@ function Navbar() {
             </Box>
             <Box mx="15px">
               {user?.rol === "Admin" && (
-                <Link to="/admin/edit">Panel Admin</Link>
+                <Link to="/admin">Panel Admin</Link>
               )}
               {user?.rol === "Owner" && (
                 <Link to="/owner/edit">Panel Owner</Link>

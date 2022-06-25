@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Flex, Stack, Text, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Stack,
+  Text,
+  Input,
+  Select,
+  Image,
+} from "@chakra-ui/react";
 import { GrLocation } from "react-icons/gr";
 import { useParams } from "react-router-dom";
 import { BiShoppingBag } from "react-icons/bi";
@@ -8,6 +17,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { GrUserAdmin } from "react-icons/gr";
 import { MdOutlinePresentToAll } from "react-icons/md";
 import { HiOutlineBan } from "react-icons/hi";
+import { AiFillHome } from "react-icons/ai";
 import useAuthAd from "../../../hooks/useAuthAd";
 import { Link } from "react-router-dom";
 import Alerta from "../../../helper/Alerta";
@@ -17,12 +27,12 @@ const PerfilUserOwner = () => {
     useAuthAd();
   const [rol, setRol] = useState(false);
   const [baneos, setBaneos] = useState(false);
-  const [datosEnvio, setDatosEnvio] = useState(false);
   const [compras, setCompras] = useState(false);
   const [defaul, setDefaul] = useState(true);
   const [rols, setRols] = useState("");
   const [baneoss, setBaneoss] = useState("");
   const [alerta, setAlerta] = useState({});
+  const [comprasUsers, setComprasUsers] = useState(false);
 
   const { id } = useParams();
   useEffect(() => {
@@ -65,6 +75,7 @@ const PerfilUserOwner = () => {
       setAlerta({});
     }, 4000);
   };
+  const foto = perfilIDUser.img;
 
   const { msg } = alerta;
   return (
@@ -77,60 +88,108 @@ const PerfilUserOwner = () => {
         alignItems="center"
       >
         <Box fontSize={"150px"} mb="20px">
-          <BiUserCircle />
+          {foto ? (
+            <Image
+              src={foto}
+              alt="Dan Abramov"
+              borderRadius="full"
+              boxSize="150px"
+            />
+          ) : (
+            <BiUserCircle />
+          )}
         </Box>
+
         <Box w="90%">
+          <Flex justify={"space-between"} align="center">
+            <Button
+              mt={"10px"}
+              bg="#FFFF"
+              color="back"
+              _hover={{
+                bg: "#242524",
+                color: "white",
+              }}
+              onClick={() => {
+                setBaneos(false);
+                setRol(false);
+                setComprasUsers(false);
+              }}
+            >
+              <Flex justify={"space-between"} align="center">
+                <Box pb="6px">
+                  <AiFillHome />
+                </Box>
+                <Flex>
+                  <Text ml={"10px"}>Inicio</Text>
+                </Flex>
+              </Flex>
+            </Button>
+          </Flex>
           <Button
-            bg="#242524"
-            color="#FFFF"
+            mt={"10px"}
+            bg="#FFFF"
+            color="back"
             _hover={{
               bg: "#242524",
+              color: "white",
             }}
-            onClick={() => setRol(!rol)}
+            onClick={() => {
+              setRol(!rol);
+              setBaneos(false);
+              setComprasUsers(false);
+            }}
           >
             <Flex justify={"space-between"} align="center">
               <Box pb="6px">
                 <GrUserAdmin />
               </Box>
               <Flex>
-                <Text>Cambiar Rol</Text>
+                <Text ml={"10px"}>Cambiar Rol</Text>
               </Flex>
             </Flex>
           </Button>
+
           <Flex justify={"space-between"} align="center">
             <Button
-              bg="#242524"
-              color="#FFFF"
+              mt={"10px"}
+              bg="#FFFF"
+              color="back"
               _hover={{
                 bg: "#242524",
+                color: "white",
               }}
-              onClick={() => setBaneos(!baneos)}
+              onClick={() => {
+                setBaneos(!baneos);
+                setRol(false);
+                setComprasUsers(false);
+              }}
             >
               <Flex justify={"space-between"} align="center">
                 <Box pb="6px">
                   <HiOutlineBan />
                 </Box>
                 <Flex>
-                  <Text>Baneos</Text>
+                  <Text ml={"10px"}>Baneos</Text>
                 </Flex>
               </Flex>
             </Button>
           </Flex>
-          <Flex justify={"space-between"} align="center">
-            <Box pb="6px">
-              <GrLocation />
-            </Box>
-            <Flex
-              justify={"left"}
-              w="80%"
-              pb="6px"
-              borderBottom={"2px solid #EDEDED"}
-            >
-              <Text>Datos de envio</Text>
-            </Flex>
-          </Flex>
 
-          <Link to="/user/misCompras">
+          <Button
+            mt={"10px"}
+            bg="#FFFF"
+            color="back"
+            _hover={{
+              bg: "#242524",
+              color: "white",
+            }}
+            onClick={() => {
+              setComprasUsers(!comprasUsers);
+              setRol(false);
+              setBaneos(false);
+            }}
+          >
             <Flex justify={"space-between"} align="center">
               <Box pb="6px">
                 <BiShoppingBag />
@@ -141,11 +200,11 @@ const PerfilUserOwner = () => {
                 pb="6px"
                 borderBottom={"2px solid #EDEDED"}
               >
-                <Text>Compras del usuario</Text>
+                <Text ml={"10px"}>Pedidos</Text>
               </Flex>
             </Flex>
-          </Link>
-          <Link to="/owner/users">
+          </Button>
+          <Link to="/admin/users">
             <Flex justify={"space-between"} align="center">
               <Box pb="6px">
                 <AiOutlineArrowLeft />
@@ -181,23 +240,32 @@ const PerfilUserOwner = () => {
           <Flex fontWeight={"extrabold"}>
             Seleccioná el rol que desas dar a usiaro
           </Flex>
-          <select defaultValue="default" onChange={handelRol}>
-            <option value="default" disabled>
-              Seleciona rol
-            </option>
-            <option value={"admin"}>Admin</option>
-            <option value={"user"}>Usuario</option>
-          </select>
-          <Button
-            bg="#242524"
-            color="#FFFF"
-            _hover={{
-              bg: "#242524",
-            }}
-            onClick={handleSubmitRols}
-          >
-            Cambiar rol {<MdOutlinePresentToAll />}
-          </Button>
+          <Box display={"flex"}>
+            <Select
+              defaultValue="default"
+              onChange={handelRol}
+              w={"30%"}
+              mt={"15px"}
+            >
+              <option value="default" disabled>
+                Seleciona rol
+              </option>
+              <option value={"admin"}>Admin</option>
+              <option value={"user"}>Usuario</option>
+            </Select>
+            <Button
+              mt={"15px"}
+              ml={"20px"}
+              bg="#242524"
+              color="#FFFF"
+              _hover={{
+                bg: "#242524",
+              }}
+              onClick={handleSubmitRols}
+            >
+              Cambiar rol {<MdOutlinePresentToAll />}
+            </Button>
+          </Box>
         </Box>
       ) : baneos ? (
         <Box p="20px" borderRadius={"20px"} w="75%" bg="#FFFFFF">
@@ -221,26 +289,35 @@ const PerfilUserOwner = () => {
               Prohibir al usuario <span style={{ color: "red" }}>Baneo</span>
             </Text>
           </Flex>
-          <select defaultValue="default" onChange={handelBaneoss}>
-            <option value="default" disabled>
-              Seleciona la accion
-            </option>
-            <option value={"baneo"}>Banear</option>
-            <option value={"desbaneo"}>Desbanear</option>
-          </select>
+          <Box display={"flex"}>
+            <Select
+              defaultValue="default"
+              onChange={handelRol}
+              w={"30%"}
+              mt={"15px"}
+            >
+              <option value="default" disabled>
+                Seleciona la accion
+              </option>
+              <option value={"baneo"}>Banear</option>
+              <option value={"desbaneo"}>Desbanear</option>
+            </Select>
 
-          <Button
-            bg="#242524"
-            color="#FFFF"
-            _hover={{
-              bg: "#242524",
-            }}
-            onClick={handleSubmitBaneo}
-          >
-            Enviar {<MdOutlinePresentToAll />}
-          </Button>
+            <Button
+              mt={"15px"}
+              ml={"20px"}
+              bg="#242524"
+              color="#FFFF"
+              _hover={{
+                bg: "#242524",
+              }}
+              onClick={handleSubmitBaneo}
+            >
+              Enviar {<MdOutlinePresentToAll />}
+            </Button>
+          </Box>
         </Box>
-      ) : (
+      ) : !comprasUsers ? (
         <Box p="20px" borderRadius={"20px"} w="75%" bg="#FFFFFF">
           <Flex fontWeight={"extrabold"}>Datos del usuario selecicado</Flex>
           <Flex fontWeight={"extrabold"}>
@@ -275,6 +352,47 @@ const PerfilUserOwner = () => {
           </Flex>
           <Flex fontWeight={"extrabold"}>
             Dirección:{" "}
+            <Text mx="10px" fontWeight={"light"}>
+              {perfilIDUser.direccion ? (
+                perfilIDUser.direccion
+              ) : (
+                <p style={{ color: "#ea5753" }}>
+                  El usuario no ha registrado una direcion
+                </p>
+              )}
+            </Text>
+          </Flex>
+        </Box>
+      ) : (
+        <Box p="20px" borderRadius={"20px"} w="75%" bg="#FFFFFF">
+          <Flex fontWeight={"extrabold"}>Pedidos del usuario</Flex>
+          <Flex fontWeight={"extrabold"}>
+            Nombre:{" "}
+            <Text mx="10px" fontWeight={"light"}>
+              {perfilIDUser.name}
+            </Text>
+          </Flex>
+          <Flex fontWeight={"extrabold"}>
+            Pedidos:{" "}
+            <Text mx="10px" fontWeight={"light"}>
+              {perfilIDUser.Pedidos}
+            </Text>
+          </Flex>
+
+          <Flex fontWeight={"extrabold"}>
+            Fecha de compra:{" "}
+            <Text mx="10px" fontWeight={"light"}>
+              {perfilIDUser.fecha_nacimiento ? (
+                perfilIDUser.fecha_nacimiento
+              ) : (
+                <p style={{ color: "#ea5753" }}>
+                  El usuario no ha registrado una fecha de nacimiento
+                </p>
+              )}
+            </Text>
+          </Flex>
+          <Flex fontWeight={"extrabold"}>
+            De pedio dirección:{" "}
             <Text mx="10px" fontWeight={"light"}>
               {perfilIDUser.direccion ? (
                 perfilIDUser.direccion

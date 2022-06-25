@@ -185,6 +185,7 @@ const Carrito = () => {
                   Total ${sum.toFixed(2)}
                 </Text>
                 <br />
+
                 <Box display="inline-block "w="fit-content">
                   {infoDirection?.items?.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
                 </Box>  
