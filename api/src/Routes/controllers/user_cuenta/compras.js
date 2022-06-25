@@ -122,6 +122,11 @@ router.post("/", async (req, res) => {
       include: Usuario,
     });
 
+    let product = await items.map(async (el) => {
+      let product = await Producto.findByPk(el.id);
+      product.decrement("stock", { by: el.quantity });
+    });
+
     meta = preferencia.data;
     let user = await Usuario.findByPk(meta.metadata.id);
 
