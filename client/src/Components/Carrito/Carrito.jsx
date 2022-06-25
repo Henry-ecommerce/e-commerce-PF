@@ -10,6 +10,7 @@ import {
   Flex,
   Stack,
   useToast,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import styles from "./Carrito.module.css";
@@ -25,6 +26,7 @@ import Mercadopago from "../MercadoPago/MercadoPago";
 const Carrito = () => {
   const { products_in_cart_local_storage } = useSelector((state) => state);
   const { products } = useSelector((state) => state);
+  const [mayor1205w] = useMediaQuery('(min-width: 1205px)');
   const division = [
     products?.slice(0, 12),
     products?.slice(12, 24),
@@ -69,33 +71,36 @@ const Carrito = () => {
       {
         <Flex>
           {localStor[0] ? (
-            <Flex justify="space-between" w="90%" m="auto">
-              <Box maxH="500px" overflowY="scroll">
+            <Flex justify="center" w="70vw" maxW="1440px" minW="350px" ml="auto" mr="auto" wrap={mayor1205w?"nowrap":"wrap"}>
+              <Box maxH="500px" __css={{"&::-webkit-scrollbar":{w: "7px"}, "::-webkit-scrollbar-thumb":{bg:"#242525", borderRadius:"10px"}}} _hover={{"&::-webkit-scrollbar-thumb":{bg:"#505050"}}} overflowY={"auto"}>
                 {localStor?.map((el) => {
                   return (
                     <Box
                       fontSize="1em"
-                      w="1000px"
+                      w={mayor1205w?"45vw":"65vw"}
+                      maxW="1440px"
+                      minW="330px"
                       my="20px"
                       bg="#FFFF"
-                      p="20px"
+                      py="5px"
+                      px="20px"
                       borderRadius="10px"
                     >
                       {/* <Text fontWeight="extrabold" fontSize="25px">
 												Mi carrito
 											</Text> */}
                       <Box>
-                        <Flex align="center" justify="space-between" w="100%">
+                        <Flex align="center" justify="space-around" wrap={"wrap"}>
                           <Image
                             src={el.imagen0}
                             boxSize="100px"
                             borderRadius="10px"
                             objectFit="contain"
                           />
-                          <Text fontSize="1em" maxW="250px">
+                          <Text fontSize="1em" minW="150px "maxW="250px">
                             {el.nombre}
                           </Text>
-                          <Text fontSize="1.3em" fontWeight="550">
+                          <Text fontSize="1.3em" textAlign={"center"} minW={"100px"} margin="5px" fontWeight="550">
                             ${el.precio}
                           </Text>
                           <Flex align="center" justify="space-between">
@@ -160,22 +165,30 @@ const Carrito = () => {
                 })}
               </Box>
               <Stack
-                height="20vw"
+              position={"relative"}
+                display={"flex"}
+                flexDirection={mayor1205w?"column":"row"}
+                height="fit-content"
+                w={mayor1205w?"fit-content":"65vw"}
+                minW={mayor1205w?"fit-content":"330px"}
                 bg="#FFFF"
-                mt="20px"
+                m="20px"
                 p="20px"
+                wrap="wrap"
                 borderRadius="10px"
+                alignItems={"center"}
+                justifyContent={"center"}
               >
-                <DireccionUser/>
+                <Box ml="calc(50% - 87px)" mr="calc(50% - 87px)"><DireccionUser/></Box>
                 <br />
-                <Text fontSize="1.5em" fontWeight="550">
+                <Text ml="calc(50% - 100px) !important" mr="calc(50% - 100px) !important" fontSize="25px" fontWeight="550">
                   Total ${sum.toFixed(2)}
                 </Text>
                 <br />
 
-                  <Button 
-                    borderRadius="5px" bg="#242525" color="#FFFF"> {infoDirection?.items?.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
-                  </Button><br/><br/>
+                <Box display="inline-block "w="fit-content">
+                  {infoDirection?.items?.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
+                </Box>  
                 
                 <Link to="/">
                   <Button
@@ -218,15 +231,15 @@ const Carrito = () => {
 
       <Box mt="50px">
         <hr />
-        <Box width="70vw" fontSize="1.5em" fontWeight="550" ml="auto" mr="auto">
+        <Box fontSize="1.2em" minW={"330px"} width="70vw" maxWidth="1270px" fontWeight="550" ml="auto" mr="auto">
           <div>
-            <Text mb="15px">
+            <Text mb="15px" minW={"330px"}>
               Personas que compraron este producto también compraron:
             </Text>
           </div>
         </Box>
-        <Box mt="0%" mb="25px">
-          <Carousel items={division[0]} />
+        <Box mb="25px" maxWidth="1440px" ml="auto" mr="auto" minW={"330px"}>
+          <Carousel items={division[0]} type="miniCard" />
         </Box>
       </Box>
     </>
