@@ -71,7 +71,7 @@ function ProductDetail() {
       },
     };
 
-    if (headers) {
+    if (headers && user?.id) {
       axios.get(`/user/pedido/${user.id}`, headers).then((result) =>
         result.data?.map((e) =>
           setRev(
@@ -114,6 +114,13 @@ function ProductDetail() {
   } else {
     let desc = product.precio?.PesosArg * (product.descuento / 100);
     precioFinal = parseInt(product.precio?.PesosArg - desc);
+  }
+
+  let ultima;
+  if (product?.stock === 1) {
+    ultima = "Compra ahora! Es la ultima unidad disponible!";
+  } else {
+    ultima = `Unidades disponibles : ${product.stock}`;
   }
 
   if (typeof product === "object") {
@@ -248,6 +255,7 @@ function ProductDetail() {
                     </Box>
                     <br />
                     <br />
+                    <Text fontSize="20px">{ultima ? ultima : null}</Text>
                     <br />
                     <HStack spacing="15px">
                       {product.stock > 0 ? (
@@ -292,7 +300,7 @@ function ProductDetail() {
                               fontSize="small"
                               w="150px"
                             >
-                              Escribir Mi Opinión
+                              ESCRIBIR UNA OPINION
                             </Button>
                           </PopoverTrigger>
                           <Portal>
