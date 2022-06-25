@@ -110,10 +110,10 @@ function Product({
               zIndex={10}
               bg="#242525"
               color="#ECEDEC"
-              w="130px"
+              w="fit-content"
               borderLeftRadius={"8px"}
               p="10px"
-              top={["10px", "10px", "15px", "10px", "10px"]}
+              top={["20px", "20px", "25px", "20px", "20px"]}
               left={["60%", "60%", "79%", "60%", "60%"]}
               fontSize="small"
               fontWeight={"extrabold"}
@@ -189,12 +189,12 @@ function Product({
                 as="h4"
                 lineHeight="tight"
                 mb="12px"
-                mt="10px"
+                mt="5px"
                 minH={"70px"}
               >
                 {nombre}
               </Box>
-              <Text>{ultima ? ultima : null}</Text>
+              <Box position={"absolute"} w="200px"><Text position="absolute" top="-15px">{ultima ? ultima : null}</Text></Box>
             </Link>
             <Flex align={"center"}>
               <ReviewStars starRating={displayRating()} />({reviews.length})
