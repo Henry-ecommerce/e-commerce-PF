@@ -13,14 +13,16 @@ import {
   Button,
   Grid,
   Center,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 import Review from "../Review/ReviewButton";
 
 export default function MisCompras() {
-  let [select, setSelect] = useState("Nombre");
-  let [compra, setCompra] = useState();
+  let [select, setSelect] = useState("");
+  let [compra, setCompra] = useState([]);
+  const [mayor500w] = useMediaQuery('(min-width: 500px)');
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,6 +42,19 @@ export default function MisCompras() {
       });
     }
   }, []);
+
+
+  if(select) {
+    if(select === "Nombre" && compra[0].items?.length > 0){
+      compra[0].items.sort((a,b)=> a.title > b.title ? +1 : -1);
+    }
+    if(select === "Precio" && compra[0].items?.length > 0){
+      compra[0].items.sort((a,b)=> a.unit_price - b.unit_price);
+    }
+    if(select === "Fecha" && compra[0].items?.length > 0){
+      compra[0].items.sort((a,b)=> a.id - b.id);
+    }
+  }
 
   return (
     <Box>
@@ -82,37 +97,41 @@ export default function MisCompras() {
           color="white"
           fontWeight="bold"
         >
-          Mis Compras
+          {mayor500w? "Mis Compras" : null}
         </Box>
       </Flex>
-      <SimpleGrid
-        column={[1]}
-        spacing={7}
-        w="1100px"
-        ml="20px"
-        alignItems="center"
-        justifyItems="center"
+      <Flex
+        w="70vw"
+        wrap="wrap"
+        ml="auto"
+        mr="auto"
+        maxW={"1440px"}
+        minW="350px"
+        mt="20px"
       >
         {compra?.length > 0 ? (
           compra.map((e) =>
             e.items?.map((product) => {
               return (
-                <Box bg="blackAlpha.20" borderRadius="5px">
+                <Box bg="white" borderRadius="10px" shadow="md" p="5px" m="5px" textAlign={"center"}>
                   <Box
-                    h="140px"
+                    h="fit-content"
                     display="flex"
                     flexDirection="row"
-                    w="1200px"
-                    m="5px"
-                    bg="blackAlpha.300"
-                    borderRadius="5px"
-                    justifyItems="center"
+                    alignItems={"center"}
+                    justifyContent="space-around"
+                    w="70vw"
+                    maxW={"1440px"}
+                    minW="330px"
+                    flexWrap={"wrap"}
+                    bg="white"
+                    borderRadius="10px"
                   >
                     <Image
                       m="10px"
-                      mt="15px"
                       w="100px"
                       h="100px"
+                      borderRadius={"10px"}
                       border="1px solid grey"
                       src={product.picture_url}
                     />
@@ -122,15 +141,12 @@ export default function MisCompras() {
                       flexDirection="row"
                       justifyItems="center"
                       fontWeight="black"
-                      mt="10px"
-                      ml="40px"
-                      mr="15px"
-                      w="90px"
+                      w="120px"
                     >
                       {e.estado_envio === "Creado" ? (
-                        <Box> Estado de tu envio : En proceso</Box>
+                        <Box> Estado de tu envio : <br/>En proceso</Box>
                       ) : (
-                        <Box> Estado de tu envio : {e.estado_envio} </Box>
+                        <Box> Estado de tu envio : <br/>{e.estado_envio} </Box>
                       )}
                     </Box>
 
@@ -161,7 +177,7 @@ export default function MisCompras() {
                         </Box>
                       )}
                     </Grid>
-                    <Center fontWeight="black" w="100px" ml="30px">
+                    <Center fontWeight="black" w="100px">
                       {`Fecha de compra: ${e.createdAt.slice(0, 10)}`}
                     </Center>
 
@@ -169,18 +185,15 @@ export default function MisCompras() {
                       display="flex"
                       flexDirection="row"
                       justifyItems="center"
-                      mt="10px"
-                      ml="40px"
-                      mr="15px"
-                      w="20px"
+                      m="10px"
                     >
                       <Link to={`/detail/${product.id}`}>
-                        <Center mt="15px">
+                        <Center m="5px">
                           <Review id={product.id} />
                         </Center>
                         <Center>
                           <Button
-                            mt="10px"
+                            m="5px"
                             bg="#242525"
                             color="#ECEDEC"
                             _hover={{ bg: "#242525", color: "#ECEDEC" }}
@@ -199,7 +212,7 @@ export default function MisCompras() {
         ) : (
           <Box>Vaya parece que aun no has hecho compras :C...</Box>
         )}
-      </SimpleGrid>
+      </Flex>
     </Box>
   );
 }
