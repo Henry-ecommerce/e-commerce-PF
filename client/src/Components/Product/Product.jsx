@@ -84,6 +84,11 @@ function Product({
     precioFinal = parseInt(precio?.PesosArg - desc);
   }
 
+  let ultima;
+  if (stock === 1) {
+    ultima = "Ultima unidad disponible!";
+  }
+
   return (
     <Stack w="full" alignItems="center" justifyContent="space-between">
       <Box
@@ -189,9 +194,10 @@ function Product({
               >
                 {nombre}
               </Box>
+              <Text>{ultima ? ultima : null}</Text>
             </Link>
             <Flex align={"center"}>
-            <ReviewStars starRating={displayRating()} />({reviews.length})
+              <ReviewStars starRating={displayRating()} />({reviews.length})
             </Flex>
           </Stack>
 
