@@ -776,13 +776,59 @@ export const AdminProvider = ({ children }) => {
 		}
 	};
 
-	const _obtenerPedidos = async () => {
-		try {
-			const { data } = await axios.get(`/admin/pedidosAdmin`);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+const _obtenerPedidos = async () => {
+				try {
+					const { data } = await axios.get(`/admin/envios`);
+					let total = data.map((e) => e.payments).reduce((a, b) => a + b[0].transaction_amount, 0);
+					let total_ganancia = (total * 40) / 100;
+					setTatalOrdenes(data.length);
+					setTotalMeses(data.map((e) => e.payments[0].date_approved.split("-")[1]));
+					setTatalGanancias(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total_ganancia));
+					setTotalBalance(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total));
+					let Jan = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 0)
+          let Feb = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 1)
+          let Mar = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 2)
+          let Apr = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 3)
+          let May = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 4)
+          let Jun = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 5)
+          let Jul = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 6)
+          let Aug = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 7)
+          let Sep = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 8)
+          let Oct = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 9)
+          let Nov = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 10)
+          let Dec = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 11)
+          let obj = {
+            '0' : Jan,
+            '1' : Feb,
+            '2' : Mar,
+            '3' : Apr,
+            '4' : May,
+            '5' : Jun,
+            '6' : Jul,
+            '7' : Aug,
+            '8' : Sep,
+            '9' : Oct,
+            '10' : Nov,
+            '11' : Dec,
+          }
+          setVentasProMes(obj)
+          
+          /*  */
+          let _categorias = data.map((e) => e.items.map((e) => e.category_id)).flat(Infinity); 
+          let total_por_categorias = {};
+          for (let i = 0; i < _categorias.length; i++) {
+            if ( total_por_categorias.hasOwnProperty(_categorias[i]) ) {
+              total_por_categorias[_categorias[i]] += 1;
+            } else {
+              total_por_categorias[_categorias[i]] = 1;
+            }
+          }
+          setTotalPorCategorias(total_por_categorias)
+          /*  */
+				} catch (error) {
+					console.log(error);
+				}
+};
 
 	return (
 		<AuthProviderProducContext.Provider

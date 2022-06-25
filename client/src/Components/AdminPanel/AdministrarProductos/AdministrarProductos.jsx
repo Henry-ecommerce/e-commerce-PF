@@ -1,3 +1,4 @@
+import React, {useLayoutEffect} from "react";
 import {
 	Box,
 	Flex,
@@ -12,7 +13,6 @@ import {
 	Text,
 	Button,
 } from "@chakra-ui/react";
-import React from "react";
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import {
 	MdKeyboardArrowDown,
@@ -32,13 +32,23 @@ const AdministrarProductos = () => {
 		tatalOrdenes,
 		tatalGanancias,
 		totalBalance,
-		totalMeses,
+		_obtenerPedidos,
 		ventasProMes,
 		totalPorCategorias,
 	} = useAuthAd();
 	// console.log(totalPorCategorias, ' total categorias')
 	// console.log(Object.keys(totalPorCategorias)?.map(e => categorias?.filter(m => m.id === Number(e)))?.map(e => e[0].nombre), ' Es esto')
 	// console.log(categorias, ' categorias')
+	useLayoutEffect(() => {
+		_obtenerPedidos()
+	},[])
+
+	let x = (typeof totalPorCategorias !== 'undefined') ? Object.keys(totalPorCategorias)?.slice(0, 6)
+			?.map((e) => categorias?.filter((m) => m.id === Number(e)))
+			?.map((e) => e[0]?.nombre)
+			:
+			''
+
 	const months = [
 		"Jan",
 		"Feb",
@@ -60,7 +70,9 @@ const AdministrarProductos = () => {
 
 	let _categorias = [
 		{
-			data: totalPorCategorias !== undefined && Object.values(totalPorCategorias).slice(0,6),
+			data:
+				totalPorCategorias !== undefined &&
+				Object.values(totalPorCategorias).slice(0, 6),
 			// data: [80, 50, 30, 40, 100, 20],
 		},
 	];
@@ -97,15 +109,7 @@ const AdministrarProductos = () => {
 				},
 			},
 		},
-		xaxis: {
-			(totalPorCategorias !== undefined ||
-				Object.keys(totalPorCategorias).length > 0) &&
-				Object.keys(totalPorCategorias)
-					?.slice(0, 6)
-					?.map((e) => categorias?.filter((m) => m.id === Number(e)))
-					?.map((e) => e[0].nombre),
-			// categories: categorias.map(({ nombre }) => nombre),
-		},
+		xaxis: {categories : x},
 		yaxis: {
 			tickAmount: 7,
 			labels: {
@@ -123,7 +127,11 @@ const AdministrarProductos = () => {
 	let series = [
 		{
 			name: "Ventas ",
-			data: ventasProMes !== undefined && Object.values(ventasProMes)?.map(e => e.length).filter(e => e > 0),
+			data:
+				ventasProMes !== undefined &&
+				Object.values(ventasProMes)
+					?.map((e) => e.length)
+					.filter((e) => e > 0),
 		},
 	];
 	let options = {
