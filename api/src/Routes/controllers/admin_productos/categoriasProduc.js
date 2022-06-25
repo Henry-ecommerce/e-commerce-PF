@@ -90,6 +90,7 @@ router.put("/:id/eliminar_relacion", async (req, res) => {
 router.put("/:id/agregar_relacion", async (req, res) => {
 	const { id } = req.params;
 	const { nombre, productos_a_agregar } = req.body;
+	console.log(productos_a_agregar, " estoy aca");
 	let category_update = await Categoria.findOne({
 		where: { id },
 		include: Producto,
@@ -100,15 +101,12 @@ router.put("/:id/agregar_relacion", async (req, res) => {
 
 	category_update["nombre"] = nombre;
 	if (nombres_productos.length > 0) {
-		if (
-			productos_a_agregar
-				.map((e) => nombres_productos && !nombres_productos.includes(e) && e)
-				.filter((e) => e !== false).lenght > 0
-		) {
+		if (productos_a_agregar.map((e) => nombres_productos && !nombres_productos.includes(e) && e).filter((e) => e !== false)) {
+			console.log(" estoy aca 10");
 			let find_productos_a_agregar = await Producto.findAll({
 				where: { nombre: productos_a_agregar.map((e) => e) },
 			});
-			
+
 			await category_update.addProducto(find_productos_a_agregar);
 			await category_update.save();
 			let f = await Categoria.findAll({ include: Producto });
