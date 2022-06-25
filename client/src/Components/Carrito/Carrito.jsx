@@ -100,7 +100,7 @@ const Carrito = () => {
                           <Text fontSize="1em" minW="150px "maxW="250px">
                             {el.nombre}
                           </Text>
-                          <Text fontSize="1.3em" margin="5px" fontWeight="550">
+                          <Text fontSize="1.3em" textAlign={"center"} minW={"100px"} margin="5px" fontWeight="550">
                             ${el.precio}
                           </Text>
                           <Flex align="center" justify="space-between">
