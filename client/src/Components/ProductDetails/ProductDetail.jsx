@@ -163,6 +163,7 @@ function ProductDetail() {
                         src={product.imagen0}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                     <Button
@@ -176,6 +177,7 @@ function ProductDetail() {
                         src={product.imagen1}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                     <Button
@@ -189,6 +191,7 @@ function ProductDetail() {
                         src={product.imagen2}
                         alt={`Picture`}
                         boxSize="100px"
+                        objectFit="contain"
                       />
                     </Button>
                   </Stack>
@@ -216,6 +219,7 @@ function ProductDetail() {
                     <Box>
                       <Image
                         boxSize={"25vw"}
+                        objectFit="contain"
                         src={img ? img : product.imagen0}
                       />
                     </Box>
@@ -257,8 +261,8 @@ function ProductDetail() {
                     <br />
                     <Text fontSize="20px">{ultima ? ultima : null}</Text>
                     <br />
-                    <HStack spacing="15px">
-                      {product.stock > 0 ? (
+                    <Box display={"flex"} flexWrap="wrap" justifyContent={"center"} >
+                    <Box m="5px">{product.stock > 0 ? (
                         <AddToCartIcon
                           nombre={product.nombre}
                           precio={precioFinal}
@@ -267,11 +271,11 @@ function ProductDetail() {
                           id={product.id}
                           stock={product.stock}
                         />
-                      ) : null}
+                      ) : null}</Box>
 
-                      <VStack spacing="15px">
+                      <Box>
                         <Link to="/user/carrito">
-                          {product.stock > 0 ? (
+                          <Box m="5px">{product.stock > 0 ? (
                             <AddToCart
                               nombre={product.nombre}
                               precio={precioFinal}
@@ -285,10 +289,10 @@ function ProductDetail() {
                             <Text>
                               Lo sentimos no hay stock de este producto
                             </Text>
-                          )}
+                          )}</Box>
                         </Link>
-                      </VStack>
-                      {Rev.length > 0 ? (
+                      </Box>
+                      <Box m="5px">{Rev.length > 0 ? (
                         <Review id={product.id} />
                       ) : (
                         <Popover>
@@ -327,8 +331,8 @@ function ProductDetail() {
                             </PopoverContent>
                           </Portal>
                         </Popover>
-                      )}
-                    </HStack>
+                      )}</Box>
+                    </Box>
                   </Flex>
                 </Box>
               </Flex>
@@ -370,6 +374,8 @@ function ProductDetail() {
                           <Image
                             w="60vw"
                             minW="330px"
+                            maxH="400px"
+                            objectFit="contain"
                             src={img ? img : product.imagen0}
                           />
                         </Box>
@@ -389,11 +395,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen0)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen0}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                         <Button
@@ -408,11 +415,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen1)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen1}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                         <Button
@@ -427,11 +435,12 @@ function ProductDetail() {
                           onClick={() => changeImg(product.imagen2)}
                         >
                           <Image
-                            minW="110px"
-                            minH="110px"
+                            minW="100px"
+                            minH="100px"
                             src={product.imagen2}
                             alt={`Picture`}
                             boxSize="20vw"
+                            objectFit="contain"
                           />
                         </Button>
                       </Stack>
@@ -458,8 +467,8 @@ function ProductDetail() {
                         : `$ ${product.precio?.PesosArg}`}
                     </Box>
                     <Box mt="10px" mb="20px">
-                      <HStack spacing="15px">
-                        {product.stock > 0 ? (
+                      <Box display={"flex"} flexWrap="wrap" justifyContent={"center"}>
+                        <Box m="5px">{product.stock > 0 ? (
                           <AddToCartIcon
                             nombre={product.nombre}
                             precio={precioFinal}
@@ -468,11 +477,11 @@ function ProductDetail() {
                             id={product.id}
                             stock={product.stock}
                           />
-                        ) : null}
+                        ) : null}</Box>
 
-                        <VStack spacing="15px">
+                        
                           <Link to="/user/carrito">
-                            {product.stock > 0 ? (
+                          <Box m="5px">{product.stock > 0 ? (
                               <AddToCart
                                 nombre={product.nombre}
                                 precio={precioFinal}
@@ -486,10 +495,10 @@ function ProductDetail() {
                               <Text>
                                 Lo sentimos no hay stock de este producto
                               </Text>
-                            )}
+                            )}</Box>
                           </Link>
-                        </VStack>
-                        {Rev.length > 0 ? (
+                        
+                          <Box m="5px">{Rev.length > 0 ? (
                           <Review id={product.id} />
                         ) : (
                           <Popover>
@@ -528,8 +537,8 @@ function ProductDetail() {
                               </PopoverContent>
                             </Portal>
                           </Popover>
-                        )}
-                      </HStack>
+                        )}</Box>
+                      </Box>
                     </Box>
                   </Flex>
                 </Box>
