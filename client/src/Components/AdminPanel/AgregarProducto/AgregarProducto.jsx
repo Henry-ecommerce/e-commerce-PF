@@ -394,7 +394,7 @@ const AgregarProducto = () => {
 								</FormControl>
 							</Box>
 
-							<FormControl
+							{/* <FormControl
 								w="80%"
 								m="auto"
 								my="10px"
@@ -458,7 +458,7 @@ const AgregarProducto = () => {
 										+
 									</Button>
 								)}
-							</FormControl>
+							</FormControl> */}
 
 							<FormControl
 								w="80%"
@@ -475,19 +475,19 @@ const AgregarProducto = () => {
 									value={form.imagenes}
 									name="imagenes"
 									accept="image/*"
-									type="file"
+									type="text"
 									ref={input_img_ref}
-									onChange={(e) => {
-										const file = e.target.files[0];
-										if (file && file.type.substr(0, 5) === "image") {
-											setI(file);
-											setImagenes([...imagenes, file]);
-										} else {
-											setI(null);
-										}
-									}}
+									// onChange={(e) => {
+									// 	const file = e.target.files[0];
+									// 	if (file && file.type.substr(0, 5) === "image") {
+									// 		setI(file);
+									// 		setImagenes([...imagenes, file]);
+									// 	} else {
+									// 		setI(null);
+									// 	}
+									// }}
 								/>
-								{/* {imagenes.length < 3 && (
+								{imagenes.length < 3 && (
 									<Button
 										bg="#242524"
 										color={"#FFFF"}
@@ -502,7 +502,7 @@ const AgregarProducto = () => {
 									>
 										Agregar
 									</Button>
-								)} */}
+								)}
 								<Flex justify={"space-between"} align="center">
 									{i !== null &&
 										imagenPreview?.map((e, i) => {
