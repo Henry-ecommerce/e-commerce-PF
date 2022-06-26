@@ -27,6 +27,7 @@ const ObtenerProductosAdmin = () => {
 	const [filtrados, setFiltrados] = useState("");
 
 	useLayoutEffect(() => {
+		window.scrollTo({ top: 0 });
 		axios
 			.get("/admin/envios")
 			.then((res) => res.data)

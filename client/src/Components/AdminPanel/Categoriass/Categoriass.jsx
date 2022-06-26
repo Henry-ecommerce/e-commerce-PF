@@ -65,6 +65,7 @@ const Categoriass = () => {
 	useLayoutEffect(() => {
 		// setCategorias(_obtenerCategorias());
 		_obtenerCategorias();
+		window.scrollTo({ top: 0 });
 	}, [ignore]);
 
 	function foo() {

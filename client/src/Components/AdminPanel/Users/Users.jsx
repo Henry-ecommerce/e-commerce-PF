@@ -16,9 +16,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import useAuthAd from "../../../hooks/useAuthAd";
+import { useEffect } from "react";
 
 const Users = () => {
   const { users } = useAuthAd();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [])
+  
 
   return (
     <Flex>

@@ -41,6 +41,7 @@ const EditProductos = ({ setFormEdit }) => {
 		setFrom(producto);
 		setCaracterista(producto.caracteristicas);
 		setPrecio(producto.precio);
+		window.scrollTo({ top: 0 });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	const handleOnchangue = (e) => {
