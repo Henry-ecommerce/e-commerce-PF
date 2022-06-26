@@ -675,7 +675,7 @@ export const AdminProvider = ({ children }) => {
 	const agregarCategorias = async (nombre, productos) => {
 		// eslint-disable-next-line no-restricted-globals
 		const confirmar = confirm(
-			"¿Confirmas que desas eliminar el siguiente registro ?"
+			"¿Confirmas que desas agregar el siguiente registro ?"
 		);
 		const token = localStorage.getItem("token");
 
