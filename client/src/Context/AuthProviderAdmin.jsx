@@ -166,6 +166,7 @@ export const AdminProvider = ({ children }) => {
 					const { data } = await axios.get(`/admin/envios`);
 					let total = data
 						.map((e) => e.payments)
+						.filter(e => e.length > 0)
 						.reduce((a, b) => a + b[0].transaction_amount, 0);
 					let total_ganancia = (total * 40) / 100;
 					setTatalOrdenes(data.length);
