@@ -173,18 +173,18 @@ export const AdminProvider = ({ children }) => {
 					setTotalMeses(data.map((e) => e.payments[0].date_approved.split("-")[1]));
 					setTatalGanancias(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total_ganancia));
 					setTotalBalance(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total));
-					let Jan = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 0)
-          let Feb = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 1)
-          let Mar = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 2)
-          let Apr = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 3)
-          let May = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 4)
-          let Jun = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 5)
-          let Jul = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 6)
-          let Aug = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 7)
-          let Sep = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 8)
-          let Oct = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 9)
-          let Nov = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 10)
-          let Dec = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 11)
+					let Jan = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 0)
+          let Feb = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 1)
+          let Mar = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 2)
+          let Apr = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 3)
+          let May = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 4)
+          let Jun = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 5)
+          let Jul = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 6)
+          let Aug = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 7)
+          let Sep = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 8)
+          let Oct = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 9)
+          let Nov = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 10)
+          let Dec = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 11)
           let obj = {
             '0' : Jan,
             '1' : Feb,
@@ -786,18 +786,18 @@ const _obtenerPedidos = async () => {
 					setTotalMeses(data.map((e) => e.payments[0].date_approved.split("-")[1]));
 					setTatalGanancias(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total_ganancia));
 					setTotalBalance(new Intl.NumberFormat("de-DE", {maximumSignificantDigits: 3,}).format(total));
-					let Jan = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 0)
-          let Feb = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 1)
-          let Mar = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 2)
-          let Apr = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 3)
-          let May = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 4)
-          let Jun = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 5)
-          let Jul = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 6)
-          let Aug = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 7)
-          let Sep = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 8)
-          let Oct = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 9)
-          let Nov = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 10)
-          let Dec = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) === 11)
+					let Jan = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 0)
+          let Feb = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 1)
+          let Mar = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 2)
+          let Apr = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 3)
+          let May = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 4)
+          let Jun = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 5)
+          let Jul = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 6)
+          let Aug = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 7)
+          let Sep = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 8)
+          let Oct = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 9)
+          let Nov = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 10)
+          let Dec = await data.filter(e => Number(e.payments[0].date_approved.split("-")[1]) - 1 === 11)
           let obj = {
             '0' : Jan,
             '1' : Feb,

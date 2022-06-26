@@ -113,7 +113,6 @@ const AdministrarProductos = () => {
 	let x =
 		typeof totalPorCategorias !== "undefined"
 			? Object.keys(totalPorCategorias)
-					?.slice(0, 6)
 					?.map((e) => categorias?.filter((m) => m.id === Number(e)))
 					?.map((e) => e[0]?.nombre)
 			: "";
@@ -135,13 +134,12 @@ const AdministrarProductos = () => {
 
 	const d = new Date();
 	let month = months[d.getMonth()];
-
+	console.log(Object.values(totalPorCategorias).sort((a,b) =>a-b), ' Aca')
 	let _categorias = [
 		{
 			data:
 				totalPorCategorias !== undefined &&
-				Object.values(totalPorCategorias).slice(0, 6),
-			// data: [80, 50, 30, 40, 100, 20],
+				Object.values(totalPorCategorias)
 		},
 	];
 	let categorias_options = {
