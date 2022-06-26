@@ -14,7 +14,10 @@ import {
   Grid,
   GridItem,
   Center,
+  Stack,
+  Heading,
 } from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Review from "../Review/ReviewButton";
@@ -91,16 +94,17 @@ export default function MisCompras() {
           Mis Compras
         </Box>
       </Flex>
-      <SimpleGrid
-        column={[1]}
-        spacing={7}
-        w="1100px"
-        ml="20px"
-        alignItems="center"
-        justifyItems="center"
-      >
-        {compra?.length > 0 ? (
-          compra.map((e) =>
+
+      {compra?.length > 0 ? (
+        <SimpleGrid
+          column={[1]}
+          spacing={7}
+          w="1100px"
+          ml="20px"
+          alignItems="center"
+          justifyItems="center"
+        >
+          {compra.map((e) =>
             e.items?.map((product) => {
               return (
                 <Box bg="blackAlpha.20" borderRadius="5px">
@@ -184,11 +188,36 @@ export default function MisCompras() {
                 </Box>
               );
             })
-          )
-        ) : (
-          <Box>Vaya parece que aun no has hecho compras :C...</Box>
-        )}
-      </SimpleGrid>
+          )}
+        </SimpleGrid>
+      ) : (
+        <Stack py={"150px"} px={6} justify={"center"} align={"center"}>
+          <Box display="inline-block">
+            <Flex
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              bg={"red.500"}
+              rounded={"50px"}
+              w={"55px"}
+              h={"55px"}
+              textAlign="center"
+            >
+              <CloseIcon boxSize={"20px"} color={"white"} />
+            </Flex>
+          </Box>
+          <Heading as="h2" size="xl" mt={6} mb={2}>
+            No tienes compras
+          </Heading>
+          <Link to="/">
+            {" "}
+            <Text color={"gray.500"}>
+              Click para ir a buscar{" "}
+              <span style={{ color: "blue" }}>productos</span>
+            </Text>
+          </Link>
+        </Stack>
+      )}
     </Box>
   );
 }

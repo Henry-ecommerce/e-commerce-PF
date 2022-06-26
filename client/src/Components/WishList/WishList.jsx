@@ -7,21 +7,23 @@ import {
   Flex,
   MenuButton,
   Text,
-  SimpleGrid
+  SimpleGrid,
+  Heading,
+  Stack,
 } from "@chakra-ui/react";
 import Product from "../Product/Product";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { get_user_favorites } from "../../Redux/Actions";
-
+import { CloseIcon } from "@chakra-ui/icons";
 function WishList() {
   let [select, setSelect] = useState("Nombre");
-  let {favorites} = useSelector(state => state)
+  let { favorites } = useSelector((state) => state);
   const dispatch = useDispatch();
-	let user = JSON.parse(localStorage.getItem("info_user"));
-
+  let user = JSON.parse(localStorage.getItem("info_user"));
 
   useEffect(() => {
-    dispatch(get_user_favorites(user.id))
+    dispatch(get_user_favorites(user.id));
   }, [dispatch, favorites, user.id]);
 
   return (
@@ -68,23 +70,49 @@ function WishList() {
           Favoritos
         </Box>
       </Flex>
-      <SimpleGrid
-			columns={[1, 1, 1, 2, 3]}
-			spacing="20px"
-			m="auto"
-			maxW={"80%"}
-			my="50px"
-		>
-        {favorites?.length > 0 ? (
-          favorites?.map((product) => {
+
+      {favorites?.length > 0 ? (
+        <SimpleGrid
+          columns={[1, 1, 1, 2, 3]}
+          spacing="20px"
+          m="auto"
+          maxW={"80%"}
+          my="50px"
+        >
+          {favorites?.map((product) => {
             return (
               <Product key={product.id} {...product} origin={"wishlist"} />
             );
-          })
-        ) : (
-          <Box>Vaya parece que aun no tienes nada en favoritos :C...</Box>
-        )}
-    </SimpleGrid>
+          })}
+        </SimpleGrid>
+      ) : (
+        <Stack py={"150px"} px={6} justify={"center"} align={"center"}>
+          <Box display="inline-block">
+            <Flex
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              bg={"red.500"}
+              rounded={"50px"}
+              w={"55px"}
+              h={"55px"}
+              textAlign="center"
+            >
+              <CloseIcon boxSize={"20px"} color={"white"} />
+            </Flex>
+          </Box>
+          <Heading as="h2" size="xl" mt={6} mb={2}>
+            Tu lista de favoritos
+          </Heading>
+          <Link to="/">
+            {" "}
+            <Text color={"gray.500"}>
+              Click para ir a buscar{" "}
+              <span style={{ color: "blue" }}>productos</span>
+            </Text>
+          </Link>
+        </Stack>
+      )}
     </Box>
   );
 }
