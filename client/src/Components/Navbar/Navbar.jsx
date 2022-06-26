@@ -77,18 +77,18 @@ function Navbar() {
         <>
           <Flex justify={"space-around"} align="center">
             <Box mx="15px">
-              <Link to="/#">Inicio</Link>
+              <Link to="/">Inicio</Link>
             </Box>
             <Box mx="15px">
-              <Link to="/#">Sucursal</Link>
+              <Link to="/map">Sucursal</Link>
             </Box>
             <Box mx="15px">
-              <Link to="/#">Pedido</Link>
-            </Box>
-            <Box mx="15px">
-              {user?.rol === "Admin" && (
-                <Link to="/admin">Panel Admin</Link>
+              {user?.rol === "User" && (
+                <Link to="/user/misCompras">Pedido</Link>
               )}
+            </Box>
+            <Box mx="15px">
+              {user?.rol === "Admin" && <Link to="/admin">Panel Admin</Link>}
               {user?.rol === "Owner" && (
                 <Link to="/owner/edit">Panel Owner</Link>
               )}

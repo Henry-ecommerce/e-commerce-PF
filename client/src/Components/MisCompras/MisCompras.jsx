@@ -9,20 +9,23 @@ import {
   MenuButton,
   Text,
   SimpleGrid,
+  GridItem,
   Image,
   Button,
   Grid,
   Center,
   useMediaQuery,
+  Stack,
+  Heading,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { CloseIcon } from "@chakra-ui/icons";
 import Review from "../Review/ReviewButton";
 
 export default function MisCompras() {
   let [select, setSelect] = useState("");
   let [compra, setCompra] = useState([]);
-  const [mayor500w] = useMediaQuery('(min-width: 500px)');
+  const [mayor500w] = useMediaQuery("(min-width: 500px)");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,16 +46,15 @@ export default function MisCompras() {
     }
   }, []);
 
-
-  if(select) {
-    if(select === "Nombre" && compra[0].items?.length > 0){
-      compra[0].items.sort((a,b)=> a.title > b.title ? +1 : -1);
+  if (select) {
+    if (select === "Nombre" && compra[0].items?.length > 0) {
+      compra[0].items.sort((a, b) => (a.title > b.title ? +1 : -1));
     }
-    if(select === "Precio" && compra[0].items?.length > 0){
-      compra[0].items.sort((a,b)=> a.unit_price - b.unit_price);
+    if (select === "Precio" && compra[0].items?.length > 0) {
+      compra[0].items.sort((a, b) => a.unit_price - b.unit_price);
     }
-    if(select === "Fecha" && compra[0].items?.length > 0){
-      compra[0].items.sort((a,b)=> a.id - b.id);
+    if (select === "Fecha" && compra[0].items?.length > 0) {
+      compra[0].items.sort((a, b) => a.id - b.id);
     }
   }
 
@@ -97,7 +99,7 @@ export default function MisCompras() {
           color="white"
           fontWeight="bold"
         >
-          {mayor500w? "Mis Compras" : null}
+          {mayor500w ? "Mis Compras" : null}
         </Box>
       </Flex>
       <Flex
@@ -113,7 +115,14 @@ export default function MisCompras() {
           compra.map((e) =>
             e.items?.map((product) => {
               return (
-                <Box bg="white" borderRadius="10px" shadow="md" p="5px" m="5px" textAlign={"center"}>
+                <Box
+                  bg="white"
+                  borderRadius="10px"
+                  shadow="md"
+                  p="5px"
+                  m="5px"
+                  textAlign={"center"}
+                >
                   <Box
                     h="fit-content"
                     display="flex"
@@ -144,9 +153,17 @@ export default function MisCompras() {
                       w="120px"
                     >
                       {e.estado_envio === "Creado" ? (
-                        <Box> Estado de tu envio : <br/>En proceso</Box>
+                        <Box>
+                          {" "}
+                          Estado de tu envio : <br />
+                          En proceso
+                        </Box>
                       ) : (
-                        <Box> Estado de tu envio : <br/>{e.estado_envio} </Box>
+                        <Box>
+                          {" "}
+                          Estado de tu envio : <br />
+                          {e.estado_envio}{" "}
+                        </Box>
                       )}
                     </Box>
 
@@ -210,7 +227,32 @@ export default function MisCompras() {
             })
           )
         ) : (
-          <Box>Vaya parece que aun no has hecho compras :C...</Box>
+          <Stack py={"150px"} px={6} justify={"center"} align={"center"}>
+            <Box display="inline-block">
+              <Flex
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                bg={"red.500"}
+                rounded={"50px"}
+                w={"55px"}
+                h={"55px"}
+                textAlign="center"
+              >
+                <CloseIcon boxSize={"20px"} color={"white"} />
+              </Flex>
+            </Box>
+            <Heading as="h2" size="xl" mt={6} mb={2}>
+              No tienes compras
+            </Heading>
+            <Link to="/">
+              {" "}
+              <Text color={"gray.500"}>
+                Click para ir a buscar{" "}
+                <span style={{ color: "blue" }}>productos</span>
+              </Text>
+            </Link>
+          </Stack>
         )}
       </Flex>
     </Box>
