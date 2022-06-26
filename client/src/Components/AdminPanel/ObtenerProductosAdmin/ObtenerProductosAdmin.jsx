@@ -59,6 +59,7 @@ const ObtenerProductosAdmin = () => {
 
 	 useLayoutEffect(() => {
     _obtenerProducto()
+		window.scrollTo({ top: 0 });
   },[])
 
 	useEffect(() => {

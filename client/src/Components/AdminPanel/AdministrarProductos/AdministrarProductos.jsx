@@ -44,6 +44,7 @@ const AdministrarProductos = () => {
 	// console.log(categorias, ' categorias')
 	useLayoutEffect(() => {
 		_obtenerPedidos();
+		window.scrollTo({ top: 0 });
 	}, []);
 
 	function color_estado(estado) {

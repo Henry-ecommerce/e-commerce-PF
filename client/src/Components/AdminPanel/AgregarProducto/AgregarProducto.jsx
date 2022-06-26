@@ -46,6 +46,7 @@ const AgregarProducto = () => {
 	});
 
 	useEffect(() => {
+		window.scrollTo({ top: 0 });
 		if (i) {
 			const fileReader = new FileReader();
 			fileReader.onloadend = () => {
