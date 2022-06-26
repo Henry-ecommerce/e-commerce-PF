@@ -24,7 +24,7 @@ const EditarPerfil = () => {
   });
 
   const [alerta, setAlerta] = useState({});
-  const { actualizarPerfil, setAuth } = useAuth();
+  const { actualizarPerfil, setAuth, cerrarSesion } = useAuth();
   const handelSubmit = (e) => {
     e.preventDefault();
     const { name, apellido, email } = usuario;
@@ -93,7 +93,7 @@ const EditarPerfil = () => {
           {foto ? (
             <Image
               src={foto}
-              alt="Dan Abramov"
+              alt="fotoPerfil"
               borderRadius="full"
               boxSize="150px"
             />
@@ -115,9 +115,10 @@ const EditarPerfil = () => {
               <Text>Informacion</Text>
             </Flex>
           </Flex>
+
           <Flex justify={"space-between"} align="center">
             <Box pb="6px">
-              <GrLocation />
+              <AiOutlineHeart />
             </Box>
             <Flex
               justify={"left"}
@@ -125,24 +126,12 @@ const EditarPerfil = () => {
               pb="6px"
               borderBottom={"2px solid #EDEDED"}
             >
-              <Text>Datos de envio</Text>
+              <Link to="/user/wishList">
+                <Text>Mis favoritos</Text>
+              </Link>
             </Flex>
           </Flex>
-          <Link to="/user/wishList">
-            <Flex justify={"space-between"} align="center">
-              <Box pb="6px">
-                <AiOutlineHeart />
-              </Box>
-              <Flex
-                justify={"left"}
-                w="80%"
-                pb="6px"
-                borderBottom={"2px solid #EDEDED"}
-              >
-                <Text>Mis favoritos</Text>
-              </Flex>
-            </Flex>
-          </Link>
+
           <Flex justify={"space-between"} align="center">
             <Box pb="6px">
               <FiShoppingCart />
@@ -156,9 +145,10 @@ const EditarPerfil = () => {
               <Text>Mi Carrito</Text>
             </Flex>
           </Flex>
+
           <Flex justify={"space-between"} align="center">
             <Box pb="6px">
-              <BiStoreAlt />
+              <BiShoppingBag />
             </Box>
             <Flex
               justify={"left"}
@@ -166,37 +156,12 @@ const EditarPerfil = () => {
               pb="6px"
               borderBottom={"2px solid #EDEDED"}
             >
-              <Text>Mis Pedidos</Text>
-            </Flex>
-          </Flex>
-          <Link to="/user/misCompras">
-            <Flex justify={"space-between"} align="center">
-              <Box pb="6px">
-                <BiShoppingBag />
-              </Box>
-              <Flex
-                justify={"left"}
-                w="80%"
-                pb="6px"
-                borderBottom={"2px solid #EDEDED"}
-              >
+              <Link to="/user/misCompras">
                 <Text>Mis compras</Text>
-              </Flex>
-            </Flex>
-          </Link>
-          <Flex justify={"space-between"} align="center">
-            <Box pb="6px">
-              <FiSettings />
-            </Box>
-            <Flex
-              justify={"left"}
-              w="80%"
-              pb="6px"
-              borderBottom={"2px solid #EDEDED"}
-            >
-              <Text>Ajustes de cuenta</Text>
+              </Link>
             </Flex>
           </Flex>
+
           <Flex justify={"space-between"} align="center">
             <Box pb="6px">
               <MdLogout />
@@ -207,7 +172,9 @@ const EditarPerfil = () => {
               pb="6px"
               borderBottom={"2px solid #EDEDED"}
             >
-              <Text>Logout</Text>
+              <Link to="/" onClick={() => cerrarSesion()}>
+                <Text>Logout</Text>
+              </Link>
             </Flex>
           </Flex>
         </Box>

@@ -96,7 +96,6 @@ function App() {
         <Route path="/user" element={<HomeUser />}>
           <Route path="formMercadoPago" element={<FormMercadoPago />} />
           <Route path="perfil" element={<EditarPerfil />} />
-          <Route path="perfil" element={<Pruevas />} />
           <Route path="wishList" element={<WishList />} />
           <Route path="carrito" element={<Carrito />} />
           <Route path="misCompras" element={<MisCompras />} />
