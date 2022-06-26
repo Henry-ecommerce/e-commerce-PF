@@ -80,7 +80,7 @@ export const AdminProvider = ({ children }) => {
 						},
 					};
 					const { data } = await axios.get(
-						`${process.env.REACT_APP_API}/admin/ordenes`,
+						`${process.env.REACT_APP_API}/admin/envios`,
 						config
 					);
 

@@ -1,4 +1,4 @@
-import React, {useLayoutEffect} from "react";
+import React, { useLayoutEffect } from "react";
 import {
 	Box,
 	Flex,
@@ -12,6 +12,7 @@ import {
 	Tbody,
 	Text,
 	Button,
+	Select,
 } from "@chakra-ui/react";
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import {
@@ -24,6 +25,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import ReactApexChart from "react-apexcharts";
 import useAuthAd from "../../../hooks/useAuthAd";
+import { Link } from "react-router-dom";
 
 const AdministrarProductos = () => {
 	const {
@@ -35,19 +37,85 @@ const AdministrarProductos = () => {
 		_obtenerPedidos,
 		ventasProMes,
 		totalPorCategorias,
+		ordenes,
 	} = useAuthAd();
 	// console.log(totalPorCategorias, ' total categorias')
 	// console.log(Object.keys(totalPorCategorias)?.map(e => categorias?.filter(m => m.id === Number(e)))?.map(e => e[0].nombre), ' Es esto')
 	// console.log(categorias, ' categorias')
 	useLayoutEffect(() => {
-		_obtenerPedidos()
-	},[])
+		_obtenerPedidos();
+	}, []);
 
-	let x = (typeof totalPorCategorias !== 'undefined') ? Object.keys(totalPorCategorias)?.slice(0, 6)
-			?.map((e) => categorias?.filter((m) => m.id === Number(e)))
-			?.map((e) => e[0]?.nombre)
-			:
-			''
+	function color_estado(estado) {
+		if (estado === "Completado") {
+			return (
+				<Text
+					border="1px solid #00CA1B"
+					p="10px"
+					w="50%"
+					m="auto"
+					borderRadius="10px"
+					fontWeight="extrabold"
+					color="#00CA1B"
+				>
+					Completado
+				</Text>
+			);
+		}
+		if (estado === "Cancelado") {
+			return (
+				<Text
+					border="1px solid #FF4E42"
+					p="10px"
+					w="50%"
+					m="auto"
+					borderRadius="10px"
+					fontWeight="extrabold"
+					color="#FF4E42"
+				>
+					Cancelado
+				</Text>
+			);
+		}
+		if (estado === "Procesando") {
+			return (
+				<Text
+					border="1px solid #F6C644"
+					p="10px"
+					w="50%"
+					m="auto"
+					borderRadius="10px"
+					fontWeight="extrabold"
+					color="#F6C644"
+				>
+					Procesando
+				</Text>
+			);
+		}
+		if (estado === "Creado") {
+			return (
+				<Text
+					border="1px solid #FF910B"
+					p="10px"
+					w="50%"
+					m="auto"
+					borderRadius="10px"
+					fontWeight="extrabold"
+					color="#FF910B"
+				>
+					Creado
+				</Text>
+			);
+		}
+	}
+
+	let x =
+		typeof totalPorCategorias !== "undefined"
+			? Object.keys(totalPorCategorias)
+					?.slice(0, 6)
+					?.map((e) => categorias?.filter((m) => m.id === Number(e)))
+					?.map((e) => e[0]?.nombre)
+			: "";
 
 	const months = [
 		"Jan",
@@ -66,7 +134,6 @@ const AdministrarProductos = () => {
 
 	const d = new Date();
 	let month = months[d.getMonth()];
-
 
 	let _categorias = [
 		{
@@ -109,7 +176,7 @@ const AdministrarProductos = () => {
 				},
 			},
 		},
-		xaxis: {categories : x},
+		xaxis: { categories: x },
 		yaxis: {
 			tickAmount: 7,
 			labels: {
@@ -335,65 +402,59 @@ const AdministrarProductos = () => {
 					h="250px"
 					overflowY="scroll"
 				>
-					<Text fontSize="14px" m="10px" mt="0" fontWeight="extrabold">
-						Pedidos
-					</Text>
+					<Flex justify="space-between">
+						<Text fontSize="14px" m="10px" mt="0" fontWeight="extrabold">
+							Pedidos
+						</Text>
+						<Text fontSize="14px" m="10px" mt="0" textDecor="underline">
+							<Link to="/admin/ordenes">Ver todos los pedidos</Link>
+						</Text>
+					</Flex>
 					<TableContainer>
 						<Table size="sm">
 							<Thead>
 								<Tr>
-									<Th textAlign="center">Usuario</Th>
-									<Th textAlign="center">Productos</Th>
-									<Th textAlign="center">Cantidad</Th>
-									<Th textAlign="center">Status</Th>
+									<Th textAlign="center" textTransform="capitalize">
+										Productos
+									</Th>
+									{/* <Th textAlign="center" textTransform="capitalize">
+										Cantidad total
+									</Th> */}
+									<Th textAlign="center" textTransform="capitalize">
+										Total
+									</Th>
+									<Th textAlign="center" textTransform="capitalize">
+										Status
+									</Th>
 								</Tr>
 							</Thead>
 							<Tbody textAlign="center">
-								<Tr>
-									<Td textAlign="center">Tomas 1</Td>
-									<Td textAlign="center">Producto 1</Td>
-									<Td textAlign="center">2</Td>
-									<Td textAlign="center">
-										<Button
-											fontSize="14px"
-											variant="outline"
-											color="#74CCBF"
-											borderColor="#74CCBF"
-										>
-											Completado
-										</Button>
-									</Td>
-								</Tr>
-								<Tr>
-									<Td textAlign="center">Tomas 2</Td>
-									<Td textAlign="center">Producto 2</Td>
-									<Td textAlign="center">3</Td>
-									<Td textAlign="center">
-										<Button
-											fontSize="14px"
-											variant="outline"
-											color="#F6C644"
-											borderColor="#F6C644"
-										>
-											Demorado
-										</Button>
-									</Td>
-								</Tr>
-								<Tr>
-									<Td textAlign="center">Tomas 3</Td>
-									<Td textAlign="center">Producto 3</Td>
-									<Td textAlign="center">4</Td>
-									<Td textAlign="center">
-										<Button
-											fontSize="14px"
-											variant="outline"
-											color="#F1574E"
-											borderColor="#F1574E"
-										>
-											Cancelado
-										</Button>
-									</Td>
-								</Tr>
+								{ordenes.length > 0 &&
+									ordenes.map((el) => {
+										return (
+											<Tr key={el.id}>
+												{/* PRODUCTOS */}
+												<Td w="35%">
+													<Select>
+														{el?.items?.map((e) => {
+															return <option key={e.id}>{e.title}</option>;
+														})}
+													</Select>
+												</Td>
+												{/* PRODUCTOS */}
+												{/* TOTAL */}
+												<Td textAlign={"center"}>
+													$ {el.payments[0].total_paid_amount}
+												</Td>
+												{/* TOTAL */}
+												{/* STATUS */}
+												<Td textAlign="center">
+													{color_estado(el.estado_envio)}
+												</Td>
+												{/* STATUS */}
+											</Tr>
+										);
+									})}
 							</Tbody>
 						</Table>
 					</TableContainer>
@@ -433,18 +494,6 @@ const AdministrarProductos = () => {
 										</Tr>
 									);
 								})}
-								{/* <Tr>
-									<Td textAlign="center">Tomas 2</Td>
-									<Td textAlign="center">email@hotmail.com</Td>
-									<Td textAlign="center">User</Td>
-									<Td textAlign="center">1</Td>
-								</Tr>
-								<Tr>
-									<Td textAlign="center">Tomas 3</Td>
-									<Td textAlign="center">email@hotmail.com</Td>
-									<Td textAlign="center">User</Td>
-									<Td textAlign="center">2</Td>
-								</Tr> */}
 							</Tbody>
 						</Table>
 					</TableContainer>
