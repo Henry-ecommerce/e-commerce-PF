@@ -132,11 +132,29 @@ const Categoriass = () => {
 				productos_a_eliminar_editar,
 				nuevosProductosEditarCategoria
 			);
-			setloading(true)
-			setTimeout(() => {
-				setloading(false)
-				window.location.reload(false)
-			}, 1000);
+			setloading(true);
+			if (
+				productos_a_eliminar_editar.length > 8 &&
+				nuevosProductosEditarCategoria > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 4000);
+			} else if (
+				productos_a_eliminar_editar.length > 8 ||
+				nuevosProductosEditarCategoria.length > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 3000);
+			} else {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 1500);
+			}
 			// nivigation(`/admin/categorias/${Math.random(0, Infinity)}`);
 			// nivigation(`/admin/categorias`)
 			forceUpdate();
@@ -153,11 +171,29 @@ const Categoriass = () => {
 				nombreCategoriaInput,
 				productos_a_eliminar_editar
 			);
-			setloading(true)
-			setTimeout(() => {
-				setloading(false)
-				window.location.reload(false)
-			}, 1000);
+			setloading(true);
+			if (
+				productos_a_eliminar_editar.length > 8 &&
+				nuevosProductosEditarCategoria > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 4000);
+			} else if (
+				productos_a_eliminar_editar.length > 8 ||
+				nuevosProductosEditarCategoria.length > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 3000);
+			} else {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 1500);
+			}
 			// nivigation(`/admin/categorias/${Math.random(0, Infinity)}`);
 			// nivigation(`/admin/categorias`)
 			forceUpdate();
@@ -174,11 +210,29 @@ const Categoriass = () => {
 				nombreCategoriaInput,
 				nuevosProductosEditarCategoria
 			);
-			setloading(true)
-			setTimeout(() => {
-				setloading(false)
-				window.location.reload(false)
-			}, 1000);
+			setloading(true);
+			if (
+				productos_a_eliminar_editar.length > 8 &&
+				nuevosProductosEditarCategoria > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 4000);
+			} else if (
+				productos_a_eliminar_editar.length > 8 ||
+				nuevosProductosEditarCategoria.length > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 3000);
+			} else {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 1500);
+			}
 			// nivigation(`/admin/categorias/${Math.random(0, Infinity)}`);
 			// nivigation(`/admin/categorias`)
 			forceUpdate();
@@ -191,11 +245,29 @@ const Categoriass = () => {
 			setEditar(false);
 			setOpenForm(false);
 			actualizarCategoria_nombre(infoCategoria.id, nombreCategoriaInput);
-			setloading(true)
-			setTimeout(() => {
-				setloading(false)
-				window.location.reload(false)
-			}, 1000);
+			setloading(true);
+			if (
+				productos_a_eliminar_editar.length > 8 &&
+				nuevosProductosEditarCategoria > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 4000);
+			} else if (
+				productos_a_eliminar_editar.length > 8 ||
+				nuevosProductosEditarCategoria.length > 8
+			) {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 3000);
+			} else {
+				setTimeout(() => {
+					setloading(false);
+					window.location.reload(false);
+				}, 1500);
+			}
 			// nivigation(`/admin/categorias/${Math.random(0, Infinity)}`);
 			// nivigation(`/admin/categorias`)
 			forceUpdate();
@@ -217,10 +289,10 @@ const Categoriass = () => {
 
 		if (errors.nombre === "" && errors.productos === "") {
 			agregarCategorias(nombreCategoriaInput, productos_de_agregar);
-			setloading(true)
+			setloading(true);
 			setTimeout(() => {
-				setloading(false)
-				window.location.reload(false)
+				setloading(false);
+				window.location.reload(false);
 			}, 1000);
 		}
 	}
@@ -229,7 +301,7 @@ const Categoriass = () => {
 		<Flex alignItems="start">
 			<HeaderAdmin />
 			{loading ? (
-				<Box className="form" position='absolute' top="30%" left="50%">
+				<Box className="form" position="absolute" top="30%" left="50%">
 					<img src={cargando} width="80px" alt="cargando" />
 				</Box>
 			) : (
@@ -578,9 +650,9 @@ const Categoriass = () => {
 														<Td>{elem.nombre}</Td>
 														<Td w="30%">
 															{elem?.Productos?.length > 0 ? (
-																<Select bg="#242524" color="#FFFF">
+																<Select  bg="#242524" color="#FFFF">
 																	{elem?.Productos?.map(({ nombre, id }) => {
-																		return <option key={id}>{nombre}</option>;
+																		return <option key={id} style={{color:'black'}}>{nombre}</option>;
 																	})}
 																</Select>
 															) : (
