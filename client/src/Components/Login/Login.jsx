@@ -115,8 +115,8 @@ export default function Login() {
       if (data.rol === "Owner") {
         navegates("/");
       } else if (data.rol === "Admin") {
-        _obtenerProducto();
         navegates("/");
+        _obtenerProducto();
       } else {
         navegates("/");
       }

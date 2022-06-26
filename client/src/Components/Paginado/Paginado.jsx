@@ -17,9 +17,9 @@ export default function Paginado ({productsPage, allProducts, paginado}) {
                 {pageNumber && 
                     pageNumber.map(number => (
                         <li className={styles.numbers} key={number}>
-                            <Link to={`/products/${categoriaobusqueda}/${number}`} onClick={e => window.scrollTo({ top: 0 })}><button className={styles.number} >{number}</button></Link>
+                            <Link to={`/products/${categoriaobusqueda}/${number}`} onClick={e => window.scrollTo({ top: 0 })}><button className={ number === parseInt(page) ? styles.selected : styles.number} >{number}</button></Link>
                         </li>
-                    ))
+                    )).slice(parseInt(page)-2 >= 0 ? parseInt(page)-2 : parseInt(page)-1 ,parseInt(page)+1)
                 }
             </ul>
         </nav>

@@ -13,6 +13,8 @@ const ban = require("../Routes/controllers/Owener/ban");
 const updateRango = require("../Routes/controllers/Owener/updateRol");
 const getperfilUse = require("../Routes/controllers/Owener/perfilUser");
 const comprasUsuario = require("../Routes/controllers/user_cuenta/comprasUsuario");
+const PedidosAdmin = require("./controllers/user_cuenta/pedidosAdmin");
+
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
   checkRolAdminMiddleware,
@@ -35,6 +37,7 @@ router.use("/categorias", [checkAuth, checkRolAdminMiddleware], getCategorias);
 router.use("/crear", [checkAuth, checkRolAdminMiddleware], agregarProducto);
 router.use("/obtener", [checkAuth, checkRolAdminMiddleware], obtenerProducto);
 router.use("/pedidos", hardCodeoPedidos);
+router.use("/envios", PedidosAdmin);
 router.use(
   "/modificar",
   [checkAuth, checkRolAdminMiddleware],
@@ -46,5 +49,6 @@ router.use(
   [checkAuth, checkRolAdminMiddleware],
   borrarBorrarProducto
 );
+// router.use('/pedidosAdmin', pedidosAdmin)
 
 module.exports = router;

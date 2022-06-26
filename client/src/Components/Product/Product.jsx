@@ -84,6 +84,11 @@ function Product({
     precioFinal = parseInt(precio?.PesosArg - desc);
   }
 
+  let ultima;
+  if (stock === 1) {
+    ultima = "Ultima unidad disponible!";
+  }
+
   return (
     <Stack w="full" alignItems="center" justifyContent="space-between">
       <Box
@@ -105,10 +110,10 @@ function Product({
               zIndex={10}
               bg="#242525"
               color="#ECEDEC"
-              w="130px"
+              w="fit-content"
               borderLeftRadius={"8px"}
               p="10px"
-              top={["10px", "10px", "15px", "10px", "10px"]}
+              top={["20px", "20px", "25px", "20px", "20px"]}
               left={["60%", "60%", "79%", "60%", "60%"]}
               fontSize="small"
               fontWeight={"extrabold"}
@@ -118,7 +123,7 @@ function Product({
           )}
         </Flex>
         {/* <Link to={`/detail/${id}`}> */}
-        <Box height={"200px"} w="100%">
+        <Box height={"fit-content"} w="100%">
           <link
             rel="stylesheet"
             type="text/css"
@@ -135,10 +140,10 @@ function Product({
             aria-label="left-arrow"
             bg="#242525"
             color="#FFFF"
+            right="calc(100% - 55px)"
+            bottom={"60%"}
             borderRadius="full"
             position="absolute"
-            left={side}
-            top={top}
             transform={"translate(0%, -50%)"}
             zIndex={2}
             onClick={() => slider?.slickPrev()}
@@ -150,10 +155,10 @@ function Product({
             aria-label="right-arrow"
             bg="#242525"
             color="#FFFF"
+            left={"calc(100% - 55px)"}
+            bottom={"60%"}
             borderRadius="full"
             position="absolute"
-            right={side}
-            top={top}
             transform={"translate(0%, -50%)"}
             zIndex={2}
             onClick={() => slider?.slickNext()}
@@ -184,14 +189,15 @@ function Product({
                 as="h4"
                 lineHeight="tight"
                 mb="12px"
-                mt="10px"
+                mt="5px"
                 minH={"70px"}
               >
                 {nombre}
               </Box>
+              <Box position={"absolute"} w="200px"><Text position="absolute" top="-15px">{ultima ? ultima : null}</Text></Box>
             </Link>
             <Flex align={"center"}>
-            <ReviewStars starRating={displayRating()} />({reviews.length})
+              <ReviewStars starRating={displayRating()} />({reviews.length})
             </Flex>
           </Stack>
 

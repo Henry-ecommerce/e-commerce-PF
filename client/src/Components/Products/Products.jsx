@@ -3,6 +3,7 @@ import { SimpleGrid, Box } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products } from "../../Redux/Actions";
+import _cargando from '../../Loading/loading.svg'
 
 import Product from "../Product/Product";
 
@@ -28,7 +29,7 @@ function Products() {
 						return <Product key={product.id} {...product} />;
 					})
 				) : (
-					<Box>Cargando...</Box>
+					<Box position='relative' ml='50%' w='100%' my='150px'><img src={_cargando} alt={'Cargando'} width='80px'/></Box>
 				)
 			}
 		</SimpleGrid>

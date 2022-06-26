@@ -1,3 +1,4 @@
+import React, {useLayoutEffect} from "react";
 import {
 	Box,
 	Flex,
@@ -12,7 +13,6 @@ import {
 	Text,
 	Button,
 } from "@chakra-ui/react";
-import React from "react";
 import HeaderAdmin from "../Admin/HeaderAdmin";
 import {
 	MdKeyboardArrowDown,
@@ -26,12 +26,54 @@ import ReactApexChart from "react-apexcharts";
 import useAuthAd from "../../../hooks/useAuthAd";
 
 const AdministrarProductos = () => {
-	const { categorias, users } = useAuthAd();
-	console.log(users);
+	const {
+		categorias,
+		users,
+		tatalOrdenes,
+		tatalGanancias,
+		totalBalance,
+		_obtenerPedidos,
+		ventasProMes,
+		totalPorCategorias,
+	} = useAuthAd();
+	// console.log(totalPorCategorias, ' total categorias')
+	// console.log(Object.keys(totalPorCategorias)?.map(e => categorias?.filter(m => m.id === Number(e)))?.map(e => e[0].nombre), ' Es esto')
+	// console.log(categorias, ' categorias')
+	useLayoutEffect(() => {
+		_obtenerPedidos()
+	},[])
+
+	let x = (typeof totalPorCategorias !== 'undefined') ? Object.keys(totalPorCategorias)?.slice(0, 6)
+			?.map((e) => categorias?.filter((m) => m.id === Number(e)))
+			?.map((e) => e[0]?.nombre)
+			:
+			''
+
+	const months = [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
+	];
+
+	const d = new Date();
+	let month = months[d.getMonth()];
+
 
 	let _categorias = [
 		{
-			data: [80, 50, 30, 40, 100, 20],
+			data:
+				totalPorCategorias !== undefined &&
+				Object.values(totalPorCategorias).slice(0, 6),
+			// data: [80, 50, 30, 40, 100, 20],
 		},
 	];
 	let categorias_options = {
@@ -67,9 +109,7 @@ const AdministrarProductos = () => {
 				},
 			},
 		},
-		xaxis: {
-			categories: categorias.map(({ nombre }) => nombre),
-		},
+		xaxis: {categories : x},
 		yaxis: {
 			tickAmount: 7,
 			labels: {
@@ -86,8 +126,12 @@ const AdministrarProductos = () => {
 
 	let series = [
 		{
-			name: "Desktops",
-			data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+			name: "Ventas ",
+			data:
+				ventasProMes !== undefined &&
+				Object.values(ventasProMes)
+					?.map((e) => e.length)
+					.filter((e) => e > 0),
 		},
 	];
 	let options = {
@@ -115,38 +159,9 @@ const AdministrarProductos = () => {
 			},
 		},
 		xaxis: {
-			categories: [
-				"Ene",
-				"Feb",
-				"Mar",
-				"Apr",
-				"May",
-				"Jun",
-				"Jul",
-				"Ago",
-				"Sep",
-			],
+			categories: months.slice(0, months.indexOf(month) + 1),
 		},
 	};
-
-	const months = [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
-	];
-
-	const d = new Date();
-	let month = months[d.getMonth()];
-	console.log(month);
 
 	return (
 		<Flex justifyContent="space-between">
@@ -167,12 +182,12 @@ const AdministrarProductos = () => {
 							<Box color="#AAAAAA" fontWeight="extrabold">
 								Usuarios
 							</Box>
-							<Flex color="#4FC168" fontWeight="extrabold" align="center">
+							{/* <Flex color="#4FC168" fontWeight="extrabold" align="center">
 								<Box fontSize="22px">
 									<MdKeyboardArrowUp />
 								</Box>
 								20%
-							</Flex>
+							</Flex> */}
 						</Flex>
 						<Box fontSize="30px">{users.length}</Box>
 						<Flex justify="space-between" align="center">
@@ -196,14 +211,14 @@ const AdministrarProductos = () => {
 							<Box color="#AAAAAA" fontWeight="extrabold">
 								Ordenes
 							</Box>
-							<Flex color="#F1574F" fontWeight="extrabold" align="center">
+							{/* <Flex color="#F1574F" fontWeight="extrabold" align="center">
 								<Box fontSize="22px">
 									<MdKeyboardArrowDown />
 								</Box>
 								20%
-							</Flex>
+							</Flex> */}
 						</Flex>
-						<Box fontSize="30px">100</Box>
+						<Box fontSize="30px">{tatalOrdenes}</Box>
 						<Flex justify="space-between" align="center">
 							<Box fontSize="10px">Ver todas las ordenes</Box>
 							<Box bg="#FBEFD8" color="#C49453" p="8px" borderRadius="10px">
@@ -225,14 +240,14 @@ const AdministrarProductos = () => {
 							<Box color="#AAAAAA" fontWeight="extrabold">
 								Ganancias
 							</Box>
-							<Flex color="#4FC168" fontWeight="extrabold" align="center">
+							{/* <Flex color="#4FC168" fontWeight="extrabold" align="center">
 								<Box fontSize="22px">
 									<MdKeyboardArrowUp />
 								</Box>
 								20%
-							</Flex>
+							</Flex> */}
 						</Flex>
-						<Box fontSize="30px">100</Box>
+						<Box fontSize="30px">{tatalGanancias}</Box>
 						<Flex justify="space-between" align="center">
 							<Box fontSize="10px">Ver todas las ganancias</Box>
 							<Box
@@ -260,14 +275,14 @@ const AdministrarProductos = () => {
 							<Box color="#AAAAAA" fontWeight="extrabold">
 								Balance
 							</Box>
-							<Flex color="#4FC168" fontWeight="extrabold" align="center">
+							{/* <Flex color="#4FC168" fontWeight="extrabold" align="center">
 								<Box fontSize="22px">
 									<MdKeyboardArrowUp />
 								</Box>
 								20%
-							</Flex>
+							</Flex> */}
 						</Flex>
-						<Box fontSize="30px">100</Box>
+						<Box fontSize="30px">{totalBalance}</Box>
 						<Flex justify="space-between" align="center">
 							<Box fontSize="10px">Ver el balance</Box>
 							<Box bg="#F3CDF4" color="#620F61" borderRadius="10px" p="8px">

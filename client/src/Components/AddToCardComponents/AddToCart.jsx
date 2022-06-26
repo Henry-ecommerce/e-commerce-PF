@@ -12,11 +12,11 @@ export default function AddToCart({
   stock,
 }) {
   const toast = useToast();
-  nombre = nombre.split(",")[0];
+  nombre = nombre?.split(",")[0];
   const dispatch = useDispatch();
   const { products_in_cart_local_storage } = useSelector((state) => state);
 
-  let filter = products_in_cart_local_storage.filter((el) => el.id === id);
+  let filter = products_in_cart_local_storage?.filter((el) => el.id === id);
 
   return (
     <Button
@@ -37,10 +37,18 @@ export default function AddToCart({
               title: "Lo sentimos!",
               description: "No tenemos mas stock de este producto :(",
               status: "warning",
-              duration: 6000,
+              duration: 4000,
               isClosable: true,
             });
           } else {
+            toast({
+              position: "top",
+              title: "Agregado!",
+              description: "Se agrego el producto a tu carrito",
+              status: "success",
+              duration: 3000,
+              isClosable: true,
+            });
             dispatch(
               set_products_in_cart_local_storage({
                 stock,
