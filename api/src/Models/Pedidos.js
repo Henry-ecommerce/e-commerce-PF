@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       defaultValue: "Creado",
     },
     payments: {
-      type: DataTypes.JSONB,
+      type: DataTypes.JSON,
       allowNull: false,
     },
     shipments: {
