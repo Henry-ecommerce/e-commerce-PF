@@ -66,7 +66,7 @@ const AdministrarProductos = () => {
 
 	const d = new Date();
 	let month = months[d.getMonth()];
-	// console.log(month);
+
 
 	let _categorias = [
 		{
