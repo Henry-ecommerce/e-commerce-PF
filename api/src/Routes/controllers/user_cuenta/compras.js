@@ -85,75 +85,75 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  const { resource, topic } = req.body;
-  if (!resource && topic !== "merchant_orders") {
-    console.log(topic);
-    return res.send("no es una merchant order");
-  }
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${APP_USR}`,
-    },
-  };
+// router.post("/", async (req, res) => {
+//   const { resource, topic } = req.body;
+//   if (!resource && topic !== "merchant_orders") {
+//     console.log(topic);
+//     return res.send("no es una merchant order");
+//   }
+//   const config = {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${APP_USR}`,
+//     },
+//   };
 
-  try {
-    const peticion = await axios.get(resource, config);
-    let datos = peticion.data;
-    const { payments, items, shipments, payer, preference_id } = datos;
+//   try {
+//     const peticion = await axios.get(resource, config);
+//     let datos = peticion.data;
+//     const { payments, items, shipments, payer, preference_id } = datos;
 
-    let preferencia = await axios.get(
-      `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
-      config
-    );
+//     let preferencia = await axios.get(
+//       `https://api.mercadopago.com/checkout/preferences/${preference_id}`,
+//       config
+//     );
 
-    if(payments && items && preference_id){
-      let [pedido, create] = await Pedido.findOrCreate({
-        where: {
-          preference_id: preference_id,
-        },
-        defaults: {
-          preference_id: preference_id,
-          payments: payments,
-          items: items,
-          shipments: preferencia.data.shipments.receiver_address,
-          payer: preferencia.data.payer,
-        },
-        include: Usuario,
-      });
-  
-      let product = await items.map(async (el) => {
-        let product = await Producto.findByPk(el.id);
-        product.decrement("stock", { by: el.quantity });
-      });
-  
-      meta = preferencia.data;
-      let user = await Usuario.findByPk(meta.metadata.id);
-  
-      user.addPedido(pedido.id);
-  
-      if (pedido.payments[0].status === "approved") {
-        emailCompraUser({
-          email: user.email,
-          name: user.name,
-        });
-  
-        emailCompraAdmin({
-          email2: "sdmoreno51@gmail.com",
-          email: user.email,
-          name: user.name,
-        });
-      } else {
-        emailPagoDenegado({
-          email: user.email,
-          name: user.name,
-        });
-      }
-    }
-  } catch (err) {
-    console.log(err);
-  }
-});
+//     if(payments && items && preference_id){
+//       let [pedido, create] = await Pedido.findOrCreate({
+//         where: {
+//           preference_id: preference_id,
+//         },
+//         defaults: {
+//           preference_id: preference_id,
+//           payments: payments,
+//           items: items,
+//           shipments: preferencia.data.shipments.receiver_address,
+//           payer: preferencia.data.payer,
+//         },
+//         include: Usuario,
+//       });
+
+//       let product = await items.map(async (el) => {
+//         let product = await Producto.findByPk(el.id);
+//         product.decrement("stock", { by: el.quantity });
+//       });
+
+//       meta = preferencia.data;
+//       let user = await Usuario.findByPk(meta.metadata.id);
+
+//       user.addPedido(pedido.id);
+
+//       if (pedido.payments[0].status === "approved") {
+//         emailCompraUser({
+//           email: user.email,
+//           name: user.name,
+//         });
+
+//         emailCompraAdmin({
+//           email2: "sdmoreno51@gmail.com",
+//           email: user.email,
+//           name: user.name,
+//         });
+//       } else {
+//         emailPagoDenegado({
+//           email: user.email,
+//           name: user.name,
+//         });
+//       }
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
 module.exports = router;
