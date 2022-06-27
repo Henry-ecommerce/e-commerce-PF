@@ -301,7 +301,7 @@ function Navbar() {
 								<Link to="/user/misCompras">Pedido</Link>
 							)}
 						</Box>
-						<Box mx="15px">
+						<Box ml="-15px">
 							{user?.rol === "Admin" && <Link to="/admin">Panel Admin</Link>}
 							{user?.rol === "Owner" && (
 								<Link to="/owner/edit">Panel Owner</Link>
