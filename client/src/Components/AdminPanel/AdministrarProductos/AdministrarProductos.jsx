@@ -134,13 +134,16 @@ const AdministrarProductos = () => {
 
 	const d = new Date();
 	let month = months[d.getMonth()];
-	console.log(Object.values(totalPorCategorias), ' Categorias')
-	console.log(Object.values(ventasProMes), ' Ventas')
+	let comboMagico =
+		typeof totalPorCategorias !== "undefined" &&
+		Object.values(totalPorCategorias)
+			.map((e, i) => [e, x[i]])
+			.sort((a, b) => b[0] - a[0])
+			.slice(0, 6);
+	console.log(comboMagico);
 	let _categorias = [
 		{
-			data:
-				totalPorCategorias !== undefined &&
-				Object.values(totalPorCategorias)
+			data: comboMagico.map((e) => e[0]),
 		},
 	];
 	let categorias_options = {
@@ -176,7 +179,7 @@ const AdministrarProductos = () => {
 				},
 			},
 		},
-		xaxis: { categories: x },
+		xaxis: { categories: comboMagico.map((e) => e[1]) },
 		yaxis: {
 			tickAmount: 7,
 			labels: {
