@@ -58,6 +58,8 @@ export default function MisCompras() {
     }
   }
 
+  let status;
+
   return (
     <Box>
       <Flex bg="black" p="10px">
@@ -114,6 +116,22 @@ export default function MisCompras() {
         {compra?.length > 0 ? (
           compra.map((e) =>
             e.items?.map((product) => {
+              e.estado_envio === "Creado"
+                ? (status = (
+                    <Box>
+                      {" "}
+                      Estado de tu envio : <br />
+                      En proceso
+                    </Box>
+                  ))
+                : (status = (
+                    <Box>
+                      {" "}
+                      Estado de tu envio : <br />
+                      {e.estado_envio}{" "}
+                    </Box>
+                  ));
+
               return (
                 <Box
                   bg="white"
@@ -152,18 +170,10 @@ export default function MisCompras() {
                       fontWeight="black"
                       w="120px"
                     >
-                      {e.estado_envio === "Creado" ? (
-                        <Box>
-                          {" "}
-                          Estado de tu envio : <br />
-                          En proceso
-                        </Box>
+                      {e.payments[0].status === "rejected" ? (
+                        <Text>Pago cancelado</Text>
                       ) : (
-                        <Box>
-                          {" "}
-                          Estado de tu envio : <br />
-                          {e.estado_envio}{" "}
-                        </Box>
+                        status
                       )}
                     </Box>
 
