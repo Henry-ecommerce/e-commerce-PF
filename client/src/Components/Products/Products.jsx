@@ -1,6 +1,6 @@
 import React from "react";
 import { SimpleGrid, Box } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products } from "../../Redux/Actions";
 import _cargando from '../../Loading/loading.svg'
@@ -11,7 +11,7 @@ function Products() {
 	const { products, searched_products } = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		dispatch(get_all_products());
 	}, []);
 
