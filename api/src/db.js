@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT, NODE_ENV, DB_PORT } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT, NODE_ENV, DB_PORT } =
+  process.env;
 
 const pedidos_model = require("./Models/Pedidos");
 const productos_model = require("./Models/Productos");
@@ -51,8 +52,16 @@ hitorial_model(sequelize);
 botclave_model(sequelize);
 botopcion_model(sequelize);
 
-const { Usuario, Producto, Pedido, Review, Historial, Categoria, BotClave, BotOpcion } =
-  sequelize.models;
+const {
+  Usuario,
+  Producto,
+  Pedido,
+  Review,
+  Historial,
+  Categoria,
+  BotClave,
+  BotOpcion,
+} = sequelize.models;
 
 Usuario.hasMany(Pedido);
 Pedido.hasOne(Usuario);

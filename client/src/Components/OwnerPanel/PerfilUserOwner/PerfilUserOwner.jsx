@@ -31,6 +31,7 @@ const PerfilUserOwner = () => {
   const [defaul, setDefaul] = useState(true);
   const [rols, setRols] = useState("");
   const [baneoss, setBaneoss] = useState("");
+  console.log(baneoss);
   const [alerta, setAlerta] = useState({});
   const [comprasUsers, setComprasUsers] = useState(false);
 
@@ -61,7 +62,7 @@ const PerfilUserOwner = () => {
     BanearUsuario(id, baneoss);
     if (baneoss === "baneo") {
       setAlerta({
-        msg: "Usuario baneado correctamente",
+        msg: "Se baneo al usuario correctamente",
         error: false,
       });
     } else {
@@ -270,7 +271,7 @@ const PerfilUserOwner = () => {
       ) : baneos ? (
         <Box p="20px" borderRadius={"20px"} w="75%" bg="#FFFFFF">
           {msg && <Alerta alerta={alerta} />}
-          <Flex fontWeight={"extrabold"}>Cambiar rol a usario</Flex>
+          <Flex fontWeight={"extrabold"}>Cambia el estado del usuario</Flex>
           <Flex fontWeight={"extrabold"}>
             Nombre completo :{" "}
             <Text mx="10px" fontWeight={"light"}>
@@ -292,7 +293,7 @@ const PerfilUserOwner = () => {
           <Box display={"flex"}>
             <Select
               defaultValue="default"
-              onChange={handelRol}
+              onChange={handelBaneoss}
               w={"30%"}
               mt={"15px"}
             >
