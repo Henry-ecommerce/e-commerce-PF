@@ -33,6 +33,7 @@ function Product({
   origin,
   descuento,
   stock,
+  Categoria,
 }) {
   nombre = nombre.split(",")[0];
   const cards = [
@@ -227,6 +228,7 @@ function Product({
                 id={id}
                 stock={stock}
                 texto="Agregar al carrito"
+                Categoria={Categoria}
               />
             </Box>
           </Flex>
