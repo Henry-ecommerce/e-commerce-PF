@@ -10,6 +10,7 @@ export default function AddToCartIcon({
   imagen0,
   id,
   stock,
+  Categoria
 }) {
   nombre = nombre?.split(",")[0];
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ export default function AddToCartIcon({
                 precio,
                 imagen0,
                 id,
+                Categoria
               })
             );
           }
