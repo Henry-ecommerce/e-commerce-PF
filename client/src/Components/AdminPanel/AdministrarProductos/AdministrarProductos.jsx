@@ -143,7 +143,7 @@ const AdministrarProductos = () => {
 	console.log(comboMagico);
 	let _categorias = [
 		{
-			data: comboMagico.map((e) => e[0]),
+			data: comboMagico ? comboMagico.map((e) => e[0]) : [],
 		},
 	];
 	let categorias_options = {
@@ -179,7 +179,7 @@ const AdministrarProductos = () => {
 				},
 			},
 		},
-		xaxis: { categories: comboMagico.map((e) => e[1]) },
+		xaxis: { categories: comboMagico ? comboMagico.map((e) => e[1]) : [] },
 		yaxis: {
 			tickAmount: 7,
 			labels: {
