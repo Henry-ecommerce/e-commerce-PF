@@ -62,7 +62,7 @@ function App() {
           path="/"
           element={
             <Box>
-              <Banner />
+              {/* <Banner /> */}
               <SearchBar />
               <Home />
             </Box>

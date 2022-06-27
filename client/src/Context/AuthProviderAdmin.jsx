@@ -905,6 +905,48 @@ export const AdminProvider = ({ children }) => {
     }
   };
 
+  const obtenerUsers = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/users`,
+            config
+          );
+
+          setUsers(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+
+      const obtenerCategorias = async () => {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) return;
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          };
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_API}/admin/categorias`,
+            config
+          );
+
+          setCategorias(data);
+        } catch (error) {
+          console.log(error.response.data.msg);
+        }
+      };
+      
   return (
     <AuthProviderProducContext.Provider
       value={{
@@ -943,6 +985,8 @@ export const AdminProvider = ({ children }) => {
         totalMeses,
         ventasProMes,
         totalPorCategorias,
+        obtenerUsers,
+        obtenerCategorias,
       }}
     >
       {children}
