@@ -487,13 +487,13 @@ const AdministrarProductos = () => {
 								</Tr>
 							</Thead>
 							<Tbody textAlign="center">
-								{users?.map(({ id, name, email, rol }) => {
+								{users?.map(({ id, name, email, rol, Pedidos }) => {
 									return (
 										<Tr key={id}>
 											<Td textAlign="center">{name}</Td>
 											<Td textAlign="center">{email}</Td>
 											<Td textAlign="center">{rol}</Td>
-											<Td textAlign="center">Ninguna</Td>
+											<Td textAlign="center">{Pedidos.length}</Td>
 										</Tr>
 									);
 								})}
