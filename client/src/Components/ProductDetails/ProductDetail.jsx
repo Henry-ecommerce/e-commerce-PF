@@ -269,6 +269,7 @@ function ProductDetail() {
                           marca={product.marca}
                           imagen0={product.imagen0}
                           id={product.id}
+                          Categoria={product.Categoria}
                           stock={product.stock}
                         />
                       ) : null}</Box>
@@ -283,6 +284,7 @@ function ProductDetail() {
                               imagen0={product.imagen0}
                               id={product.id}
                               stock={product.stock}
+                              Categoria={product.Categoria}
                               texto="COMPRAR AHORA"
                             />
                           ) : (
@@ -302,7 +304,7 @@ function ProductDetail() {
                               color="#ECEDEC"
                               _hover={{ bg: "#242525", color: "#ECEDEC" }}
                               fontSize="small"
-                              w="150px"
+                              p='10px'
                             >
                               ESCRIBIR UNA OPINION
                             </Button>
@@ -324,6 +326,7 @@ function ProductDetail() {
                                     imagen0={product.imagen0}
                                     id={product.id}
                                     stock={product.stock}
+                                    Categoria={product.Categoria}
                                     texto="COMPRAR AHORA"
                                   />
                                 </Link>
@@ -476,6 +479,7 @@ function ProductDetail() {
                             imagen0={product.imagen0}
                             id={product.id}
                             stock={product.stock}
+                            Categoria={product.Categoria}
                           />
                         ) : null}</Box>
 
@@ -489,6 +493,7 @@ function ProductDetail() {
                                 imagen0={product.imagen0}
                                 id={product.id}
                                 stock={product.stock}
+                                Categoria={product.Categoria}
                                 texto="COMPRAR AHORA"
                               />
                             ) : (
@@ -530,6 +535,7 @@ function ProductDetail() {
                                       imagen0={product.imagen0}
                                       id={product.id}
                                       stock={product.stock}
+                                      Categoria={product.Categoria}
                                       texto="COMPRAR AHORA"
                                     />
                                   </Link>
