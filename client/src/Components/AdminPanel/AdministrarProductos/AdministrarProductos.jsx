@@ -134,7 +134,8 @@ const AdministrarProductos = () => {
 
 	const d = new Date();
 	let month = months[d.getMonth()];
-	console.log(Object.values(totalPorCategorias).sort((a,b) =>a-b), ' Aca')
+	console.log(Object.values(totalPorCategorias), ' Categorias')
+	console.log(Object.values(ventasProMes), ' Ventas')
 	let _categorias = [
 		{
 			data:
