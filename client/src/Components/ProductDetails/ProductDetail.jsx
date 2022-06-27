@@ -326,6 +326,7 @@ function ProductDetail() {
                                     imagen0={product.imagen0}
                                     id={product.id}
                                     stock={product.stock}
+                                    Categoria={product.Categoria}
                                     texto="COMPRAR AHORA"
                                   />
                                 </Link>
@@ -478,6 +479,7 @@ function ProductDetail() {
                             imagen0={product.imagen0}
                             id={product.id}
                             stock={product.stock}
+                            Categoria={product.Categoria}
                           />
                         ) : null}</Box>
 
@@ -491,6 +493,7 @@ function ProductDetail() {
                                 imagen0={product.imagen0}
                                 id={product.id}
                                 stock={product.stock}
+                                Categoria={product.Categoria}
                                 texto="COMPRAR AHORA"
                               />
                             ) : (
@@ -532,6 +535,7 @@ function ProductDetail() {
                                       imagen0={product.imagen0}
                                       id={product.id}
                                       stock={product.stock}
+                                      Categoria={product.Categoria}
                                       texto="COMPRAR AHORA"
                                     />
                                   </Link>
