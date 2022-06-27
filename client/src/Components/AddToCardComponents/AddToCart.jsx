@@ -10,7 +10,6 @@ export default function AddToCart({
   id,
   texto,
   stock,
-  Categoria,
 }) {
   const toast = useToast();
   nombre = nombre?.split(",")[0];
@@ -58,7 +57,6 @@ export default function AddToCart({
                 precio,
                 imagen0,
                 id,
-                Categoria,
               })
             );
           }
