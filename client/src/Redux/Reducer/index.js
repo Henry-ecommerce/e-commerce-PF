@@ -11,6 +11,8 @@ import {
   GET_FILTER_PRODUCTS,
   GET_ALL_CATEGORIES,
   GET_USER_FAVORITES,
+  GET_ALL_BOTCLAVES,
+  GET_ALL_BOTOPCIONES,
 } from "../Actions/actions_types";
 
 const initialState = {
@@ -24,6 +26,8 @@ const initialState = {
   filtrados: [],
   categories: [],
   favorites: [],
+  botclaves: [],
+  botopciones: [],
 };
 
 
@@ -146,6 +150,16 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         favorites: payload,
       };
+    case GET_ALL_BOTCLAVES:
+      return {
+        ...state,
+        botclaves: payload,
+      }
+    case GET_ALL_BOTOPCIONES:
+      return {
+        ...state,
+        botopciones: payload,
+      }
     default:
       return state;
   }

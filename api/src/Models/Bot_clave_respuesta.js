@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
                 allowNull: false,
             },
             respuesta: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
                 allowNull: false,
             },
         }, { timestamps: false }
