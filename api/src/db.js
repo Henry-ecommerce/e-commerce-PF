@@ -8,6 +8,8 @@ const usuario_model = require("./Models/Usuario");
 const categoria_model = require("./Models/Categorias");
 const hitorial_model = require("./Models/Historial_compras");
 const reviews_model = require("./Models/Reviews");
+const botclave_model = require("./Models/Bot_clave_respuesta");
+const botopcion_model = require("./Models/Bot_opcion_respuesta");
 
 let sequelize =
   NODE_ENV === "production"
@@ -46,8 +48,10 @@ productos_model(sequelize);
 reviews_model(sequelize);
 categoria_model(sequelize);
 hitorial_model(sequelize);
+botclave_model(sequelize);
+botopcion_model(sequelize);
 
-const { Usuario, Producto, Pedido, Review, Historial, Categoria } =
+const { Usuario, Producto, Pedido, Review, Historial, Categoria, BotClave, BotOpcion } =
   sequelize.models;
 
 Usuario.hasMany(Pedido);
