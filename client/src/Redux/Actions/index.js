@@ -14,6 +14,8 @@ import {
 	GET_FILTER_PRODUCTS,
 	GET_USER_FAVORITES,
 	GET_ALL_CATEGORIES,
+	GET_ALL_BOTCLAVES,
+	GET_ALL_BOTOPCIONES,
   
   
   
@@ -162,4 +164,42 @@ export function get_all_categories(){
 		let all_categories = await axios.get("/categorias")
 		return dispatch({type: GET_ALL_CATEGORIES, payload: all_categories.data})
 	}
+}
+
+export function get_all_botclaves(){
+	return async (dispatch) => {
+		let all_botclaves = await axios.get("/chatbot/BotClaves")
+		return dispatch ({type: GET_ALL_BOTCLAVES, payload: all_botclaves.data})
+	}
+}
+
+export function add_new_botclave (clave,respuesta){
+	return async () => { await axios.post("/chatbot/BotClaves", {clave: clave, respuesta: respuesta}) }
+}
+
+export function delete_botclave (id) {
+	return async () => { await axios.delete("/chatbot/BotClaves", { data : {id:id} })}
+}
+
+export function edit_botclave (id,clave,respuesta){
+	return async () => {await axios.put("/chatbot/BotClaves", {id: id, clave: clave, respuesta: respuesta})}
+}
+
+export function get_all_botopciones(){
+	return async (dispatch) => {
+		let all_botopciones = await axios.get("/chatbot/BotOpciones")
+		return dispatch ({type: GET_ALL_BOTOPCIONES, payload: all_botopciones.data})
+	}
+}
+
+export function add_new_botopciones (clave,respuesta){
+	return async () => { await axios.post("/chatbot/BotOpciones", {opcion: clave, respuesta: respuesta}) }
+}
+
+export function delete_botopciones (id) {
+	return async () => { await axios.delete("/chatbot/BotOpciones", { data : {id:id} })}
+}
+
+export function edit_botopciones (id,clave,respuesta){
+	return async () => {await axios.put("/chatbot/BotOpciones", {id: id, opcion: clave, respuesta: respuesta})}
 }
