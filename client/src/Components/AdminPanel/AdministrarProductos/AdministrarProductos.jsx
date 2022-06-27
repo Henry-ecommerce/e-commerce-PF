@@ -38,12 +38,16 @@ const AdministrarProductos = () => {
 		ventasProMes,
 		totalPorCategorias,
 		ordenes,
+		obtenerUsers,
+		obtenerCategorias,
 	} = useAuthAd();
 	// console.log(totalPorCategorias, ' total categorias')
 	// console.log(Object.keys(totalPorCategorias)?.map(e => categorias?.filter(m => m.id === Number(e)))?.map(e => e[0].nombre), ' Es esto')
 	// console.log(categorias, ' categorias')
 	useLayoutEffect(() => {
 		_obtenerPedidos();
+		obtenerUsers()
+		obtenerCategorias()
 		window.scrollTo({ top: 0 });
 	}, []);
 
