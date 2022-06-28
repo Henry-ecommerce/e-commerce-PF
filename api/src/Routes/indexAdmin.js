@@ -14,6 +14,7 @@ const updateRango = require("../Routes/controllers/Owener/updateRol");
 const getperfilUse = require("../Routes/controllers/Owener/perfilUser");
 const comprasUsuario = require("../Routes/controllers/user_cuenta/comprasUsuario");
 const PedidosAdmin = require("./controllers/user_cuenta/pedidosAdmin");
+const chatbot = require("../Routes/Chatbot/ChatbotAdmin");
 
 const { checkAuth } = require("../middleware/authMiddleware");
 const {
@@ -49,6 +50,7 @@ router.use(
   [checkAuth, checkRolAdminMiddleware],
   borrarBorrarProducto
 );
+router.use("/chatbot",[checkAuth, checkRolAdminMiddleware], chatbot);
 // router.use('/pedidosAdmin', pedidosAdmin)
 
 module.exports = router;
