@@ -51,11 +51,13 @@ function FavoriteButton({ origin, productId }) {
 
     if (AlreadyFavorite) {
       setFavorite(false);
-      axios.post("user/favoritos/remove", datos, config);
-      dispatch(get_user_favorites(user?.id));
+      axios.post("user/favoritos/remove", datos, config).then(() => {
+        dispatch(get_user_favorites(user?.id));
+      });
     } else {
-      axios.post("/user/favoritos", datos, config);
-      dispatch(get_user_favorites(user?.id));
+      axios.post("/user/favoritos", datos, config).then(() => {
+        dispatch(get_user_favorites(user?.id));
+      });
       setFavorite(true);
     }
   }
