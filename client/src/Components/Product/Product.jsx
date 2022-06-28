@@ -195,7 +195,7 @@ function Product({
               >
                 {nombre}
               </Box>
-              <Box position={"absolute"} w="200px"><Text position="absolute" top="-15px">{ultima ? ultima : null}</Text></Box>
+              <Box position={"absolute"} w="200px"><Text position="absolute" color='#F54343' top="-20px" w='250px'>{ultima ? ultima : null}</Text></Box>
             </Link>
             <Flex align={"center"}>
               <ReviewStars starRating={displayRating()} />({reviews.length})
@@ -203,7 +203,7 @@ function Product({
           </Stack>
 
           <Flex justifyContent="space-between" align="center" mt="12px">
-            <Box as="span" color={"#242525"} fontWeight="bold" fontSize="20px">
+            <Box as="span" color={"#242525"} fontWeight="bold" fontSize="18px">
               {descuento !== null && (
                 <Text
                   fontSize={"12px"}
