@@ -26,7 +26,7 @@ import Mercadopago from "../MercadoPago/MercadoPago";
 const Carrito = () => {
   const { products_in_cart_local_storage } = useSelector((state) => state);
   const { products } = useSelector((state) => state);
-  const [mayor1205w] = useMediaQuery('(min-width: 1205px)');
+  const [mayor1205w] = useMediaQuery("(min-width: 1205px)");
   const division = [
     products?.slice(0, 12),
     products?.slice(12, 24),
@@ -53,31 +53,50 @@ const Carrito = () => {
       0
     );
 
-    const datos = {
-      pais: infoDirection?.items?.pais ,
-      provincia: infoDirection?.items?.provincia ,
-      ciudad: infoDirection?.items?.ciudad ,
-      CP: infoDirection?.items?.CP ,
-      nombreCalle: infoDirection?.items?.nombreCalle ,
-      numeroCalle: infoDirection?.items?.numeroCalle ,
-      piso: infoDirection?.items?.piso ,
-      telefono: infoDirection?.items?.telefono ,
-      tipoDoc: infoDirection?.items?.tipoDoc ,
-      numeroDoc: infoDirection?.items?.numeroDoc ,
-  }
+  const datos = {
+    pais: infoDirection?.items?.pais,
+    provincia: infoDirection?.items?.provincia,
+    ciudad: infoDirection?.items?.ciudad,
+    CP: infoDirection?.items?.CP,
+    nombreCalle: infoDirection?.items?.nombreCalle,
+    numeroCalle: infoDirection?.items?.numeroCalle,
+    piso: infoDirection?.items?.piso,
+    telefono: infoDirection?.items?.telefono,
+    tipoDoc: infoDirection?.items?.tipoDoc,
+    numeroDoc: infoDirection?.items?.numeroDoc,
+  };
 
   return (
     <>
       {
         <Flex>
           {localStor[0] ? (
-            <Flex justify="center" w="70vw" maxW="1440px" minW="350px" ml="auto" mr="auto" wrap={mayor1205w?"nowrap":"wrap"}>
-              <Box maxH="500px" __css={{"&::-webkit-scrollbar":{w: "7px"}, "::-webkit-scrollbar-thumb":{bg:"#242525", borderRadius:"10px"}}} _hover={{"&::-webkit-scrollbar-thumb":{bg:"#505050"}}} overflowY={"auto"}>
+            <Flex
+              justify="center"
+              w="70vw"
+              maxW="1440px"
+              minW="350px"
+              ml="auto"
+              mr="auto"
+              wrap={mayor1205w ? "nowrap" : "wrap"}
+            >
+              <Box
+                maxH="500px"
+                __css={{
+                  "&::-webkit-scrollbar": { w: "7px" },
+                  "::-webkit-scrollbar-thumb": {
+                    bg: "#242525",
+                    borderRadius: "10px",
+                  },
+                }}
+                _hover={{ "&::-webkit-scrollbar-thumb": { bg: "#505050" } }}
+                overflowY={"auto"}
+              >
                 {localStor?.map((el) => {
                   return (
                     <Box
                       fontSize="1em"
-                      w={mayor1205w?"45vw":"65vw"}
+                      w={mayor1205w ? "45vw" : "65vw"}
                       maxW="1440px"
                       minW="330px"
                       my="20px"
@@ -90,17 +109,27 @@ const Carrito = () => {
 												Mi carrito
 											</Text> */}
                       <Box>
-                        <Flex align="center" justify="space-around" wrap={"wrap"}>
+                        <Flex
+                          align="center"
+                          justify="space-around"
+                          wrap={"wrap"}
+                        >
                           <Image
                             src={el.imagen0}
                             boxSize="100px"
                             borderRadius="10px"
                             objectFit="contain"
                           />
-                          <Text fontSize="1em" minW="150px "maxW="250px">
+                          <Text fontSize="1em" minW="150px " maxW="250px">
                             {el.nombre}
                           </Text>
-                          <Text fontSize="1.3em" textAlign={"center"} minW={"100px"} margin="5px" fontWeight="550">
+                          <Text
+                            fontSize="1.3em"
+                            textAlign={"center"}
+                            minW={"100px"}
+                            margin="5px"
+                            fontWeight="550"
+                          >
                             ${el.precio}
                           </Text>
                           <Flex align="center" justify="space-between">
@@ -165,12 +194,12 @@ const Carrito = () => {
                 })}
               </Box>
               <Stack
-              position={"relative"}
+                position={"relative"}
                 display={"flex"}
-                flexDirection={mayor1205w?"column":"row"}
+                flexDirection={mayor1205w ? "column" : "row"}
                 height="fit-content"
-                w={mayor1205w?"fit-content":"65vw"}
-                minW={mayor1205w?"fit-content":"330px"}
+                w={mayor1205w ? "fit-content" : "65vw"}
+                minW={mayor1205w ? "fit-content" : "330px"}
                 bg="#FFFF"
                 m="20px"
                 p="20px"
@@ -179,17 +208,30 @@ const Carrito = () => {
                 alignItems={"center"}
                 justifyContent={"center"}
               >
-                <Box ml="calc(50% - 87px)" mr="calc(50% - 87px)"><DireccionUser/></Box>
+                <Box ml="calc(50% - 87px)" mr="calc(50% - 87px)">
+                  <DireccionUser />
+                </Box>
                 <br />
-                <Text ml="calc(50% - 100px) !important" mr="calc(50% - 100px) !important" fontSize="25px" fontWeight="550">
+                <Text
+                  ml="calc(50% - 100px) !important"
+                  mr="calc(50% - 100px) !important"
+                  fontSize="25px"
+                  fontWeight="550"
+                >
                   Total ${sum.toFixed(2)}
                 </Text>
                 <br />
 
-                <Box display="inline-block "w="fit-content">
-                  {infoDirection?.items?.pais ? <Mercadopago items={datos}/> : "Debe completar los datos de envio" }  
-                </Box>  
-                
+                <Box display="inline-block " w="fit-content">
+                  {infoDirection?.items?.pais ? (
+                    <Mercadopago items={datos} />
+                  ) : (
+                    <Text fontWeight="bolder" color="red" mb="10px">
+                      Debe completar los datos de envio
+                    </Text>
+                  )}
+                </Box>
+
                 <Link to="/">
                   <Button
                     borderRadius="5px"
@@ -231,7 +273,15 @@ const Carrito = () => {
 
       <Box mt="50px">
         <hr />
-        <Box fontSize="1.2em" minW={"330px"} width="70vw" maxWidth="1270px" fontWeight="550" ml="auto" mr="auto">
+        <Box
+          fontSize="1.2em"
+          minW={"330px"}
+          width="70vw"
+          maxWidth="1270px"
+          fontWeight="550"
+          ml="auto"
+          mr="auto"
+        >
           <div>
             <Text mb="15px" minW={"330px"}>
               Personas que compraron este producto también compraron:
