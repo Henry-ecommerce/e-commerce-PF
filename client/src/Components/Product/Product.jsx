@@ -203,7 +203,7 @@ function Product({
           </Stack>
 
           <Flex justifyContent="space-between" align="center" mt="12px">
-            <Box as="span" color={"#242525"} fontWeight="bold" fontSize="20px">
+            <Box as="span" color={"#242525"} fontWeight="bold" fontSize="18px">
               {descuento !== null && (
                 <Text
                   fontSize={"12px"}
