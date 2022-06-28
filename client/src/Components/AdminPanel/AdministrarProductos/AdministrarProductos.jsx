@@ -38,6 +38,7 @@ const AdministrarProductos = () => {
 		ventasProMes,
 		totalPorCategorias,
 		ordenes,
+		_ordenes,
 		obtenerUsers,
 		obtenerCategorias,
 	} = useAuthAd();
@@ -48,6 +49,7 @@ const AdministrarProductos = () => {
 		_obtenerPedidos();
 		obtenerUsers()
 		obtenerCategorias()
+		_ordenes()
 		window.scrollTo({ top: 0 });
 	}, []);
 
