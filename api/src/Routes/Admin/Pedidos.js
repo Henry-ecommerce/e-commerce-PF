@@ -17,9 +17,9 @@ router.get("/", async (req, res) => {
 	let obj = {};
 	for (let i = 0; i < pedidos.length; i++) {
 		if (obj.hasOwnProperty(pedidos[i].id)) {
-			obj[pedidos[i].id] += 1;
+			obj[pedidos[i].id] += pedidos[i].quantity;
 		} else {
-			obj[pedidos[i].id] = 1;
+			obj[pedidos[i].id] = pedidos[i].quantity;
 		}
 	}
 
