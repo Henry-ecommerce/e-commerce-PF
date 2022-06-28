@@ -28,10 +28,10 @@ export default function ReviewButton({ id }) {
         color="#ECEDEC"
         _hover={{ bg: "#242525", color: "#ECEDEC" }}
         fontSize="small"
-        w="150px"
+        w="180px"
         onClick={onReview}
       >
-        Escribir Mi Opinión
+        ESCRIBIR MI OPINION
       </Button>
     </Link>
   );

@@ -19,11 +19,13 @@ import {
 } from "@chakra-ui/react";
 
 import { AiFillStar } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 const Review = () => {
   let RegExpression = /^[a-zA-Z\s]*$/;
   let message = useRef("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const stars = [];
   const productToReview = useSelector((state) => state.product_to_review);
   const toast = useToast();
@@ -35,7 +37,7 @@ const Review = () => {
     rating: 0,
     productoId: productToReview,
     usuarioId: user,
-    userName: ""
+    userName: "",
   });
   //  console.log("Id para mandar",productToReview);
   // console.log(input.usuarioId);
@@ -92,22 +94,24 @@ const Review = () => {
       input.text.trim().length === 0 ||
       productToReview.length < 0
     ) {
-      toast({  
+      toast({
         position: "top",
         title: "Review No Creada",
         description: "Por favor revisa la Informacion",
         status: "error",
         duration: 9000,
-        isClosable: true,})
-    }else if(!user){
-      toast({  
+        isClosable: true,
+      });
+    } else if (!user) {
+      toast({
         position: "top",
         title: "Review No Creada",
         description: "Por favor Inicia Sesion",
         status: "error",
         duration: 9000,
-        isClosable: true,})
-    }else {
+        isClosable: true,
+      });
+    } else {
       //Console log para ver que esta enviando al back
       // console.log("debera enviar", input);
       dispatch(post_review(input));
@@ -118,15 +122,20 @@ const Review = () => {
         rating: 0,
         productoId: productToReview,
         usuarioId: user,
-        userName: ""
+        userName: "",
       });
-      toast({  
-      position: "top",
-      title: "Review Creada con Exito!",
-      description: "Gracias Por Compartir",
-      status: "success",
-      duration: 9000,
-      isClosable: true,});
+      toast({
+        position: "top",
+        title: "Review Creada con Exito!",
+        description: "Gracias Por Compartir",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+
+      setTimeout(() => {
+        window.location.href = `/detail/${productToReview[0].id}`;
+      }, 500);
     }
   };
 
@@ -165,13 +174,25 @@ const Review = () => {
         alignItems={"center"}
       >
         <form onSubmit={(e) => handleSubmit(e)}>
-          <FormControl bg="white" borderRadius={"10px"} p={"20px 0px 20px 0px"} textAlign="center">
+          <FormControl
+            bg="white"
+            borderRadius={"10px"}
+            p={"20px 0px 20px 0px"}
+            textAlign="center"
+          >
             <Center>
-              <FormLabel htmlFor="title" fontWeight="black" fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}>
+              <FormLabel
+                htmlFor="title"
+                fontWeight="black"
+                fontSize="x-large"
+                textAlign={"center"}
+                w="35vw"
+                minW={"330px"}
+              >
                 Titulo
               </FormLabel>
             </Center>
-            <Input 
+            <Input
               id="title"
               name="titulo"
               type="text"
@@ -188,7 +209,14 @@ const Review = () => {
             />
             <FormHelperText color={"black"}>{message.current}</FormHelperText>
             <Center>
-              <FormLabel htmlFor="rating" fontWeight="black" fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}>
+              <FormLabel
+                htmlFor="rating"
+                fontWeight="black"
+                fontSize="x-large"
+                textAlign={"center"}
+                w="35vw"
+                minW={"330px"}
+              >
                 Rating
               </FormLabel>
             </Center>
@@ -199,7 +227,10 @@ const Review = () => {
               <FormLabel
                 htmlFor="comentario"
                 fontWeight="black"
-                fontSize="x-large" textAlign={"center"} w="35vw" minW={"330px"}
+                fontSize="x-large"
+                textAlign={"center"}
+                w="35vw"
+                minW={"330px"}
               >
                 ¡Cuéntanos más sobre el producto!
               </FormLabel>

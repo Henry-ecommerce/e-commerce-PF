@@ -226,7 +226,7 @@ export default function MisCompras() {
                             _hover={{ bg: "#242525", color: "#ECEDEC" }}
                             fontSize="small"
                           >
-                            Volver a comprar
+                            VOLVER A COMPRAR
                           </Button>
                         </Center>
                       </Link>

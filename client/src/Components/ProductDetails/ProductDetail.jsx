@@ -49,7 +49,7 @@ function ProductDetail() {
   const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
-  const [Rev, setRev] = useState([]);
+  const [Rev, setRev] = useState(false);
 
   const [mayor900w] = useMediaQuery("(min-width: 900px)");
 
@@ -71,16 +71,27 @@ function ProductDetail() {
       },
     };
 
+    let hola = [];
+    let filt;
+
     if (headers && user?.id) {
-      axios.get(`/user/pedido/${user.id}`, headers).then((result) =>
-        result.data?.map((e) =>
-          setRev(
-            ...Rev,
-            e.items?.filter((el) => el.id == id)
+      console.log(user.id);
+      axios.get(`/user/pedido/${user?.id}`, headers).then((result) =>
+        result?.data?.map(
+          async (e) => (
+            (filt = e.items?.filter((el) => {
+              console.log(el?.id);
+              console.log("idproducto", id);
+              return parseInt(el?.id) === parseInt(id);
+            })),
+            filt.length ? hola.push(filt) : null
           )
         )
       );
     }
+
+    console.log(hola);
+    setRev(hola);
   }, [id]);
 
   const [img, setImg] = useState();
@@ -261,80 +272,90 @@ function ProductDetail() {
                     <br />
                     <Text fontSize="20px">{ultima ? ultima : null}</Text>
                     <br />
-                    <Box display={"flex"} flexWrap="wrap" justifyContent={"center"} >
-                    <Box m="5px">{product.stock > 0 ? (
-                        <AddToCartIcon
-                          nombre={product.nombre}
-                          precio={precioFinal}
-                          marca={product.marca}
-                          imagen0={product.imagen0}
-                          id={product.id}
-                          Categoria={product.Categoria}
-                          stock={product.stock}
-                        />
-                      ) : null}</Box>
+                    <Box
+                      display={"flex"}
+                      flexWrap="wrap"
+                      justifyContent={"center"}
+                    >
+                      <Box m="5px">
+                        {product.stock > 0 ? (
+                          <AddToCartIcon
+                            nombre={product.nombre}
+                            precio={precioFinal}
+                            marca={product.marca}
+                            imagen0={product.imagen0}
+                            id={product.id}
+                            stock={product.stock}
+                            Categoria={product.Categoria}
+                          />
+                        ) : null}
+                      </Box>
 
                       <Box>
                         <Link to="/user/carrito">
-                          <Box m="5px">{product.stock > 0 ? (
-                            <AddToCart
-                              nombre={product.nombre}
-                              precio={precioFinal}
-                              marca={product.marca}
-                              imagen0={product.imagen0}
-                              id={product.id}
-                              stock={product.stock}
-                              Categoria={product.Categoria}
-                              texto="COMPRAR AHORA"
-                            />
-                          ) : (
-                            <Text>
-                              Lo sentimos no hay stock de este producto
-                            </Text>
-                          )}</Box>
+                          <Box m="5px">
+                            {product.stock > 0 ? (
+                              <AddToCart
+                                nombre={product.nombre}
+                                precio={precioFinal}
+                                marca={product.marca}
+                                imagen0={product.imagen0}
+                                id={product.id}
+                                Categoria={product.Categoria}
+                                stock={product.stock}
+                                texto="COMPRAR AHORA"
+                              />
+                            ) : (
+                              <Text>
+                                Lo sentimos no hay stock de este producto
+                              </Text>
+                            )}
+                          </Box>
                         </Link>
                       </Box>
-                      <Box m="5px">{Rev.length > 0 ? (
-                        <Review id={product.id} />
-                      ) : (
-                        <Popover>
-                          <PopoverTrigger>
-                            <Button
-                              bg="#242525"
-                              color="#ECEDEC"
-                              _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                              fontSize="small"
-                              p='10px'
-                            >
-                              ESCRIBIR UNA OPINION
-                            </Button>
-                          </PopoverTrigger>
-                          <Portal>
-                            <PopoverContent>
-                              <PopoverArrow />
-                              <PopoverHeader>
-                                Para Dejar Una Opinion Debe Haber Comprado El
-                                Producto
-                              </PopoverHeader>
-                              <PopoverCloseButton />
-                              <PopoverBody>
-                                <Link to="/user/carrito">
-                                  <AddToCart
-                                    nombre={product.nombre}
-                                    precio={precioFinal}
-                                    marca={product.marca}
-                                    imagen0={product.imagen0}
-                                    id={product.id}
-                                    stock={product.stock}
-                                    Categoria={product.Categoria}
-                                    texto="COMPRAR AHORA"
-                                  />
-                                </Link>
-                              </PopoverBody>
-                            </PopoverContent>
-                          </Portal>
-                        </Popover>
-                      )}</Box>
+                      <Box m="5px">
+                        {Rev?.length > 0 ? (
+                          <Review id={product?.id} />
+                        ) : (
+                          <Popover>
+                            <PopoverTrigger>
+                              <Button
+                                bg="#242525"
+                                color="#ECEDEC"
+                                _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                                fontSize="small"
+                                w="180px"
+                                padding={15}
+                              >
+                                ESCRIBIR UNA OPINION
+                              </Button>
+                            </PopoverTrigger>
+                            <Portal>
+                              <PopoverContent>
+                                <PopoverArrow />
+                                <PopoverHeader>
+                                  Para Dejar Una Opinion Debe Haber Comprado El
+                                  Producto
+                                </PopoverHeader>
+                                <PopoverCloseButton />
+                                <PopoverBody>
+                                  <Link to="/user/carrito">
+                                    <AddToCart
+                                      nombre={product.nombre}
+                                      precio={precioFinal}
+                                      marca={product.marca}
+                                      imagen0={product.imagen0}
+                                      id={product.id}
+                                      stock={product.stock}
+                                      texto="COMPRAR AHORA"
+                                    />
+                                  </Link>
+                                </PopoverBody>
+                              </PopoverContent>
+                            </Portal>
+                          </Popover>
+                        )}
+                      </Box>
                     </Box>
                   </Flex>
                 </Box>
@@ -470,22 +491,28 @@ function ProductDetail() {
                         : `$ ${product.precio?.PesosArg}`}
                     </Box>
                     <Box mt="10px" mb="20px">
-                      <Box display={"flex"} flexWrap="wrap" justifyContent={"center"}>
-                        <Box m="5px">{product.stock > 0 ? (
-                          <AddToCartIcon
-                            nombre={product.nombre}
-                            precio={precioFinal}
-                            marca={product.marca}
-                            imagen0={product.imagen0}
-                            id={product.id}
-                            stock={product.stock}
-                            Categoria={product.Categoria}
-                          />
-                        ) : null}</Box>
+                      <Box
+                        display={"flex"}
+                        flexWrap="wrap"
+                        justifyContent={"center"}
+                      >
+                        <Box m="5px">
+                          {product.stock > 0 ? (
+                            <AddToCartIcon
+                              nombre={product.nombre}
+                              precio={precioFinal}
+                              marca={product.marca}
+                              imagen0={product.imagen0}
+                              id={product.id}
+                              stock={product.stock}
+                              Categoria={product.Categoria}
+                            />
+                          ) : null}
+                        </Box>
 
-                        
-                          <Link to="/user/carrito">
-                          <Box m="5px">{product.stock > 0 ? (
+                        <Link to="/user/carrito">
+                          <Box m="5px">
+                            {product.stock > 0 ? (
                               <AddToCart
                                 nombre={product.nombre}
                                 precio={precioFinal}
@@ -500,50 +527,53 @@ function ProductDetail() {
                               <Text>
                                 Lo sentimos no hay stock de este producto
                               </Text>
-                            )}</Box>
-                          </Link>
-                        
-                          <Box m="5px">{Rev.length > 0 ? (
-                          <Review id={product.id} />
-                        ) : (
-                          <Popover>
-                            <PopoverTrigger>
-                              <Button
-                                bg="#242525"
-                                color="#ECEDEC"
-                                _hover={{ bg: "#242525", color: "#ECEDEC" }}
-                                fontSize="small"
-                                w="150px"
-                              >
-                                Escribir Mi Opinión
-                              </Button>
-                            </PopoverTrigger>
-                            <Portal>
-                              <PopoverContent>
-                                <PopoverArrow />
-                                <PopoverHeader>
-                                  Para Dejar Una Opinion Debe Haber Comprado El
-                                  Producto
-                                </PopoverHeader>
-                                <PopoverCloseButton />
-                                <PopoverBody>
-                                  <Link to="/user/carrito">
-                                    <AddToCart
-                                      nombre={product.nombre}
-                                      precio={precioFinal}
-                                      marca={product.marca}
-                                      imagen0={product.imagen0}
-                                      id={product.id}
-                                      stock={product.stock}
-                                      Categoria={product.Categoria}
-                                      texto="COMPRAR AHORA"
-                                    />
-                                  </Link>
-                                </PopoverBody>
-                              </PopoverContent>
-                            </Portal>
-                          </Popover>
-                        )}</Box>
+                            )}
+                          </Box>
+                        </Link>
+
+                        <Box m="5px">
+                          {Rev.length > 0 ? (
+                            <Review id={product.id} />
+                          ) : (
+                            <Popover>
+                              <PopoverTrigger>
+                                <Button
+                                  bg="#242525"
+                                  color="#ECEDEC"
+                                  _hover={{ bg: "#242525", color: "#ECEDEC" }}
+                                  fontSize="small"
+                                  w="180px"
+                                >
+                                  ESCRIBIR UNA OPINION
+                                </Button>
+                              </PopoverTrigger>
+                              <Portal>
+                                <PopoverContent>
+                                  <PopoverArrow />
+                                  <PopoverHeader>
+                                    Para Dejar Una Opinion Debe Haber Comprado
+                                    El Producto
+                                  </PopoverHeader>
+                                  <PopoverCloseButton />
+                                  <PopoverBody>
+                                    <Link to="/user/carrito">
+                                      <AddToCart
+                                        nombre={product.nombre}
+                                        precio={precioFinal}
+                                        marca={product.marca}
+                                        imagen0={product.imagen0}
+                                        id={product.id}
+                                        stock={product.stock}
+                                        Categoria={product.Categoria}
+                                        texto="COMPRAR AHORA"
+                                      />
+                                    </Link>
+                                  </PopoverBody>
+                                </PopoverContent>
+                              </Portal>
+                            </Popover>
+                          )}
+                        </Box>
                       </Box>
                     </Box>
                   </Flex>
