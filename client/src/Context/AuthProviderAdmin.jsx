@@ -947,6 +947,26 @@ export const AdminProvider = ({ children }) => {
         }
       };
       
+  const _ordenes = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/admin/envios`,
+        config
+      );
+
+      setOrdenes(data);
+    } catch (error) {
+      console.log(error.response.data.msg);
+    }
+  };
   return (
     <AuthProviderProducContext.Provider
       value={{
@@ -987,6 +1007,7 @@ export const AdminProvider = ({ children }) => {
         totalPorCategorias,
         obtenerUsers,
         obtenerCategorias,
+        _ordenes,
       }}
     >
       {children}
