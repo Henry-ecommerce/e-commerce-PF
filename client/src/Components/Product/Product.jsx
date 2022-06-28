@@ -195,7 +195,7 @@ function Product({
               >
                 {nombre}
               </Box>
-              <Box position={"absolute"} w="200px"><Text position="absolute" top="-15px">{ultima ? ultima : null}</Text></Box>
+              <Box position={"absolute"} w="200px"><Text position="absolute" top="-20px" w='250px'>{ultima ? ultima : null}</Text></Box>
             </Link>
             <Flex align={"center"}>
               <ReviewStars starRating={displayRating()} />({reviews.length})
