@@ -38,6 +38,7 @@ const AuthProviderUser = ({ children }) => {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user_direction");
     localStorage.removeItem("info_user");
     setAuth({});
   };
