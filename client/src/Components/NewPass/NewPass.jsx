@@ -86,7 +86,7 @@ const NewPass = () => {
           <Stack align={"center"}>
             <Heading fontSize={"4xl"} textAlign={"center"}>
               Restablece tu contraseña y no pierdas acceso a
-              <span className="text-black"> cuenta pacientes</span>
+              <span className="text-black"> tu cuenta </span>
             </Heading>
           </Stack>
 
