@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Box, Button, FormControl, FormLabel, Input, Textarea, Text} from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, Input, Textarea, Text, Flex} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { add_new_botclave, get_all_botclaves, delete_botclave, edit_botclave, get_all_botopciones, add_new_botopciones, edit_botopciones, delete_botopciones } from "../../Redux/Actions";
 
 import { BsTrash, BsPencil } from "react-icons/bs";
+import HeaderAdmin from "../AdminPanel/Admin/HeaderAdmin";
 
 const ChatbotForm = () => {
     const [clave, setClave] = useState({ clave: "", respuesta: "",});
@@ -70,13 +71,14 @@ const ChatbotForm = () => {
 
     const handleOnEdit = (elem) => {
         setEnEdiocion(true);
-        if(enOpciones) setOpcion({opcion: elem.opcion, respuesta: elem.opcion})
+        if(enOpciones) setOpcion({opcion: elem.opcion, respuesta: elem.respuesta})
         else setClave({clave: elem.clave, respuesta: elem.respuesta})
         setEditId(elem.id);
     }
 
     return (
-    <>
+    <Flex>
+        <HeaderAdmin></HeaderAdmin>
         <Box position={"relative"} w={"50vw"} h="fit-content" maxW={"1440px"} minW={"340px"} ml="auto" mr="auto">
     
             {popUp?.estado ? <Box position={"absolute"} zIndex="2000" w={"100%"} h={"100%"}>
@@ -123,7 +125,7 @@ const ChatbotForm = () => {
             </Box>
             
         </Box>
-    </>
+    </Flex>
     )
 }
 

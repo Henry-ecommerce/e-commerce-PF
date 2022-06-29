@@ -51,6 +51,7 @@ import ObtenerProductosOwner from "./Components/OwnerPanel/ObtenerProductosOwner
 import AdministrarProductosOwner from "./Components/OwnerPanel/PanelOwner/AdministrarProductosOwner";
 import PerfilUserOwner from "./Components/OwnerPanel/PerfilUserOwner/PerfilUserOwner";
 import DetallePedido from "./Components/AdminPanel/DetallePedido/DetallePedido";
+import ChatbotForm from "./Components/ChatbotForm/ChatbotForm";
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
           <Route path="transaciones" element={<Transacciones />} />
           <Route path="perfil" element={<EditarPerfil />} />
           <Route path="users/perfil/:id" element={<PerfilUserOwner />} />
+          <Route path="chatbot" element={<ChatbotForm />} />
         </Route>
 
         <Route path="/user" element={<HomeUser />}>

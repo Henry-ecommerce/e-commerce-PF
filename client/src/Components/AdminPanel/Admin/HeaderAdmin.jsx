@@ -38,6 +38,11 @@ const HeaderAdmin = () => {
 						<Text fontWeight="extrabold">Usuarios</Text>
 					</Link>
 				</li>
+				<li className="sidebar-li">
+					<Link to="/admin/chatbot">
+						<Text fontWeight="extrabold">ChatBot</Text>
+					</Link>
+				</li>
 				<li>
 					<button
 						style={{ fontWeight: "bolder" }}
