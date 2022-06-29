@@ -36,10 +36,6 @@ const emailCompraCompletada = async (datos) => {
   });
   let { email, name } = datos;
 
-  if (email === "patricioturpin@gmail.com") {
-    email = "mailfalso@gmailfalso.com";
-  }
-
   const info = await transport.sendMail({
     from: "E-comers",
     to: email,
