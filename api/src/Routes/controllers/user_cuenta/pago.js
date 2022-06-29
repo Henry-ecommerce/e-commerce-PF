@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
         title: e.nombre,
         description: "",
         picture_url: e.imagen0,
-        category_id: e.Categoria[0].id.toString(),
+        category_id: e.Categoria && e.Categoria[0].id.toString(),
         quantity: e.cantidad,
         unit_price: parseInt(e.precio),
       };
