@@ -5,7 +5,7 @@ const CLIENTD_ID =
 const CLIENTD_SECRET = "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";
 const REDIRECT_URI = "https://developers.google.com/oauthplayground";
 const REFRES_TOKEN =
-  "1//04ycpX4spDV82CgYIARAAGAQSNwF-L9IrcIxCi9pQUyyHyTASRJcWxJPdqQyDgSfQM9t19glotmNf36gAM3NlK-jfyL-NhYyWDQw";
+  "1//04-Rx7EhCfX9tCgYIARAAGAQSNwF-L9Ir2KLC_0zCeqe2D2i8rdh1UP6qEpGMNXtQxN_uAblik4YHhRNF6SF3OWUHIA93aQNuC84";
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENTD_ID,
@@ -20,7 +20,7 @@ const emailCompraUser = async (datos) => {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: "pfecomershenry@hotmail.com",
+      user: "sdmoreno51@gmail.com",
       clientId: CLIENTD_ID,
       clientSecret: CLIENTD_SECRET,
       refreshToken: REFRES_TOKEN,
