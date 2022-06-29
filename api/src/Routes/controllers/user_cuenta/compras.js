@@ -140,7 +140,7 @@ router.get("/", async (req, res) => {
 //         });
 
 //         emailCompraAdmin({
-//           email2: "sdmoreno51@gmail.com",
+//           email2: "pfecomershenry@hotmail.com",
 //           email: user.email,
 //           name: user.name,
 //         });

@@ -19,7 +19,7 @@ const recuperarContra = async (datos) => {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: "sdmoreno51@gmail.com",
+      user: "pfecomershenry@hotmail.com",
       clientId: CLIENTD_ID,
       clientSecret: CLIENTD_SECRET,
       refreshToken: REFRES_TOKEN,
