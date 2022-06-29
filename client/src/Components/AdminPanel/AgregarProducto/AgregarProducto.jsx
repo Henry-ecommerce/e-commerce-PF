@@ -125,7 +125,7 @@ const AgregarProducto = () => {
 				...form,
 				precio: { [moneda]: form.precio },
 				categorias: arrCategorias,
-				imagenes: imagenPreview,
+				imagenes,
 			});
 			// setForm({
 			// 	name: "",
