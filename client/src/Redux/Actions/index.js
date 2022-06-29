@@ -174,15 +174,51 @@ export function get_all_botclaves(){
 }
 
 export function add_new_botclave (clave,respuesta){
-	return async () => { await axios.post("/chatbot/BotClaves", {clave: clave, respuesta: respuesta}) }
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => { await axios.post("/admin/chatbot/BotClaves", {clave: clave, respuesta: respuesta}, config) }
 }
 
 export function delete_botclave (id) {
-	return async () => { await axios.delete("/chatbot/BotClaves", { data : {id:id} })}
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => { await axios.delete("/admin/chatbot/BotClaves", { ...config, data : {id:id} }, )}
 }
 
 export function edit_botclave (id,clave,respuesta){
-	return async () => {await axios.put("/chatbot/BotClaves", {id: id, clave: clave, respuesta: respuesta})}
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => {await axios.put("/admin/chatbot/BotClaves", {id: id, clave: clave, respuesta: respuesta}, config)}
 }
 
 export function get_all_botopciones(){
@@ -193,13 +229,49 @@ export function get_all_botopciones(){
 }
 
 export function add_new_botopciones (clave,respuesta){
-	return async () => { await axios.post("/chatbot/BotOpciones", {opcion: clave, respuesta: respuesta}) }
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => { await axios.post("/admin/chatbot/BotOpciones", {opcion: clave, respuesta: respuesta}, config) }
 }
 
 export function delete_botopciones (id) {
-	return async () => { await axios.delete("/chatbot/BotOpciones", { data : {id:id} })}
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => { await axios.delete("/admin/chatbot/BotOpciones", {...config, data : {id:id} } )}
 }
 
 export function edit_botopciones (id,clave,respuesta){
-	return async () => {await axios.put("/chatbot/BotOpciones", {id: id, opcion: clave, respuesta: respuesta})}
+	const token = localStorage.getItem("token");
+      if (!token) {
+				console.log('no hay token')
+        return;
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+	}
+	return async () => {await axios.put("/admin/chatbot/BotOpciones", {id: id, opcion: clave, respuesta: respuesta}, config)}
 }
